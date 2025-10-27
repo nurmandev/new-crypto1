@@ -303,12 +303,15 @@ export default function BuyCrypto() {
             </p>
 
             {/* Continue Button */}
-            <button className="w-full flex items-center justify-center gap-2 bg-black text-white py-4 rounded-md border border-[#C3C3C3] hover:bg-black/90 transition-colors mb-8">
+            <Link
+              to="/payment-method"
+              className="w-full flex items-center justify-center gap-2 bg-black text-white py-4 rounded-md border border-[#C3C3C3] hover:bg-black/90 transition-colors mb-8"
+            >
               <span className="text-[15px] font-medium">
                 Continue To Payment
               </span>
               <ArrowRight className="w-4 h-4" />
-            </button>
+            </Link>
 
             {/* Purchase Summary */}
             <div className="border-l-2 border-[#3CC27B] bg-[#3CC27B]/10 rounded-[10px] p-6">
