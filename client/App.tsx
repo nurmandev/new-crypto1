@@ -32,17 +32,14 @@ const App = () => (
 const rootElement = document.getElementById("root");
 
 if (rootElement) {
-  // Check if root already exists to avoid multiple createRoot calls
-  const existingRoot = (rootElement as any)._reactRootContainer;
+  // Store root in a weak reference on the element itself
+  const key = '__reactRoot__';
+  let root = (rootElement as any)[key];
 
-  if (!existingRoot) {
-    const root = createRoot(rootElement);
-    root.render(<App />);
-  } else {
-    // Root already exists, just re-render
-    const root = (rootElement as any)._reactRoot;
-    if (root) {
-      root.render(<App />);
-    }
+  if (!root) {
+    root = createRoot(rootElement);
+    (rootElement as any)[key] = root;
   }
+
+  root.render(<App />);
 }
