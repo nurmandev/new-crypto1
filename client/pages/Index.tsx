@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import Particles from "@/components/Particles";
 import { useState } from "react";
 import {
   Rocket,
@@ -104,8 +105,9 @@ export default function Index() {
       {/* Hero Section */}
       <section className="relative pt-12 pb-20 overflow-hidden">
         <div className="absolute inset-0 opacity-20 bg-gradient-to-r from-transparent via-green-100 to-transparent"></div>
-        
-        <div className="container mx-auto px-4 relative">
+        <Particles />
+
+        <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             {/* Badge */}
             <div className="inline-flex items-center gap-2 bg-[#BDFDDB] rounded-full px-4 py-1.5 mb-6">
