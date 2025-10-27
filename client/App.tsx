@@ -33,21 +33,23 @@ const App = () => (
   </QueryClientProvider>
 );
 
+declare global {
+  interface Window {
+    __REACT_ROOT__?: any;
+  }
+}
+
 const rootElement = document.getElementById("root");
 
 if (rootElement) {
-  // Use window object to persist root across HMR updates
-  const windowKey = "__REACT_ROOT__";
-  const window_ = window as any;
-
-  if (!window_[windowKey]) {
-    window_[windowKey] = createRoot(rootElement);
+  // Create root only once and reuse across HMR updates
+  if (!window.__REACT_ROOT__) {
+    window.__REACT_ROOT__ = createRoot(rootElement);
   }
 
-  window_[windowKey].render(<App />);
+  window.__REACT_ROOT__.render(<App />);
 }
 
 if (import.meta.hot) {
-  // Don't dispose the root, let React handle updates
   import.meta.hot.accept();
 }
