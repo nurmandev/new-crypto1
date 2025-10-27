@@ -29,18 +29,21 @@ const App = () => (
   </QueryClientProvider>
 );
 
-let cachedRoot: any = null;
-
 const rootElement = document.getElementById("root");
+
 if (rootElement) {
-  if (!cachedRoot) {
-    cachedRoot = createRoot(rootElement);
+  // Use window object to persist root across HMR updates
+  const windowKey = "__REACT_ROOT__";
+  const window_ = window as any;
+
+  if (!window_[windowKey]) {
+    window_[windowKey] = createRoot(rootElement);
   }
-  cachedRoot.render(<App />);
+
+  window_[windowKey].render(<App />);
 }
 
 if (import.meta.hot) {
-  import.meta.hot.accept(() => {
-    // HMR will re-execute this module but cachedRoot will persist
-  });
+  // Don't dispose the root, let React handle updates
+  import.meta.hot.accept();
 }
