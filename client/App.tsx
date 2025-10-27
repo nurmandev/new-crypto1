@@ -29,20 +29,20 @@ const App = () => (
   </QueryClientProvider>
 );
 
-declare global {
-  interface Window {
-    __reactRoot?: any;
+const rootElement = document.getElementById("root");
+
+if (rootElement) {
+  // Check if root already exists to avoid multiple createRoot calls
+  const existingRoot = (rootElement as any)._reactRootContainer;
+
+  if (!existingRoot) {
+    const root = createRoot(rootElement);
+    root.render(<App />);
+  } else {
+    // Root already exists, just re-render
+    const root = (rootElement as any)._reactRoot;
+    if (root) {
+      root.render(<App />);
+    }
   }
-}
-
-const rootElement = document.getElementById("root")!;
-
-if (!window.__reactRoot) {
-  window.__reactRoot = createRoot(rootElement);
-}
-
-window.__reactRoot.render(<App />);
-
-if (import.meta.hot) {
-  import.meta.hot.accept();
 }
