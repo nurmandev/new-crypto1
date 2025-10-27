@@ -29,13 +29,10 @@ const App = () => (
   </QueryClientProvider>
 );
 
-let root: any = null;
+const rootElement = document.getElementById("root")!;
+const root = createRoot(rootElement);
+root.render(<App />);
 
-const rootElement = document.getElementById("root");
-
-if (rootElement) {
-  if (!root) {
-    root = createRoot(rootElement);
-  }
-  root.render(<App />);
+if (import.meta.hot) {
+  import.meta.hot.accept();
 }
