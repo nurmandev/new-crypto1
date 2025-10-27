@@ -92,7 +92,7 @@ export default function Index() {
             <nav className="hidden md:flex items-center gap-8 text-[15px]">
               <Link to="/" className="text-[#3CC27B] font-medium hover:text-[#3CC27B]/80">Home</Link>
               <Link to="/about" className="text-gray-900 hover:text-[#3CC27B]">About</Link>
-              <a href="#" className="text-gray-900 hover:text-[#3CC27B]">Contact</a>
+              <Link to="/services" className="text-gray-900 hover:text-[#3CC27B]">Services</Link>
               <a href="#" className="text-gray-900 hover:text-[#3CC27B]">FAQ</a>
             </nav>
 
