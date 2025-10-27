@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import Particles from "@/components/Particles";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import {
   Rocket,
   ShoppingCart,
@@ -89,8 +90,8 @@ export default function Index() {
             </div>
             
             <nav className="hidden md:flex items-center gap-8 text-[15px]">
-              <a href="#" className="text-[#3CC27B] font-medium hover:text-[#3CC27B]/80">Home</a>
-              <a href="#" className="text-gray-900 hover:text-[#3CC27B]">About</a>
+              <Link to="/" className="text-[#3CC27B] font-medium hover:text-[#3CC27B]/80">Home</Link>
+              <Link to="/about" className="text-gray-900 hover:text-[#3CC27B]">About</Link>
               <a href="#" className="text-gray-900 hover:text-[#3CC27B]">Contact</a>
               <a href="#" className="text-gray-900 hover:text-[#3CC27B]">FAQ</a>
             </nav>
