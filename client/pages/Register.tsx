@@ -11,7 +11,7 @@ export default function Register() {
       {/* Left Side - Image Section */}
       <div className="hidden lg:flex lg:w-[66%] bg-[#F6F6F6] relative">
         <img
-          src="https://api.builder.io/api/v1/image/assets/TEMP/8d85fbd01076d8d69b76484b79497db78e8a8fbc?width=2534"
+          src="https://cdn.builder.io/api/v1/image/assets%2Fde402d04e4fc422aa77ac9baf104abf8%2Fe78cd6a7cee94bef9bdc897bfd926fcc?format=webp&width=800"
           alt="Bitcoin and money"
           className="absolute inset-0 w-full h-full object-cover"
         />
