@@ -30,12 +30,8 @@ const App = () => (
 );
 
 const rootElement = document.getElementById("root");
-if (rootElement) {
+
+if (rootElement && !rootElement.__reactRootContainer) {
   const root = createRoot(rootElement);
   root.render(<App />);
-
-  // Handle HMR updates
-  if (import.meta.hot) {
-    import.meta.hot.accept();
-  }
 }
