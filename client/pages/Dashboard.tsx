@@ -50,7 +50,10 @@ export default function Dashboard() {
           </div>
 
           <nav className="p-6 space-y-7">
-            <Link to="/buy-crypto" className="flex items-center gap-3 text-black cursor-pointer hover:text-[#3CC27B] transition-colors">
+            <Link
+              to="/buy-crypto"
+              className="flex items-center gap-3 text-black cursor-pointer hover:text-[#3CC27B] transition-colors"
+            >
               <TrendingUp className="w-[18px] h-[18px]" />
               <span className="text-lg">Buy / Sell Crypto</span>
             </Link>
