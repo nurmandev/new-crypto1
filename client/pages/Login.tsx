@@ -11,7 +11,7 @@ export default function Login() {
       {/* Left Side - Image Section */}
       <div className="hidden lg:flex lg:w-[66%] bg-[#F6F6F6] relative">
         <img
-          src="https://api.builder.io/api/v1/image/assets/TEMP/514fdbf924dd6e0d35d03427c1933fd4553da371?width=2532"
+          src="https://cdn.builder.io/api/v1/image/assets%2Fde402d04e4fc422aa77ac9baf104abf8%2Fad1110e0fde2477dbd70400398231507?format=webp&width=800"
           alt="Bitcoin coins"
           className="absolute inset-0 w-full h-full object-cover"
         />
