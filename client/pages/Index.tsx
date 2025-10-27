@@ -166,20 +166,32 @@ export default function Index() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 bg-gradient-to-r from-[#3CC27B] to-[#00602D]">
+      <section className="py-16 bg-gradient-to-r from-[#3CC27B] to-[#00602D] relative overflow-hidden">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
-            {[
-              { value: "10K +", label: "Active Users" },
-              { value: "₹50Cr+", label: "Trading Volume" },
-              { value: "700+", label: "Crypto Coins" },
-              { value: "1.3B+", label: "Cash Out" }
-            ].map((stat, i) => (
-              <div key={i} className="bg-white/20 backdrop-blur-sm rounded-lg p-6 text-center">
-                <div className="text-3xl font-bold text-white mb-1">{stat.value}</div>
-                <div className="text-white text-[17px]">{stat.label}</div>
-              </div>
-            ))}
+          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto items-center">
+            {/* Stats Cards */}
+            <div className="grid grid-cols-2 gap-4">
+              {[
+                { value: "10K +", label: "Active Users" },
+                { value: "₹50Cr+", label: "Trading Volume" },
+                { value: "700+", label: "Crypto Coins" },
+                { value: "1.3B+", label: "Cash Out" }
+              ].map((stat, i) => (
+                <div key={i} className="bg-white/20 backdrop-blur-sm rounded-lg p-6 text-center">
+                  <div className="text-3xl font-bold text-white mb-1">{stat.value}</div>
+                  <div className="text-white text-[17px]">{stat.label}</div>
+                </div>
+              ))}
+            </div>
+
+            {/* Bitcoin Image */}
+            <div className="hidden md:flex justify-end relative">
+              <img
+                src="https://api.builder.io/api/v1/image/assets/TEMP/b234ffe9ebcbed92046a393a086f19e7a0a49a6b"
+                alt="Bitcoin Coin"
+                className="w-56 h-56 drop-shadow-2xl"
+              />
+            </div>
           </div>
         </div>
       </section>
