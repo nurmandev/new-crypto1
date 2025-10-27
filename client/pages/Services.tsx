@@ -36,9 +36,11 @@ export default function Services() {
               <a href="#" className="text-gray-900 hover:text-[#3CC27B]">FAQ</a>
             </nav>
 
-            <Button className="bg-[#161616] hover:bg-[#161616]/90 text-white px-9 h-[37px] rounded-md">
-              Login
-            </Button>
+            <Link to="/login">
+              <Button className="bg-[#161616] hover:bg-[#161616]/90 text-white px-9 h-[37px] rounded-md">
+                Login
+              </Button>
+            </Link>
           </div>
         </div>
       </header>
