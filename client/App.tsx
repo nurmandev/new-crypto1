@@ -29,11 +29,18 @@ const App = () => (
   </QueryClientProvider>
 );
 
-const rootElement = document.getElementById("root");
+let cachedRoot: any = null;
 
-if (rootElement && !rootElement.parentElement?.hasAttribute("data-vite-renderer")) {
-  const root = createRoot(rootElement);
-  root.render(<App />);
-  // Mark that rendering has been initialized
-  rootElement.parentElement?.setAttribute("data-vite-renderer", "true");
+const rootElement = document.getElementById("root");
+if (rootElement) {
+  if (!cachedRoot) {
+    cachedRoot = createRoot(rootElement);
+  }
+  cachedRoot.render(<App />);
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(() => {
+    // HMR will re-execute this module but cachedRoot will persist
+  });
 }
