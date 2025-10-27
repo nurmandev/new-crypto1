@@ -1,9 +1,10 @@
 import { Button } from "@/components/ui/button";
-import { 
-  Rocket, 
-  ShoppingCart, 
-  Repeat, 
-  Wallet, 
+import { useState } from "react";
+import {
+  Rocket,
+  ShoppingCart,
+  Repeat,
+  Wallet,
   TrendingUp,
   ChevronDown,
   ArrowRight,
@@ -15,7 +16,66 @@ import {
   Twitter
 } from "lucide-react";
 
+const FAQ_ITEMS = [
+  {
+    id: 1,
+    question: "How Does It Works?",
+    answer: "Our platform makes it simple to buy and sell cryptocurrency. Sign up, verify your identity, add a payment method, and start trading instantly. We handle the technical details while you focus on your investments."
+  },
+  {
+    id: 2,
+    question: "About USDT MPAY?",
+    answer: "USDT MPAY is a secure cryptocurrency exchange platform designed for Indian users. We offer instant deposits via UPI, bank-level security, real-time pricing, and support for multiple cryptocurrencies."
+  },
+  {
+    id: 3,
+    question: "What we offer to you?",
+    answer: "We offer buy/sell services for 700+ cryptocurrencies, instant UPI withdrawals, secure wallets, real-time market data, low trading fees, and 24/7 customer support."
+  },
+  {
+    id: 4,
+    question: "How To Sell Crypto Currency?",
+    answer: "Open your wallet, select the cryptocurrency you want to sell, enter the amount, review the conversion rate, and confirm. The rupees will be credited to your bank account instantly."
+  },
+  {
+    id: 5,
+    question: "What Is a Crypto Currency Exchange?",
+    answer: "A cryptocurrency exchange is a platform where you can buy, sell, and trade digital assets. It acts as an intermediary, matching buyers and sellers while providing secure storage and instant transaction processing."
+  },
+  {
+    id: 6,
+    question: "How To Cash Out Wallet Funds?",
+    answer: "Navigate to your wallet, select the cryptocurrency, click 'Withdraw to Bank', enter your bank details, and confirm. Transfers typically complete within minutes during business hours."
+  },
+  {
+    id: 7,
+    question: "How To Buy Crypto Currencies On Usdtmpay?",
+    answer: "Go to the Buy section, select your cryptocurrency, enter the amount in INR, choose your payment method (UPI/Bank), and complete the transaction. Your crypto will be credited instantly to your wallet."
+  },
+  {
+    id: 8,
+    question: "How To Add Funds To Your MPAY Wallet?",
+    answer: "Open the Wallet section, click 'Add Funds', select your payment method, enter the amount, and complete the payment process. Funds are credited immediately to your MPAY wallet."
+  },
+  {
+    id: 9,
+    question: "How To Transfer Wallet Funds?",
+    answer: "Go to Transfer, select the recipient's MPAY account or wallet address, enter the amount, and confirm. Transfers complete instantly with full encryption for security."
+  },
+  {
+    id: 10,
+    question: "How to Reach Out Support Team?",
+    answer: "You can contact our support team via email at support@cryptotrade.in, call +91 80-0000-0000, or visit our help center. Our team responds within 24 hours for all inquiries."
+  }
+];
+
 export default function Index() {
+  const [expandedId, setExpandedId] = useState<number | null>(null);
+
+  const toggleFAQ = (id: number) => {
+    setExpandedId(expandedId === id ? null : id);
+  };
+
   return (
     <div className="min-h-screen bg-[#F8F8F8]">
       {/* Header */}
@@ -353,21 +413,28 @@ export default function Index() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-4 max-w-6xl mx-auto">
-            {[
-              "How Does It Works?",
-              "About USDT MPAY?",
-              "What we offer to you?",
-              "How To Sell Crypto Currency?",
-              "What Is a Crypto Currency Exchange?",
-              "How To Cash Out Wallet Funds?",
-              "How To Buy Crypto Currencies On Usdtmpay?",
-              "How To Add Funds To Your MPAY Wallet?",
-              "How To Transfer Wallet Funds?",
-              "How to Reach Out Support Team?"
-            ].map((faq, i) => (
-              <div key={i} className="bg-white rounded-md border border-gray-200 p-5 flex justify-between items-center hover:border-[#3CC27B] transition-colors cursor-pointer">
-                <span className="text-gray-900">{faq}</span>
-                <ChevronDown className="w-5 h-5 text-gray-900" />
+            {FAQ_ITEMS.map((faq) => (
+              <div
+                key={faq.id}
+                className="bg-white rounded-md border border-gray-200 overflow-hidden hover:border-[#3CC27B] transition-all"
+              >
+                <button
+                  onClick={() => toggleFAQ(faq.id)}
+                  className="w-full flex justify-between items-center p-5 hover:bg-gray-50 transition-colors text-left"
+                >
+                  <span className="font-medium text-gray-900">{faq.question}</span>
+                  <ChevronDown
+                    className={`w-5 h-5 text-gray-900 transition-transform duration-300 ${
+                      expandedId === faq.id ? "rotate-180" : ""
+                    }`}
+                  />
+                </button>
+
+                {expandedId === faq.id && (
+                  <div className="border-t border-gray-200 p-5 bg-gray-50 animate-in fade-in slide-in-from-top-2 duration-300">
+                    <p className="text-gray-700 leading-relaxed">{faq.answer}</p>
+                  </div>
+                )}
               </div>
             ))}
           </div>
