@@ -108,9 +108,9 @@ export default function About() {
                 </p>
               </div>
               <div>
-                <img 
-                  src="https://api.builder.io/api/v1/image/assets/TEMP/b9b760ea43814ed100ac82028dcbca641a8d1e2c" 
-                  alt="Our Mission" 
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets%2Fde402d04e4fc422aa77ac9baf104abf8%2F4a4b10f924484bf7a43c09a4a8b5d5e7?format=webp&width=800"
+                  alt="Our Mission - Bitcoin Trading Chart"
                   className="rounded-2xl w-full shadow-lg"
                 />
               </div>
