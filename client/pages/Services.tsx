@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { 
+import {
   MessageCircle,
   Mail as MailIcon,
   Phone as PhoneIcon,
@@ -12,7 +12,7 @@ import {
   Linkedin,
   Twitter,
   ArrowRight,
-  MessageSquare
+  MessageSquare,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -27,13 +27,29 @@ export default function Services() {
               <div className="w-8 h-8 bg-gradient-to-br from-green-400 to-green-600 rounded-lg"></div>
               <span className="text-xl font-bold text-gray-900">USDTMPAY</span>
             </Link>
-            
+
             <nav className="hidden md:flex items-center gap-8 text-[15px]">
-              <Link to="/" className="text-gray-900 hover:text-[#3CC27B]">Home</Link>
-              <Link to="/about" className="text-gray-900 hover:text-[#3CC27B]">About</Link>
-              <Link to="/services" className="text-[#3CC27B] font-medium hover:text-[#3CC27B]/80">Services</Link>
-              <Link to="/contact" className="text-gray-900 hover:text-[#3CC27B]">Contact</Link>
-              <a href="#" className="text-gray-900 hover:text-[#3CC27B]">FAQ</a>
+              <Link to="/" className="text-gray-900 hover:text-[#3CC27B]">
+                Home
+              </Link>
+              <Link to="/about" className="text-gray-900 hover:text-[#3CC27B]">
+                About
+              </Link>
+              <Link
+                to="/services"
+                className="text-[#3CC27B] font-medium hover:text-[#3CC27B]/80"
+              >
+                Services
+              </Link>
+              <Link
+                to="/contact"
+                className="text-gray-900 hover:text-[#3CC27B]"
+              >
+                Contact
+              </Link>
+              <a href="#" className="text-gray-900 hover:text-[#3CC27B]">
+                FAQ
+              </a>
             </nav>
 
             <Link to="/login">
@@ -57,13 +73,14 @@ export default function Services() {
               Help & Support
             </h1>
             <p className="text-xl text-gray-900 max-w-3xl mx-auto leading-relaxed mb-8">
-              We're here to help you succeed in your crypto journey. Find answers to your questions or contact our expert support team.
+              We're here to help you succeed in your crypto journey. Find
+              answers to your questions or contact our expert support team.
             </p>
 
             {/* Search Bar */}
             <div className="max-w-xl mx-auto">
               <div className="relative">
-                <input 
+                <input
                   type="text"
                   placeholder="Search for help articles, faq etc..."
                   className="w-full px-7 py-3 bg-[#F0F0F0] rounded-md text-[11px] text-gray-900 placeholder:text-[#898989] focus:outline-none focus:ring-2 focus:ring-[#3CC27B]"
@@ -232,9 +249,12 @@ export default function Services() {
                   <Mail className="w-5 h-5 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-medium text-gray-900 mb-2">Email</h3>
+                  <h3 className="text-xl font-medium text-gray-900 mb-2">
+                    Email
+                  </h3>
                   <p className="text-gray-900 leading-relaxed">
-                    support@cryptotrade.com<br />
+                    support@cryptotrade.com
+                    <br />
                     business@cryptotrade.com
                   </p>
                 </div>
@@ -246,9 +266,12 @@ export default function Services() {
                   <Phone className="w-5 h-5 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-medium text-gray-900 mb-2">Phone</h3>
+                  <h3 className="text-xl font-medium text-gray-900 mb-2">
+                    Phone
+                  </h3>
                   <p className="text-gray-900 leading-relaxed">
-                    +91 1800-123-4567<br />
+                    +91 1800-123-4567
+                    <br />
                     Mon-Fri, 9AM-6PM IST
                   </p>
                 </div>
@@ -260,9 +283,12 @@ export default function Services() {
                   <MessageSquare className="w-5 h-5 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-medium text-gray-900 mb-2">Live Chat</h3>
+                  <h3 className="text-xl font-medium text-gray-900 mb-2">
+                    Live Chat
+                  </h3>
                   <p className="text-gray-900 leading-relaxed">
-                    support@cryptotrade.com<br />
+                    support@cryptotrade.com
+                    <br />
                     business@cryptotrade.com
                   </p>
                 </div>
@@ -279,7 +305,8 @@ export default function Services() {
             Ready to Start Trading Crypto?
           </h2>
           <p className="text-xl text-white max-w-3xl mx-auto mb-8">
-            Join thousands of traders buying and selling cryptocurrencies on India's most trusted platform
+            Join thousands of traders buying and selling cryptocurrencies on
+            India's most trusted platform
           </p>
           <Button className="bg-white hover:bg-gray-100 text-[#161616] px-14 h-[51px] text-[15px] font-medium rounded-md">
             Buy Crypto Now
@@ -294,7 +321,10 @@ export default function Services() {
             <div>
               <h3 className="text-2xl font-bold mb-6">USDTMPAY</h3>
               <p className="text-white/80 mb-6 leading-relaxed">
-                We are the best platform to buy and sell crypto, offering secure, fast, and reliable trading. With real-time prices, instant UPI deposits and withdrawals, and bank-level security, we make crypto trading simple and accessible for everyone
+                We are the best platform to buy and sell crypto, offering
+                secure, fast, and reliable trading. With real-time prices,
+                instant UPI deposits and withdrawals, and bank-level security,
+                we make crypto trading simple and accessible for everyone
               </p>
               <div className="flex gap-3">
                 <div className="w-8 h-8 rounded-full bg-[#3CC27B] flex items-center justify-center">
@@ -312,20 +342,52 @@ export default function Services() {
             <div>
               <h4 className="text-xl font-bold mb-4">Platform</h4>
               <ul className="space-y-3">
-                <li><a href="#" className="text-white/80 hover:text-white">Buy Crypto</a></li>
-                <li><a href="#" className="text-white/80 hover:text-white">Sell Crypto</a></li>
-                <li><a href="#" className="text-white/80 hover:text-white">Wallet</a></li>
+                <li>
+                  <a href="#" className="text-white/80 hover:text-white">
+                    Buy Crypto
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="text-white/80 hover:text-white">
+                    Sell Crypto
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="text-white/80 hover:text-white">
+                    Wallet
+                  </a>
+                </li>
               </ul>
             </div>
 
             <div>
               <h4 className="text-xl font-bold mb-4">Support</h4>
               <ul className="space-y-3">
-                <li><a href="#" className="text-white/80 hover:text-white">Help Center</a></li>
-                <li><a href="#" className="text-white/80 hover:text-white">Contact Us</a></li>
-                <li><a href="#" className="text-white/80 hover:text-white">Security</a></li>
-                <li><a href="#" className="text-white/80 hover:text-white">Privacy Policy</a></li>
-                <li><a href="#" className="text-white/80 hover:text-white">Terms of Service</a></li>
+                <li>
+                  <a href="#" className="text-white/80 hover:text-white">
+                    Help Center
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="text-white/80 hover:text-white">
+                    Contact Us
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="text-white/80 hover:text-white">
+                    Security
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="text-white/80 hover:text-white">
+                    Privacy Policy
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="text-white/80 hover:text-white">
+                    Terms of Service
+                  </a>
+                </li>
               </ul>
             </div>
 
@@ -350,9 +412,19 @@ export default function Services() {
 
           <div className="border-t border-[#3CC27B]/30 pt-8">
             <div className="max-w-6xl mx-auto">
-              <h5 className="text-lg font-bold text-[#9E9E9E] mb-4">Risk Disclaimer</h5>
+              <h5 className="text-lg font-bold text-[#9E9E9E] mb-4">
+                Risk Disclaimer
+              </h5>
               <p className="text-[#9E9E9E] text-sm leading-relaxed mb-6">
-                Trading and holding cryptocurrencies involves significant risk. Prices of digital assets are highly volatile and may fluctuate rapidly. Our platform only provides users with the ability to deposit, sell, and withdraw crypto; we do not provide financial advice, investment recommendations, or guarantee of profits. Users are solely responsible for their trading decisions, and by using this platform, you agree that we are not liable for any losses, damages, or risks arising from your crypto transactions. Always do your own research before trading.
+                Trading and holding cryptocurrencies involves significant risk.
+                Prices of digital assets are highly volatile and may fluctuate
+                rapidly. Our platform only provides users with the ability to
+                deposit, sell, and withdraw crypto; we do not provide financial
+                advice, investment recommendations, or guarantee of profits.
+                Users are solely responsible for their trading decisions, and by
+                using this platform, you agree that we are not liable for any
+                losses, damages, or risks arising from your crypto transactions.
+                Always do your own research before trading.
               </p>
               <p className="text-center text-white text-[13px]">
                 © 2024 usdtmpay.online. All rights reserved.

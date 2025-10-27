@@ -20,7 +20,7 @@ export default function Login() {
           alt="Bitcoin coins"
           className="absolute inset-0 w-full h-full object-cover"
         />
-        
+
         {/* Logo at bottom */}
         <div className="absolute bottom-16 left-14">
           <Link to="/" className="flex items-center gap-2">
@@ -139,7 +139,9 @@ export default function Login() {
                   fill="black"
                 />
               </svg>
-              <span className="text-[15px] text-gray-900">Continue with google</span>
+              <span className="text-[15px] text-gray-900">
+                Continue with google
+              </span>
             </button>
 
             {/* Twitter Sign In */}
@@ -156,7 +158,9 @@ export default function Login() {
                   fill="black"
                 />
               </svg>
-              <span className="text-[15px] text-gray-900">Continue with twitter</span>
+              <span className="text-[15px] text-gray-900">
+                Continue with twitter
+              </span>
             </button>
           </div>
 

@@ -59,8 +59,10 @@ export default function Particles() {
         if (this.y > canvas.height) this.y = 0;
 
         // Keep opacity in range
-        if (this.opacity < 0.1) this.opacityChange = Math.abs(this.opacityChange);
-        if (this.opacity > 0.7) this.opacityChange = -Math.abs(this.opacityChange);
+        if (this.opacity < 0.1)
+          this.opacityChange = Math.abs(this.opacityChange);
+        if (this.opacity > 0.7)
+          this.opacityChange = -Math.abs(this.opacityChange);
 
         // Keep size in range
         if (this.size < 1) this.sizeChange = Math.abs(this.sizeChange);

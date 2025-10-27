@@ -44,7 +44,7 @@ export default function Register() {
             <div className="relative mb-5 sm:mb-6">
               <div className="w-full h-12 bg-[#F0F0F0] rounded-md"></div>
               <div
-                className={`absolute top-1 ${isSignIn ? 'left-1' : 'left-[calc(50%+2px)]'} w-[calc(50%-4px)] h-10 bg-white rounded transition-all duration-300`}
+                className={`absolute top-1 ${isSignIn ? "left-1" : "left-[calc(50%+2px)]"} w-[calc(50%-4px)] h-10 bg-white rounded transition-all duration-300`}
               ></div>
               <div className="absolute inset-0 flex">
                 <Link
@@ -157,7 +157,9 @@ export default function Register() {
                   fill="black"
                 />
               </svg>
-              <span className="text-xs sm:text-sm text-gray-900">Continue with google</span>
+              <span className="text-xs sm:text-sm text-gray-900">
+                Continue with google
+              </span>
             </button>
 
             {/* Twitter Sign In */}
@@ -174,7 +176,9 @@ export default function Register() {
                   fill="black"
                 />
               </svg>
-              <span className="text-xs sm:text-sm text-gray-900">Continue with twitter</span>
+              <span className="text-xs sm:text-sm text-gray-900">
+                Continue with twitter
+              </span>
             </button>
           </div>
 
