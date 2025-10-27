@@ -154,43 +154,13 @@ export default function Index() {
             </div>
           </div>
 
-          {/* Hero Image with Floating Icons */}
+          {/* Hero Image with Phone Mockups */}
           <div className="relative mt-16 max-w-5xl mx-auto">
-            <div className="relative">
-              <img 
-                src="https://api.builder.io/api/v1/image/assets/TEMP/9dd109c9d143e344a1e0cde3ee5ac1081bb25d1c" 
-                alt="Mobile App Preview" 
-                className="mx-auto w-full max-w-3xl"
-              />
-              
-              {/* Floating Crypto Icons */}
-              <div className="absolute left-0 top-1/4 hidden lg:flex flex-col gap-8">
-                <div className="w-20 h-20 rounded-full bg-white shadow-lg flex items-center justify-center">
-                  <img src="https://api.builder.io/api/v1/image/assets/TEMP/acbda6cab62caacb7aaa443f91b4e20ebae4050b" alt="Bitcoin" className="w-14 h-14" />
-                </div>
-                <div className="w-20 h-20 rounded-full bg-white shadow-lg flex items-center justify-center">
-                  <img src="https://api.builder.io/api/v1/image/assets/TEMP/6e46145ba25c5ac98e9c0c11fca0de835fc284e2" alt="Ethereum" className="w-12 h-12" />
-                </div>
-                <div className="w-20 h-20 rounded-full bg-white shadow-lg flex items-center justify-center">
-                  <img src="https://api.builder.io/api/v1/image/assets/TEMP/7850f047c05596c405287c6c8816c64474c87a0d" alt="Crypto" className="w-14 h-14" />
-                </div>
-              </div>
-
-              {/* Transaction Notifications */}
-              <div className="absolute right-0 top-1/4 hidden lg:flex flex-col gap-4">
-                {[1, 2, 3, 4, 5].map((i) => (
-                  <div key={i} className="bg-white rounded px-4 py-2 shadow-md w-72">
-                    <p className="text-[13px]">
-                      <span className="text-gray-900">Sold 100 </span>
-                      <span className="font-bold">USDT</span>
-                      <span className="text-gray-900"> for </span>
-                      <span className="font-bold text-[#3CC27B]">₹8,200</span>
-                    </p>
-                    <p className="text-[13px] text-gray-600">₹8,200 has been received in your wallet</p>
-                  </div>
-                ))}
-              </div>
-            </div>
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets%2Fde402d04e4fc422aa77ac9baf104abf8%2Ff6a9e9bf26d74d4c84d8953a0f37e56d?format=webp&width=800"
+              alt="Mobile App Preview"
+              className="mx-auto w-full max-w-2xl drop-shadow-2xl"
+            />
           </div>
         </div>
       </section>
