@@ -93,6 +93,7 @@ export default function Index() {
               <Link to="/" className="text-[#3CC27B] font-medium hover:text-[#3CC27B]/80">Home</Link>
               <Link to="/about" className="text-gray-900 hover:text-[#3CC27B]">About</Link>
               <Link to="/services" className="text-gray-900 hover:text-[#3CC27B]">Services</Link>
+              <Link to="/contact" className="text-gray-900 hover:text-[#3CC27B]">Contact</Link>
               <a href="#" className="text-gray-900 hover:text-[#3CC27B]">FAQ</a>
             </nav>
 
