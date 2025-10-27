@@ -323,22 +323,77 @@ export default function Index() {
       {/* Buy/Sell Section */}
       <section className="py-20 bg-gradient-to-r from-[#3CC27B] to-[#00602D] relative overflow-hidden">
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto items-center">
-            <div className="text-white">
-              <h2 className="text-4xl md:text-5xl font-['Russo_One'] mb-6">
-                Buy & Sell Crypto At Any INR Rate
-              </h2>
-              <p className="text-xl leading-relaxed mb-8">
-                We're proud to be working with these incredible traders, and thankful for their feedback, suggestions, and support.
-              </p>
-            </div>
+          <div className="max-w-6xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-8 items-center">
+              {/* Left Content */}
+              <div className="text-white">
+                <h2 className="text-4xl md:text-5xl font-['Russo_One'] mb-6">
+                  Buy & Sell Crypto At Any INR Rate
+                </h2>
+                <p className="text-xl leading-relaxed">
+                  We're proud to be working with these incredible traders, and thankful for their feedback, suggestions, and support.
+                </p>
+              </div>
 
-            <div className="relative">
-              <img 
-                src="https://api.builder.io/api/v1/image/assets/TEMP/b234ffe9ebcbed92046a393a086f19e7a0a49a6b" 
-                alt="Crypto coin" 
-                className="w-64 h-64 mx-auto drop-shadow-2xl"
-              />
+              {/* Right Form Panels */}
+              <div className="relative">
+                <div className="space-y-4">
+                  {/* Buy Crypto Form */}
+                  <div className="bg-white rounded-2xl p-6 shadow-lg">
+                    <h3 className="text-xl font-bold text-gray-900 mb-4">Buy Crypto</h3>
+                    <div className="space-y-3">
+                      <div className="text-sm text-gray-600">Real-time conversion rates</div>
+                      <div className="space-y-2">
+                        <label className="text-xs text-gray-600">Select Cryptocurrency</label>
+                        <input type="text" placeholder="USDT" className="w-full px-3 py-2 bg-gray-100 rounded text-sm border border-gray-200" />
+                      </div>
+                      <div className="space-y-2">
+                        <label className="text-xs text-gray-600">Select Network</label>
+                        <input type="text" placeholder="BNB" className="w-full px-3 py-2 bg-gray-100 rounded text-sm border border-gray-200" />
+                      </div>
+                      <div className="space-y-2">
+                        <label className="text-xs text-gray-600">Enter Amount (USDT)</label>
+                        <input type="text" placeholder="150" className="w-full px-3 py-2 bg-gray-100 rounded text-sm border-2 border-[#3CC27B]" />
+                      </div>
+                      <button className="w-full mt-4 text-[#3CC27B] font-medium text-sm">
+                        Continue to Buy →
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Sell Crypto Form */}
+                  <div className="bg-white rounded-2xl p-6 shadow-lg">
+                    <h3 className="text-xl font-bold text-gray-900 mb-4">Sell Crypto</h3>
+                    <div className="space-y-3">
+                      <div className="text-sm text-gray-600">Real-time conversion rates</div>
+                      <div className="space-y-2">
+                        <label className="text-xs text-gray-600">Select Cryptocurrency</label>
+                        <input type="text" placeholder="USDT" className="w-full px-3 py-2 bg-gray-100 rounded text-sm border border-gray-200" />
+                      </div>
+                      <div className="space-y-2">
+                        <label className="text-xs text-gray-600">Select Network</label>
+                        <input type="text" placeholder="BNB" className="w-full px-3 py-2 bg-gray-100 rounded text-sm border border-gray-200" />
+                      </div>
+                      <div className="space-y-2">
+                        <label className="text-xs text-gray-600">Enter Amount (USDT)</label>
+                        <input type="text" placeholder="150" className="w-full px-3 py-2 bg-gray-100 rounded text-sm border-2 border-[#3CC27B]" />
+                      </div>
+                      <button className="w-full mt-4 text-[#3CC27B] font-medium text-sm">
+                        Continue to Sell →
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Bitcoin Image */}
+                <div className="hidden lg:block absolute -bottom-6 -right-12 w-48 h-48 opacity-30">
+                  <img
+                    src="https://api.builder.io/api/v1/image/assets/TEMP/b234ffe9ebcbed92046a393a086f19e7a0a49a6b"
+                    alt="Bitcoin"
+                    className="w-full h-full"
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>
