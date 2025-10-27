@@ -29,25 +29,18 @@ const App = () => (
   </QueryClientProvider>
 );
 
-let root: any = null;
-
-function init() {
+(() => {
   const rootElement = document.getElementById("root");
-
   if (!rootElement) return;
 
-  if (!root) {
-    root = createRoot(rootElement);
+  // Only create root once, on first load
+  if (!rootElement.hasAttribute('data-react-initialized')) {
+    const root = createRoot(rootElement);
+    root.render(<App />);
+    rootElement.setAttribute('data-react-initialized', 'true');
   }
-
-  root.render(<App />);
-}
-
-init();
+})();
 
 if (import.meta.hot) {
-  import.meta.hot.dispose(() => {
-    // Don't unmount on HMR, just let React handle updates
-  });
   import.meta.hot.accept();
 }
