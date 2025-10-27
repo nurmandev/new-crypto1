@@ -1,10 +1,15 @@
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 
 export default function Login() {
   const [isSignIn, setIsSignIn] = useState(true);
+  const navigate = useNavigate();
+
+  const handleSignIn = () => {
+    navigate("/dashboard");
+  };
 
   return (
     <div className="min-h-screen bg-white flex">
@@ -100,7 +105,10 @@ export default function Login() {
             </div>
 
             {/* Sign In Button */}
-            <button className="w-full flex items-center justify-center gap-2 bg-black hover:bg-black/90 text-white py-3 px-16 rounded-md border border-[#C3C3C3] transition-colors mb-6">
+            <button
+              onClick={handleSignIn}
+              className="w-full flex items-center justify-center gap-2 bg-black hover:bg-black/90 text-white py-3 px-16 rounded-md border border-[#C3C3C3] transition-colors mb-6"
+            >
               <span className="text-[15px] font-medium">Sign In</span>
               <ArrowRight className="w-4 h-4" />
             </button>
