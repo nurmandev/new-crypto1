@@ -29,17 +29,25 @@ const App = () => (
   </QueryClientProvider>
 );
 
-const rootElement = document.getElementById("root");
+let root: any = null;
 
-if (rootElement) {
-  // Store root in a weak reference on the element itself
-  const key = '__reactRoot__';
-  let root = (rootElement as any)[key];
+function init() {
+  const rootElement = document.getElementById("root");
+
+  if (!rootElement) return;
 
   if (!root) {
     root = createRoot(rootElement);
-    (rootElement as any)[key] = root;
   }
 
   root.render(<App />);
+}
+
+init();
+
+if (import.meta.hot) {
+  import.meta.hot.dispose(() => {
+    // Don't unmount on HMR, just let React handle updates
+  });
+  import.meta.hot.accept();
 }
