@@ -63,7 +63,7 @@ export default function About() {
       <section className="py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-5xl md:text-6xl font-['Russo_One'] mb-6 bg-gradient-to-r from-[#161616] to-[#3CC27B] bg-clip-text text-transparent">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-['Russo_One'] mb-6 bg-gradient-to-r from-[#161616] to-[#3CC27B] bg-clip-text text-transparent leading-tight">
               Welcome to the crypto exchanger USDT MPAY
             </h2>
             <p className="text-xl text-gray-900 leading-relaxed mb-12">
