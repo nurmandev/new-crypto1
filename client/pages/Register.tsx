@@ -7,15 +7,15 @@ export default function Register() {
   const [isSignIn, setIsSignIn] = useState(false);
 
   return (
-    <div className="min-h-screen bg-white flex">
+    <div className="min-h-screen bg-white flex flex-col lg:flex-row overflow-hidden">
       {/* Left Side - Image Section */}
-      <div className="hidden lg:flex lg:w-[66%] bg-[#F6F6F6] relative">
+      <div className="hidden lg:flex lg:w-[66%] bg-[#F6F6F6] relative overflow-hidden">
         <img
           src="https://cdn.builder.io/api/v1/image/assets%2Fde402d04e4fc422aa77ac9baf104abf8%2Fe78cd6a7cee94bef9bdc897bfd926fcc?format=webp&width=800"
           alt="Bitcoin and money"
-          className="absolute inset-0 w-full h-full object-cover"
+          className="w-full h-full object-cover"
         />
-        
+
         {/* Logo at bottom */}
         <div className="absolute bottom-16 left-14">
           <Link to="/" className="flex items-center gap-2">
@@ -26,37 +26,37 @@ export default function Register() {
       </div>
 
       {/* Right Side - Register Form Section */}
-      <div className="flex-1 flex items-center justify-center px-4 py-12">
-        <div className="w-full max-w-[500px]">
+      <div className="flex-1 flex items-center justify-center overflow-y-auto px-4 sm:px-6 py-8 sm:py-12">
+        <div className="w-full max-w-sm">
           {/* Form Container */}
-          <div className="bg-white border border-[#D3D3D3] rounded-lg p-8">
+          <div className="bg-white border border-[#D3D3D3] rounded-lg p-5 sm:p-8">
             {/* Welcome Header */}
-            <div className="text-center mb-10">
-              <h1 className="text-3xl font-['Russo_One'] mb-3 bg-gradient-to-r from-[#000] to-[#3CC27B] bg-clip-text text-transparent">
+            <div className="text-center mb-8">
+              <h1 className="text-2xl sm:text-3xl font-['Russo_One'] mb-2 sm:mb-3 bg-gradient-to-r from-[#000] to-[#3CC27B] bg-clip-text text-transparent">
                 Welcome
               </h1>
-              <p className="text-[#838383] text-[17px]">
+              <p className="text-[#838383] text-sm sm:text-base">
                 Sign in / Register to your account to continue
               </p>
             </div>
 
             {/* Sign In / Sign Up Toggle */}
-            <div className="relative mb-6">
-              <div className="w-full h-[51px] bg-[#F0F0F0] rounded-md"></div>
+            <div className="relative mb-5 sm:mb-6">
+              <div className="w-full h-12 bg-[#F0F0F0] rounded-md"></div>
               <div
-                className={`absolute top-1 ${isSignIn ? 'left-1' : 'left-[calc(50%+2px)]'} w-[calc(50%-4px)] h-[43px] bg-white rounded transition-all duration-300`}
+                className={`absolute top-1 ${isSignIn ? 'left-1' : 'left-[calc(50%+2px)]'} w-[calc(50%-4px)] h-10 bg-white rounded transition-all duration-300`}
               ></div>
               <div className="absolute inset-0 flex">
                 <Link
                   to="/login"
-                  className={`flex-1 flex items-center justify-center text-[15px] font-medium transition-colors ${
+                  className={`flex-1 flex items-center justify-center text-sm sm:text-base font-medium transition-colors ${
                     isSignIn ? "text-gray-900" : "text-gray-500"
                   }`}
                 >
                   Sign In
                 </Link>
                 <button
-                  className={`flex-1 text-[15px] font-medium transition-colors ${
+                  className={`flex-1 text-sm sm:text-base font-medium transition-colors ${
                     !isSignIn ? "text-gray-900" : "text-gray-500"
                   }`}
                 >
@@ -66,85 +66,85 @@ export default function Register() {
             </div>
 
             {/* Full Name Field */}
-            <div className="mb-6">
-              <label className="block text-[15px] text-gray-900 font-medium mb-3">
+            <div className="mb-5 sm:mb-6">
+              <label className="block text-sm sm:text-base text-gray-900 font-medium mb-2">
                 Full Name
               </label>
               <input
                 type="text"
                 placeholder="Enter Full Name"
-                className="w-full px-7 py-4 bg-[#F0F0F0] rounded-md text-[13px] text-gray-900 placeholder:text-[#8E8E8E] focus:outline-none focus:ring-2 focus:ring-[#3CC27B]"
+                className="w-full px-4 sm:px-6 py-3 sm:py-4 bg-[#F0F0F0] rounded-md text-xs sm:text-sm text-gray-900 placeholder:text-[#8E8E8E] focus:outline-none focus:ring-2 focus:ring-[#3CC27B]"
               />
             </div>
 
             {/* Username Field */}
-            <div className="mb-6">
-              <label className="block text-[15px] text-gray-900 font-medium mb-3">
+            <div className="mb-5 sm:mb-6">
+              <label className="block text-sm sm:text-base text-gray-900 font-medium mb-2">
                 Username
               </label>
               <input
                 type="text"
                 placeholder="Enter Username"
-                className="w-full px-7 py-4 bg-[#F0F0F0] rounded-md text-[13px] text-gray-900 placeholder:text-[#8E8E8E] focus:outline-none focus:ring-2 focus:ring-[#3CC27B]"
+                className="w-full px-4 sm:px-6 py-3 sm:py-4 bg-[#F0F0F0] rounded-md text-xs sm:text-sm text-gray-900 placeholder:text-[#8E8E8E] focus:outline-none focus:ring-2 focus:ring-[#3CC27B]"
               />
             </div>
 
             {/* Email Field */}
-            <div className="mb-6">
-              <label className="block text-[15px] text-gray-900 font-medium mb-3">
+            <div className="mb-5 sm:mb-6">
+              <label className="block text-sm sm:text-base text-gray-900 font-medium mb-2">
                 Email Address
               </label>
               <input
                 type="email"
                 placeholder="Enter Your Mail ID"
-                className="w-full px-7 py-4 bg-[#F0F0F0] rounded-md text-[13px] text-gray-900 placeholder:text-[#8E8E8E] focus:outline-none focus:ring-2 focus:ring-[#3CC27B]"
+                className="w-full px-4 sm:px-6 py-3 sm:py-4 bg-[#F0F0F0] rounded-md text-xs sm:text-sm text-gray-900 placeholder:text-[#8E8E8E] focus:outline-none focus:ring-2 focus:ring-[#3CC27B]"
               />
             </div>
 
             {/* Password Field */}
-            <div className="mb-6">
-              <label className="block text-[15px] text-gray-900 font-medium mb-3">
+            <div className="mb-5 sm:mb-6">
+              <label className="block text-sm sm:text-base text-gray-900 font-medium mb-2">
                 Password
               </label>
               <input
                 type="password"
                 placeholder="Enter Your Password"
-                className="w-full px-7 py-4 bg-[#F0F0F0] rounded-md text-[13px] text-gray-900 placeholder:text-[#8E8E8E] focus:outline-none focus:ring-2 focus:ring-[#3CC27B]"
+                className="w-full px-4 sm:px-6 py-3 sm:py-4 bg-[#F0F0F0] rounded-md text-xs sm:text-sm text-gray-900 placeholder:text-[#8E8E8E] focus:outline-none focus:ring-2 focus:ring-[#3CC27B]"
               />
             </div>
 
             {/* Confirm Password Field */}
-            <div className="mb-6">
-              <label className="block text-[15px] text-gray-900 font-medium mb-3">
+            <div className="mb-5 sm:mb-6">
+              <label className="block text-sm sm:text-base text-gray-900 font-medium mb-2">
                 Confirm Password
               </label>
               <input
                 type="password"
                 placeholder="Enter Your Password"
-                className="w-full px-7 py-4 bg-[#F0F0F0] rounded-md text-[13px] text-gray-900 placeholder:text-[#8E8E8E] focus:outline-none focus:ring-2 focus:ring-[#3CC27B]"
+                className="w-full px-4 sm:px-6 py-3 sm:py-4 bg-[#F0F0F0] rounded-md text-xs sm:text-sm text-gray-900 placeholder:text-[#8E8E8E] focus:outline-none focus:ring-2 focus:ring-[#3CC27B]"
               />
             </div>
 
             {/* Register Button */}
-            <button className="w-full flex items-center justify-center gap-2 bg-black hover:bg-black/90 text-white py-3 px-16 rounded-md border border-[#C3C3C3] transition-colors mb-6">
-              <span className="text-[15px] font-medium">Register</span>
+            <button className="w-full flex items-center justify-center gap-2 bg-black hover:bg-black/90 text-white py-3 px-6 rounded-md border border-[#C3C3C3] transition-colors mb-5 sm:mb-6">
+              <span className="text-sm sm:text-base font-medium">Register</span>
               <ArrowRight className="w-4 h-4" />
             </button>
 
             {/* Divider */}
-            <div className="relative my-6">
+            <div className="relative my-5 sm:my-6">
               <div className="absolute inset-0 flex items-center">
                 <div className="w-full border-t border-[#DFDFDF]"></div>
               </div>
               <div className="relative flex justify-center">
-                <span className="bg-white px-4 text-[15px] text-[#868686]">
+                <span className="bg-white px-4 text-xs sm:text-sm text-[#868686]">
                   or continue with
                 </span>
               </div>
             </div>
 
             {/* Google Sign In */}
-            <button className="w-full flex items-center justify-center gap-3 bg-[#F8F8F8] hover:bg-gray-100 py-3 px-5 rounded-md transition-colors mb-3">
+            <button className="w-full flex items-center justify-center gap-3 bg-[#F8F8F8] hover:bg-gray-100 py-3 px-4 rounded-md transition-colors mb-3">
               <svg
                 width="15"
                 height="15"
@@ -157,11 +157,11 @@ export default function Register() {
                   fill="black"
                 />
               </svg>
-              <span className="text-[15px] text-gray-900">Continue with google</span>
+              <span className="text-xs sm:text-sm text-gray-900">Continue with google</span>
             </button>
 
             {/* Twitter Sign In */}
-            <button className="w-full flex items-center justify-center gap-3 bg-[#F8F8F8] hover:bg-gray-100 py-3 px-5 rounded-md transition-colors">
+            <button className="w-full flex items-center justify-center gap-3 bg-[#F8F8F8] hover:bg-gray-100 py-3 px-4 rounded-md transition-colors">
               <svg
                 width="15"
                 height="15"
@@ -174,15 +174,15 @@ export default function Register() {
                   fill="black"
                 />
               </svg>
-              <span className="text-[15px] text-gray-900">Continue with twitter</span>
+              <span className="text-xs sm:text-sm text-gray-900">Continue with twitter</span>
             </button>
           </div>
 
           {/* Mobile Logo */}
-          <div className="lg:hidden mt-8 flex justify-center">
+          <div className="lg:hidden mt-6 sm:mt-8 pb-4 flex justify-center">
             <Link to="/" className="flex items-center gap-2">
               <div className="w-8 h-8 bg-gradient-to-br from-green-400 to-green-600 rounded-lg"></div>
-              <span className="text-xl font-bold text-gray-900">USDTMPAY</span>
+              <span className="text-lg font-bold text-gray-900">USDTMPAY</span>
             </Link>
           </div>
         </div>
