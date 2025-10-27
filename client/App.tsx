@@ -29,18 +29,11 @@ const App = () => (
   </QueryClientProvider>
 );
 
-(() => {
-  const rootElement = document.getElementById("root");
-  if (!rootElement) return;
+const rootElement = document.getElementById("root");
 
-  // Only create root once, on first load
-  if (!rootElement.hasAttribute('data-react-initialized')) {
-    const root = createRoot(rootElement);
-    root.render(<App />);
-    rootElement.setAttribute('data-react-initialized', 'true');
-  }
-})();
-
-if (import.meta.hot) {
-  import.meta.hot.accept();
+if (rootElement && !rootElement.parentElement?.hasAttribute("data-vite-renderer")) {
+  const root = createRoot(rootElement);
+  root.render(<App />);
+  // Mark that rendering has been initialized
+  rootElement.parentElement?.setAttribute("data-vite-renderer", "true");
 }
