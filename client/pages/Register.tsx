@@ -3,16 +3,16 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 
-export default function Login() {
-  const [isSignIn, setIsSignIn] = useState(true);
+export default function Register() {
+  const [isSignIn, setIsSignIn] = useState(false);
 
   return (
     <div className="min-h-screen bg-white flex">
       {/* Left Side - Image Section */}
       <div className="hidden lg:flex lg:w-[66%] bg-[#F6F6F6] relative">
         <img
-          src="https://cdn.builder.io/api/v1/image/assets%2Fde402d04e4fc422aa77ac9baf104abf8%2Fad1110e0fde2477dbd70400398231507?format=webp&width=800"
-          alt="Bitcoin coins"
+          src="https://api.builder.io/api/v1/image/assets/TEMP/8d85fbd01076d8d69b76484b79497db78e8a8fbc?width=2534"
+          alt="Bitcoin and money"
           className="absolute inset-0 w-full h-full object-cover"
         />
         
@@ -25,7 +25,7 @@ export default function Login() {
         </div>
       </div>
 
-      {/* Right Side - Login Form Section */}
+      {/* Right Side - Register Form Section */}
       <div className="flex-1 flex items-center justify-center px-4 py-12">
         <div className="w-full max-w-[500px]">
           {/* Form Container */}
@@ -44,27 +44,49 @@ export default function Login() {
             <div className="relative mb-6">
               <div className="w-full h-[51px] bg-[#F0F0F0] rounded-md"></div>
               <div
-                className={`absolute top-1 left-1 w-[calc(50%-4px)] h-[43px] bg-white rounded transition-transform duration-300 ${
-                  !isSignIn ? "translate-x-full" : ""
-                }`}
+                className={`absolute top-1 ${isSignIn ? 'left-1' : 'left-[calc(50%+2px)]'} w-[calc(50%-4px)] h-[43px] bg-white rounded transition-all duration-300`}
               ></div>
               <div className="absolute inset-0 flex">
-                <button
-                  className={`flex-1 text-[15px] font-medium transition-colors ${
+                <Link
+                  to="/login"
+                  className={`flex-1 flex items-center justify-center text-[15px] font-medium transition-colors ${
                     isSignIn ? "text-gray-900" : "text-gray-500"
                   }`}
                 >
                   Sign In
-                </button>
-                <Link
-                  to="/register"
-                  className={`flex-1 flex items-center justify-center text-[15px] font-medium transition-colors ${
+                </Link>
+                <button
+                  className={`flex-1 text-[15px] font-medium transition-colors ${
                     !isSignIn ? "text-gray-900" : "text-gray-500"
                   }`}
                 >
                   Sign Up
-                </Link>
+                </button>
               </div>
+            </div>
+
+            {/* Full Name Field */}
+            <div className="mb-6">
+              <label className="block text-[15px] text-gray-900 font-medium mb-3">
+                Full Name
+              </label>
+              <input
+                type="text"
+                placeholder="Enter Full Name"
+                className="w-full px-7 py-4 bg-[#F0F0F0] rounded-md text-[13px] text-gray-900 placeholder:text-[#8E8E8E] focus:outline-none focus:ring-2 focus:ring-[#3CC27B]"
+              />
+            </div>
+
+            {/* Username Field */}
+            <div className="mb-6">
+              <label className="block text-[15px] text-gray-900 font-medium mb-3">
+                Username
+              </label>
+              <input
+                type="text"
+                placeholder="Enter Username"
+                className="w-full px-7 py-4 bg-[#F0F0F0] rounded-md text-[13px] text-gray-900 placeholder:text-[#8E8E8E] focus:outline-none focus:ring-2 focus:ring-[#3CC27B]"
+              />
             </div>
 
             {/* Email Field */}
@@ -81,17 +103,9 @@ export default function Login() {
 
             {/* Password Field */}
             <div className="mb-6">
-              <div className="flex items-center justify-between mb-3">
-                <label className="text-[15px] text-gray-900 font-medium">
-                  Password
-                </label>
-                <Link
-                  to="/forgot-password"
-                  className="text-[13px] text-[#3CC27B] hover:underline"
-                >
-                  Forgot Password ?
-                </Link>
-              </div>
+              <label className="block text-[15px] text-gray-900 font-medium mb-3">
+                Password
+              </label>
               <input
                 type="password"
                 placeholder="Enter Your Password"
@@ -99,9 +113,21 @@ export default function Login() {
               />
             </div>
 
-            {/* Sign In Button */}
+            {/* Confirm Password Field */}
+            <div className="mb-6">
+              <label className="block text-[15px] text-gray-900 font-medium mb-3">
+                Confirm Password
+              </label>
+              <input
+                type="password"
+                placeholder="Enter Your Password"
+                className="w-full px-7 py-4 bg-[#F0F0F0] rounded-md text-[13px] text-gray-900 placeholder:text-[#8E8E8E] focus:outline-none focus:ring-2 focus:ring-[#3CC27B]"
+              />
+            </div>
+
+            {/* Register Button */}
             <button className="w-full flex items-center justify-center gap-2 bg-black hover:bg-black/90 text-white py-3 px-16 rounded-md border border-[#C3C3C3] transition-colors mb-6">
-              <span className="text-[15px] font-medium">Sign In</span>
+              <span className="text-[15px] font-medium">Register</span>
               <ArrowRight className="w-4 h-4" />
             </button>
 
