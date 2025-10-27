@@ -29,9 +29,19 @@ const App = () => (
   </QueryClientProvider>
 );
 
+declare global {
+  interface Window {
+    __reactRoot?: any;
+  }
+}
+
 const rootElement = document.getElementById("root")!;
-const root = createRoot(rootElement);
-root.render(<App />);
+
+if (!window.__reactRoot) {
+  window.__reactRoot = createRoot(rootElement);
+}
+
+window.__reactRoot.render(<App />);
 
 if (import.meta.hot) {
   import.meta.hot.accept();
