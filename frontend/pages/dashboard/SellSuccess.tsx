@@ -1,7 +1,11 @@
 import { Link } from "react-router-dom";
 import { Bell, Copy } from "lucide-react";
+import { useState } from "react";
+import DashboardHeader from "./components/DashboardHeader";
+import Sidebar from "./components/Sidebar";
 
 export default function SellSuccess() {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const transactionId = "CT17565429468713XMCHMUIN";
 
   const copyToClipboard = () => {
@@ -9,63 +13,16 @@ export default function SellSuccess() {
   };
 
   return (
-    <div className="min-h-screen bg-[#F8F8F8]">
+    <div className="min-h-screen bg-[#F8F8F8] pb-12 md:pb-16">
       {/* Top Navigation Bar */}
-      <div className="bg-white rounded-[10px] mx-4 lg:mx-12 mt-6 px-6 py-4 flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-2">
-          <div className="w-10 h-10 bg-gradient-to-br from-green-400 to-green-600 rounded-lg"></div>
-          <span className="text-2xl font-bold text-gray-900">USDTMPAY</span>
-        </Link>
+      <DashboardHeader
+        onMenuToggle={() => setIsSidebarOpen(!isSidebarOpen)}
+        isMenuOpen={isSidebarOpen}
+      />
 
-        <h1 className="text-3xl font-['Russo_One'] text-black hidden lg:block">Dashboard</h1>
-
-        <div className="flex items-center gap-4">
-          <Link to="/" className="px-9 py-2 bg-[#161616] text-white text-[15px] font-medium rounded-md hover:bg-black/80 transition-colors">
-            Go to Home
-          </Link>
-          <div className="w-10 h-10 rounded-full bg-[#D9D9D9] cursor-pointer"></div>
-          <div className="relative">
-            <Bell className="w-5 h-5 text-[#C7C7C7]" />
-            <div className="absolute -top-1 -right-1 w-1.5 h-1.5 bg-[#3CC27B] rounded-full"></div>
-          </div>
-        </div>
-      </div>
-
-      <div className="px-4 lg:px-12 mt-6 flex flex-col lg:flex-row gap-6">
+      <div className="px-4 md:px-6 lg:px-12 mt-4 md:mt-6 flex flex-col lg:flex-row gap-4 md:gap-6">
         {/* Sidebar */}
-        <div className="w-full lg:w-64 bg-white rounded-lg overflow-hidden">
-          <Link to="/dashboard" className="block px-6 py-4 flex items-center gap-3 text-black hover:bg-gray-50 transition-colors">
-            <span className="text-lg">Dashboard</span>
-          </Link>
-
-          <div className="bg-[#3CC27B] px-6 py-4 flex items-center gap-3 text-white">
-            <span className="text-lg font-semibold">Buy / Sell Crypto</span>
-          </div>
-
-          <nav className="p-6 space-y-7">
-            <div className="flex items-center gap-3 text-black cursor-pointer hover:text-[#3CC27B] transition-colors">
-              <span className="text-lg">Deposit/Withdraw</span>
-            </div>
-            <div className="flex items-center gap-3 text-black cursor-pointer hover:text-[#3CC27B] transition-colors">
-              <span className="text-lg">My Wallet</span>
-            </div>
-            <div className="flex items-center gap-3 text-black cursor-pointer hover:text-[#3CC27B] transition-colors">
-              <span className="text-lg">Payment Methods</span>
-            </div>
-            <div className="flex items-center gap-3 text-black cursor-pointer hover:text-[#3CC27B] transition-colors">
-              <span className="text-lg">History</span>
-            </div>
-            <div className="flex items-center gap-3 text-black cursor-pointer hover:text-[#3CC27B] transition-colors">
-              <span className="text-lg">Wallet Security</span>
-            </div>
-            <div className="flex items-center gap-3 text-black cursor-pointer hover:text-[#3CC27B] transition-colors">
-              <span className="text-lg">My Profile</span>
-            </div>
-            <button className="flex items-center gap-2 px-4 py-2 bg-[#EBEBEB] rounded text-black text-[15px]">
-              <span>Logout</span>
-            </button>
-          </nav>
-        </div>
+        <Sidebar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
 
         {/* Main Content */}
         <div className="flex-1 space-y-6">
