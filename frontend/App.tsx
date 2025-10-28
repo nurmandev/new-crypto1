@@ -17,6 +17,7 @@ import BuyCrypto from "./pages/dashboard/BuyCrypto";
 import SellCrypto from "./pages/dashboard/SellCrypto";
 import SellSuccess from "./pages/dashboard/SellSuccess";
 import PaymentMethod from "./pages/dashboard/PaymentMethod";
+import UPIPayment from "./pages/dashboard/UPIPayment";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
