@@ -20,6 +20,7 @@ import PaymentMethod from "./pages/dashboard/PaymentMethod";
 import UPIPayment from "./pages/dashboard/UPIPayment";
 import WalletPayment from "./pages/dashboard/WalletPayment";
 import DepositWithdraw from "./pages/dashboard/DepositWithdraw";
+import DepositFund from "./pages/dashboard/DepositFund";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -45,6 +46,7 @@ const App = () => (
           <Route path="/upi-payment" element={<UPIPayment />} />
           <Route path="/wallet-payment" element={<WalletPayment />} />
           <Route path="/deposit-withdraw" element={<DepositWithdraw />} />
+          <Route path="/deposit-fund" element={<DepositFund />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
