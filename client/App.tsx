@@ -14,6 +14,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
 import BuyCrypto from "./pages/BuyCrypto";
+import SellCrypto from "./pages/SellCrypto";
 import PaymentMethod from "./pages/PaymentMethod";
 import NotFound from "./pages/NotFound";
 
@@ -34,6 +35,7 @@ const App = () => (
           <Route path="/register" element={<Register />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/buy-crypto" element={<BuyCrypto />} />
+          <Route path="/sell-crypto" element={<SellCrypto />} />
           <Route path="/payment-method" element={<PaymentMethod />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />

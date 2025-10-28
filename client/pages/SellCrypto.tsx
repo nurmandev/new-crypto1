@@ -2,11 +2,10 @@ import { Link } from "react-router-dom";
 import { Bell, ArrowUpDown, ArrowRight, ChevronDown } from "lucide-react";
 import { useState } from "react";
 
-export default function BuyCrypto() {
-  const [isBuyMode, setIsBuyMode] = useState(true);
-  const [selectedCrypto, setSelectedCrypto] = useState("Cardano (ADA)");
-  const [youPayAmount, setYouPayAmount] = useState("300.00");
-  const [youReceiveAmount, setYouReceiveAmount] = useState("10.71428571");
+export default function SellCrypto() {
+  const [selectedCrypto, setSelectedCrypto] = useState("Ethereum (ETH)");
+  const [amountToSell, setAmountToSell] = useState("0.02");
+  const [youReceiveAmount, setYouReceiveAmount] = useState("3681.50");
 
   return (
     <div className="min-h-screen bg-[#F8F8F8]">
@@ -205,28 +204,41 @@ export default function BuyCrypto() {
 
         {/* Main Content */}
         <div className="flex-1 space-y-6">
-          {/* Buy/Sell Crypto Card */}
+          {/* Sell Crypto Card */}
           <div className="bg-white rounded-[10px] p-8">
             {/* Buy/Sell Toggle */}
             <div className="relative mb-6">
               <div className="w-full h-[51px] bg-[#F0F0F0] rounded-md"></div>
-              <div className="absolute top-1 left-1 w-[calc(50%-4px)] h-[43px] bg-white rounded"></div>
+              <div className="absolute top-1 right-1 w-[calc(50%-4px)] h-[43px] bg-white rounded"></div>
               <div className="absolute inset-0 flex">
-                <button className="flex-1 text-xl font-medium text-gray-900">
-                  Buy Crypto
-                </button>
                 <Link
-                  to="/sell-crypto"
+                  to="/buy-crypto"
                   className="flex-1 flex items-center justify-center text-xl font-medium text-gray-900"
                 >
-                  Sell Crypto
+                  Buy Crypto
                 </Link>
+                <button className="flex-1 text-xl font-medium text-gray-900">
+                  Sell Crypto
+                </button>
               </div>
             </div>
 
-            <p className="text-[#838383] text-center text-[17px] mb-8">
-              Exchange INR for cryptocurrency instantly
+            <p className="text-[#838383] text-[17px] mb-8">
+              Convert your cryptocurrency to INR instantly
             </p>
+
+            {/* Available Balance */}
+            <div className="bg-gradient-to-r from-[#3CC27B] to-[#00602D] rounded-[10px] p-8 mb-6">
+              <div className="text-center">
+                <p className="text-white text-xl font-medium mb-2">
+                  Available Balance
+                </p>
+                <h2 className="text-white text-5xl font-bold mb-2">
+                  0.05432100 ETH
+                </h2>
+                <p className="text-white text-xl">≈ ₹10,049.385</p>
+              </div>
+            </div>
 
             {/* Select Cryptocurrency */}
             <div className="mb-6">
@@ -235,7 +247,7 @@ export default function BuyCrypto() {
               </label>
               <div className="relative">
                 <div className="w-full h-[51px] bg-[#F0F0F0] rounded-md px-7 flex items-center justify-between cursor-pointer">
-                  <span className="text-[13px] font-medium text-black">
+                  <span className="text-[13px] text-[#8E8E8E]">
                     {selectedCrypto}
                   </span>
                   <ChevronDown className="w-3 h-3 text-black" />
@@ -243,21 +255,21 @@ export default function BuyCrypto() {
               </div>
             </div>
 
-            {/* You Pay / You Receive */}
+            {/* Amount To Sell / You will Receive */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6 relative">
               <div>
                 <label className="block text-[17px] font-medium text-black mb-3">
-                  You Pay
+                  Amount To Sell
                 </label>
                 <div className="relative">
                   <input
                     type="text"
-                    value={youPayAmount}
-                    onChange={(e) => setYouPayAmount(e.target.value)}
+                    value={amountToSell}
+                    onChange={(e) => setAmountToSell(e.target.value)}
                     className="w-full h-[51px] bg-[#F0F0F0] border border-[#CACACA] rounded-md px-7 text-[15px] font-bold text-[#8E8E8E] focus:outline-none focus:ring-2 focus:ring-[#3CC27B]"
                   />
                   <span className="absolute right-7 top-1/2 -translate-y-1/2 text-[13px] text-[#717171]">
-                    INR
+                    ETH
                   </span>
                 </div>
               </div>
@@ -271,7 +283,7 @@ export default function BuyCrypto() {
 
               <div>
                 <label className="block text-[17px] font-medium text-black mb-3">
-                  You Recieve
+                  You will Receive
                 </label>
                 <div className="relative">
                   <input
@@ -281,29 +293,24 @@ export default function BuyCrypto() {
                     className="w-full h-[51px] bg-[#F0F0F0] border border-[#CACACA] rounded-md px-7 text-[15px] font-bold text-[#8E8E8E] focus:outline-none focus:ring-2 focus:ring-[#3CC27B]"
                   />
                   <span className="absolute right-7 top-1/2 -translate-y-1/2 text-[13px] text-[#717171]">
-                    ADA
+                    INR
                   </span>
                 </div>
               </div>
             </div>
 
             <p className="text-[#838383] text-center text-[17px] mb-8">
-              1 ADA = ₹28
+              1 ETH = ₹1,85,000
             </p>
 
             {/* Continue Button */}
-            <Link
-              to="/payment-method"
-              className="w-full flex items-center justify-center gap-2 bg-black text-white py-4 rounded-md border border-[#C3C3C3] hover:bg-black/90 transition-colors mb-8"
-            >
-              <span className="text-[15px] font-medium">
-                Continue To Payment
-              </span>
+            <button className="w-full flex items-center justify-center gap-2 bg-black text-white py-4 rounded-md border border-[#C3C3C3] hover:bg-black/90 transition-colors mb-8">
+              <span className="text-[15px] font-medium">Continue To Sell</span>
               <ArrowRight className="w-4 h-4" />
-            </Link>
+            </button>
 
             {/* Purchase Summary */}
-            <div className="border-l-2 border-[#3CC27B] bg-[#3CC27B]/10 rounded-[10px] p-6">
+            <div className="border-l-2 border-[#FA1818] bg-[rgba(253,189,189,0.19)] rounded-[10px] p-6">
               <h3 className="text-[15px] font-medium text-black mb-6">
                 Purchase Summary
               </h3>
@@ -348,7 +355,7 @@ export default function BuyCrypto() {
                 <div className="border-t border-[#EDEDED] pt-3 mt-3">
                   <div className="flex justify-between items-center">
                     <span className="text-[14px] text-black font-light">
-                      Total To Pay
+                      You Will Receive:
                     </span>
                     <span className="text-[14px] text-[#3CC27B] font-medium">
                       ₹3,681.50
