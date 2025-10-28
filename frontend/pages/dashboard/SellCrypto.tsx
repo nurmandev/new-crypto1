@@ -46,7 +46,10 @@ export default function SellCrypto() {
                 >
                   Buy Crypto
                 </Link>
-                <button className="flex-1 text-xl font-medium text-gray-900">
+                <button
+                  onClick={handleSellSubmit}
+                  className="flex-1 text-xl font-medium text-gray-900 hover:text-[#3CC27B] transition-colors"
+                >
                   Sell Crypto
                 </button>
               </div>
