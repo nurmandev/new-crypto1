@@ -8,7 +8,8 @@ export default function DepositCrypto() {
   const [amount, setAmount] = useState("");
   const [transactionHash, setTransactionHash] = useState("");
 
-  const walletAddress = "addr1qx2fxv2umyhttkxyxp8x0dlpdt3k6cwng5pxj3jhsydzer3n0d3vllmyqwsx5wktcd8cc3sq835lu7drv2xwl2wywfgs68f0t5";
+  const walletAddress =
+    "addr1qx2fxv2umyhttkxyxp8x0dlpdt3k6cwng5pxj3jhsydzer3n0d3vllmyqwsx5wktcd8cc3sq835lu7drv2xwl2wywfgs68f0t5";
   const network = "ERC-20";
   const availableBalance = 250;
 
@@ -122,7 +123,8 @@ export default function DepositCrypto() {
                 className="w-full h-[51px] px-4 py-3 bg-[#F0F0F0] border-[0.7px] border-[#CACACA] rounded-[5px] text-sm md:text-[15px] font-light text-black placeholder:text-[#8E8E8E] focus:outline-none focus:border-[#3CC27B] transition-colors"
               />
               <p className="text-[#838383] text-xs md:text-[14px] font-normal mt-2">
-                Paste the transaction hash from your wallet or blockchain explorer
+                Paste the transaction hash from your wallet or blockchain
+                explorer
               </p>
             </div>
 
@@ -159,7 +161,8 @@ export default function DepositCrypto() {
                   Verification Required
                 </h4>
                 <p className="text-xs md:text-[13px] font-light text-black leading-[25px]">
-                  We'll verify your transaction on the blockchain. This usually takes 24 Hours
+                  We'll verify your transaction on the blockchain. This usually
+                  takes 24 Hours
                 </p>
               </div>
 
@@ -169,8 +172,9 @@ export default function DepositCrypto() {
                   Important
                 </h4>
                 <p className="text-xs md:text-[13px] font-light text-black leading-[25px]">
-                  Only send {selectedCrypto} to this address via Ethereum (ERC-20). Sending other
-                  cryptocurrencies or using wrong network will result in permanent loss.
+                  Only send {selectedCrypto} to this address via Ethereum
+                  (ERC-20). Sending other cryptocurrencies or using wrong
+                  network will result in permanent loss.
                 </p>
               </div>
             </div>
@@ -187,7 +191,10 @@ export default function DepositCrypto() {
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                <path d="M5 10V6H13.92L13.95 3.99H5V0L0 5L5 10Z" fill="currentColor" />
+                <path
+                  d="M5 10V6H13.92L13.95 3.99H5V0L0 5L5 10Z"
+                  fill="currentColor"
+                />
               </svg>
               Back to Payment Methods
             </Link>
