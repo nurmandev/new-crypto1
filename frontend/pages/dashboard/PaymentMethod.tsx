@@ -101,12 +101,14 @@ export default function PaymentMethod() {
                 processingTime="Instant"
                 fees="2.5%"
               />
-              <PaymentOption
-                title="Wallet Balance"
-                description="User your existing wallet balance"
-                processingTime="Instant"
-                fees="0%"
-              />
+              <Link to="/wallet-payment">
+                <PaymentOption
+                  title="Wallet Balance"
+                  description="User your existing wallet balance"
+                  processingTime="Instant"
+                  fees="0%"
+                />
+              </Link>
             </div>
 
             {/* Back to Order Details */}
