@@ -12,11 +12,11 @@ import Services from "./pages/Services";
 import Contact from "./pages/Contact";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-import Dashboard from "./pages/Dashboard";
-import BuyCrypto from "./pages/BuyCrypto";
-import SellCrypto from "./pages/SellCrypto";
-import SellSuccess from "./pages/SellSuccess";
-import PaymentMethod from "./pages/PaymentMethod";
+import Dashboard from "./pages/dashboard/Dashboard";
+import BuyCrypto from "./pages/dashboard/BuyCrypto";
+import SellCrypto from "./pages/dashboard/SellCrypto";
+import SellSuccess from "./pages/dashboard/SellSuccess";
+import PaymentMethod from "./pages/dashboard/PaymentMethod";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
