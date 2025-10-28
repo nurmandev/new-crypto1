@@ -19,6 +19,12 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
   const navItems = [
     {
       icon: TrendingUp,
+      label: "Dashboard",
+      href: "/dashboard",
+      external: false,
+    },
+    {
+      icon: TrendingUp,
       label: "Buy / Sell Crypto",
       href: "/buy-crypto",
       external: false,
