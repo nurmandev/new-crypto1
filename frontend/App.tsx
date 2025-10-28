@@ -52,7 +52,7 @@ const App = () => (
           <Route path="/deposit-fund" element={<DepositFund />} />
           <Route path="/purchase-success" element={<PurchaseSuccess />} />
           <Route path="/withdraw-fund" element={<WithdrawFund />} />
-          <Route path="/cashout" element={<Cashout />} />
+          <Route path="/withdraw-crypto" element={<Cashout />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
