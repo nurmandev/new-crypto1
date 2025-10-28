@@ -69,7 +69,9 @@ export default function PaymentMethod() {
 
             {/* Payment Options Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-              <PaymentOption title="UPI Payment" description="Pay Using UPI apps like Gpay, Phonepe, Paytm etc" processingTime="Instant" fees="0%" />
+              <Link to="/upi-payment">
+                <PaymentOption title="UPI Payment" description="Pay Using UPI apps like Gpay, Phonepe, Paytm etc" processingTime="Instant" fees="0%" />
+              </Link>
               <PaymentOption title="Net Banking" description="Direct Bank Transfers Via Net Banking" processingTime="2 -5 min" fees="0%" />
               <PaymentOption title="Debit / Credit Cart" description="Visa, Mastercard, Rupay Accepted" processingTime="Instant" fees="2.5%" />
               <PaymentOption title="Wallet Balance" description="User your existing wallet balance" processingTime="Instant" fees="0%" />
