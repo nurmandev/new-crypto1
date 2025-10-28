@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Bell, ArrowLeft, Smartphone, CreditCard, Building } from "lucide-react";
+import { Bell, ArrowLeft } from "lucide-react";
 
 export default function PaymentMethod() {
   return (
@@ -111,34 +111,54 @@ export default function PaymentMethod() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
               {/* UPI Payment */}
               <PaymentOption
-                icon={<Smartphone className="w-6 h-6 text-black" />}
+                icon={
+                  <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="32" height="32" rx="16" fill="#3CC27B" fillOpacity="0.31"/>
+                    <path d="M20 6H12C11.4696 6 10.9609 6.21071 10.5858 6.58579C10.2107 6.96086 10 7.46957 10 8V24C10 24.5304 10.2107 25.0391 10.5858 25.4142C10.9609 25.7893 11.4696 26 12 26H20C20.5304 26 21.0391 25.7893 21.4142 25.4142C21.7893 25.0391 22 24.5304 22 24V8C22 7.46957 21.7893 6.96086 21.4142 6.58579C21.0391 6.21071 20.5304 6 20 6ZM17 25H15V24H17V25ZM20 23H12V9H20V23Z" fill="black"/>
+                  </svg>
+                }
                 title="UPI Payment"
                 description="Pay Using UPI apps like Gpay, Phonepe, Paytm etc"
                 processingTime="Instant"
                 fees="0%"
               />
 
-              {/* Debit/Credit Card */}
-              <PaymentOption
-                icon={<CreditCard className="w-6 h-6 text-black" />}
-                title="Debit / Credit Cart"
-                description="Visa, Mastercard, Rupay Accepted"
-                processingTime="Instant"
-                fees="2.5%"
-              />
-
               {/* Net Banking */}
               <PaymentOption
-                icon={<Building className="w-6 h-6 text-black" />}
+                icon={
+                  <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="32" height="32" rx="16" fill="#3CC27B" fillOpacity="0.31"/>
+                    <path d="M16 5.5L6.5 10.5V12.5H25.5V10.5M20.5 14.5V21.5H23.5V14.5M6.5 26.5H25.5V23.5H6.5M14.5 14.5V21.5H17.5V14.5M8.5 14.5V21.5H11.5V14.5H8.5Z" fill="black"/>
+                  </svg>
+                }
                 title="Net Banking"
                 description="Direct Bank Transfers Via Net Banking"
                 processingTime="2 -5 min"
                 fees="0%"
               />
 
+              {/* Debit/Credit Card */}
+              <PaymentOption
+                icon={
+                  <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="32" height="32" rx="16" fill="#3CC27B" fillOpacity="0.31"/>
+                    <path fillRule="evenodd" clipRule="evenodd" d="M23.1842 8.666L16.0002 8.5L8.81619 8.666C8.11197 8.68054 7.43432 8.9376 6.89762 9.39377C6.36092 9.84995 5.99803 10.4773 5.87019 11.17C5.28285 14.3632 5.28285 17.6368 5.87019 20.83C5.99799 21.5225 6.36074 22.1498 6.89723 22.6059C7.43373 23.0621 8.11114 23.3192 8.81519 23.334L16.0002 23.5L23.1842 23.334C23.8882 23.3192 24.5657 23.0621 25.1022 22.6059C25.6386 22.1498 26.0014 21.5225 26.1292 20.83C26.7165 17.6368 26.7165 14.3632 26.1292 11.17C26.0014 10.4775 25.6386 9.85024 25.1022 9.39409C24.5657 8.93793 23.8882 8.68077 23.1842 8.666ZM25.0002 15C25.0002 15.2652 24.8948 15.5196 24.7073 15.7071C24.5198 15.8946 24.2654 16 24.0002 16H8.00019C7.73498 16 7.48062 15.8946 7.29309 15.7071C7.10555 15.5196 7.00019 15.2652 7.00019 15C7.00019 14.7348 7.10555 14.4804 7.29309 14.2929C7.48062 14.1054 7.73498 14 8.00019 14H24.0002C24.2654 14 24.5198 14.1054 24.7073 14.2929C24.8948 14.4804 25.0002 14.7348 25.0002 15Z" fill="black"/>
+                  </svg>
+                }
+                title="Debit / Credit Cart"
+                description="Visa, Mastercard, Rupay Accepted"
+                processingTime="Instant"
+                fees="2.5%"
+              />
+
               {/* Wallet Balance */}
               <PaymentOption
-                icon={<Building className="w-6 h-6 text-black" />}
+                icon={
+                  <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="32" height="32" rx="16" fill="#3CC27B" fillOpacity="0.31"/>
+                    <path d="M16 5.5L6.5 10.5V12.5H25.5V10.5M20.5 14.5V21.5H23.5V14.5M6.5 26.5H25.5V23.5H6.5M14.5 14.5V21.5H17.5V14.5M8.5 14.5V21.5H11.5V14.5H8.5Z" fill="black"/>
+                  </svg>
+                }
                 title="Wallet Balance"
                 description="User your existing wallet balance"
                 processingTime="Instant"
@@ -192,20 +212,20 @@ function PaymentOption({
 }) {
   return (
     <button className="flex items-center gap-4 p-4 bg-[#F8F8F8] rounded-lg hover:bg-[#EEEEEE] transition-colors text-left w-full">
-      <div className="w-8 h-8 bg-[#3CC27B]/20 rounded-full flex items-center justify-center flex-shrink-0">
+      <div className="flex-shrink-0">
         {icon}
       </div>
       
       <div className="flex-1">
-        <h3 className="text-[15px] font-medium text-black mb-1">{title}</h3>
-        <p className="text-[14px] font-light text-black mb-3">{description}</p>
+        <h3 className="text-[15px] font-medium text-black leading-[33px]">{title}</h3>
+        <p className="text-[14px] font-light text-black leading-[33px]">{description}</p>
         
-        <div className="flex gap-6 text-xs">
-          <div>
+        <div className="mt-3">
+          <div className="text-xs">
             <span className="text-black font-light">Processing Time: </span>
             <span className="text-black font-normal">{processingTime}</span>
           </div>
-          <div>
+          <div className="text-xs">
             <span className="text-black font-light">Fees: </span>
             <span className="text-black font-normal">{fees}</span>
           </div>
