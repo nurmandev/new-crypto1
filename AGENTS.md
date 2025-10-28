@@ -37,7 +37,7 @@ public/               # Static assets (images, icons)
 1. **Frontend Only**: This is a frontend project. Do NOT add backend, server, or API code.
 2. **Client-side Routing**: Use React Router for all routing. Pages are in `client/pages/`
 3. **No API Calls**: This is a UI prototype. Keep all data static or in component state.
-4. **Component Organization**: 
+4. **Component Organization**:
    - Page components go in `client/pages/`
    - Reusable components go in `client/components/`
    - Utility functions go in `client/lib/`
@@ -47,6 +47,7 @@ public/               # Static assets (images, icons)
 ## Deployment
 
 This project is configured for **Netlify** deployment:
+
 - Automatic SPA routing handled by `netlify.toml`
 - Build command: `npm run build`
 - Publish directory: `dist`
@@ -81,6 +82,7 @@ This project is configured for **Netlify** deployment:
 ## No Backend
 
 This project does NOT have:
+
 - Node.js/Express server
 - API routes or endpoints
 - Database connections

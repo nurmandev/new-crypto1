@@ -52,7 +52,7 @@ client/
 
 ### Prerequisites
 
-- Node.js 16+ 
+- Node.js 16+
 - pnpm 10+
 
 ### Installation
