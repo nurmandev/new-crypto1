@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Copy, Trash2 } from "lucide-react";
+import { Copy, Trash2, X, CheckCircle2, Clock, Info, Truck } from "lucide-react";
 import DashboardLayout from "./components/DashboardLayout";
 
 export default function Cashout() {
@@ -13,8 +13,47 @@ export default function Cashout() {
   const [pincode, setPincode] = useState("");
   const [landmark, setLandmark] = useState("");
   const [notes, setNotes] = useState("");
+  const [showTrackingModal, setShowTrackingModal] = useState(false);
 
   const availableBalance = 45230.5;
+
+  // Mock tracking data
+  const trackingData = {
+    requestId: "CSH001",
+    amount: "₹5000",
+    method: "Cash Delivery",
+    status: "Processing",
+    deliveryAddress: "123 Main Street, Mumbai, Maharashtra 400001",
+    requestedDate: "2024-01-15",
+    estimatedDelivery: "2024-01-17",
+    trackingId: "TRK123456789",
+    timeline: [
+      {
+        title: "Request Submitted:",
+        date: "2024-01-15",
+        completed: true,
+        icon: "clock",
+      },
+      {
+        title: "Request Processing",
+        status: "In Progress",
+        completed: true,
+        icon: "info",
+      },
+      {
+        title: "Request Submitted:",
+        status: "Shipped",
+        completed: true,
+        icon: "truck",
+      },
+      {
+        title: "Delivered Successfully",
+        date: "2024-01-15",
+        completed: true,
+        icon: "check",
+      },
+    ],
+  };
 
   const cashoutRequests = [
     {
@@ -52,7 +91,9 @@ export default function Cashout() {
   };
 
   const handleTrack = () => {
-    console.log("Tracking:", trackingId);
+    if (trackingId.trim()) {
+      setShowTrackingModal(true);
+    }
   };
 
   const copyToClipboard = (text: string) => {
@@ -344,7 +385,182 @@ export default function Cashout() {
             ))}
           </div>
         </div>
+
+        {/* Tracking Modal */}
+        {showTrackingModal && (
+          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+            <div className="bg-[#EBEBEB] rounded-[13px] w-full max-w-[1234px] max-h-[90vh] overflow-y-auto relative">
+              {/* Close Button */}
+              <button
+                onClick={() => setShowTrackingModal(false)}
+                className="absolute top-6 right-6 p-2 hover:bg-gray-200 rounded-full transition-colors z-10"
+                aria-label="Close modal"
+              >
+                <X className="w-5 h-5 text-black" />
+              </button>
+
+              <div className="p-8 md:p-10">
+                {/* Modal Header */}
+                <h2 className="text-xl md:text-[25px] font-medium text-black text-center mb-8">
+                  Tracking Results
+                </h2>
+
+                {/* Content Grid */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+                  {/* Order Details */}
+                  <div className="bg-white rounded-[10px] p-6 md:p-8">
+                    <h3 className="text-lg md:text-[20px] font-medium text-black mb-6">
+                      Order Details
+                    </h3>
+
+                    <div className="space-y-4">
+                      <DetailRow
+                        label="Request ID:"
+                        value={trackingData.requestId}
+                      />
+                      <DetailRow label="Amount:" value={trackingData.amount} />
+                      <DetailRow label="Method" value={trackingData.method} />
+                      <DetailRow label="Status:" value={trackingData.status} />
+                      <DetailRow
+                        label="Delivery Address:"
+                        value={trackingData.deliveryAddress}
+                        multiline
+                      />
+                      <DetailRow
+                        label="Requested Date :"
+                        value={trackingData.requestedDate}
+                      />
+                      <DetailRow
+                        label="Estimated Delivery :"
+                        value={trackingData.estimatedDelivery}
+                      />
+
+                      {/* Tracking ID with Copy */}
+                      <div className="flex justify-between items-start gap-4">
+                        <span className="text-xs md:text-[14px] font-light text-black flex-shrink-0">
+                          Tracking ID :
+                        </span>
+                        <div className="flex items-center gap-2 bg-white rounded border px-2.5 py-2">
+                          <span className="text-xs md:text-[14px] font-medium text-black">
+                            {trackingData.trackingId}
+                          </span>
+                          <button
+                            onClick={() => copyToClipboard(trackingData.trackingId)}
+                            className="p-1 hover:bg-gray-100 rounded transition-colors"
+                            aria-label="Copy tracking ID"
+                          >
+                            <Copy className="w-3 h-3 text-black" />
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Status Timeline */}
+                  <div className="bg-white rounded-[10px] p-6 md:p-8">
+                    <h3 className="text-lg md:text-[20px] font-medium text-black mb-6">
+                      Status Timeline
+                    </h3>
+
+                    <div className="space-y-3">
+                      {trackingData.timeline.map((item, index) => (
+                        <TimelineItem
+                          key={index}
+                          title={item.title}
+                          date={item.date}
+                          status={item.status}
+                          completed={item.completed}
+                          icon={item.icon}
+                        />
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </DashboardLayout>
+  );
+}
+
+interface DetailRowProps {
+  label: string;
+  value: string;
+  multiline?: boolean;
+}
+
+function DetailRow({ label, value, multiline = false }: DetailRowProps) {
+  return (
+    <div className="flex justify-between items-start gap-4">
+      <span className="text-xs md:text-[14px] font-light text-black flex-shrink-0">
+        {label}
+      </span>
+      <span
+        className={`text-xs md:text-[14px] font-medium text-black text-right ${
+          multiline ? "leading-5" : ""
+        }`}
+      >
+        {value}
+      </span>
+    </div>
+  );
+}
+
+interface TimelineItemProps {
+  title: string;
+  date?: string;
+  status?: string;
+  completed: boolean;
+  icon: string;
+}
+
+function TimelineItem({ title, date, status, completed, icon }: TimelineItemProps) {
+  const getIcon = () => {
+    switch (icon) {
+      case "clock":
+        return <Clock className="w-5 h-5 text-[#F9AA4B]" />;
+      case "info":
+        return <Info className="w-5 h-5 text-[#627EEA]" />;
+      case "truck":
+        return <Truck className="w-5 h-5 text-[#B674FF]" />;
+      case "check":
+        return (
+          <div className="w-5 h-5 rounded-full border-2 border-[#3CC27B] flex items-center justify-center">
+            <CheckCircle2 className="w-3 h-3 text-[#3CC27B]" />
+          </div>
+        );
+      default:
+        return null;
+    }
+  };
+
+  const bgColor = icon === "check" ? "bg-[#F0FDF4]" : "bg-white";
+
+  return (
+    <div
+      className={`flex items-center justify-between p-4 rounded-[7px] ${bgColor}`}
+    >
+      <div className="flex items-center gap-6">
+        {getIcon()}
+        <span className="text-xs md:text-[14px] font-light text-black">
+          {title}
+        </span>
+      </div>
+      <div className="flex items-center gap-3">
+        {status && (
+          <span className="text-xs md:text-[14px] font-medium text-black text-right">
+            {status}
+          </span>
+        )}
+        {date && (
+          <span className="text-xs md:text-[14px] font-medium text-black text-right">
+            {date}
+          </span>
+        )}
+        {completed && <CheckCircle2 className="w-[18px] h-[18px] text-[#3CC27B]" />}
+      </div>
+    </div>
   );
 }
