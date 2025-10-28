@@ -27,6 +27,7 @@ import WithdrawFund from "./pages/dashboard/WithdrawFund";
 import Cashout from "./pages/dashboard/Cashout";
 import DepositCrypto from "./pages/dashboard/DepositCrypto";
 import DepositSuccess from "./pages/dashboard/DepositSuccess";
+import WithdrawCrypto from "./pages/dashboard/WithdrawCrypto";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -57,6 +58,7 @@ const App = () => (
           <Route path="/purchase-success" element={<PurchaseSuccess />} />
           <Route path="/withdraw-fund" element={<WithdrawFund />} />
           <Route path="/withdraw-crypto" element={<Cashout />} />
+          <Route path="/withdraw-crypto-form" element={<WithdrawCrypto />} />
           <Route path="/deposit-crypto" element={<DepositCrypto />} />
           <Route path="/deposit-success" element={<DepositSuccess />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
