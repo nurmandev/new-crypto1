@@ -2,12 +2,22 @@ import { useState, useRef } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import DashboardHeader from "./components/DashboardHeader";
 import Sidebar from "./components/Sidebar";
-import { Lock, ChevronRight, Copy, Eye, Plus } from "lucide-react";
+import { Lock, ChevronRight, Copy, Eye, Plus, X } from "lucide-react";
+
+interface CryptoHolding {
+  name: string;
+  amount: string;
+  inrValue: string;
+  icon: string;
+  address: string;
+  exchangeRate: string;
+}
 
 export default function MyWallet() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const [isUnlocked, setIsUnlocked] = useState(false);
   const [pin, setPin] = useState<string[]>(["", "", "", "", "", ""]);
+  const [selectedCrypto, setSelectedCrypto] = useState<CryptoHolding | null>(null);
   const inputRefs = useRef<(HTMLInputElement | null)[]>([]);
   const navigate = useNavigate();
 
