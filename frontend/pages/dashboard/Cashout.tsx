@@ -79,7 +79,10 @@ export default function Cashout() {
               Available Wallet Balance
             </p>
             <p className="text-white text-4xl md:text-5xl lg:text-[50px] font-bold">
-              ₹{availableBalance.toLocaleString('en-IN', { minimumFractionDigits: 1 })}
+              ₹
+              {availableBalance.toLocaleString("en-IN", {
+                minimumFractionDigits: 1,
+              })}
             </p>
           </div>
         </div>
