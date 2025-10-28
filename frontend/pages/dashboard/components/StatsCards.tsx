@@ -40,13 +40,7 @@ export default function StatsCards() {
         </div>
         <div className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center flex-shrink-0">
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-            <circle
-              cx="8"
-              cy="8"
-              r="7"
-              stroke="currentColor"
-              strokeWidth="2"
-            />
+            <circle cx="8" cy="8" r="7" stroke="currentColor" strokeWidth="2" />
           </svg>
         </div>
       </div>

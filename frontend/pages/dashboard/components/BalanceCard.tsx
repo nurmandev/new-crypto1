@@ -32,7 +32,9 @@ export default function BalanceCard() {
       external: false,
     },
     {
-      icon: (props) => <TrendingUp {...props} style={{ transform: "rotate(180deg)" }} />,
+      icon: (props) => (
+        <TrendingUp {...props} style={{ transform: "rotate(180deg)" }} />
+      ),
       label: "Sell",
       href: "/sell-crypto",
       external: false,
@@ -75,7 +77,10 @@ export default function BalanceCard() {
           const buttonContent = (
             <>
               <div className="w-16 sm:w-20 md:w-24 h-16 sm:h-20 md:h-24 rounded-full border-4 md:border-[7px] border-[#3CC27B] bg-white flex items-center justify-center shadow-lg cursor-pointer hover:scale-105 transition-transform flex-shrink-0">
-                <Icon className="w-6 sm:w-8 md:w-10 h-6 sm:h-8 md:h-10 text-[#3CC27B]" strokeWidth={2.5} />
+                <Icon
+                  className="w-6 sm:w-8 md:w-10 h-6 sm:h-8 md:h-10 text-[#3CC27B]"
+                  strokeWidth={2.5}
+                />
               </div>
               <span className="text-white font-medium text-center text-xs sm:text-sm md:text-base">
                 {action.label}
