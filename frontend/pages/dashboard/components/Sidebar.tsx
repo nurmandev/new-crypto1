@@ -134,17 +134,28 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
               Quick Access
             </p>
             <div className="space-y-2">
-              {cryptoOperations.map((item) => (
-                <Link
-                  key={item.label}
-                  to={item.href}
-                  onClick={onClose}
-                  className="flex items-center gap-2 px-2 md:px-3 py-1.5 md:py-2 rounded text-black hover:bg-[#F0F0F0] hover:text-[#3CC27B] transition-colors text-xs md:text-[13px]"
-                >
-                  <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#3CC27B]"></span>
-                  <span>{item.label}</span>
-                </Link>
-              ))}
+              {cryptoOperations.map((item) => {
+                const isActive = location.pathname === item.href;
+                return (
+                  <Link
+                    key={item.label}
+                    to={item.href}
+                    onClick={onClose}
+                    className={`flex items-center gap-2 px-2 md:px-3 py-1.5 md:py-2 rounded transition-all text-xs md:text-[13px] ${
+                      isActive
+                        ? "bg-[#3CC27B] text-white"
+                        : "text-black hover:bg-[#F0F0F0] hover:text-[#3CC27B]"
+                    }`}
+                  >
+                    <span
+                      className={`inline-block w-1.5 h-1.5 rounded-full ${
+                        isActive ? "bg-white" : "bg-[#3CC27B]"
+                      }`}
+                    ></span>
+                    <span>{item.label}</span>
+                  </Link>
+                );
+              })}
             </div>
           </div>
         </nav>
