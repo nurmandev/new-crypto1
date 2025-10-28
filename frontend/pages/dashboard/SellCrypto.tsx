@@ -13,7 +13,11 @@ export default function SellCrypto() {
 
   const handleSellSubmit = () => {
     // In a real app, submit to API first
-    console.log("Sell crypto:", { selectedCrypto, amountToSell, youReceiveAmount });
+    console.log("Sell crypto:", {
+      selectedCrypto,
+      amountToSell,
+      youReceiveAmount,
+    });
     // Navigate to sell success page
     navigate("/sell-success");
   };
