@@ -92,13 +92,18 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
           {navItems.map((item) => {
             const Icon = item.icon;
             const isExternal = item.external;
+            const isActive = location.pathname === item.href;
 
             if (isExternal) {
               return (
                 <a
                   key={item.label}
                   href={item.href}
-                  className="flex items-center gap-3 text-black hover:text-[#3CC27B] transition-colors text-sm md:text-base"
+                  className={`flex items-center gap-3 px-3 py-2 rounded transition-all text-sm md:text-base ${
+                    isActive
+                      ? "bg-[#3CC27B] text-white"
+                      : "text-black hover:text-[#3CC27B] hover:bg-[#F0F0F0]"
+                  }`}
                 >
                   <Icon className="w-4 md:w-[18px] h-4 md:h-[18px] flex-shrink-0" />
                   <span>{item.label}</span>
@@ -111,7 +116,11 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
                 key={item.label}
                 to={item.href}
                 onClick={onClose}
-                className="flex items-center gap-3 text-black hover:text-[#3CC27B] transition-colors text-sm md:text-base"
+                className={`flex items-center gap-3 px-3 py-2 rounded transition-all text-sm md:text-base ${
+                  isActive
+                    ? "bg-[#3CC27B] text-white"
+                    : "text-black hover:text-[#3CC27B] hover:bg-[#F0F0F0]"
+                }`}
               >
                 <Icon className="w-4 md:w-[18px] h-4 md:h-[18px] flex-shrink-0" />
                 <span>{item.label}</span>
