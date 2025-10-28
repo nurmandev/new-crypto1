@@ -24,8 +24,12 @@ export default function MyWallet() {
         {/* Main Content */}
         <div className="flex-1 space-y-4 md:space-y-6">
           <div className="bg-white rounded-lg p-6 md:p-8">
-            <h1 className="text-2xl md:text-3xl font-bold text-black mb-2">My Wallet</h1>
-            <p className="text-gray-600">Your wallet page content will be added here.</p>
+            <h1 className="text-2xl md:text-3xl font-bold text-black mb-2">
+              My Wallet
+            </h1>
+            <p className="text-gray-600">
+              Your wallet page content will be added here.
+            </p>
           </div>
         </div>
       </div>

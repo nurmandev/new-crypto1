@@ -28,7 +28,12 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
       href: "/deposit-withdraw",
       external: false,
     },
-    { icon: Wallet, label: "My Wallet", href: "/dashboard/my-wallet", external: false },
+    {
+      icon: Wallet,
+      label: "My Wallet",
+      href: "/dashboard/my-wallet",
+      external: false,
+    },
     {
       icon: CreditCard,
       label: "Payment Methods",
