@@ -67,7 +67,7 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
       {/* Sidebar */}
       <div
         className={`fixed md:relative md:flex md:flex-col md:w-64 w-full h-screen md:h-auto bg-white rounded-lg overflow-y-auto z-40 transform transition-transform duration-300 ${
-          isOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"
+          isOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
         <div className="bg-[#3CC27B] px-4 md:px-6 py-3 md:py-4 flex items-center gap-3 text-white sticky top-0">
