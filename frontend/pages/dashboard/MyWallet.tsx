@@ -84,30 +84,38 @@ export default function MyWallet() {
     navigator.clipboard.writeText(text);
   };
 
-  const cryptoHoldings = [
+  const cryptoHoldings: CryptoHolding[] = [
     {
       name: "Usdt",
       amount: "300 USDT",
       inrValue: "₹24,000.00",
       icon: "https://cryptologos.cc/logos/tether-usdt-logo.svg",
+      address: "bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh",
+      exchangeRate: "1 USDT = ₹90.00"
     },
     {
       name: "Bitcoin",
       amount: "0.05234 BTC",
       inrValue: "₹24,000.00",
       icon: "https://cryptologos.cc/logos/bitcoin-btc-logo.svg",
+      address: "bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh",
+      exchangeRate: "1 BTC = ₹85,00,000.00"
     },
     {
       name: "Ethereum",
       amount: "1.2345 ETH",
       inrValue: "₹24,000.00",
       icon: "https://cryptologos.cc/logos/ethereum-eth-logo.svg",
+      address: "0x742d35Cc6635C0532925a3b8D22Ad5B73e9B6547",
+      exchangeRate: "1 ETH = ₹3,50,000.00"
     },
     {
-      name: "Usdt",
-      amount: "300 USDT",
+      name: "Cardano",
+      amount: "1500 ADA",
       inrValue: "₹24,000.00",
-      icon: "https://cryptologos.cc/logos/tether-usdt-logo.svg",
+      icon: "https://cryptologos.cc/logos/cardano-ada-logo.svg",
+      address: "addr1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh0fxy2kg",
+      exchangeRate: "1 ADA = ₹35.00"
     },
   ];
 
