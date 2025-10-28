@@ -18,9 +18,9 @@
     "noFallthroughCasesInSwitch": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./client/*"]
+      "@/*": ["./frontend/*"]
     }
   },
-  "include": ["client"],
+  "include": ["frontend"],
   "references": [{ "path": "./tsconfig.app.json" }]
 }
