@@ -40,6 +40,7 @@ const App = () => (
           <Route path="/sell-crypto" element={<SellCrypto />} />
           <Route path="/sell-success" element={<SellSuccess />} />
           <Route path="/payment-method" element={<PaymentMethod />} />
+          <Route path="/upi-payment" element={<UPIPayment />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
