@@ -32,7 +32,10 @@ export default function MyWallet() {
     }
   };
 
-  const handleKeyDown = (index: number, e: React.KeyboardEvent<HTMLInputElement>) => {
+  const handleKeyDown = (
+    index: number,
+    e: React.KeyboardEvent<HTMLInputElement>,
+  ) => {
     // Move to previous input on backspace if current input is empty
     if (e.key === "Backspace" && !pin[index] && index > 0) {
       inputRefs.current[index - 1]?.focus();
@@ -42,7 +45,7 @@ export default function MyWallet() {
   const handlePaste = (e: React.ClipboardEvent) => {
     e.preventDefault();
     const pastedData = e.clipboardData.getData("text").slice(0, 6);
-    
+
     if (!/^\d+$/.test(pastedData)) return;
 
     const newPin = [...pin];
@@ -52,7 +55,7 @@ export default function MyWallet() {
       }
     });
     setPin(newPin);
-    
+
     // Log PIN to console
     console.log("Current PIN:", newPin.join(""));
 
@@ -65,7 +68,7 @@ export default function MyWallet() {
   const handleUnlock = () => {
     const fullPin = pin.join("");
     console.log("Unlocking wallet with PIN:", fullPin);
-    
+
     if (fullPin.length === 6) {
       // Here you would validate the PIN
       // For now, just log it
