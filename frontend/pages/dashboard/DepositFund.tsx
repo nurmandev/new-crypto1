@@ -25,7 +25,10 @@ export default function DepositFund() {
 
       <div className="px-4 md:px-6 lg:px-12 mt-4 md:mt-6 flex flex-col lg:flex-row gap-4 md:gap-6">
         {/* Sidebar */}
-        <Sidebar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
+        <Sidebar
+          isOpen={isSidebarOpen}
+          onClose={() => setIsSidebarOpen(false)}
+        />
 
         {/* Main Content */}
         <div className="flex-1 max-w-[1234px]">
@@ -71,7 +74,10 @@ export default function DepositFund() {
 
                 {/* Details Grid */}
                 <div className="space-y-3 md:space-y-4 mb-6 md:mb-8">
-                  <DetailRow label="Merchant:" value={paymentDetails.merchant} />
+                  <DetailRow
+                    label="Merchant:"
+                    value={paymentDetails.merchant}
+                  />
                   <DetailRow label="UPI ID:" value={paymentDetails.upiId} />
                   <DetailRow
                     label="Transaction ID:"
