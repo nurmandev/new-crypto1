@@ -146,8 +146,8 @@ export default function WithdrawCrypto() {
                 Security Warning
               </h4>
               <p className="text-xs md:text-[13px] font-light text-black leading-[25px]">
-                Double-check the destination address and network. Crypto transactions are
-                irreversible and require admin approval.
+                Double-check the destination address and network. Crypto
+                transactions are irreversible and require admin approval.
               </p>
             </div>
 
@@ -163,7 +163,10 @@ export default function WithdrawCrypto() {
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                <path d="M5 10V6H13.92L13.95 3.99H5V0L0 5L5 10Z" fill="currentColor" />
+                <path
+                  d="M5 10V6H13.92L13.95 3.99H5V0L0 5L5 10Z"
+                  fill="currentColor"
+                />
               </svg>
               Back to Payment Methods
             </Link>
