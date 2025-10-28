@@ -1,0 +1,233 @@
+import { Link } from "react-router-dom";
+import { useState } from "react";
+import DashboardHeader from "./components/DashboardHeader";
+import Sidebar from "./components/Sidebar";
+
+export default function UPIPayment() {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  const transactions = [
+    {
+      title: "Buy BTC",
+      date: "2024-12-20 14:30",
+      address: "0x1234...5678",
+      amount: "0.012 BTC",
+      fiat: "₹52,345",
+      status: "Completed",
+    },
+    {
+      title: "Buy BTC",
+      date: "2024-12-20 14:30",
+      address: "0x1234...5678",
+      amount: "0.012 BTC",
+      fiat: "₹52,345",
+      status: "Completed",
+    },
+    {
+      title: "Buy BTC",
+      date: "2024-12-20 14:30",
+      address: "0x1234...5678",
+      amount: "0.012 BTC",
+      fiat: "₹52,345",
+      status: "Completed",
+    },
+    {
+      title: "Buy BTC",
+      date: "2024-12-20 14:30",
+      address: "0x1234...5678",
+      amount: "0.012 BTC",
+      fiat: "₹52,345",
+      status: "Completed",
+    },
+  ];
+
+  return (
+    <div className="min-h-screen bg-[#F8F8F8] pb-12 md:pb-16">
+      {/* Top Navigation Bar */}
+      <DashboardHeader
+        onMenuToggle={() => setIsSidebarOpen(!isSidebarOpen)}
+        isMenuOpen={isSidebarOpen}
+      />
+
+      <div className="px-4 md:px-6 lg:px-12 mt-4 md:mt-6 flex flex-col lg:flex-row gap-4 md:gap-6">
+        {/* Sidebar Navigation */}
+        <Sidebar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
+
+        {/* Main Content */}
+        <div className="flex-1 space-y-4 md:space-y-6">
+          <div className="bg-white rounded-lg md:rounded-[10px] p-4 md:p-6 lg:p-8 shadow-sm">
+            {/* Header */}
+            <h2 className="text-lg md:text-xl font-medium text-black mb-2">
+              UPI Payment
+            </h2>
+            <p className="text-[#838383] text-sm md:text-[17px] mb-6 md:mb-8">
+              Scan the QR code with any UPI app to complete payment
+            </p>
+
+            {/* Payment Section */}
+            <div className="flex flex-col lg:flex-row gap-4 md:gap-6 mb-6 md:mb-8">
+              {/* QR Code Section */}
+              <div className="flex-1 max-w-full lg:max-w-[339px]">
+                <div className="bg-white rounded-[13px] border-[0.6px] border-[#E3E3E3] p-6 md:p-8 flex flex-col items-center">
+                  {/* QR Code Placeholder */}
+                  <div className="w-full max-w-[244px] aspect-square bg-gray-100 rounded-lg mb-4 md:mb-6 flex items-center justify-center">
+                    <img
+                      src="https://api.builder.io/api/v1/image/assets/TEMP/823afdf4defe66d5effc071788589477bf0342b7?width=488"
+                      alt="UPI QR Code"
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+
+                  {/* Amount Display */}
+                  <div className="text-center">
+                    <p className="text-sm md:text-[15px] font-medium text-black mb-1">
+                      Amount To Pay
+                    </p>
+                    <p className="text-base md:text-[17px] font-bold text-[#3CC27B]">
+                      Rs.3,681
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Payment Details Section */}
+              <div className="flex-1">
+                <div className="bg-[#EDF9F3] rounded-[13px] border-l border-[#3CC27B] p-4 md:p-6 lg:p-8 h-full">
+                  <h3 className="text-sm md:text-[15px] font-medium text-black mb-4 md:mb-6">
+                    Payment Details:
+                  </h3>
+
+                  <div className="space-y-3 md:space-y-4 mb-6 md:mb-8">
+                    {/* Merchant */}
+                    <div className="flex flex-col sm:flex-row sm:justify-between gap-1 sm:gap-4">
+                      <span className="text-xs md:text-[14px] font-light text-black">
+                        Merchant:
+                      </span>
+                      <span className="text-xs md:text-[14px] font-medium text-black">
+                        Usdtmpay
+                      </span>
+                    </div>
+
+                    {/* UPI ID */}
+                    <div className="flex flex-col sm:flex-row sm:justify-between gap-1 sm:gap-4">
+                      <span className="text-xs md:text-[14px] font-light text-black">
+                        UPI ID:
+                      </span>
+                      <span className="text-xs md:text-[14px] font-medium text-black">
+                        Usdtmpay@ybl
+                      </span>
+                    </div>
+
+                    {/* Transaction ID */}
+                    <div className="flex flex-col sm:flex-row sm:justify-between gap-1 sm:gap-4">
+                      <span className="text-xs md:text-[14px] font-light text-black">
+                        Transaction ID:
+                      </span>
+                      <span className="text-xs md:text-[14px] font-medium text-black">
+                        CT1756489038983
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Divider */}
+                  <div className="border-t border-[#EDEDED] mb-4 md:mb-6"></div>
+
+                  {/* Total Amount */}
+                  <div className="flex flex-col sm:flex-row sm:justify-between gap-2 sm:gap-4 mb-6 md:mb-8">
+                    <span className="text-xs md:text-[14px] font-normal text-black">
+                      Total Amount:
+                    </span>
+                    <span className="text-xs md:text-[14px] font-medium text-[#3CC27B]">
+                      ₹3,681.50
+                    </span>
+                  </div>
+
+                  {/* Instructions */}
+                  <p className="text-xs md:text-[14px] font-light text-black leading-relaxed md:leading-[25px]">
+                    Complete the payment within 15 minutes. Your crypto will be
+                    credited instantly after payment confirmation.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Back Button */}
+            <Link
+              to="/payment-method"
+              className="inline-flex items-center gap-2 text-black text-xs md:text-sm hover:text-[#3CC27B] transition-colors"
+            >
+              <svg
+                width="14"
+                height="10"
+                viewBox="0 0 14 10"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className="flex-shrink-0"
+              >
+                <path
+                  d="M5 10V6H13.92L13.95 3.99H5V0L0 5L5 10Z"
+                  fill="currentColor"
+                />
+              </svg>
+              <span className="font-medium">Back to Payment Methods</span>
+            </Link>
+          </div>
+        </div>
+
+        {/* Recent Transactions Sidebar */}
+        <div className="w-full lg:w-[368px] space-y-4">
+          <div className="flex items-center justify-between">
+            <h3 className="text-base md:text-[17px] font-medium text-black text-center flex-1 lg:text-left">
+              Recent Transactions
+            </h3>
+            <button className="px-2 md:px-3 py-1 bg-black text-white rounded text-xs hover:bg-gray-900 transition-colors whitespace-nowrap">
+              view all
+            </button>
+          </div>
+
+          {/* Transaction Cards */}
+          <div className="space-y-3">
+            {transactions.map((transaction, index) => (
+              <div
+                key={index}
+                className="bg-white rounded-lg border-[0.5px] border-[#D9D9D9] p-3 md:p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4"
+              >
+                {/* Left Section */}
+                <div className="flex-1 min-w-0">
+                  <h4 className="text-sm md:text-base font-bold text-black mb-1">
+                    {transaction.title}
+                  </h4>
+                  <p className="text-xs font-light text-black">
+                    {transaction.date}
+                  </p>
+                  <p className="text-xs font-light text-black">
+                    {transaction.address}
+                  </p>
+                </div>
+
+                {/* Middle - Status Badge */}
+                <div className="flex items-center justify-start sm:justify-center w-full sm:w-auto">
+                  <div className="px-2 md:px-3 py-1 bg-[#BDFDDB] rounded text-xs">
+                    <span className="text-[#1C5C3A] font-normal">
+                      {transaction.status}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Right Section - Amount */}
+                <div className="text-left sm:text-right w-full sm:w-auto">
+                  <p className="text-base md:text-[17px] font-medium text-black">
+                    {transaction.amount}
+                  </p>
+                  <p className="text-xs font-light text-black text-right">
+                    {transaction.fiat}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
