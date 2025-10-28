@@ -5,10 +5,18 @@ import DashboardHeader from "./components/DashboardHeader";
 import Sidebar from "./components/Sidebar";
 
 export default function SellCrypto() {
+  const navigate = useNavigate();
   const [selectedCrypto, setSelectedCrypto] = useState("Ethereum (ETH)");
   const [amountToSell, setAmountToSell] = useState("0.02");
   const [youReceiveAmount, setYouReceiveAmount] = useState("3681.50");
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  const handleSellSubmit = () => {
+    // In a real app, submit to API first
+    console.log("Sell crypto:", { selectedCrypto, amountToSell, youReceiveAmount });
+    // Navigate to sell success page
+    navigate("/sell-success");
+  };
 
   return (
     <div className="min-h-screen bg-[#F8F8F8] pb-12 md:pb-16">
