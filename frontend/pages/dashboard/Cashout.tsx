@@ -95,7 +95,9 @@ export default function Cashout() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    // In a real app, submit to API first
     console.log("Cashout request submitted");
+    // Navigation happens via tracking modal
   };
 
   const handleTrack = () => {

@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import DashboardLayout from "./components/DashboardLayout";
 
 const transactions = [
@@ -103,6 +104,17 @@ export default function WalletPayment() {
               />
             </svg>
           </button>
+
+          {/* Complete Payment Button */}
+          <Link
+            to="/purchase-success"
+            className="w-full flex items-center justify-center gap-2 bg-black text-white py-3 px-4 rounded-md border border-[#C3C3C3] hover:bg-gray-900 transition-colors mb-4 md:mb-6"
+          >
+            <span className="text-[15px] font-medium">Payment Completed</span>
+            <svg width="10" height="16" viewBox="0 0 10 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fillRule="evenodd" clipRule="evenodd" d="M2 -3.49691e-07L10 8L2 16L-6.11959e-07 14L6 8L-8.74228e-08 2L2 -3.49691e-07Z" fill="white"/>
+            </svg>
+          </Link>
 
           {/* Back Button */}
           <Link
