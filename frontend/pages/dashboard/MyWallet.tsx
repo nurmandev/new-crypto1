@@ -380,9 +380,10 @@ export default function MyWallet() {
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               {cryptoHoldings.map((holding, index) => (
-                <div
+                <button
                   key={index}
-                  className="bg-white rounded-lg p-5 flex flex-col gap-2"
+                  onClick={() => setSelectedCrypto(holding)}
+                  className="bg-white rounded-lg p-5 flex flex-col gap-2 border border-[#D4D4D4] hover:border-[#3CC27B] hover:shadow-md transition-all cursor-pointer text-left"
                 >
                   <div className="flex items-center gap-4">
                     <div>
@@ -398,7 +399,7 @@ export default function MyWallet() {
                   <p className="text-sm md:text-base text-[#3CC27B] font-medium">
                     ₹ INR Value: {holding.inrValue}
                   </p>
-                </div>
+                </button>
               ))}
             </div>
           </div>
