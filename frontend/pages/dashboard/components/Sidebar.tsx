@@ -25,7 +25,7 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
     {
       icon: Wallet,
       label: "Deposit/Withdraw",
-      href: "#",
+      href: "/deposit-withdraw",
       external: false,
     },
     { icon: Wallet, label: "My Wallet", href: "#", external: false },
