@@ -18,6 +18,7 @@ import SellCrypto from "./pages/dashboard/SellCrypto";
 import SellSuccess from "./pages/dashboard/SellSuccess";
 import PaymentMethod from "./pages/dashboard/PaymentMethod";
 import UPIPayment from "./pages/dashboard/UPIPayment";
+import WalletPayment from "./pages/dashboard/WalletPayment";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -41,6 +42,7 @@ const App = () => (
           <Route path="/sell-success" element={<SellSuccess />} />
           <Route path="/payment-method" element={<PaymentMethod />} />
           <Route path="/upi-payment" element={<UPIPayment />} />
+          <Route path="/wallet-payment" element={<WalletPayment />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
