@@ -20,7 +20,8 @@ export default function WithdrawCrypto() {
       amount,
       destinationAddress,
     });
-    // Could navigate to a success/pending page
+    // Navigate to success page
+    navigate("/withdraw-success");
   };
 
   return (
