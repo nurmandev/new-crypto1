@@ -174,18 +174,22 @@ export default function ForgotPassword() {
                   />
                 </div>
 
-                {newPassword && confirmPassword && newPassword !== confirmPassword && (
-                  <p className="text-[13px] text-[#FA1818] mb-4">
-                    Passwords do not match
-                  </p>
-                )}
+                {newPassword &&
+                  confirmPassword &&
+                  newPassword !== confirmPassword && (
+                    <p className="text-[13px] text-[#FA1818] mb-4">
+                      Passwords do not match
+                    </p>
+                  )}
 
                 <button
                   type="submit"
                   disabled={newPassword !== confirmPassword || !newPassword}
                   className="w-full flex items-center justify-center gap-2 bg-black hover:bg-black/90 disabled:bg-gray-300 text-white py-3 px-16 rounded-md border border-[#C3C3C3] transition-colors"
                 >
-                  <span className="text-[15px] font-medium">Reset Password</span>
+                  <span className="text-[15px] font-medium">
+                    Reset Password
+                  </span>
                   <ArrowRight className="w-4 h-4" />
                 </button>
               </form>
