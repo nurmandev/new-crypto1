@@ -4,6 +4,7 @@ import { Copy } from "lucide-react";
 import DashboardLayout from "./components/DashboardLayout";
 
 export default function DepositCrypto() {
+  const navigate = useNavigate();
   const [selectedCrypto, setSelectedCrypto] = useState("USDT");
   const [amount, setAmount] = useState("");
   const [transactionHash, setTransactionHash] = useState("");
@@ -15,7 +16,10 @@ export default function DepositCrypto() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    // In a real app, this would submit to API first
     console.log("Deposit crypto:", { selectedCrypto, amount, transactionHash });
+    // Navigate to success page
+    navigate("/deposit-success");
   };
 
   const copyToClipboard = () => {
