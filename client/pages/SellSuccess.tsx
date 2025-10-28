@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
-import { Bell, ArrowUpDown, ArrowRight, ChevronDown } from "lucide-react";
-import { useState } from "react";
+import { Bell, Copy } from "lucide-react";
 
-export default function SellCrypto() {
-  const [selectedCrypto, setSelectedCrypto] = useState("Ethereum (ETH)");
-  const [amountToSell, setAmountToSell] = useState("0.02");
-  const [youReceiveAmount, setYouReceiveAmount] = useState("3681.50");
+export default function SellSuccess() {
+  const transactionId = "CT17565429468713XMCHMUIN";
+
+  const copyToClipboard = () => {
+    navigator.clipboard.writeText(transactionId);
+  };
 
   return (
     <div className="min-h-screen bg-[#F8F8F8]">
@@ -204,168 +205,185 @@ export default function SellCrypto() {
 
         {/* Main Content */}
         <div className="flex-1 space-y-6">
-          {/* Sell Crypto Card */}
+          {/* Success Card */}
           <div className="bg-white rounded-[10px] p-8">
-            {/* Buy/Sell Toggle */}
-            <div className="relative mb-6">
-              <div className="w-full h-[51px] bg-[#F0F0F0] rounded-md"></div>
-              <div className="absolute top-1 right-1 w-[calc(50%-4px)] h-[43px] bg-white rounded"></div>
-              <div className="absolute inset-0 flex">
-                <Link
-                  to="/buy-crypto"
-                  className="flex-1 flex items-center justify-center text-xl font-medium text-gray-900"
+            {/* Success Icon & Message */}
+            <div className="flex flex-col items-center mb-6">
+              <div className="w-11 h-11 rounded-full bg-[#3CC27B]/20 flex items-center justify-center mb-4">
+                <svg
+                  width="45"
+                  height="45"
+                  viewBox="0 0 45 45"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
                 >
-                  Buy Crypto
-                </Link>
-                <button className="flex-1 text-xl font-medium text-gray-900">
-                  Sell Crypto
-                </button>
-              </div>
-            </div>
-
-            <p className="text-[#838383] text-[17px] mb-8">
-              Convert your cryptocurrency to INR instantly
-            </p>
-
-            {/* Available Balance */}
-            <div className="bg-gradient-to-r from-[#3CC27B] to-[#00602D] rounded-[10px] p-8 mb-6">
-              <div className="text-center">
-                <p className="text-white text-xl font-medium mb-2">
-                  Available Balance
-                </p>
-                <h2 className="text-white text-5xl font-bold mb-2">
-                  0.05432100 ETH
-                </h2>
-                <p className="text-white text-xl">≈ ₹10,049.385</p>
-              </div>
-            </div>
-
-            {/* Select Cryptocurrency */}
-            <div className="mb-6">
-              <label className="block text-[17px] font-medium text-black mb-3">
-                Select Cryptocurrency
-              </label>
-              <div className="relative">
-                <div className="w-full h-[51px] bg-[#F0F0F0] rounded-md px-7 flex items-center justify-between cursor-pointer">
-                  <span className="text-[13px] text-[#8E8E8E]">
-                    {selectedCrypto}
-                  </span>
-                  <ChevronDown className="w-3 h-3 text-black" />
-                </div>
-              </div>
-            </div>
-
-            {/* Amount To Sell / You will Receive */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6 relative">
-              <div>
-                <label className="block text-[17px] font-medium text-black mb-3">
-                  Amount To Sell
-                </label>
-                <div className="relative">
-                  <input
-                    type="text"
-                    value={amountToSell}
-                    onChange={(e) => setAmountToSell(e.target.value)}
-                    className="w-full h-[51px] bg-[#F0F0F0] border border-[#CACACA] rounded-md px-7 text-[15px] font-bold text-[#8E8E8E] focus:outline-none focus:ring-2 focus:ring-[#3CC27B]"
+                  <rect
+                    width="45"
+                    height="45"
+                    rx="22.5"
+                    fill="#3CC27B"
+                    fillOpacity="0.31"
                   />
-                  <span className="absolute right-7 top-1/2 -translate-y-1/2 text-[13px] text-[#717171]">
-                    ETH
-                  </span>
-                </div>
-              </div>
-
-              {/* Swap Button */}
-              <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 hidden md:block">
-                <button className="w-11 h-11 rounded-full bg-gradient-to-br from-[#3CC27B] to-[#1C5C3A] flex items-center justify-center hover:scale-105 transition-transform shadow-lg">
-                  <ArrowUpDown className="w-5 h-5 text-white" />
-                </button>
-              </div>
-
-              <div>
-                <label className="block text-[17px] font-medium text-black mb-3">
-                  You will Receive
-                </label>
-                <div className="relative">
-                  <input
-                    type="text"
-                    value={youReceiveAmount}
-                    onChange={(e) => setYouReceiveAmount(e.target.value)}
-                    className="w-full h-[51px] bg-[#F0F0F0] border border-[#CACACA] rounded-md px-7 text-[15px] font-bold text-[#8E8E8E] focus:outline-none focus:ring-2 focus:ring-[#3CC27B]"
+                  <path
+                    fillRule="evenodd"
+                    clipRule="evenodd"
+                    d="M22.5 35C24.1415 35 25.767 34.6767 27.2835 34.0485C28.8001 33.4203 30.1781 32.4996 31.3388 31.3388C32.4996 30.1781 33.4203 28.8001 34.0485 27.2835C34.6767 25.767 35 24.1415 35 22.5C35 20.8585 34.6767 19.233 34.0485 17.7165C33.4203 16.1999 32.4996 14.8219 31.3388 13.6612C30.1781 12.5004 28.8001 11.5797 27.2835 10.9515C25.767 10.3233 24.1415 10 22.5 10C19.1848 10 16.0054 11.317 13.6612 13.6612C11.317 16.0054 10 19.1848 10 22.5C10 25.8152 11.317 28.9946 13.6612 31.3388C16.0054 33.683 19.1848 35 22.5 35ZM22.1778 27.5556L29.1222 19.2222L26.9889 17.4444L21.0167 24.6097L17.9264 21.5181L15.9625 23.4819L20.1292 27.6486L21.2042 28.7236L22.1778 27.5556Z"
+                    fill="#3CC27B"
                   />
-                  <span className="absolute right-7 top-1/2 -translate-y-1/2 text-[13px] text-[#717171]">
-                    INR
-                  </span>
-                </div>
+                </svg>
               </div>
+
+              <h2 className="text-xl font-semibold text-black mb-2">
+                Sell Successful!
+              </h2>
+              <p className="text-[#838383] text-[17px]">
+                Your crypto sale has been completed successfully
+              </p>
             </div>
 
-            <p className="text-[#838383] text-center text-[17px] mb-8">
-              1 ETH = ₹1,85,000
-            </p>
-
-            {/* Continue Button */}
-            <Link
-              to="/sell-success"
-              className="w-full flex items-center justify-center gap-2 bg-black text-white py-4 rounded-md border border-[#C3C3C3] hover:bg-black/90 transition-colors mb-8"
-            >
-              <span className="text-[15px] font-medium">Continue To Sell</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-
-            {/* Purchase Summary */}
-            <div className="border-l-2 border-[#FA1818] bg-[rgba(253,189,189,0.19)] rounded-[10px] p-6">
-              <h3 className="text-[15px] font-medium text-black mb-6">
-                Purchase Summary
+            {/* Amount Display */}
+            <div className="text-center mb-8 pb-8 border-b border-[#EDEDED]">
+              <h3 className="text-5xl font-bold text-black mb-2">
+                -0.08758485 ADA
+                <svg
+                  className="inline-block ml-2 mb-2"
+                  width="18"
+                  height="10"
+                  viewBox="0 0 18 10"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M17 4V9H12"
+                    stroke="#FA1818"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                  <path
+                    d="M17 9L12 4C11.117 3.117 10.676 2.676 10.135 2.627C10.0452 2.61888 9.95482 2.61888 9.865 2.627C9.324 2.677 8.883 3.117 8 4C7.117 4.883 6.676 5.324 6.135 5.373C6.045 5.381 5.955 5.381 5.865 5.373C5.324 5.323 4.883 4.883 4 4L1 1"
+                    stroke="#FA1818"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
               </h3>
+              <p className="text-xl text-black">≈ ₹4</p>
+            </div>
 
-              <div className="space-y-3">
-                <div className="flex justify-between items-center">
-                  <span className="text-[14px] text-black font-light">
-                    Cryptocurrency:
-                  </span>
-                  <span className="text-[14px] text-black font-medium">
-                    Ethereum (ETH)
-                  </span>
-                </div>
+            {/* Transaction & Financial Details */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+              {/* Transaction Details */}
+              <div>
+                <h3 className="text-[15px] font-medium text-black leading-[33px] mb-4">
+                  Transaction Details:
+                </h3>
 
-                <div className="flex justify-between items-center">
-                  <span className="text-[14px] text-black font-light">
-                    Crypto Amount:
-                  </span>
-                  <span className="text-[14px] text-black font-medium">
-                    0.02000000 ETH
-                  </span>
-                </div>
-
-                <div className="flex justify-between items-center">
-                  <span className="text-[14px] text-black font-light">
-                    Exchange Rate:
-                  </span>
-                  <span className="text-[14px] text-black font-medium">
-                    ₹1,85,000
-                  </span>
-                </div>
-
-                <div className="flex justify-between items-center">
-                  <span className="text-[14px] text-black font-light">
-                    Trading Fee (0.5%):
-                  </span>
-                  <span className="text-[14px] text-black font-medium">
-                    ₹18.50
-                  </span>
-                </div>
-
-                <div className="border-t border-[#EDEDED] pt-3 mt-3">
+                <div className="space-y-3">
                   <div className="flex justify-between items-center">
                     <span className="text-[14px] text-black font-light">
-                      You Will Receive:
+                      Transaction ID:
                     </span>
-                    <span className="text-[14px] text-[#3CC27B] font-medium">
-                      ₹3,681.50
+                    <div className="flex items-center gap-2">
+                      <span className="text-[14px] text-black font-medium">
+                        {transactionId}
+                      </span>
+                      <button
+                        onClick={copyToClipboard}
+                        className="text-black hover:text-[#3CC27B] transition-colors"
+                      >
+                        <Copy className="w-4 h-4" />
+                      </button>
+                    </div>
+                  </div>
+
+                  <div className="flex justify-between items-center">
+                    <span className="text-[14px] text-black font-light">
+                      Transaction Type:
+                    </span>
+                    <span className="px-3 py-1 bg-[#F6F6F6] rounded-full text-[8px] text-black">
+                      Sale
+                    </span>
+                  </div>
+
+                  <div className="flex justify-between items-center">
+                    <span className="text-[14px] text-black font-light">
+                      Payment Method:
+                    </span>
+                    <span className="text-[14px] text-black font-medium">
+                      wallet_credit
                     </span>
                   </div>
                 </div>
               </div>
+
+              {/* Financial Breakdown */}
+              <div>
+                <h3 className="text-[15px] font-medium text-black leading-[33px] mb-4">
+                  Financial Breakdown
+                </h3>
+
+                <div className="space-y-3">
+                  <div className="flex justify-between items-center">
+                    <span className="text-[14px] text-black font-light">
+                      Price per ADA:
+                    </span>
+                    <span className="text-[14px] text-black font-medium">
+                      ₹45.67
+                    </span>
+                  </div>
+
+                  <div className="flex justify-between items-center">
+                    <span className="text-[14px] text-black font-light">
+                      Amount:
+                    </span>
+                    <span className="text-[14px] text-black font-medium">
+                      0.08758485 ADA
+                    </span>
+                  </div>
+
+                  <div className="flex justify-between items-center">
+                    <span className="text-[14px] text-black font-light">
+                      Subtotal:
+                    </span>
+                    <span className="text-[14px] text-black font-medium">
+                      ₹4
+                    </span>
+                  </div>
+
+                  <div className="flex justify-between items-center">
+                    <span className="text-[14px] text-black font-light">
+                      Trading Fee:
+                    </span>
+                    <span className="text-[14px] text-black font-medium">
+                      ₹0.00
+                    </span>
+                  </div>
+
+                  <div className="border-t border-[#EDEDED] pt-3">
+                    <div className="flex justify-between items-center">
+                      <span className="text-[14px] text-black font-semibold">
+                        Total Paid:
+                      </span>
+                      <span className="text-[14px] text-[#3CC27B] font-medium">
+                        ₹3,681.50
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Success Message Box */}
+            <div className="border-l-2 border-[#3CC27B] bg-[#EDF9F3] rounded-[13px] p-6">
+              <h3 className="text-[15px] font-medium text-black leading-[33px] mb-2">
+                Transaction Details
+              </h3>
+              <p className="text-[13px] text-black font-light leading-[25px]">
+                Your INR has been credited to your wallet. The transaction is
+                complete and verified.
+              </p>
             </div>
           </div>
         </div>
