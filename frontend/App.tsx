@@ -23,6 +23,7 @@ import DepositWithdraw from "./pages/dashboard/DepositWithdraw";
 import DepositFund from "./pages/dashboard/DepositFund";
 import PurchaseSuccess from "./pages/dashboard/PurchaseSuccess";
 import WithdrawFund from "./pages/dashboard/WithdrawFund";
+import Cashout from "./pages/dashboard/Cashout";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -51,6 +52,7 @@ const App = () => (
           <Route path="/deposit-fund" element={<DepositFund />} />
           <Route path="/purchase-success" element={<PurchaseSuccess />} />
           <Route path="/withdraw-fund" element={<WithdrawFund />} />
+          <Route path="/cashout" element={<Cashout />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
