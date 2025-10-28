@@ -5,7 +5,7 @@ import DashboardHeader from "./components/DashboardHeader";
 import Sidebar from "./components/Sidebar";
 
 export default function SellSuccess() {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const transactionId = "CT17565429468713XMCHMUIN";
 
   const copyToClipboard = () => {

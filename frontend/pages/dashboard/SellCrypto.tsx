@@ -9,7 +9,7 @@ export default function SellCrypto() {
   const [selectedCrypto, setSelectedCrypto] = useState("Ethereum (ETH)");
   const [amountToSell, setAmountToSell] = useState("0.02");
   const [youReceiveAmount, setYouReceiveAmount] = useState("3681.50");
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
   const handleSellSubmit = () => {
     // In a real app, submit to API first

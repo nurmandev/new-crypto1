@@ -9,7 +9,7 @@ import MoreServices from "./components/MoreServices";
 import RightSidebar from "./components/RightSidebar";
 
 export default function Dashboard() {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
   const closeSidebar = () => {
     setIsSidebarOpen(false);

@@ -8,7 +8,7 @@ export default function BuyCrypto() {
   const [selectedCrypto, setSelectedCrypto] = useState("Cardano (ADA)");
   const [youPayAmount, setYouPayAmount] = useState("300.00");
   const [youReceiveAmount, setYouReceiveAmount] = useState("10.71428571");
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
   return (
     <div className="min-h-screen bg-[#F8F8F8] pb-12 md:pb-16">

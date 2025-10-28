@@ -5,7 +5,7 @@ import Sidebar from "./components/Sidebar";
 import { Lock, ChevronRight, Copy, Eye, Plus } from "lucide-react";
 
 export default function MyWallet() {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const [isUnlocked, setIsUnlocked] = useState(false);
   const [pin, setPin] = useState<string[]>(["", "", "", "", "", ""]);
   const inputRefs = useRef<(HTMLInputElement | null)[]>([]);
