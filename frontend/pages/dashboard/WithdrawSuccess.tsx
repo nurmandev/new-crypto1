@@ -55,7 +55,7 @@ export default function WithdrawSuccess() {
                 value={transactionData.withdrawAmount}
                 multiline
               />
-              
+
               {/* Status with Badge */}
               <div className="flex justify-between items-center gap-4">
                 <span className="text-xs md:text-[14px] font-light text-black">
@@ -82,8 +82,8 @@ export default function WithdrawSuccess() {
               Transaction Details
             </h4>
             <p className="text-xs md:text-[13px] font-light text-black leading-[25px]">
-              Your USDT has been added to your wallet. You can now trade, withdraw, or hold
-              your crypto assets.
+              Your USDT has been added to your wallet. You can now trade,
+              withdraw, or hold your crypto assets.
             </p>
           </div>
 
