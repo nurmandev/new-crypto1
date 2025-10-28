@@ -14,6 +14,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import ForgotPassword from "./pages/ForgotPassword";
 import Dashboard from "./pages/dashboard/Dashboard";
+import MyWallet from "./pages/dashboard/MyWallet";
 import BuyCrypto from "./pages/dashboard/BuyCrypto";
 import SellCrypto from "./pages/dashboard/SellCrypto";
 import SellSuccess from "./pages/dashboard/SellSuccess";
@@ -48,6 +49,7 @@ const App = () => (
           <Route path="/register" element={<Register />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/dashboard/my-wallet" element={<MyWallet />} />
           <Route path="/buy-crypto" element={<BuyCrypto />} />
           <Route path="/sell-crypto" element={<SellCrypto />} />
           <Route path="/sell-success" element={<SellSuccess />} />
