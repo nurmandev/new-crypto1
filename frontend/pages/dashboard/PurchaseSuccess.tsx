@@ -52,7 +52,10 @@ export default function PurchaseSuccess() {
 
       <div className="px-4 md:px-6 lg:px-12 mt-4 md:mt-6 flex flex-col lg:flex-row gap-4 md:gap-6">
         {/* Sidebar */}
-        <Sidebar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
+        <Sidebar
+          isOpen={isSidebarOpen}
+          onClose={() => setIsSidebarOpen(false)}
+        />
 
         {/* Main Content */}
         <div className="flex-1 space-y-4 md:space-y-6 max-w-[843px]">
@@ -137,10 +140,10 @@ export default function PurchaseSuccess() {
                   <DetailRow label="Amount:" value="0.08758485 ADA" />
                   <DetailRow label="Subtotal:" value="₹4" />
                   <DetailRow label="Trading Fee:" value="₹0.00" />
-                  
+
                   {/* Divider */}
                   <div className="w-full h-[0.7px] bg-[#EDEDED] my-3" />
-                  
+
                   <div className="flex justify-between items-center gap-4">
                     <span className="text-xs md:text-[14px] font-semibold text-black">
                       Total Paid:
