@@ -15,7 +15,13 @@ export default function DepositWithdraw() {
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <rect width="44" height="42" rx="21" fill="#3CC27B" fillOpacity="0.31" />
+          <rect
+            width="44"
+            height="42"
+            rx="21"
+            fill="#3CC27B"
+            fillOpacity="0.31"
+          />
           <path
             d="M13 32H31V29.4118H13V32ZM31 17.7647H25.8571V10H18.1429V17.7647H13L22 26.8235L31 17.7647Z"
             fill="#3CC27B"
@@ -36,7 +42,13 @@ export default function DepositWithdraw() {
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <rect width="44" height="41.8571" rx="20.9286" fill="#3CC27B" fillOpacity="0.31" />
+          <rect
+            width="44"
+            height="41.8571"
+            rx="20.9286"
+            fill="#3CC27B"
+            fillOpacity="0.31"
+          />
           <path
             d="M31 10L13 10L13 12.5715L31 12.5715L31 10ZM13 24.1429L18.1429 24.1429L18.1429 31.8572L25.8571 31.8572L25.8571 24.1429L31 24.1429L22 15.1429L13 24.1429Z"
             fill="#3CC27B"
@@ -57,7 +69,13 @@ export default function DepositWithdraw() {
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <rect width="44" height="44" rx="22" fill="#3CC27B" fillOpacity="0.31" />
+          <rect
+            width="44"
+            height="44"
+            rx="22"
+            fill="#3CC27B"
+            fillOpacity="0.31"
+          />
           <path
             d="M22.2614 33.3988C29.9816 34.7652 31.8881 23.9142 24.1679 22.5462M22.2614 33.3988L13 31.7585M22.2614 33.3988L21.7189 36.5M17.9921 21.4538L24.1695 22.5462C31.8897 23.9142 33.7962 13.0617 26.0744 11.6953L16.8099 10.0549M26.0729 11.6953L26.6185 8.59407M15.5399 35.4059L20.4411 7.5"
             stroke="#3CC27B"
@@ -81,7 +99,13 @@ export default function DepositWithdraw() {
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <rect width="44" height="42.5" rx="21.25" fill="#3CC27B" fillOpacity="0.31" />
+          <rect
+            width="44"
+            height="42.5"
+            rx="21.25"
+            fill="#3CC27B"
+            fillOpacity="0.31"
+          />
           <path
             d="M16.7468 14.5H13.7468C13.349 14.5 12.9674 14.658 12.6861 14.9393C12.4048 15.2206 12.2468 15.6022 12.2468 16V26.5M12.2468 26.5H31.7468M12.2468 26.5L10.7968 30.636C10.7416 30.8567 10.7373 31.0871 10.7843 31.3098C10.8313 31.5324 10.9283 31.7414 11.068 31.921C11.2077 32.1006 11.3864 32.2461 11.5907 32.3464C11.7949 32.4467 12.0193 32.4992 12.2468 32.5H31.7468C31.9747 32.5 32.1997 32.448 32.4046 32.348C32.6094 32.248 32.7888 32.1027 32.929 31.923C33.0693 31.7433 33.1668 31.534 33.214 31.311C33.2613 31.088 33.2571 30.8571 33.2018 30.636L31.7468 26.5M31.7468 26.5V16C31.7468 15.6022 31.5888 15.2206 31.3074 14.9393C31.0261 14.658 30.6446 14.5 30.2468 14.5H27.9968M21.2468 29.5H23.4968"
             stroke="#3CC27B"
@@ -122,13 +146,9 @@ export default function DepositWithdraw() {
                 if (option.title === "Withdraw Fund") return "/withdraw-fund";
                 return "#";
               };
-              
+
               return (
-                <Link
-                  key={index}
-                  to={getLink()}
-                  className="block"
-                >
+                <Link key={index} to={getLink()} className="block">
                   <OptionCard
                     title={option.title}
                     description={option.description}

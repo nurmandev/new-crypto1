@@ -122,10 +122,10 @@ export default function PurchaseSuccess() {
                 <DetailRow label="Amount:" value="0.08758485 ADA" />
                 <DetailRow label="Subtotal:" value="₹4" />
                 <DetailRow label="Trading Fee:" value="₹0.00" />
-                
+
                 {/* Divider */}
                 <div className="w-full h-[0.7px] bg-[#EDEDED] my-3" />
-                
+
                 <div className="flex justify-between items-center gap-4">
                   <span className="text-xs md:text-[14px] font-semibold text-black">
                     Total Paid:

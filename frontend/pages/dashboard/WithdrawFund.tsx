@@ -7,7 +7,7 @@ export default function WithdrawFund() {
   const [amount, setAmount] = useState("");
   const [upiId, setUpiId] = useState("");
 
-  const availableBalance = 45230.50;
+  const availableBalance = 45230.5;
   const minWithdrawal = 500;
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -36,7 +36,11 @@ export default function WithdrawFund() {
                 Available Balance
               </h3>
               <p className="text-3xl md:text-4xl lg:text-[50px] font-bold text-black">
-                ₹{availableBalance.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                ₹
+                {availableBalance.toLocaleString("en-IN", {
+                  minimumFractionDigits: 2,
+                  maximumFractionDigits: 2,
+                })}
               </p>
             </div>
 
