@@ -25,7 +25,9 @@ export default function Dashboard() {
 
       <div className="px-4 md:px-6 lg:px-12 mt-4 md:mt-6 flex flex-col lg:flex-row gap-4 md:gap-6">
         {/* Sidebar Navigation */}
-        <Sidebar isOpen={isSidebarOpen} onClose={closeSidebar} />
+        <div className="flex-shrink-0">
+          <Sidebar isOpen={isSidebarOpen} onClose={closeSidebar} />
+        </div>
 
         {/* Main Content */}
         <div className="flex-1 space-y-4 md:space-y-6">
