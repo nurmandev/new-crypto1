@@ -1,0 +1,15 @@
+{
+  "name": "usdtmpay",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "cd frontend && pnpm dev",
+    "build": "cd frontend && pnpm build",
+    "preview": "cd frontend && pnpm preview",
+    "test": "cd frontend && pnpm test",
+    "install": "cd frontend && pnpm install"
+  },
+  "workspaces": [
+    "frontend"
+  ]
+}
