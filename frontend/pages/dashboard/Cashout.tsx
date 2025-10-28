@@ -1,5 +1,13 @@
 import { useState } from "react";
-import { Copy, Trash2, X, CheckCircle2, Clock, Info, Truck } from "lucide-react";
+import {
+  Copy,
+  Trash2,
+  X,
+  CheckCircle2,
+  Clock,
+  Info,
+  Truck,
+} from "lucide-react";
 import DashboardLayout from "./components/DashboardLayout";
 
 export default function Cashout() {
@@ -445,7 +453,9 @@ export default function Cashout() {
                             {trackingData.trackingId}
                           </span>
                           <button
-                            onClick={() => copyToClipboard(trackingData.trackingId)}
+                            onClick={() =>
+                              copyToClipboard(trackingData.trackingId)
+                            }
                             className="p-1 hover:bg-gray-100 rounded transition-colors"
                             aria-label="Copy tracking ID"
                           >
@@ -516,7 +526,13 @@ interface TimelineItemProps {
   icon: string;
 }
 
-function TimelineItem({ title, date, status, completed, icon }: TimelineItemProps) {
+function TimelineItem({
+  title,
+  date,
+  status,
+  completed,
+  icon,
+}: TimelineItemProps) {
   const getIcon = () => {
     switch (icon) {
       case "clock":
@@ -559,7 +575,9 @@ function TimelineItem({ title, date, status, completed, icon }: TimelineItemProp
             {date}
           </span>
         )}
-        {completed && <CheckCircle2 className="w-[18px] h-[18px] text-[#3CC27B]" />}
+        {completed && (
+          <CheckCircle2 className="w-[18px] h-[18px] text-[#3CC27B]" />
+        )}
       </div>
     </div>
   );
