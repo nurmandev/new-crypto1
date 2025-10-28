@@ -12,6 +12,7 @@ import Services from "./pages/Services";
 import Contact from "./pages/Contact";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import ForgotPassword from "./pages/ForgotPassword";
 import Dashboard from "./pages/dashboard/Dashboard";
 import BuyCrypto from "./pages/dashboard/BuyCrypto";
 import SellCrypto from "./pages/dashboard/SellCrypto";
@@ -43,6 +44,7 @@ const App = () => (
           <Route path="/contact" element={<Contact />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/buy-crypto" element={<BuyCrypto />} />
           <Route path="/sell-crypto" element={<SellCrypto />} />
