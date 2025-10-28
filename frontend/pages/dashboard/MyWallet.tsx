@@ -17,7 +17,9 @@ export default function MyWallet() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const [isUnlocked, setIsUnlocked] = useState(false);
   const [pin, setPin] = useState<string[]>(["", "", "", "", "", ""]);
-  const [selectedCrypto, setSelectedCrypto] = useState<CryptoHolding | null>(null);
+  const [selectedCrypto, setSelectedCrypto] = useState<CryptoHolding | null>(
+    null,
+  );
   const inputRefs = useRef<(HTMLInputElement | null)[]>([]);
   const navigate = useNavigate();
 
@@ -91,7 +93,7 @@ export default function MyWallet() {
       inrValue: "₹24,000.00",
       icon: "https://cryptologos.cc/logos/tether-usdt-logo.svg",
       address: "bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh",
-      exchangeRate: "1 USDT = ₹90.00"
+      exchangeRate: "1 USDT = ₹90.00",
     },
     {
       name: "Bitcoin",
@@ -99,7 +101,7 @@ export default function MyWallet() {
       inrValue: "₹24,000.00",
       icon: "https://cryptologos.cc/logos/bitcoin-btc-logo.svg",
       address: "bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh",
-      exchangeRate: "1 BTC = ₹85,00,000.00"
+      exchangeRate: "1 BTC = ₹85,00,000.00",
     },
     {
       name: "Ethereum",
@@ -107,7 +109,7 @@ export default function MyWallet() {
       inrValue: "₹24,000.00",
       icon: "https://cryptologos.cc/logos/ethereum-eth-logo.svg",
       address: "0x742d35Cc6635C0532925a3b8D22Ad5B73e9B6547",
-      exchangeRate: "1 ETH = ₹3,50,000.00"
+      exchangeRate: "1 ETH = ₹3,50,000.00",
     },
     {
       name: "Cardano",
@@ -115,7 +117,7 @@ export default function MyWallet() {
       inrValue: "₹24,000.00",
       icon: "https://cryptologos.cc/logos/cardano-ada-logo.svg",
       address: "addr1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh0fxy2kg",
-      exchangeRate: "1 ADA = ₹35.00"
+      exchangeRate: "1 ADA = ₹35.00",
     },
   ];
 
@@ -582,7 +584,14 @@ export default function MyWallet() {
               {/* Address Section */}
               <div className="rounded-lg border-[1.7px] border-dashed border-[#CACACA] bg-[#F0F0F0] p-6 mb-6 relative">
                 <p className="text-base md:text-lg font-medium text-black mb-2">
-                  {selectedCrypto.name === "Usdt" ? "USDT" : selectedCrypto.name === "Bitcoin" ? "BTC" : selectedCrypto.name === "Ethereum" ? "ETH" : "ADA"} Address
+                  {selectedCrypto.name === "Usdt"
+                    ? "USDT"
+                    : selectedCrypto.name === "Bitcoin"
+                      ? "BTC"
+                      : selectedCrypto.name === "Ethereum"
+                        ? "ETH"
+                        : "ADA"}{" "}
+                  Address
                 </p>
                 <p className="text-sm md:text-base text-[#8E8E8E] mb-4 break-all">
                   {selectedCrypto.address}
@@ -598,12 +607,22 @@ export default function MyWallet() {
               {/* Sell Button */}
               <div className="space-y-4">
                 <button className="w-full py-3 md:py-4 bg-[#FA1818] text-white rounded-md font-medium text-sm md:text-base hover:bg-[#E01010] transition-colors">
-                  Sell {selectedCrypto.name === "Usdt" ? "USDT" : selectedCrypto.name === "Bitcoin" ? "BTC" : selectedCrypto.name === "Ethereum" ? "ETH" : "ADA"}
+                  Sell{" "}
+                  {selectedCrypto.name === "Usdt"
+                    ? "USDT"
+                    : selectedCrypto.name === "Bitcoin"
+                      ? "BTC"
+                      : selectedCrypto.name === "Ethereum"
+                        ? "ETH"
+                        : "ADA"}
                 </button>
 
                 {/* Exchange Rate */}
                 <p className="text-xs md:text-sm text-[#838383]">
-                  Exchange Value: <span className="text-black">{selectedCrypto.exchangeRate}</span>
+                  Exchange Value:{" "}
+                  <span className="text-black">
+                    {selectedCrypto.exchangeRate}
+                  </span>
                 </p>
               </div>
             </div>
