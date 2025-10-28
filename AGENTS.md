@@ -1,164 +1,90 @@
-# Fusion Starter
+# Project Guidelines for Agents
 
-A production-ready full-stack React application template with integrated Express server, featuring React Router 6 SPA mode, TypeScript, Vitest, Zod and modern tooling.
+## Project Overview
 
-While the starter comes with a express server, only create endpoint when strictly neccesary, for example to encapsulate logic that must leave in the server, such as private keys handling, or certain DB operations, db...
-
-## Tech Stack
-
-- **PNPM**: Prefer pnpm
-- **Frontend**: React 18 + React Router 6 (spa) + TypeScript + Vite + TailwindCSS 3
-- **Backend**: Express server integrated with Vite dev server
-- **Testing**: Vitest
-- **UI**: Radix UI + TailwindCSS 3 + Lucide React icons
+This is a **frontend-only** cryptocurrency trading dashboard application built with React, TypeScript, and Tailwind CSS.
 
 ## Project Structure
 
 ```
-client/                   # React SPA frontend
-├── pages/                # Route components (Index.tsx = home)
-├── components/ui/        # Pre-built UI component library
-├── App.tsx                # App entry point and with SPA routing setup
-└── global.css            # TailwindCSS 3 theming and global styles
+client/
+├── pages/              # Page components (route pages)
+├── components/        # Reusable UI components
+│   └── ui/           # shadcn/ui component library
+├── hooks/            # Custom React hooks
+├── lib/              # Utility functions and helpers
+├── App.tsx           # Main app component with routing
+└── global.css        # Global styles
 
-server/                   # Express API backend
-├── index.ts              # Main server setup (express config + routes)
-└── routes/               # API handlers
-
-shared/                   # Types used by both client & server
-└── api.ts                # Example of how to share api interfaces
+public/               # Static assets (images, icons)
 ```
 
-## Key Features
+## Technology Stack
 
-## SPA Routing System
+- **Frontend Framework**: React 18 with TypeScript
+- **Build Tool**: Vite
+- **Routing**: React Router v6
+- **Styling**: Tailwind CSS + PostCSS
+- **UI Components**: shadcn/ui (Radix UI primitives)
+- **Animations**: Framer Motion
+- **Icons**: Lucide React
+- **Notifications**: Sonner
+- **Form Validation**: React Hook Form + Zod
+- **Particles**: react-tsparticles
 
-The routing system is powered by React Router 6:
+## Important Rules
 
-- `client/pages/Index.tsx` represents the home page.
-- Routes are defined in `client/App.tsx` using the `react-router-dom` import
-- Route files are located in the `client/pages/` directory
+1. **Frontend Only**: This is a frontend project. Do NOT add backend, server, or API code.
+2. **Client-side Routing**: Use React Router for all routing. Pages are in `client/pages/`
+3. **No API Calls**: This is a UI prototype. Keep all data static or in component state.
+4. **Component Organization**: 
+   - Page components go in `client/pages/`
+   - Reusable components go in `client/components/`
+   - Utility functions go in `client/lib/`
+5. **Styling**: Use Tailwind CSS classes. Keep styles responsive and mobile-first.
+6. **State Management**: Use React hooks (useState, useContext). No Redux/Zustand needed.
 
-For example, routes can be defined with:
+## Deployment
 
-```typescript
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+This project is configured for **Netlify** deployment:
+- Automatic SPA routing handled by `netlify.toml`
+- Build command: `npm run build`
+- Publish directory: `dist`
 
-<Routes>
-  <Route path="/" element={<Index />} />
-  {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-  <Route path="*" element={<NotFound />} />
-</Routes>;
-```
+## Available Routes
 
-### Styling System
+- `/` - Home/Landing page
+- `/login` - Login page
+- `/dashboard` - Main dashboard
+- `/buy-crypto` - Buy cryptocurrency
+- `/sell-crypto` - Sell cryptocurrency
+- `/payment-method` - Payment method selection
+- `/sell-success` - Transaction success page
 
-- **Primary**: TailwindCSS 3 utility classes
-- **Theme and design tokens**: Configure in `client/global.css` 
-- **UI components**: Pre-built library in `client/components/ui/`
-- **Utility**: `cn()` function combines `clsx` + `tailwind-merge` for conditional classes
+## Key Files to Know
 
-```typescript
-// cn utility usage
-className={cn(
-  "base-classes",
-  { "conditional-class": condition },
-  props.className  // User overrides
-)}
-```
+- `client/App.tsx` - Main app with routing setup
+- `client/pages/` - All page components
+- `vite.config.ts` - Vite configuration (frontend only)
+- `tailwind.config.ts` - Tailwind configuration
+- `netlify.toml` - Netlify deployment configuration
+- `package.json` - Dependencies (frontend only)
 
-### Express Server Integration
+## Before Making Changes
 
-- **Development**: Single port (8080) for both frontend/backend
-- **Hot reload**: Both client and server code
-- **API endpoints**: Prefixed with `/api/`
+1. Check if the component exists in `client/components/`
+2. Use existing UI components from `client/components/ui/`
+3. Keep the component architecture clean and modular
+4. Follow the existing code style and naming conventions
+5. Ensure all changes are frontend-related
 
-#### Example API Routes
-- `GET /api/ping` - Simple ping api
-- `GET /api/demo` - Demo endpoint  
+## No Backend
 
-### Shared Types
-Import consistent types in both client and server:
-```typescript
-import { DemoResponse } from '@shared/api';
-```
+This project does NOT have:
+- Node.js/Express server
+- API routes or endpoints
+- Database connections
+- Netlify functions
+- Environment variables for backend services
 
-Path aliases:
-- `@shared/*` - Shared folder
-- `@/*` - Client folder
-
-## Development Commands
-
-```bash
-pnpm dev        # Start dev server (client + server)
-pnpm build      # Production build
-pnpm start      # Start production server
-pnpm typecheck  # TypeScript validation
-pnpm test          # Run Vitest tests
-```
-
-## Adding Features
-
-### Add new colors to the theme
-
-Open `client/global.css` and `tailwind.config.ts` and add new tailwind colors.
-
-### New API Route
-1. **Optional**: Create a shared interface in `shared/api.ts`:
-```typescript
-export interface MyRouteResponse {
-  message: string;
-  // Add other response properties here
-}
-```
-
-2. Create a new route handler in `server/routes/my-route.ts`:
-```typescript
-import { RequestHandler } from "express";
-import { MyRouteResponse } from "@shared/api"; // Optional: for type safety
-
-export const handleMyRoute: RequestHandler = (req, res) => {
-  const response: MyRouteResponse = {
-    message: 'Hello from my endpoint!'
-  };
-  res.json(response);
-};
-```
-
-3. Register the route in `server/index.ts`:
-```typescript
-import { handleMyRoute } from "./routes/my-route";
-
-// Add to the createServer function:
-app.get("/api/my-endpoint", handleMyRoute);
-```
-
-4. Use in React components with type safety:
-```typescript
-import { MyRouteResponse } from '@shared/api'; // Optional: for type safety
-
-const response = await fetch('/api/my-endpoint');
-const data: MyRouteResponse = await response.json();
-```
-
-### New Page Route
-1. Create component in `client/pages/MyPage.tsx`
-2. Add route in `client/App.tsx`:
-```typescript
-<Route path="/my-page" element={<MyPage />} />
-```
-
-## Production Deployment
-
-- **Standard**: `pnpm build`
-- **Binary**: Self-contained executables (Linux, macOS, Windows)
-- **Cloud Deployment**: Use either Netlify or Vercel via their MCP integrations for easy deployment. Both providers work well with this starter template.
-
-## Architecture Notes
-
-- Single-port development with Vite + Express integration
-- TypeScript throughout (client, server, shared)
-- Full hot reload for rapid development
-- Production-ready with multiple deployment options
-- Comprehensive UI component library included
-- Type-safe API communication via shared interfaces
+If you need backend functionality, this is out of scope for this project.
