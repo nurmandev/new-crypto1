@@ -1,12 +1,7 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
-import DashboardHeader from "./components/DashboardHeader";
-import Sidebar from "./components/Sidebar";
+import DashboardLayout from "./components/DashboardLayout";
 
-export default function WalletPayment() {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-
-  const transactions = [
+const transactions = [
     {
       title: "Buy BTC",
       date: "2024-12-20 14:30",
@@ -41,23 +36,10 @@ export default function WalletPayment() {
     },
   ];
 
+export default function WalletPayment() {
   return (
-    <div className="min-h-screen bg-[#F8F8F8] pb-12 md:pb-16">
-      {/* Top Navigation Bar */}
-      <DashboardHeader
-        onMenuToggle={() => setIsSidebarOpen(!isSidebarOpen)}
-        isMenuOpen={isSidebarOpen}
-      />
-
-      <div className="px-4 md:px-6 lg:px-12 mt-4 md:mt-6 flex flex-col lg:flex-row gap-4 md:gap-6">
-        {/* Sidebar Navigation */}
-        <Sidebar
-          isOpen={isSidebarOpen}
-          onClose={() => setIsSidebarOpen(false)}
-        />
-
-        {/* Main Content */}
-        <div className="flex-1 space-y-4 md:space-y-6 max-w-[843px]">
+    <DashboardLayout>
+      <div className="flex-1 space-y-4 md:space-y-6 max-w-[843px]">
           <div className="bg-white rounded-[10px] p-4 md:p-6 lg:p-8 shadow-sm">
             {/* Header */}
             <h2 className="text-lg md:text-xl lg:text-[20px] font-medium text-black mb-1 md:mb-2">
@@ -143,62 +125,66 @@ export default function WalletPayment() {
               <span>Back to Payment Methods</span>
             </Link>
           </div>
+      </div>
+
+      {/* Recent Transactions Sidebar */}
+      <div className="w-full lg:w-[368px] space-y-3 md:space-y-4">
+        <div className="flex items-center justify-between">
+          <h3 className="text-base md:text-[17px] font-medium text-black text-center flex-1 lg:text-left">
+            Recent Transactions
+          </h3>
+          <button className="px-2 md:px-[10px] py-1 bg-black text-white rounded text-xs hover:bg-gray-900 transition-colors whitespace-nowrap">
+            view all
+          </button>
         </div>
 
-        {/* Recent Transactions Sidebar */}
-        <div className="w-full lg:w-[368px] space-y-3 md:space-y-4">
-          <div className="flex items-center justify-between">
-            <h3 className="text-base md:text-[17px] font-medium text-black text-center flex-1 lg:text-left">
-              Recent Transactions
-            </h3>
-            <button className="px-2 md:px-[10px] py-1 bg-black text-white rounded text-xs hover:bg-gray-900 transition-colors whitespace-nowrap">
-              view all
-            </button>
-          </div>
+        {/* Transaction Cards */}
+        <div className="space-y-3">
+          {transactions.map((transaction, index) => (
+            <div
+              key={index}
+              className="bg-white rounded-[5px] border-[0.5px] border-[#D9D9D9] p-3 md:p-[13px] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-[50px]"
+            >
+              {/* Left Section */}
+              <div className="flex-shrink-0 min-w-0">
+                <h4 className="text-sm md:text-base font-bold text-black mb-1 md:mb-[7px]">
+                  {transaction.title}
+                </h4>
+                <p className="text-xs font-light text-black mb-1 md:mb-[6px]">
+                  {transaction.date}
+                </p>
+                <p className="text-xs font-light text-black">
+                  {transaction.address}
+                </p>
+              </div>
 
-          {/* Transaction Cards */}
-          <div className="space-y-3">
-            {transactions.map((transaction, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-[5px] border-[0.5px] border-[#D9D9D9] p-3 md:p-[13px] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-[50px]"
-              >
-                {/* Left Section */}
-                <div className="flex-shrink-0 min-w-0">
-                  <h4 className="text-sm md:text-base font-bold text-black mb-1 md:mb-[7px]">
-                    {transaction.title}
-                  </h4>
-                  <p className="text-xs font-light text-black mb-1 md:mb-[6px]">
-                    {transaction.date}
-                  </p>
-                  <p className="text-xs font-light text-black">
-                    {transaction.address}
-                  </p>
-                </div>
-
-                {/* Middle - Status Badge */}
-                <div className="flex items-center justify-start sm:justify-center flex-shrink-0">
-                  <div className="px-[10px] py-[5px] bg-[#BDFDDB] rounded flex items-center justify-center">
-                    <span className="text-[10px] font-normal text-[#1C5C3A]">
-                      {transaction.status}
-                    </span>
-                  </div>
-                </div>
-
-                {/* Right Section - Amount */}
-                <div className="text-left sm:text-right flex-shrink-0 w-full sm:w-auto">
-                  <p className="text-base md:text-[17px] font-medium text-black">
-                    {transaction.amount}
-                  </p>
-                  <p className="text-xs font-light text-black text-right">
-                    {transaction.fiat}
-                  </p>
+              {/* Middle - Status Badge */}
+              <div className="flex items-center justify-start sm:justify-center flex-shrink-0">
+                <div className="px-[10px] py-[5px] bg-[#BDFDDB] rounded flex items-center justify-center">
+                  <span className="text-[10px] font-normal text-[#1C5C3A]">
+                    {transaction.status}
+                  </span>
                 </div>
               </div>
-            ))}
-          </div>
+
+              {/* Right Section - Amount */}
+              <div className="text-left sm:text-right flex-shrink-0 w-full sm:w-auto">
+                <p className="text-base md:text-[17px] font-medium text-black">
+                  {transaction.amount}
+                </p>
+                <p className="text-xs font-light text-black text-right">
+                  {transaction.fiat}
+                </p>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
-    </div>
+    </DashboardLayout>
   );
+}
+
+export default WalletPayment;
+
+const WalletPayment = () => {
 }
