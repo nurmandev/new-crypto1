@@ -552,6 +552,63 @@ export default function MyWallet() {
             </div>
           </div>
         </div>
+
+        {/* Crypto Popup Modal */}
+        {selectedCrypto && (
+          <div className="fixed inset-0 bg-black/30 z-50 flex items-center justify-center p-4">
+            <div className="bg-white rounded-lg max-w-2xl w-full p-6 md:p-8 relative">
+              {/* Close Button */}
+              <button
+                onClick={() => setSelectedCrypto(null)}
+                className="absolute top-4 right-4 text-gray-500 hover:text-black transition"
+              >
+                <X className="w-6 h-6" />
+              </button>
+
+              {/* Crypto Info */}
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-7 h-7 rounded-full bg-gray-200"></div>
+                <div>
+                  <p className="text-lg md:text-xl font-medium text-black">
+                    {selectedCrypto.amount}
+                  </p>
+                </div>
+              </div>
+
+              <p className="text-sm md:text-base text-black mb-6">
+                ₹ INR Value: {selectedCrypto.inrValue}
+              </p>
+
+              {/* Address Section */}
+              <div className="rounded-lg border-[1.7px] border-dashed border-[#CACACA] bg-[#F0F0F0] p-6 mb-6 relative">
+                <p className="text-base md:text-lg font-medium text-black mb-2">
+                  {selectedCrypto.name === "Usdt" ? "USDT" : selectedCrypto.name === "Bitcoin" ? "BTC" : selectedCrypto.name === "Ethereum" ? "ETH" : "ADA"} Address
+                </p>
+                <p className="text-sm md:text-base text-[#8E8E8E] mb-4 break-all">
+                  {selectedCrypto.address}
+                </p>
+                <button
+                  onClick={() => copyToClipboard(selectedCrypto.address)}
+                  className="absolute top-6 right-6 text-black hover:text-[#3CC27B] transition"
+                >
+                  <Copy className="w-4 h-4" />
+                </button>
+              </div>
+
+              {/* Sell Button */}
+              <div className="space-y-4">
+                <button className="w-full py-3 md:py-4 bg-[#FA1818] text-white rounded-md font-medium text-sm md:text-base hover:bg-[#E01010] transition-colors">
+                  Sell {selectedCrypto.name === "Usdt" ? "USDT" : selectedCrypto.name === "Bitcoin" ? "BTC" : selectedCrypto.name === "Ethereum" ? "ETH" : "ADA"}
+                </button>
+
+                {/* Exchange Rate */}
+                <p className="text-xs md:text-sm text-[#838383]">
+                  Exchange Value: <span className="text-black">{selectedCrypto.exchangeRate}</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
