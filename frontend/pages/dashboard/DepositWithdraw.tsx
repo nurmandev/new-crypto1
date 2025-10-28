@@ -158,21 +158,29 @@ export default function DepositWithdraw() {
 
             {/* Options Grid */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6">
-              {options.map((option, index) => (
-                <Link
-                  key={index}
-                  to={option.title === "Deposit Fund" ? "/deposit-fund" : "#"}
-                  className="block"
-                >
-                  <OptionCard
-                    title={option.title}
-                    description={option.description}
-                    badge={option.badge}
-                    icon={option.icon}
-                    highlighted={option.highlighted}
-                  />
-                </Link>
-              ))}
+              {options.map((option, index) => {
+                const getLink = () => {
+                  if (option.title === "Deposit Fund") return "/deposit-fund";
+                  if (option.title === "Withdraw Fund") return "/withdraw-fund";
+                  return "#";
+                };
+
+                return (
+                  <Link
+                    key={index}
+                    to={getLink()}
+                    className="block"
+                  >
+                    <OptionCard
+                      title={option.title}
+                      description={option.description}
+                      badge={option.badge}
+                      icon={option.icon}
+                      highlighted={option.highlighted}
+                    />
+                  </Link>
+                );
+              })}
             </div>
           </div>
         </div>
