@@ -28,16 +28,24 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
       href: "/deposit-withdraw",
       external: false,
     },
-    { icon: Wallet, label: "My Wallet", href: "#", external: false },
+    { icon: Wallet, label: "My Wallet", href: "/dashboard", external: false },
     {
       icon: CreditCard,
       label: "Payment Methods",
-      href: "#",
+      href: "/deposit-withdraw",
       external: false,
     },
     { icon: History, label: "History", href: "#", external: false },
     { icon: Shield, label: "Wallet Security", href: "#", external: false },
     { icon: User, label: "My Profile", href: "#", external: false },
+  ];
+
+  // Sub-menu items for quick access to crypto operations
+  const cryptoOperations = [
+    { label: "Deposit Crypto", href: "/deposit-crypto" },
+    { label: "Withdraw Crypto", href: "/withdraw-crypto" },
+    { label: "Buy Crypto", href: "/buy-crypto" },
+    { label: "Sell Crypto", href: "/sell-crypto" },
   ];
 
   return (
@@ -73,7 +81,8 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
           <span className="text-base md:text-lg font-semibold">Dashboard</span>
         </div>
 
-        <nav className="p-4 md:p-6 space-y-4 md:space-y-7 flex-1">
+        <nav className="p-4 md:p-6 space-y-4 md:space-y-7 flex-1 overflow-y-auto">
+          {/* Main Navigation Items */}
           {navItems.map((item) => {
             const Icon = item.icon;
             const isExternal = item.external;
@@ -103,6 +112,26 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
               </Link>
             );
           })}
+
+          {/* Quick Access Section */}
+          <div className="pt-4 md:pt-6 border-t border-gray-200">
+            <p className="text-xs md:text-[12px] font-semibold text-[#838383] uppercase mb-3">
+              Quick Access
+            </p>
+            <div className="space-y-2">
+              {cryptoOperations.map((item) => (
+                <Link
+                  key={item.label}
+                  to={item.href}
+                  onClick={onClose}
+                  className="flex items-center gap-2 px-2 md:px-3 py-1.5 md:py-2 rounded text-black hover:bg-[#F0F0F0] hover:text-[#3CC27B] transition-colors text-xs md:text-[13px]"
+                >
+                  <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#3CC27B]"></span>
+                  <span>{item.label}</span>
+                </Link>
+              ))}
+            </div>
+          </div>
         </nav>
 
         <div className="p-4 md:p-6 border-t md:border-t border-gray-200">
