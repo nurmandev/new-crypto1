@@ -27,9 +27,9 @@ A modern, responsive frontend application for cryptocurrency trading built with 
 ## Project Structure
 
 ```
-client/
+frontend/
 ├── pages/              # Page components
-│   ├── Index.tsx      # Home page
+│   ├��─ Index.tsx      # Home page
 │   ├── Login.tsx      # Login page
 │   ├── Dashboard.tsx  # Dashboard
 │   ├── BuyCrypto.tsx  # Buy crypto page

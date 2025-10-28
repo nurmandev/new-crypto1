@@ -7,7 +7,7 @@ This is a **frontend-only** cryptocurrency trading dashboard application built w
 ## Project Structure
 
 ```
-client/
+frontend/
 ├── pages/              # Page components (route pages)
 ├── components/        # Reusable UI components
 │   └── ui/           # shadcn/ui component library
@@ -35,12 +35,12 @@ public/               # Static assets (images, icons)
 ## Important Rules
 
 1. **Frontend Only**: This is a frontend project. Do NOT add backend, server, or API code.
-2. **Client-side Routing**: Use React Router for all routing. Pages are in `client/pages/`
+2. **Client-side Routing**: Use React Router for all routing. Pages are in `frontend/pages/`
 3. **No API Calls**: This is a UI prototype. Keep all data static or in component state.
 4. **Component Organization**:
-   - Page components go in `client/pages/`
-   - Reusable components go in `client/components/`
-   - Utility functions go in `client/lib/`
+   - Page components go in `frontend/pages/`
+   - Reusable components go in `frontend/components/`
+   - Utility functions go in `frontend/lib/`
 5. **Styling**: Use Tailwind CSS classes. Keep styles responsive and mobile-first.
 6. **State Management**: Use React hooks (useState, useContext). No Redux/Zustand needed.
 
@@ -64,8 +64,8 @@ This project is configured for **Netlify** deployment:
 
 ## Key Files to Know
 
-- `client/App.tsx` - Main app with routing setup
-- `client/pages/` - All page components
+- `frontend/App.tsx` - Main app with routing setup
+- `frontend/pages/` - All page components
 - `vite.config.ts` - Vite configuration (frontend only)
 - `tailwind.config.ts` - Tailwind configuration
 - `netlify.toml` - Netlify deployment configuration
@@ -73,8 +73,8 @@ This project is configured for **Netlify** deployment:
 
 ## Before Making Changes
 
-1. Check if the component exists in `client/components/`
-2. Use existing UI components from `client/components/ui/`
+1. Check if the component exists in `frontend/components/`
+2. Use existing UI components from `frontend/components/ui/`
 3. Keep the component architecture clean and modular
 4. Follow the existing code style and naming conventions
 5. Ensure all changes are frontend-related
