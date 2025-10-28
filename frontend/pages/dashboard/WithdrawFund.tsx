@@ -9,7 +9,7 @@ export default function WithdrawFund() {
   const [amount, setAmount] = useState("");
   const [upiId, setUpiId] = useState("");
 
-  const availableBalance = 45230.50;
+  const availableBalance = 45230.5;
   const minWithdrawal = 500;
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -28,7 +28,10 @@ export default function WithdrawFund() {
 
       <div className="px-4 md:px-6 lg:px-12 mt-4 md:mt-6 flex flex-col lg:flex-row gap-4 md:gap-6">
         {/* Sidebar */}
-        <Sidebar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
+        <Sidebar
+          isOpen={isSidebarOpen}
+          onClose={() => setIsSidebarOpen(false)}
+        />
 
         {/* Main Content */}
         <div className="flex-1 max-w-[1234px]">
@@ -49,7 +52,11 @@ export default function WithdrawFund() {
                   Available Balance
                 </h3>
                 <p className="text-3xl md:text-4xl lg:text-[50px] font-bold text-black">
-                  ₹{availableBalance.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                  ₹
+                  {availableBalance.toLocaleString("en-IN", {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2,
+                  })}
                 </p>
               </div>
 

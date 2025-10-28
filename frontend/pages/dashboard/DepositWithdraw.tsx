@@ -166,11 +166,7 @@ export default function DepositWithdraw() {
                 };
 
                 return (
-                  <Link
-                    key={index}
-                    to={getLink()}
-                    className="block"
-                  >
+                  <Link key={index} to={getLink()} className="block">
                     <OptionCard
                       title={option.title}
                       description={option.description}
