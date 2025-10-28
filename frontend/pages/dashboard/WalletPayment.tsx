@@ -183,7 +183,3 @@ export default function WalletPayment() {
     </DashboardLayout>
   );
 }
-
-export default WalletPayment;
-
-const WalletPayment = () => {};
