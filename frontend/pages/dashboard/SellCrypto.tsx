@@ -20,7 +20,10 @@ export default function SellCrypto() {
 
       <div className="px-4 md:px-6 lg:px-12 mt-4 md:mt-6 flex flex-col lg:flex-row gap-4 md:gap-6">
         {/* Sidebar */}
-        <Sidebar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
+        <Sidebar
+          isOpen={isSidebarOpen}
+          onClose={() => setIsSidebarOpen(false)}
+        />
 
         {/* Main Content */}
         <div className="flex-1 space-y-6">
@@ -29,7 +32,10 @@ export default function SellCrypto() {
               <div className="w-full h-[51px] bg-[#F0F0F0] rounded-md"></div>
               <div className="absolute top-1 right-1 w-[calc(50%-4px)] h-[43px] bg-white rounded"></div>
               <div className="absolute inset-0 flex">
-                <Link to="/buy-crypto" className="flex-1 flex items-center justify-center text-xl font-medium text-gray-900">
+                <Link
+                  to="/buy-crypto"
+                  className="flex-1 flex items-center justify-center text-xl font-medium text-gray-900"
+                >
                   Buy Crypto
                 </Link>
                 <button className="flex-1 text-xl font-medium text-gray-900">
@@ -38,27 +44,39 @@ export default function SellCrypto() {
               </div>
             </div>
 
-            <p className="text-[#838383] text-center text-[17px] mb-8">Convert your cryptocurrency to INR instantly</p>
+            <p className="text-[#838383] text-center text-[17px] mb-8">
+              Convert your cryptocurrency to INR instantly
+            </p>
 
             <div className="bg-gradient-to-r from-[#3CC27B] to-[#00602D] rounded-[10px] p-8 mb-6">
               <div className="text-center">
-                <p className="text-white text-xl font-medium mb-2">Available Balance</p>
-                <h2 className="text-white text-5xl font-bold mb-2">0.05432100 ETH</h2>
+                <p className="text-white text-xl font-medium mb-2">
+                  Available Balance
+                </p>
+                <h2 className="text-white text-5xl font-bold mb-2">
+                  0.05432100 ETH
+                </h2>
                 <p className="text-white text-xl">≈ ₹10,049.385</p>
               </div>
             </div>
 
             <div className="mb-6">
-              <label className="block text-[17px] font-medium text-black mb-3">Select Cryptocurrency</label>
+              <label className="block text-[17px] font-medium text-black mb-3">
+                Select Cryptocurrency
+              </label>
               <div className="w-full h-[51px] bg-[#F0F0F0] rounded-md px-7 flex items-center justify-between">
-                <span className="text-[13px] font-medium text-black">{selectedCrypto}</span>
+                <span className="text-[13px] font-medium text-black">
+                  {selectedCrypto}
+                </span>
                 <ChevronDown className="w-3 h-3 text-black" />
               </div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6 relative">
               <div>
-                <label className="block text-[17px] font-medium text-black mb-3">Amount To Sell</label>
+                <label className="block text-[17px] font-medium text-black mb-3">
+                  Amount To Sell
+                </label>
                 <div className="relative">
                   <input
                     type="text"
@@ -66,7 +84,9 @@ export default function SellCrypto() {
                     onChange={(e) => setAmountToSell(e.target.value)}
                     className="w-full h-[51px] bg-[#F0F0F0] border border-[#CACACA] rounded-md px-7 text-[15px] font-bold text-[#8E8E8E]"
                   />
-                  <span className="absolute right-7 top-1/2 -translate-y-1/2 text-[13px] text-[#717171]">ETH</span>
+                  <span className="absolute right-7 top-1/2 -translate-y-1/2 text-[13px] text-[#717171]">
+                    ETH
+                  </span>
                 </div>
               </div>
 
@@ -77,7 +97,9 @@ export default function SellCrypto() {
               </div>
 
               <div>
-                <label className="block text-[17px] font-medium text-black mb-3">You will Receive</label>
+                <label className="block text-[17px] font-medium text-black mb-3">
+                  You will Receive
+                </label>
                 <div className="relative">
                   <input
                     type="text"
@@ -85,41 +107,70 @@ export default function SellCrypto() {
                     onChange={(e) => setYouReceiveAmount(e.target.value)}
                     className="w-full h-[51px] bg-[#F0F0F0] border border-[#CACACA] rounded-md px-7 text-[15px] font-bold text-[#8E8E8E]"
                   />
-                  <span className="absolute right-7 top-1/2 -translate-y-1/2 text-[13px] text-[#717171]">INR</span>
+                  <span className="absolute right-7 top-1/2 -translate-y-1/2 text-[13px] text-[#717171]">
+                    INR
+                  </span>
                 </div>
               </div>
             </div>
 
-            <p className="text-[#838383] text-center text-[17px] mb-8">1 ETH = ₹1,85,000</p>
+            <p className="text-[#838383] text-center text-[17px] mb-8">
+              1 ETH = ₹1,85,000
+            </p>
 
-            <Link to="/sell-success" className="w-full flex items-center justify-center gap-2 bg-black text-white py-4 rounded-md border border-[#C3C3C3] hover:bg-black/90 transition-colors mb-8">
+            <Link
+              to="/sell-success"
+              className="w-full flex items-center justify-center gap-2 bg-black text-white py-4 rounded-md border border-[#C3C3C3] hover:bg-black/90 transition-colors mb-8"
+            >
               <span className="text-[15px] font-medium">Continue To Sell</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
 
             <div className="border-l-2 border-[#FA1818] bg-[rgba(253,189,189,0.19)] rounded-[10px] p-6">
-              <h3 className="text-[15px] font-medium text-black mb-6">Purchase Summary</h3>
+              <h3 className="text-[15px] font-medium text-black mb-6">
+                Purchase Summary
+              </h3>
               <div className="space-y-3">
                 <div className="flex justify-between items-center">
-                  <span className="text-[14px] text-black font-light">Cryptocurrency:</span>
-                  <span className="text-[14px] text-black font-medium">Ethereum (ETH)</span>
+                  <span className="text-[14px] text-black font-light">
+                    Cryptocurrency:
+                  </span>
+                  <span className="text-[14px] text-black font-medium">
+                    Ethereum (ETH)
+                  </span>
                 </div>
                 <div className="flex justify-between items-center">
-                  <span className="text-[14px] text-black font-light">Crypto Amount:</span>
-                  <span className="text-[14px] text-black font-medium">0.02000000 ETH</span>
+                  <span className="text-[14px] text-black font-light">
+                    Crypto Amount:
+                  </span>
+                  <span className="text-[14px] text-black font-medium">
+                    0.02000000 ETH
+                  </span>
                 </div>
                 <div className="flex justify-between items-center">
-                  <span className="text-[14px] text-black font-light">Exchange Rate:</span>
-                  <span className="text-[14px] text-black font-medium">₹1,85,000</span>
+                  <span className="text-[14px] text-black font-light">
+                    Exchange Rate:
+                  </span>
+                  <span className="text-[14px] text-black font-medium">
+                    ₹1,85,000
+                  </span>
                 </div>
                 <div className="flex justify-between items-center">
-                  <span className="text-[14px] text-black font-light">Trading Fee (0.5%):</span>
-                  <span className="text-[14px] text-black font-medium">₹18.50</span>
+                  <span className="text-[14px] text-black font-light">
+                    Trading Fee (0.5%):
+                  </span>
+                  <span className="text-[14px] text-black font-medium">
+                    ₹18.50
+                  </span>
                 </div>
                 <div className="border-t border-[#EDEDED] pt-3 mt-3">
                   <div className="flex justify-between items-center">
-                    <span className="text-[14px] text-black font-light">You Will Receive:</span>
-                    <span className="text-[14px] text-[#3CC27B] font-medium">₹3,681.50</span>
+                    <span className="text-[14px] text-black font-light">
+                      You Will Receive:
+                    </span>
+                    <span className="text-[14px] text-[#3CC27B] font-medium">
+                      ₹3,681.50
+                    </span>
                   </div>
                 </div>
               </div>
@@ -130,14 +181,23 @@ export default function SellCrypto() {
         {/* Right Sidebar */}
         <div className="w-full lg:w-[368px] space-y-4">
           <div className="flex items-center justify-between">
-            <h3 className="text-[17px] font-medium text-black">Recent Transactions</h3>
-            <button className="px-3 py-1 bg-black text-white rounded text-xs">view all</button>
+            <h3 className="text-[17px] font-medium text-black">
+              Recent Transactions
+            </h3>
+            <button className="px-3 py-1 bg-black text-white rounded text-xs">
+              view all
+            </button>
           </div>
           <div className="space-y-3">
             {[1, 2, 3, 4].map((item) => (
-              <div key={item} className="bg-white rounded-lg border border-[#D9D9D9] p-4">
+              <div
+                key={item}
+                className="bg-white rounded-lg border border-[#D9D9D9] p-4"
+              >
                 <p className="text-base font-bold text-black">Buy BTC</p>
-                <p className="text-xs text-black font-light mt-1">2024-12-20 14:30</p>
+                <p className="text-xs text-black font-light mt-1">
+                  2024-12-20 14:30
+                </p>
                 <p className="text-xs text-black font-light">0x1234...5678</p>
               </div>
             ))}
