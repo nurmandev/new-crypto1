@@ -1,11 +1,8 @@
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
-import { useState } from "react";
-import DashboardHeader from "./components/DashboardHeader";
-import Sidebar from "./components/Sidebar";
+import DashboardLayout from "./components/DashboardLayout";
 
 export default function WithdrawFund() {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [amount, setAmount] = useState("");
   const [upiId, setUpiId] = useState("");
 

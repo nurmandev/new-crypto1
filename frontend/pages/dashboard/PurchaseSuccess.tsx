@@ -1,12 +1,8 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
-import DashboardHeader from "./components/DashboardHeader";
-import Sidebar from "./components/Sidebar";
+import DashboardLayout from "./components/DashboardLayout";
 import { Copy } from "lucide-react";
 
 export default function PurchaseSuccess() {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-
   const transactions = [
     {
       title: "Buy BTC",
