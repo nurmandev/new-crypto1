@@ -146,7 +146,7 @@ export default function DepositWithdraw() {
                 if (option.title === "Withdraw Fund") return "/withdraw-fund";
                 if (option.title === "Deposit Crypto") return "/deposit-crypto";
                 if (option.title === "Withdraw Crypto")
-                  return "/withdraw-crypto";
+                  return "/withdraw-crypto-form";
                 return "#";
               };
 
