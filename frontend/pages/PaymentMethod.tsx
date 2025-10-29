@@ -1,34 +1,12 @@
 import { Link } from "react-router-dom";
 import { Bell, ArrowLeft } from "lucide-react";
+import UserNavbar from "../components/User-Navbar";
 
 export default function PaymentMethod() {
   return (
     <div className="min-h-screen bg-[#F8F8F8]">
       {/* Top Navigation Bar */}
-      <div className="bg-white rounded-[10px] mx-4 lg:mx-12 mt-6 px-6 py-4 flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-2">
-          <div className="w-10 h-10 bg-gradient-to-br from-green-400 to-green-600 rounded-lg"></div>
-          <span className="text-2xl font-bold text-gray-900">USDTMPAY</span>
-        </Link>
-
-        <h1 className="text-3xl font-['Russo_One'] text-black hidden lg:block">
-          Dashboard
-        </h1>
-
-        <div className="flex items-center gap-4">
-          <Link
-            to="/"
-            className="px-9 py-2 bg-[#161616] text-white text-[15px] font-medium rounded-md hover:bg-black/80 transition-colors"
-          >
-            Go to Home
-          </Link>
-          <div className="w-10 h-10 rounded-full bg-[#D9D9D9] cursor-pointer"></div>
-          <div className="relative">
-            <Bell className="w-5 h-5 text-[#C7C7C7]" />
-            <div className="absolute -top-1 -right-1 w-1.5 h-1.5 bg-[#3CC27B] rounded-full"></div>
-          </div>
-        </div>
-      </div>
+     <UserNavbar/>
 
       <div className="px-4 lg:px-12 mt-6 flex flex-col lg:flex-row gap-6">
         {/* Sidebar */}

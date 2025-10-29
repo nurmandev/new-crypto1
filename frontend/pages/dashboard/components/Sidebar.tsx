@@ -16,43 +16,18 @@ interface SidebarProps {
 
 export default function Sidebar({ isOpen, onClose }: SidebarProps) {
   const location = useLocation();
+
   const navItems = [
-    {
-      icon: TrendingUp,
-      label: "Dashboard",
-      href: "/dashboard",
-      external: false,
-    },
-    {
-      icon: TrendingUp,
-      label: "Buy / Sell Crypto",
-      href: "/buy-crypto",
-      external: false,
-    },
-    {
-      icon: Wallet,
-      label: "Deposit/Withdraw",
-      href: "/deposit-withdraw",
-      external: false,
-    },
-    {
-      icon: Wallet,
-      label: "My Wallet",
-      href: "/dashboard/my-wallet",
-      external: false,
-    },
-    {
-      icon: CreditCard,
-      label: "Payment Methods",
-      href: "/deposit-withdraw",
-      external: false,
-    },
-    { icon: History, label: "History", href: "#", external: false },
-    { icon: Shield, label: "Wallet Security", href: "#", external: false },
-    { icon: User, label: "My Profile", href: "#", external: false },
+    { icon: TrendingUp, label: "Dashboard", href: "/dashboard" },
+    { icon: TrendingUp, label: "Buy / Sell Crypto", href: "/buy-crypto" },
+    { icon: Wallet, label: "Deposit/Withdraw", href: "/deposit-withdraw" },
+    { icon: Wallet, label: "My Wallet", href: "/dashboard/my-wallet" },
+    { icon: CreditCard, label: "Payment Methods", href: "/payment-method" },
+    { icon: History, label: "History", href: "/history" },
+    { icon: Shield, label: "Wallet Security", href: "/wallet-security" },
+    { icon: User, label: "My Profile", href: "/profile" },
   ];
 
-  // Sub-menu items for quick access to crypto operations
   const cryptoOperations = [
     { label: "Deposit Crypto", href: "/deposit-crypto" },
     { label: "Withdraw Crypto", href: "/withdraw-crypto" },
@@ -71,15 +46,19 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
       )}
 
       {/* Sidebar */}
-      <div
-        className={`fixed md:relative md:flex md:flex-col md:w-64 w-full h-screen md:h-auto bg-white rounded-lg overflow-y-auto z-40 transform transition-transform duration-300 ${
-          isOpen ? "translate-x-0" : "-translate-x-full"
-        }`}
+      <aside
+        className={`fixed md:static top-0 left-0 h-screen md:h-auto w-72 sm:w-80 md:w-64 bg-white rounded-r-lg md:rounded-lg shadow-lg md:shadow-none overflow-y-auto z-40 transform transition-transform duration-300 ease-in-out
+          ${
+            isOpen
+              ? "translate-x-0"
+              : "-translate-x-full md:translate-x-0 md:flex"
+          }`}
       >
-        <div className="bg-[#3CC27B] px-4 md:px-6 py-3 md:py-4 flex items-center gap-3 text-white sticky top-0">
+        {/* Header */}
+        <div className="bg-[#3CC27B] px-5 md:px-6 py-4 flex items-center gap-3 text-white sticky top-0 rounded-tr-lg md:rounded-t-lg">
           <svg
-            width="14"
-            height="15"
+            width="16"
+            height="16"
             viewBox="0 0 14 15"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -93,89 +72,41 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
           <span className="text-base md:text-lg font-semibold">Dashboard</span>
         </div>
 
-        <nav className="p-4 md:p-6 space-y-4 md:space-y-7 flex-1 overflow-y-auto">
-          {/* Main Navigation Items */}
+        {/* Navigation */}
+        <nav className="p-4 md:p-6 space-y-4 md:space-y-6 flex-1">
           {navItems.map((item) => {
             const Icon = item.icon;
-            const isExternal = item.external;
             const isActive = location.pathname === item.href;
-
-            if (isExternal) {
-              return (
-                <a
-                  key={item.label}
-                  href={item.href}
-                  className={`flex items-center gap-3 px-3 py-2 rounded transition-all text-sm md:text-base ${
-                    isActive
-                      ? "bg-[#3CC27B] text-white"
-                      : "text-black hover:text-[#3CC27B] hover:bg-[#F0F0F0]"
-                  }`}
-                >
-                  <Icon className="w-4 md:w-[18px] h-4 md:h-[18px] flex-shrink-0" />
-                  <span>{item.label}</span>
-                </a>
-              );
-            }
 
             return (
               <Link
                 key={item.label}
                 to={item.href}
                 onClick={onClose}
-                className={`flex items-center gap-3 px-3 py-2 rounded transition-all text-sm md:text-base ${
+                className={`flex items-center gap-3 px-3 py-2 rounded-md transition-all text-sm md:text-base ${
                   isActive
                     ? "bg-[#3CC27B] text-white"
-                    : "text-black hover:text-[#3CC27B] hover:bg-[#F0F0F0]"
+                    : "text-black hover:bg-gray-100 hover:text-[#3CC27B]"
                 }`}
               >
-                <Icon className="w-4 md:w-[18px] h-4 md:h-[18px] flex-shrink-0" />
+                <Icon className="w-4 md:w-5 h-4 md:h-5 flex-shrink-0" />
                 <span>{item.label}</span>
               </Link>
             );
           })}
-
-          {/* Quick Access Section */}
-          <div className="pt-4 md:pt-6 border-t border-gray-200">
-            <p className="text-xs md:text-[12px] font-semibold text-[#838383] uppercase mb-3">
-              Quick Access
-            </p>
-            <div className="space-y-2">
-              {cryptoOperations.map((item) => {
-                const isActive = location.pathname === item.href;
-                return (
-                  <Link
-                    key={item.label}
-                    to={item.href}
-                    onClick={onClose}
-                    className={`flex items-center gap-2 px-2 md:px-3 py-1.5 md:py-2 rounded transition-all text-xs md:text-[13px] ${
-                      isActive
-                        ? "bg-[#3CC27B] text-white"
-                        : "text-black hover:bg-[#F0F0F0] hover:text-[#3CC27B]"
-                    }`}
-                  >
-                    <span
-                      className={`inline-block w-1.5 h-1.5 rounded-full ${
-                        isActive ? "bg-white" : "bg-[#3CC27B]"
-                      }`}
-                    ></span>
-                    <span>{item.label}</span>
-                  </Link>
-                );
-              })}
-            </div>
-          </div>
         </nav>
 
-        <div className="p-4 md:p-6 border-t md:border-t border-gray-200">
+        {/* Logout */}
+        <div className="p-4 md:p-6 border-t border-gray-200">
           <Link
             to="/"
-            className="flex items-center gap-2 px-3 md:px-4 py-2 bg-[#EBEBEB] rounded text-black text-xs md:text-[15px] hover:bg-gray-300 transition-colors w-full justify-center"
+            className="flex items-center gap-2 justify-center px-4 py-2 bg-[#EBEBEB] rounded-md text-black text-sm md:text-base hover:bg-gray-300 transition-colors"
           >
             <span>Logout</span>
-            <LogOut className="w-3.5 md:w-4 h-3.5 md:h-4" />
+            <LogOut className="w-4 h-4" />
           </Link>
         </div>
-      </div>
+      </aside>
     </>
   );
 }

@@ -16,7 +16,9 @@ import {
   Facebook,
   Linkedin,
   Twitter,
+  ChevronRight,
 } from "lucide-react";
+import Navbar from "../components/Navbar";
 
 const FAQ_ITEMS = [
   {
@@ -91,50 +93,7 @@ export default function Index() {
   return (
     <div className="min-h-screen bg-[#F8F8F8]">
       {/* Header */}
-      <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm">
-        <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between h-[75px] max-w-7xl mx-auto">
-            <div className="flex items-center gap-2">
-              <div className="w-8 h-8 bg-gradient-to-br from-green-400 to-green-600 rounded-lg"></div>
-              <span className="text-xl font-bold text-gray-900">USDTMPAY</span>
-            </div>
-
-            <nav className="hidden md:flex items-center gap-8 text-[15px]">
-              <Link
-                to="/"
-                className="text-[#3CC27B] font-medium hover:text-[#3CC27B]/80"
-              >
-                Home
-              </Link>
-              <Link to="/about" className="text-gray-900 hover:text-[#3CC27B]">
-                About
-              </Link>
-              <Link
-                to="/services"
-                className="text-gray-900 hover:text-[#3CC27B]"
-              >
-                Services
-              </Link>
-              <Link
-                to="/contact"
-                className="text-gray-900 hover:text-[#3CC27B]"
-              >
-                Contact
-              </Link>
-              <a href="#" className="text-gray-900 hover:text-[#3CC27B]">
-                FAQ
-              </a>
-            </nav>
-
-            <Link to="/login">
-              <Button className="bg-[#161616] hover:bg-[#161616]/90 text-white px-9 h-[37px] rounded-md">
-                Login
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </header>
-
+      <Navbar />
       {/* Hero Section */}
       <section className="relative pt-12 pb-20 overflow-hidden">
         <div className="absolute inset-0 opacity-20 bg-gradient-to-r from-transparent via-green-100 to-transparent"></div>
@@ -214,9 +173,9 @@ export default function Index() {
       {/* Stats Section */}
       <section className="py-16 bg-gradient-to-r from-[#3CC27B] to-[#00602D] relative overflow-hidden">
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto items-center">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-8 max-w-6xl mx-auto">
             {/* Stats Cards */}
-            <div className="grid grid-cols-2 gap-4">
+            <div className="w-full flex flex-col sm:flex-row sm:flex-wrap md:flex-nowrap justify-center md:justify-start gap-4">
               {[
                 { value: "10K +", label: "Active Users" },
                 { value: "₹50Cr+", label: "Trading Volume" },
@@ -225,7 +184,7 @@ export default function Index() {
               ].map((stat, i) => (
                 <div
                   key={i}
-                  className="bg-white/20 backdrop-blur-sm rounded-lg p-6 text-center"
+                  className="bg-white/20 backdrop-blur-sm rounded-lg p-6 text-center flex-1 min-w-[150px]"
                 >
                   <div className="text-3xl font-bold text-white mb-1">
                     {stat.value}
@@ -236,11 +195,11 @@ export default function Index() {
             </div>
 
             {/* Bitcoin Image */}
-            <div className="hidden md:flex justify-end relative">
+            <div className="flex justify-center md:justify-end relative">
               <img
                 src="https://api.builder.io/api/v1/image/assets/TEMP/b234ffe9ebcbed92046a393a086f19e7a0a49a6b"
                 alt="Bitcoin Coin"
-                className="w-56 h-56 drop-shadow-2xl"
+                className="w-40 h-40 md:w-56 md:h-56 drop-shadow-2xl"
               />
             </div>
           </div>
@@ -433,7 +392,7 @@ export default function Index() {
             </p>
             <Button className="bg-black hover:bg-black/90 text-white px-12 h-[51px] rounded-md inline-flex items-center gap-2">
               Start Crypto Deposit Now
-              <ArrowRight className="w-4 h-4" />
+             <ChevronRight className="w-6 h-6" />
             </Button>
           </div>
         </div>

@@ -16,7 +16,7 @@ export default function BalanceCard() {
     {
       icon: Plus,
       label: "Add Balance",
-      href: "#",
+      href: "/buy-crypto",
       external: false,
     },
     {

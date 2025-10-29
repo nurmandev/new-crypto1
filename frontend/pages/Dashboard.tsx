@@ -7,8 +7,11 @@ export default function Dashboard() {
       {/* Top Navigation Bar */}
       <div className="bg-white rounded-[10px] mx-4 lg:mx-12 mt-6 px-6 py-4 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2">
-          <div className="w-10 h-10 bg-gradient-to-br from-green-400 to-green-600 rounded-lg"></div>
-          <span className="text-2xl font-bold text-gray-900">USDTMPAY</span>
+          <img
+            src="/logo.png"
+            alt="Logo"
+            className="h-10 w-auto object-contain"
+          />
         </Link>
 
         <h1 className="text-3xl font-['Russo_One'] text-black hidden lg:block">
