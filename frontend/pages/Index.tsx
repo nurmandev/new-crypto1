@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import Particles from "@/components/Particles";
+// import Particles from "@/components/Particles";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import {
@@ -19,6 +19,8 @@ import {
   ChevronRight,
 } from "lucide-react";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import ParticlesLoad from "../components/ParticlesLoad";
 
 const FAQ_ITEMS = [
   {
@@ -97,8 +99,8 @@ export default function Index() {
       {/* Hero Section */}
       <section className="relative pt-12 pb-20 overflow-hidden">
         <div className="absolute inset-0 opacity-20 bg-gradient-to-r from-transparent via-green-100 to-transparent"></div>
-        <Particles />
 
+        <ParticlesLoad />
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             {/* Badge */}
@@ -128,12 +130,17 @@ export default function Index() {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
-              <Button className="bg-white hover:bg-gray-50 text-[#161616] border border-gray-300 px-14 h-[51px] text-[15px] font-medium rounded-md">
-                Buy Crypto Now
-              </Button>
-              <Button className="bg-white hover:bg-gray-50 text-[#161616] border border-gray-300 px-14 h-[51px] text-[15px] font-medium rounded-md">
-                Sell Your Crypto
-              </Button>
+              <Link to="/login">
+                <Button className="bg-white hover:bg-gray-50 text-[#161616] border border-gray-300 px-14 h-[51px] text-[15px] font-medium rounded-md">
+                  Buy Crypto Now
+                </Button>
+              </Link>
+
+              <Link to="/login">
+                <Button className="bg-white hover:bg-gray-50 text-[#161616] border border-gray-300 px-14 h-[51px] text-[15px] font-medium rounded-md">
+                  Sell Your Crypto
+                </Button>
+              </Link>
             </div>
 
             {/* Social Proof */}
@@ -392,7 +399,7 @@ export default function Index() {
             </p>
             <Button className="bg-black hover:bg-black/90 text-white px-12 h-[51px] rounded-md inline-flex items-center gap-2">
               Start Crypto Deposit Now
-             <ChevronRight className="w-6 h-6" />
+              <ChevronRight className="w-6 h-6" />
             </Button>
           </div>
         </div>
@@ -633,124 +640,7 @@ export default function Index() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-[#161616] text-white py-16">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 max-w-6xl mx-auto mb-12">
-            <div>
-              <h3 className="text-2xl font-bold mb-6">USDTMPAY</h3>
-              <p className="text-white/80 mb-6 leading-relaxed">
-                We are the best platform to buy and sell crypto, offering
-                secure, fast, and reliable trading. With real-time prices,
-                instant UPI deposits and withdrawals, and bank-level security,
-                we make crypto trading simple and accessible for everyone
-              </p>
-              <div className="flex gap-3">
-                <div className="w-8 h-8 rounded-full bg-[#3CC27B] flex items-center justify-center">
-                  <Facebook className="w-4 h-4 text-white" />
-                </div>
-                <div className="w-8 h-8 rounded-full bg-[#272727] flex items-center justify-center">
-                  <Linkedin className="w-4 h-4 text-[#3CC27B]" />
-                </div>
-                <div className="w-8 h-8 rounded-full bg-[#272727] flex items-center justify-center">
-                  <Twitter className="w-4 h-4 text-[#3CC27B]" />
-                </div>
-              </div>
-            </div>
-
-            <div>
-              <h4 className="text-xl font-bold mb-4">Platform</h4>
-              <ul className="space-y-3">
-                <li>
-                  <a href="#" className="text-white/80 hover:text-white">
-                    Buy Crypto
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="text-white/80 hover:text-white">
-                    Sell Crypto
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="text-white/80 hover:text-white">
-                    Wallet
-                  </a>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="text-xl font-bold mb-4">Support</h4>
-              <ul className="space-y-3">
-                <li>
-                  <a href="#" className="text-white/80 hover:text-white">
-                    Help Center
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="text-white/80 hover:text-white">
-                    Contact Us
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="text-white/80 hover:text-white">
-                    Security
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="text-white/80 hover:text-white">
-                    Privacy Policy
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="text-white/80 hover:text-white">
-                    Terms of Service
-                  </a>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="text-xl font-bold mb-4">Contact</h4>
-              <ul className="space-y-4">
-                <li className="flex items-center gap-3">
-                  <Mail className="w-4 h-4 text-[#3CC27B]" />
-                  <span className="text-white/80">support@cryptotrade.in</span>
-                </li>
-                <li className="flex items-center gap-3">
-                  <Phone className="w-4 h-4 text-[#3CC27B]" />
-                  <span className="text-white/80">+91 80-0000-0000</span>
-                </li>
-                <li className="flex items-center gap-3">
-                  <MapPin className="w-4 h-4 text-[#3CC27B]" />
-                  <span className="text-white/80">Bangalore, India</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="border-t border-[#3CC27B]/30 pt-8">
-            <div className="max-w-6xl mx-auto">
-              <h5 className="text-lg font-bold text-[#9E9E9E] mb-4">
-                Risk Disclaimer
-              </h5>
-              <p className="text-[#9E9E9E] text-sm leading-relaxed mb-6">
-                Trading and holding cryptocurrencies involves significant risk.
-                Prices of digital assets are highly volatile and may fluctuate
-                rapidly. Our platform only provides users with the ability to
-                deposit, sell, and withdraw crypto; we do not provide financial
-                advice, investment recommendations, or guarantee of profits.
-                Users are solely responsible for their trading decisions, and by
-                using this platform, you agree that we are not liable for any
-                losses, damages, or risks arising from your crypto transactions.
-                Always do your own research before trading.
-              </p>
-              <p className="text-center text-white text-[13px]">
-                © 2024 usdtmpay.online. All rights reserved.
-              </p>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
