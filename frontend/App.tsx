@@ -24,6 +24,7 @@ import UPIPayment from "./pages/dashboard/UPIPayment";
 import WalletPayment from "./pages/dashboard/WalletPayment";
 import DepositWithdraw from "./pages/dashboard/DepositWithdraw";
 import DepositFund from "./pages/dashboard/DepositFund";
+import History from "./pages/dashboard/History";
 import PurchaseSuccess from "./pages/dashboard/PurchaseSuccess";
 import WithdrawFund from "./pages/dashboard/WithdrawFund";
 import Cashout from "./pages/dashboard/Cashout";
@@ -60,6 +61,7 @@ const App = () => (
           <Route path="/wallet-payment" element={<WalletPayment />} />
           <Route path="/deposit-withdraw" element={<DepositWithdraw />} />
           <Route path="/deposit-fund" element={<DepositFund />} />
+          <Route path="/history" element={<History />} />
           <Route path="/purchase-success" element={<PurchaseSuccess />} />
           <Route path="/withdraw-fund" element={<WithdrawFund />} />
           <Route path="/withdraw-crypto" element={<Cashout />} />
