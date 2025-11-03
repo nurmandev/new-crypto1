@@ -9,6 +9,26 @@ export default function BuyCrypto() {
   const [youPayAmount, setYouPayAmount] = useState("300.00");
   const [youReceiveAmount, setYouReceiveAmount] = useState("10.71428571");
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+  const [showCryptoDropdown, setShowCryptoDropdown] = useState(false);
+
+  const cryptoOptions = [
+    "Bitcoin (BTC)",
+    "Ethereum (ETH)",
+    "Cardano (ADA)",
+    "Ripple (XRP)",
+    "Litecoin (LTC)",
+  ];
+
+  const handleSwap = () => {
+    const temp = youPayAmount;
+    setYouPayAmount(youReceiveAmount);
+    setYouReceiveAmount(temp);
+  };
+
+  const handleCryptoSelect = (crypto: string) => {
+    setSelectedCrypto(crypto);
+    setShowCryptoDropdown(false);
+  };
 
   return (
     <div className="min-h-screen bg-[#F8F8F8] pb-12 md:pb-16">
