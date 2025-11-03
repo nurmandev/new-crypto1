@@ -15,6 +15,21 @@ export default function Dashboard() {
     setIsSidebarOpen(false);
   };
 
+  // Manage body overflow on mobile when sidebar is open
+  useEffect(() => {
+    const isMobile = window.innerWidth < 768;
+    if (isMobile && isSidebarOpen) {
+      // Allow scrolling on body even when sidebar overlay is present
+      document.body.style.overflow = "auto";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [isSidebarOpen]);
+
   return (
     <div className="min-h-screen bg-[#F8F8F8] pb-12 md:pb-16">
       {/* Top Navigation Bar */}
