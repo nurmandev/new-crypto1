@@ -37,7 +37,7 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
 
   return (
     <>
-      {/* Mobile Overlay */}
+      {/* Mobile Overlay - Only on mobile when open */}
       {isOpen && (
         <div
           className="fixed inset-0 bg-black/50 z-30 md:hidden"
@@ -49,9 +49,9 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
       <aside
         className={`fixed md:static top-0 left-0 h-screen md:h-auto w-72 sm:w-80 md:w-64 bg-white rounded-r-lg md:rounded-lg shadow-lg md:shadow-none overflow-y-auto z-40 transform transition-transform duration-300 ease-in-out
           ${
-            isOpen
+            isOpen || window.innerWidth >= 768
               ? "translate-x-0"
-              : "-translate-x-full md:translate-x-0 md:flex"
+              : "-translate-x-full"
           }`}
       >
         {/* Header */}
