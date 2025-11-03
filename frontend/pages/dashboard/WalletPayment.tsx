@@ -1,5 +1,7 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import DashboardLayout from "./components/DashboardLayout";
+import DashboardHeader from "./components/DashboardHeader";
+import Sidebar from "./components/Sidebar";
 
 const transactions = [
   {
@@ -37,9 +39,28 @@ const transactions = [
 ];
 
 export default function WalletPayment() {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+
+  const closeSidebar = () => {
+    setIsSidebarOpen(false);
+  };
+
   return (
-    <DashboardLayout>
-      <div className="flex-1 space-y-4 md:space-y-6 max-w-[843px]">
+    <div className="min-h-screen bg-[#F8F8F8] pb-12 md:pb-16">
+      {/* Top Navigation Bar */}
+      <DashboardHeader
+        onMenuToggle={() => setIsSidebarOpen(!isSidebarOpen)}
+        isMenuOpen={isSidebarOpen}
+      />
+
+      <div className="px-4 md:px-6 lg:px-12 mt-4 md:mt-6 flex flex-col lg:flex-row gap-4 md:gap-6">
+        {/* Sidebar Navigation */}
+        <div className="flex-shrink-0">
+          <Sidebar isOpen={isSidebarOpen} onClose={closeSidebar} />
+        </div>
+
+        {/* Main Content */}
+        <div className="flex-1 space-y-4 md:space-y-6 max-w-[843px]">
         <div className="bg-white rounded-[10px] p-4 md:p-6 lg:p-8 shadow-sm">
           {/* Header */}
           <h2 className="text-lg md:text-xl lg:text-[20px] font-medium text-black mb-1 md:mb-2">
@@ -202,6 +223,7 @@ export default function WalletPayment() {
           ))}
         </div>
       </div>
-    </DashboardLayout>
+      </div>
+    </div>
   );
 }
