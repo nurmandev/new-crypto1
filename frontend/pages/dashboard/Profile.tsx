@@ -288,9 +288,190 @@ export default function Profile() {
             )}
 
             {activeTab === "security" && (
-              <div className="py-8 text-center text-gray-500">
-                <h3 className="text-xl font-medium mb-2">Security Settings</h3>
-                <p>Security settings content coming soon...</p>
+              <div className="max-w-[1182px]">
+                {/* Change Password Section */}
+                <div className="mb-10 md:mb-12">
+                  <h2 className="text-lg md:text-xl font-medium text-black mb-6 md:mb-8">
+                    Change Password
+                  </h2>
+                  <form onSubmit={handlePasswordUpdate}>
+                    <div className="space-y-6">
+                      {/* Current Password */}
+                      <div>
+                        <label className="block text-base md:text-[17px] font-medium text-black mb-2">
+                          Current Password
+                        </label>
+                        <div className="relative">
+                          <input
+                            type={showPassword.current ? "text" : "password"}
+                            name="currentPassword"
+                            value={securityData.currentPassword}
+                            onChange={handleSecurityInputChange}
+                            placeholder="****************"
+                            className="w-full h-[51px] px-4 md:px-[27px] py-3 bg-[#F0F0F0] border-[0.7px] border-[#CACACA] rounded-[5px] text-sm md:text-[15px] text-[#8E8E8E] placeholder:text-[#8E8E8E] focus:outline-none focus:border-[#3CC27B] transition-colors pr-12"
+                          />
+                          <button
+                            type="button"
+                            onClick={() =>
+                              setShowPassword({
+                                ...showPassword,
+                                current: !showPassword.current,
+                              })
+                            }
+                            className="absolute right-4 top-1/2 -translate-y-1/2 text-black hover:text-gray-600"
+                          >
+                            {showPassword.current ? (
+                              <EyeOff className="w-[14px] h-[14px]" />
+                            ) : (
+                              <Eye className="w-[14px] h-[14px]" />
+                            )}
+                          </button>
+                        </div>
+                      </div>
+
+                      {/* New Password and Confirm Password */}
+                      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                        {/* New Password */}
+                        <div>
+                          <label className="block text-base md:text-[17px] font-medium text-black mb-2">
+                            New Password
+                          </label>
+                          <div className="relative">
+                            <input
+                              type={showPassword.new ? "text" : "password"}
+                              name="newPassword"
+                              value={securityData.newPassword}
+                              onChange={handleSecurityInputChange}
+                              className="w-full h-[51px] px-4 md:px-[27px] py-3 bg-[#F0F0F0] border-[0.7px] border-[#CACACA] rounded-[5px] text-sm md:text-[15px] text-black focus:outline-none focus:border-[#3CC27B] transition-colors pr-12"
+                            />
+                            <button
+                              type="button"
+                              onClick={() =>
+                                setShowPassword({
+                                  ...showPassword,
+                                  new: !showPassword.new,
+                                })
+                              }
+                              className="absolute right-4 top-1/2 -translate-y-1/2 text-black hover:text-gray-600"
+                            >
+                              {showPassword.new ? (
+                                <EyeOff className="w-[14px] h-[14px]" />
+                              ) : (
+                                <Eye className="w-[14px] h-[14px]" />
+                              )}
+                            </button>
+                          </div>
+                        </div>
+
+                        {/* Confirm Password */}
+                        <div>
+                          <label className="block text-base md:text-[17px] font-medium text-black mb-2">
+                            Confirm Password
+                          </label>
+                          <div className="relative">
+                            <input
+                              type={showPassword.confirm ? "text" : "password"}
+                              name="confirmPassword"
+                              value={securityData.confirmPassword}
+                              onChange={handleSecurityInputChange}
+                              className="w-full h-[51px] px-4 md:px-[27px] py-3 bg-[#F0F0F0] border-[0.7px] border-[#CACACA] rounded-[5px] text-sm md:text-[15px] text-black focus:outline-none focus:border-[#3CC27B] transition-colors pr-12"
+                            />
+                            <button
+                              type="button"
+                              onClick={() =>
+                                setShowPassword({
+                                  ...showPassword,
+                                  confirm: !showPassword.confirm,
+                                })
+                              }
+                              className="absolute right-4 top-1/2 -translate-y-1/2 text-black hover:text-gray-600"
+                            >
+                              {showPassword.confirm ? (
+                                <EyeOff className="w-[14px] h-[14px]" />
+                              ) : (
+                                <Eye className="w-[14px] h-[14px]" />
+                              )}
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Update Password Button */}
+                      <button
+                        type="submit"
+                        className="bg-black text-white rounded-md border-[0.5px] border-[#C3C3C3] px-12 md:px-[60px] py-3 md:py-[9px] text-sm md:text-[15px] font-medium hover:bg-gray-900 transition-colors h-[51px] inline-flex items-center justify-center gap-2"
+                      >
+                        Update Password
+                      </button>
+                    </div>
+                  </form>
+                </div>
+
+                {/* Wallet Security Section */}
+                <div>
+                  <h2 className="text-lg md:text-xl font-medium text-black mb-2">
+                    Wallet Security
+                  </h2>
+                  <p className="text-sm md:text-[17px] text-[#838383] mb-6 md:mb-8">
+                    Secure your wallet with a PIN
+                  </p>
+
+                  {/* PIN Protection Info Box */}
+                  <div className="w-full max-w-[601px] rounded-[9px] border-l-2 border-[#3CC27B] bg-[rgba(60,194,123,0.31)] p-6 mb-6 md:mb-8">
+                    <h4 className="text-sm md:text-[15px] font-medium text-black leading-[33px] mb-1">
+                      Wallet PIN Protection
+                    </h4>
+                    <p className="text-xs md:text-[13px] font-light text-black leading-[22px]">
+                      Your wallet is protected with a secure PIN. Lock your
+                      wallet to prevent unauthorized transactions.
+                    </p>
+                  </div>
+
+                  {/* PIN Change Form */}
+                  <form onSubmit={handlePinChange}>
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+                      {/* Enter Pin To Lock Wallet */}
+                      <div>
+                        <label className="block text-base md:text-[17px] font-medium text-black mb-2">
+                          Enter Pin To Lock Wallet
+                        </label>
+                        <input
+                          type="password"
+                          name="currentPin"
+                          value={securityData.currentPin}
+                          onChange={handleSecurityInputChange}
+                          placeholder="Enter Your Current Pin"
+                          maxLength={6}
+                          className="w-full h-[51px] px-4 md:px-[27px] py-3 bg-[#F0F0F0] border-[0.7px] border-[#CACACA] rounded-[5px] text-sm md:text-[15px] text-black placeholder:text-[#8E8E8E] focus:outline-none focus:border-[#3CC27B] transition-colors"
+                        />
+                      </div>
+
+                      {/* Set New Pin */}
+                      <div>
+                        <label className="block text-base md:text-[17px] font-medium text-black mb-2">
+                          Set New Pin
+                        </label>
+                        <input
+                          type="password"
+                          name="newPin"
+                          value={securityData.newPin}
+                          onChange={handleSecurityInputChange}
+                          placeholder="Enter Your 6-digit Pin"
+                          maxLength={6}
+                          className="w-full h-[51px] px-4 md:px-[27px] py-3 bg-[#F0F0F0] border-[0.7px] border-[#CACACA] rounded-[5px] text-sm md:text-[15px] text-black placeholder:text-[#8E8E8E] focus:outline-none focus:border-[#3CC27B] transition-colors"
+                        />
+                      </div>
+                    </div>
+
+                    {/* Change Pin Button */}
+                    <button
+                      type="submit"
+                      className="bg-black text-white rounded-md border-[0.5px] border-[#C3C3C3] px-12 md:px-[60px] py-3 md:py-[9px] text-sm md:text-[15px] font-medium hover:bg-gray-900 transition-colors h-[51px] inline-flex items-center justify-center gap-2"
+                    >
+                      Change Pin
+                    </button>
+                  </form>
+                </div>
               </div>
             )}
 
