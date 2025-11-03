@@ -1,7 +1,7 @@
 import { useState } from "react";
 import DashboardHeader from "./components/DashboardHeader";
 import Sidebar from "./components/Sidebar";
-import { Calendar, Camera } from "lucide-react";
+import { Calendar, Camera, Eye, EyeOff } from "lucide-react";
 
 type Tab = "profile" | "security" | "sell";
 
@@ -16,6 +16,20 @@ export default function Profile() {
     username: "@yogesh123",
     phoneNumber: "+91 123456789",
     bio: "",
+  });
+
+  const [securityData, setSecurityData] = useState({
+    currentPassword: "",
+    newPassword: "",
+    confirmPassword: "",
+    currentPin: "",
+    newPin: "",
+  });
+
+  const [showPassword, setShowPassword] = useState({
+    current: false,
+    new: false,
+    confirm: false,
   });
 
   const closeSidebar = () => {
