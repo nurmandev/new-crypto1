@@ -607,8 +607,8 @@ export default function MyWallet() {
               </div>
 
               {/* Sell Button */}
-              <div className="space-y-4">
-                <button className="w-full py-3 md:py-4 bg-[#FA1818] text-white rounded-md font-medium text-sm md:text-base hover:bg-[#E01010] transition-colors">
+              <div className="space-y-2 sm:space-y-3 md:space-y-4">
+                <button className="w-full py-2.5 sm:py-3 md:py-4 bg-[#FA1818] text-white rounded-md font-medium text-xs sm:text-sm md:text-base hover:bg-[#E01010] transition-colors">
                   Sell{" "}
                   {selectedCrypto.name === "Usdt"
                     ? "USDT"
@@ -620,7 +620,7 @@ export default function MyWallet() {
                 </button>
 
                 {/* Exchange Rate */}
-                <p className="text-xs md:text-sm text-[#838383]">
+                <p className="text-[10px] sm:text-xs md:text-sm text-[#838383]">
                   Exchange Value:{" "}
                   <span className="text-black">
                     {selectedCrypto.exchangeRate}
