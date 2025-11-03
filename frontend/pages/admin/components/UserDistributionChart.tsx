@@ -1,17 +1,19 @@
-import React from 'react';
+import React from "react";
 
 export const UserDistributionChart: React.FC = () => {
   const stats = [
-    { label: 'Active Users 49%', color: '#10B981' },
-    { label: 'Suspended 2%', color: '#EF4444' },
-    { label: 'Pending Verification 20%', color: '#F59E0B' },
-    { label: 'Inactive Users 40%', color: '#6B7280' },
+    { label: "Active Users 49%", color: "#10B981" },
+    { label: "Suspended 2%", color: "#EF4444" },
+    { label: "Pending Verification 20%", color: "#F59E0B" },
+    { label: "Inactive Users 40%", color: "#6B7280" },
   ];
 
   return (
     <div className="bg-white rounded-lg border border-gray-200 p-6">
-      <h3 className="text-[15px] font-medium text-black mb-4">User Distribution</h3>
-      
+      <h3 className="text-[15px] font-medium text-black mb-4">
+        User Distribution
+      </h3>
+
       <div className="flex flex-col items-center">
         {/* Pie Chart Placeholder */}
         <div className="relative w-48 h-48 mb-6">

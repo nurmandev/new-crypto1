@@ -1,113 +1,123 @@
-import React, { useState } from 'react';
-import { Users, TrendingUp, DollarSign, FileText, Upload, ArrowUpDown } from 'lucide-react';
-import { AdminHeader } from './components/AdminHeader';
-import { AdminSidebar } from './components/AdminSidebar';
-import { StatsCard } from './components/StatsCard';
-import { UserDistributionChart } from './components/UserDistributionChart';
-import { PlatformCryptoPortfolio } from './components/PlatformCryptoPortfolio';
-import { TransactionChart } from './components/TransactionChart';
-import { ProfitCard } from './components/ProfitCard';
-import { RecentTransactionItem } from './components/RecentTransactionItem';
-import { SystemStatusItem } from './components/SystemStatusItem';
-import { AreaChart } from './components/AreaChart';
+import React, { useState } from "react";
+import {
+  Users,
+  TrendingUp,
+  DollarSign,
+  FileText,
+  Upload,
+  ArrowUpDown,
+} from "lucide-react";
+import { AdminHeader } from "./components/AdminHeader";
+import { AdminSidebar } from "./components/AdminSidebar";
+import { StatsCard } from "./components/StatsCard";
+import { UserDistributionChart } from "./components/UserDistributionChart";
+import { PlatformCryptoPortfolio } from "./components/PlatformCryptoPortfolio";
+import { TransactionChart } from "./components/TransactionChart";
+import { ProfitCard } from "./components/ProfitCard";
+import { RecentTransactionItem } from "./components/RecentTransactionItem";
+import { SystemStatusItem } from "./components/SystemStatusItem";
+import { AreaChart } from "./components/AreaChart";
 
 export const AdminDashboard: React.FC = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const stats = [
     {
-      title: 'Total Users',
-      value: '15,420',
+      title: "Total Users",
+      value: "15,420",
       icon: Users,
       trend: { percentage: 12, isPositive: true },
-      color: 'blue' as const,
+      color: "blue" as const,
     },
     {
-      title: 'Active Users',
-      value: '8,765',
+      title: "Active Users",
+      value: "8,765",
       icon: Users,
       trend: { percentage: 8, isPositive: true },
-      color: 'green' as const,
+      color: "green" as const,
     },
     {
-      title: 'Total Volume',
-      value: '₹12.4M',
+      title: "Total Volume",
+      value: "₹12.4M",
       icon: DollarSign,
       trend: { percentage: 25, isPositive: true },
-      color: 'green' as const,
+      color: "green" as const,
     },
     {
-      title: 'Pending Requests',
-      value: '45',
+      title: "Pending Requests",
+      value: "45",
       icon: FileText,
       trend: { percentage: 0, isPositive: false },
-      color: 'orange' as const,
+      color: "orange" as const,
     },
   ];
 
   const profitCards = [
     {
-      title: 'Total Monthly Profit',
-      amount: '₹622,500',
+      title: "Total Monthly Profit",
+      amount: "₹622,500",
       icon: DollarSign,
-      bgColor: '#E0FCE9',
-      textColor: '#3CC27B',
+      bgColor: "#E0FCE9",
+      textColor: "#3CC27B",
     },
     {
-      title: 'Trading Fees',
-      amount: '₹425,000',
+      title: "Trading Fees",
+      amount: "₹425,000",
       icon: TrendingUp,
-      bgColor: '#DFECFE',
-      textColor: '#5F5BE3',
+      bgColor: "#DFECFE",
+      textColor: "#5F5BE3",
     },
     {
-      title: 'Withdrawal Fees',
-      amount: '₹125,000',
+      title: "Withdrawal Fees",
+      amount: "₹125,000",
       icon: Upload,
-      bgColor: '#F4EAFF',
-      textColor: '#B674FF',
+      bgColor: "#F4EAFF",
+      textColor: "#B674FF",
     },
     {
-      title: 'Exchange Fees',
-      amount: '₹180,000',
+      title: "Exchange Fees",
+      amount: "₹180,000",
       icon: ArrowUpDown,
-      bgColor: '#FFEDD5',
-      textColor: '#3CC27B',
+      bgColor: "#FFEDD5",
+      textColor: "#3CC27B",
     },
   ];
 
   const recentTransactions = [
     {
-      email: 'john.doe@email.com',
-      action: 'Buy 0.05 BTC',
-      amount: '₹200,000',
-      timeAgo: '2 mins ago',
+      email: "john.doe@email.com",
+      action: "Buy 0.05 BTC",
+      amount: "₹200,000",
+      timeAgo: "2 mins ago",
     },
     {
-      email: 'john.doe@email.com',
-      action: 'Buy 0.05 BTC',
-      amount: '₹200,000',
-      timeAgo: '2 mins ago',
+      email: "john.doe@email.com",
+      action: "Buy 0.05 BTC",
+      amount: "₹200,000",
+      timeAgo: "2 mins ago",
     },
     {
-      email: 'john.doe@email.com',
-      action: 'Buy 0.05 BTC',
-      amount: '₹200,000',
-      timeAgo: '2 mins ago',
+      email: "john.doe@email.com",
+      action: "Buy 0.05 BTC",
+      amount: "₹200,000",
+      timeAgo: "2 mins ago",
     },
   ];
 
   const systemStatus = [
-    { label: 'Server Uptime', value: '99%' },
-    { label: 'Active Connections', value: '1240' },
-    { label: 'Avg Response Time', value: '125ms' },
-    { label: 'Error Rate', value: '0.02%' },
+    { label: "Server Uptime", value: "99%" },
+    { label: "Active Connections", value: "1240" },
+    { label: "Avg Response Time", value: "125ms" },
+    { label: "Error Rate", value: "0.02%" },
   ];
 
   return (
     <div className="flex min-h-screen bg-[#F8F8F8]">
       {/* Sidebar */}
-      <AdminSidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
+      <AdminSidebar
+        isOpen={sidebarOpen}
+        onClose={() => setSidebarOpen(false)}
+      />
 
       {/* Main Content */}
       <div className="flex-1 flex flex-col overflow-hidden">
@@ -146,7 +156,9 @@ export const AdminDashboard: React.FC = () => {
             {/* Platform Profit Overview */}
             <div className="mb-8">
               <div className="flex items-center justify-between mb-4">
-                <h2 className="text-xl font-medium text-black">Platform Profit Overview</h2>
+                <h2 className="text-xl font-medium text-black">
+                  Platform Profit Overview
+                </h2>
                 <span className="text-xs px-3 py-1 rounded-full bg-[#3CC27B]/30 text-black">
                   +8.5% this month
                 </span>
@@ -170,7 +182,9 @@ export const AdminDashboard: React.FC = () => {
               {/* Recent Transactions */}
               <div className="bg-white rounded-lg border border-gray-200 p-6">
                 <div className="flex items-center justify-between mb-4">
-                  <h2 className="text-xl font-medium text-black">Recent transactions</h2>
+                  <h2 className="text-xl font-medium text-black">
+                    Recent transactions
+                  </h2>
                   <button className="px-3 py-1 bg-black text-white text-xs rounded">
                     view all
                   </button>
@@ -190,7 +204,9 @@ export const AdminDashboard: React.FC = () => {
 
               {/* System Status */}
               <div className="bg-white rounded-lg border border-gray-200 p-6">
-                <h2 className="text-xl font-medium text-black mb-4">System Status</h2>
+                <h2 className="text-xl font-medium text-black mb-4">
+                  System Status
+                </h2>
                 <div className="space-y-2">
                   {systemStatus.map((status, index) => (
                     <SystemStatusItem

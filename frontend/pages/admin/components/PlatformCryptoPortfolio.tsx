@@ -1,18 +1,20 @@
-import React from 'react';
+import React from "react";
 
 export const PlatformCryptoPortfolio: React.FC = () => {
   const cryptoStats = [
-    { label: 'Active Users 49%', color: '#10B981' },
-    { label: 'Cardano 6.8%', color: '#0033AD' },
-    { label: 'Ethereum 28.5%', color: '#627EEA' },
-    { label: 'Bitcoin 45.2%', color: '#F59E0B' },
-    { label: 'Others 4.2%', color: '#6B7280' },
+    { label: "Active Users 49%", color: "#10B981" },
+    { label: "Cardano 6.8%", color: "#0033AD" },
+    { label: "Ethereum 28.5%", color: "#627EEA" },
+    { label: "Bitcoin 45.2%", color: "#F59E0B" },
+    { label: "Others 4.2%", color: "#6B7280" },
   ];
 
   return (
     <div className="bg-white rounded-lg border border-gray-200 p-6">
-      <h3 className="text-[15px] font-medium text-black mb-4">Platform Crypto Portfolio</h3>
-      
+      <h3 className="text-[15px] font-medium text-black mb-4">
+        Platform Crypto Portfolio
+      </h3>
+
       <div className="flex flex-col items-center">
         {/* Donut Chart Placeholder */}
         <div className="relative w-48 h-48 mb-6">
