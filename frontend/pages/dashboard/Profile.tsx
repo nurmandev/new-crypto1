@@ -519,7 +519,7 @@ export default function Profile() {
                         onClick={() =>
                           handlePreferencesChange(
                             "emailNotifications",
-                            !preferencesData.emailNotifications
+                            !preferencesData.emailNotifications,
                           )
                         }
                         className={`relative w-[46px] h-5 rounded-[16px] transition-colors ${
@@ -553,7 +553,7 @@ export default function Profile() {
                         onClick={() =>
                           handlePreferencesChange(
                             "smsNotifications",
-                            !preferencesData.smsNotifications
+                            !preferencesData.smsNotifications,
                           )
                         }
                         className={`relative w-[46px] h-5 rounded-[16px] transition-colors ${
@@ -589,7 +589,10 @@ export default function Profile() {
                           <select
                             value={preferencesData.language}
                             onChange={(e) =>
-                              handlePreferencesChange("language", e.target.value)
+                              handlePreferencesChange(
+                                "language",
+                                e.target.value,
+                              )
                             }
                             className="w-full h-[51px] px-4 md:px-[27px] py-3 bg-[#F0F0F0] rounded-[5px] text-sm md:text-[15px] text-[#8E8E8E] focus:outline-none focus:border-[#3CC27B] transition-colors appearance-none pr-12"
                           >
@@ -624,7 +627,10 @@ export default function Profile() {
                           <select
                             value={preferencesData.currency}
                             onChange={(e) =>
-                              handlePreferencesChange("currency", e.target.value)
+                              handlePreferencesChange(
+                                "currency",
+                                e.target.value,
+                              )
                             }
                             className="w-full h-[51px] px-4 md:px-[27px] py-3 bg-[#F0F0F0] rounded-[5px] text-sm md:text-[15px] text-[#8E8E8E] focus:outline-none focus:border-[#3CC27B] transition-colors appearance-none pr-12"
                           >
@@ -659,7 +665,10 @@ export default function Profile() {
                           <select
                             value={preferencesData.timezone}
                             onChange={(e) =>
-                              handlePreferencesChange("timezone", e.target.value)
+                              handlePreferencesChange(
+                                "timezone",
+                                e.target.value,
+                              )
                             }
                             className="w-full h-[51px] px-4 md:px-[27px] py-3 bg-[#F0F0F0] rounded-[5px] text-sm md:text-[15px] text-[#8E8E8E] focus:outline-none focus:border-[#3CC27B] transition-colors appearance-none pr-12"
                           >
