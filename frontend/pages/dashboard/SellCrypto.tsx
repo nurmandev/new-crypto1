@@ -10,6 +10,15 @@ export default function SellCrypto() {
   const [amountToSell, setAmountToSell] = useState("0.02");
   const [youReceiveAmount, setYouReceiveAmount] = useState("3681.50");
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+  const [showCryptoDropdown, setShowCryptoDropdown] = useState(false);
+
+  const cryptoOptions = [
+    "Bitcoin (BTC)",
+    "Ethereum (ETH)",
+    "Cardano (ADA)",
+    "Ripple (XRP)",
+    "Litecoin (LTC)",
+  ];
 
   const handleSellSubmit = () => {
     // In a real app, submit to API first
@@ -20,6 +29,17 @@ export default function SellCrypto() {
     });
     // Navigate to sell success page
     navigate("/sell-success");
+  };
+
+  const handleSwap = () => {
+    const temp = amountToSell;
+    setAmountToSell(youReceiveAmount);
+    setYouReceiveAmount(temp);
+  };
+
+  const handleCryptoSelect = (crypto: string) => {
+    setSelectedCrypto(crypto);
+    setShowCryptoDropdown(false);
   };
 
   return (
