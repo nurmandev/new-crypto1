@@ -1,11 +1,11 @@
-import React from 'react';
+import React from "react";
 
 export const TransactionChart: React.FC = () => {
   const data = [
-    { label: 'Deposits', crypto: 45, inr: 35 },
-    { label: 'Trades', crypto: 90, inr: 65 },
-    { label: 'Support', crypto: 12, inr: 7 },
-    { label: 'KYC', crypto: 20, inr: 15 },
+    { label: "Deposits", crypto: 45, inr: 35 },
+    { label: "Trades", crypto: 90, inr: 65 },
+    { label: "Support", crypto: 12, inr: 7 },
+    { label: "KYC", crypto: 20, inr: 15 },
   ];
 
   const maxValue = 100;
@@ -15,14 +15,21 @@ export const TransactionChart: React.FC = () => {
   const chartWidth = width - padding.left - padding.right;
   const chartHeight = height - padding.top - padding.bottom;
   const barGroupWidth = chartWidth / data.length;
-  const barWidth = (barGroupWidth * 0.35);
+  const barWidth = barGroupWidth * 0.35;
   const barGap = 8;
 
   return (
     <div className="bg-white rounded-lg border border-gray-200 p-6">
-      <h3 className="text-[15px] font-medium text-black mb-6">User Distribution</h3>
+      <h3 className="text-[15px] font-medium text-black mb-6">
+        User Distribution
+      </h3>
 
-      <svg width="100%" height={height} viewBox={`0 0 ${width} ${height}`} preserveAspectRatio="xMidYMid meet">
+      <svg
+        width="100%"
+        height={height}
+        viewBox={`0 0 ${width} ${height}`}
+        preserveAspectRatio="xMidYMid meet"
+      >
         {/* Grid lines */}
         {[0, 1, 2, 3, 4].map((i) => (
           <g key={i}>
@@ -34,21 +41,42 @@ export const TransactionChart: React.FC = () => {
               stroke="#E5E7EB"
               strokeDasharray="3,3"
             />
-            <text x={padding.left - 10} y={padding.top + (i * chartHeight) / 4 + 4} textAnchor="end" fontSize="12" fill="#6B7280">
+            <text
+              x={padding.left - 10}
+              y={padding.top + (i * chartHeight) / 4 + 4}
+              textAnchor="end"
+              fontSize="12"
+              fill="#6B7280"
+            >
               {maxValue - (i * maxValue) / 4}
             </text>
           </g>
         ))}
 
         {/* Y-axis */}
-        <line x1={padding.left} y1={padding.top} x2={padding.left} y2={padding.top + chartHeight} stroke="#E5E7EB" strokeWidth="1" />
+        <line
+          x1={padding.left}
+          y1={padding.top}
+          x2={padding.left}
+          y2={padding.top + chartHeight}
+          stroke="#E5E7EB"
+          strokeWidth="1"
+        />
 
         {/* X-axis */}
-        <line x1={padding.left} y1={padding.top + chartHeight} x2={width - padding.right} y2={padding.top + chartHeight} stroke="#E5E7EB" strokeWidth="1" />
+        <line
+          x1={padding.left}
+          y1={padding.top + chartHeight}
+          x2={width - padding.right}
+          y2={padding.top + chartHeight}
+          stroke="#E5E7EB"
+          strokeWidth="1"
+        />
 
         {/* Bars */}
         {data.map((item, groupIndex) => {
-          const groupX = padding.left + groupIndex * barGroupWidth + barGroupWidth / 2;
+          const groupX =
+            padding.left + groupIndex * barGroupWidth + barGroupWidth / 2;
           const cryptoHeight = (item.crypto / maxValue) * chartHeight;
           const inrHeight = (item.inr / maxValue) * chartHeight;
 
@@ -75,7 +103,14 @@ export const TransactionChart: React.FC = () => {
               />
 
               {/* Label */}
-              <text x={groupX} y={padding.top + chartHeight + 25} textAnchor="middle" fontSize="13" fill="#6B7280" fontWeight="500">
+              <text
+                x={groupX}
+                y={padding.top + chartHeight + 25}
+                textAnchor="middle"
+                fontSize="13"
+                fill="#6B7280"
+                fontWeight="500"
+              >
                 {item.label}
               </text>
             </g>
@@ -85,14 +120,38 @@ export const TransactionChart: React.FC = () => {
         {/* Legend */}
         <g>
           {/* Crypto legend */}
-          <rect x={padding.left} y={height - 30} width="12" height="12" fill="#10B981" rx="2" />
-          <text x={padding.left + 18} y={height - 20} fontSize="13" fill="#10B981">
+          <rect
+            x={padding.left}
+            y={height - 30}
+            width="12"
+            height="12"
+            fill="#10B981"
+            rx="2"
+          />
+          <text
+            x={padding.left + 18}
+            y={height - 20}
+            fontSize="13"
+            fill="#10B981"
+          >
             Crypto Transactions
           </text>
 
           {/* INR legend */}
-          <rect x={padding.left + 180} y={height - 30} width="12" height="12" fill="#627EEA" rx="2" />
-          <text x={padding.left + 198} y={height - 20} fontSize="13" fill="#627EEA">
+          <rect
+            x={padding.left + 180}
+            y={height - 30}
+            width="12"
+            height="12"
+            fill="#627EEA"
+            rx="2"
+          />
+          <text
+            x={padding.left + 198}
+            y={height - 20}
+            fontSize="13"
+            fill="#627EEA"
+          >
             INR Transactions
           </text>
         </g>

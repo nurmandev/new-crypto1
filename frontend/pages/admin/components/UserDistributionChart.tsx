@@ -1,15 +1,29 @@
-import React from 'react';
+import React from "react";
 
 export const UserDistributionChart: React.FC = () => {
   return (
     <div className="bg-white rounded-lg border border-gray-200 p-6">
-      <h3 className="text-[15px] font-medium text-black mb-4">User Distribution</h3>
+      <h3 className="text-[15px] font-medium text-black mb-4">
+        User Distribution
+      </h3>
 
       <div className="flex flex-col items-center gap-8">
         {/* Donut Chart */}
-        <svg width="200" height="200" viewBox="0 0 200 200" className="flex-shrink-0">
+        <svg
+          width="200"
+          height="200"
+          viewBox="0 0 200 200"
+          className="flex-shrink-0"
+        >
           <defs>
-            <circle id="donut" cx="100" cy="100" r="70" fill="none" strokeWidth="30" />
+            <circle
+              id="donut"
+              cx="100"
+              cy="100"
+              r="70"
+              fill="none"
+              strokeWidth="30"
+            />
           </defs>
 
           {/* Active Users 49% - Green */}
@@ -80,11 +94,15 @@ export const UserDistributionChart: React.FC = () => {
           </div>
           <div className="flex items-center gap-2">
             <div className="w-3 h-3 bg-[#F59E0B]" />
-            <span className="text-[13px] text-[#F59E0B]">Pending Verification 20%</span>
+            <span className="text-[13px] text-[#F59E0B]">
+              Pending Verification 20%
+            </span>
           </div>
           <div className="flex items-center gap-2">
             <div className="w-3 h-3 bg-[#6B7280]" />
-            <span className="text-[13px] text-[#6B7280]">Inactive Users 40%</span>
+            <span className="text-[13px] text-[#6B7280]">
+              Inactive Users 40%
+            </span>
           </div>
         </div>
       </div>

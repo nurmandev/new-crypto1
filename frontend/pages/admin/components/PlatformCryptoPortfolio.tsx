@@ -1,13 +1,20 @@
-import React from 'react';
+import React from "react";
 
 export const PlatformCryptoPortfolio: React.FC = () => {
   return (
     <div className="bg-white rounded-lg border border-gray-200 p-6">
-      <h3 className="text-[15px] font-medium text-black mb-4">Platform Crypto Portfolio</h3>
+      <h3 className="text-[15px] font-medium text-black mb-4">
+        Platform Crypto Portfolio
+      </h3>
 
       <div className="flex flex-col items-center gap-8">
         {/* Donut Chart */}
-        <svg width="200" height="200" viewBox="0 0 200 200" className="flex-shrink-0">
+        <svg
+          width="200"
+          height="200"
+          viewBox="0 0 200 200"
+          className="flex-shrink-0"
+        >
           {/* Active Users 49% - Green */}
           <circle
             cx="100"
