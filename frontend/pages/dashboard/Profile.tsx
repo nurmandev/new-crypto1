@@ -140,9 +140,9 @@ export default function Profile() {
                   Security
                 </button>
                 <button
-                  onClick={() => setActiveTab("sell")}
+                  onClick={() => setActiveTab("preferences")}
                   className={`px-6 md:px-12 py-2 rounded text-base md:text-lg font-medium transition-colors ${
-                    activeTab === "sell"
+                    activeTab === "preferences"
                       ? "bg-white text-black"
                       : "bg-transparent text-black"
                   }`}
