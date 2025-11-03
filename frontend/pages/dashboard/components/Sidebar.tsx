@@ -1,4 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
+import { useState, useEffect } from "react";
 import {
   TrendingUp,
   Wallet,
@@ -16,6 +17,22 @@ interface SidebarProps {
 
 export default function Sidebar({ isOpen, onClose }: SidebarProps) {
   const location = useLocation();
+  const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 768);
+
+  // Update desktop state on window resize
+  useEffect(() => {
+    const handleResize = () => {
+      const newIsDesktop = window.innerWidth >= 768;
+      setIsDesktop(newIsDesktop);
+      // If resizing from mobile to desktop, ensure sidebar is visible
+      if (newIsDesktop && !isOpen) {
+        onClose(); // This will trigger parent to set isOpen to true if needed
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [isOpen, onClose]);
 
   const navItems = [
     { icon: TrendingUp, label: "Dashboard", href: "/dashboard" },
