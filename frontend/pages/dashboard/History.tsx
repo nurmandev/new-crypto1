@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import DashboardLayout from "./components/DashboardLayout";
 import TransactionItem from "./history/components/TransactionItem";
 import Pagination from "./history/components/Pagination";
+import FilterDropdown from "./history/components/FilterDropdown";
 import { Calendar, Filter } from "lucide-react";
 
 interface Transaction {
@@ -16,6 +17,9 @@ interface Transaction {
 
 export default function History() {
   const [currentPage, setCurrentPage] = useState(1);
+  const [isFilterOpen, setIsFilterOpen] = useState(false);
+  const [selectedFilter, setSelectedFilter] = useState("Approved");
+  const filterButtonRef = useRef<HTMLButtonElement>(null);
   const totalPages = 5;
 
   const transactions: Transaction[] = [
@@ -89,8 +93,12 @@ export default function History() {
               Scan the QR code with any UPI app to complete payment
             </p>
           </div>
-          <div className="flex gap-2 self-start sm:self-auto">
-            <button className="inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-black text-white rounded text-xs hover:bg-black/90 transition-colors">
+          <div className="flex gap-2 self-start sm:self-auto relative">
+            <button
+              ref={filterButtonRef}
+              onClick={() => setIsFilterOpen(!isFilterOpen)}
+              className="inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-black text-white rounded text-xs hover:bg-black/90 transition-colors"
+            >
               <svg
                 width="12"
                 height="13"
@@ -124,6 +132,13 @@ export default function History() {
               </svg>
               Date Range
             </button>
+            <FilterDropdown
+              isOpen={isFilterOpen}
+              onClose={() => setIsFilterOpen(false)}
+              selectedFilter={selectedFilter}
+              onFilterChange={setSelectedFilter}
+              anchorRef={filterButtonRef}
+            />
           </div>
         </div>
 
