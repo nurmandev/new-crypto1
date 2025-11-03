@@ -495,10 +495,216 @@ export default function Profile() {
               </div>
             )}
 
-            {activeTab === "sell" && (
-              <div className="py-8 text-center text-gray-500">
-                <h3 className="text-xl font-medium mb-2">Sell Crypto</h3>
-                <p>Sell crypto content coming soon...</p>
+            {activeTab === "preferences" && (
+              <div className="max-w-[1182px]">
+                <form onSubmit={handlePreferencesSave}>
+                  {/* Notification Preferences Section */}
+                  <div className="mb-10 md:mb-12">
+                    <h2 className="text-lg md:text-xl font-medium text-black mb-6 md:mb-8">
+                      Notification Preferences
+                    </h2>
+
+                    {/* Email Notifications */}
+                    <div className="flex items-start justify-between mb-6 md:mb-8">
+                      <div>
+                        <h3 className="text-base md:text-[17px] font-medium text-black mb-1">
+                          Email Notifications
+                        </h3>
+                        <p className="text-sm md:text-[15px] font-light text-black">
+                          Receive updates and alerts via email
+                        </p>
+                      </div>
+                      <button
+                        type="button"
+                        onClick={() =>
+                          handlePreferencesChange(
+                            "emailNotifications",
+                            !preferencesData.emailNotifications
+                          )
+                        }
+                        className={`relative w-[46px] h-5 rounded-[16px] transition-colors ${
+                          preferencesData.emailNotifications
+                            ? "bg-[#3CC27B]"
+                            : "bg-[#D7D7D7]"
+                        }`}
+                      >
+                        <span
+                          className={`absolute top-[3px] w-[14px] h-[14px] bg-white rounded-full transition-transform ${
+                            preferencesData.emailNotifications
+                              ? "left-[3px]"
+                              : "left-[29px]"
+                          }`}
+                        />
+                      </button>
+                    </div>
+
+                    {/* SMS Notifications */}
+                    <div className="flex items-start justify-between">
+                      <div>
+                        <h3 className="text-base md:text-[17px] font-medium text-black mb-1">
+                          SMS Notifications
+                        </h3>
+                        <p className="text-sm md:text-[15px] font-light text-black">
+                          Receive important alerts via SMS
+                        </p>
+                      </div>
+                      <button
+                        type="button"
+                        onClick={() =>
+                          handlePreferencesChange(
+                            "smsNotifications",
+                            !preferencesData.smsNotifications
+                          )
+                        }
+                        className={`relative w-[46px] h-5 rounded-[16px] transition-colors ${
+                          preferencesData.smsNotifications
+                            ? "bg-[#3CC27B]"
+                            : "bg-[#D7D7D7]"
+                        }`}
+                      >
+                        <span
+                          className={`absolute top-[3px] w-[14px] h-[14px] bg-white rounded-full transition-transform ${
+                            preferencesData.smsNotifications
+                              ? "left-[3px]"
+                              : "left-[29px]"
+                          }`}
+                        />
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Display Settings Section */}
+                  <div className="mb-10 md:mb-12">
+                    <h2 className="text-lg md:text-xl font-medium text-black mb-6 md:mb-8">
+                      Display Settings
+                    </h2>
+
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                      {/* Language */}
+                      <div>
+                        <label className="block text-base md:text-[17px] font-medium text-black mb-2">
+                          Language
+                        </label>
+                        <div className="relative">
+                          <select
+                            value={preferencesData.language}
+                            onChange={(e) =>
+                              handlePreferencesChange("language", e.target.value)
+                            }
+                            className="w-full h-[51px] px-4 md:px-[27px] py-3 bg-[#F0F0F0] rounded-[5px] text-sm md:text-[15px] text-[#8E8E8E] focus:outline-none focus:border-[#3CC27B] transition-colors appearance-none pr-12"
+                          >
+                            <option value="English">English</option>
+                            <option value="Spanish">Spanish</option>
+                            <option value="French">French</option>
+                            <option value="German">German</option>
+                            <option value="Hindi">Hindi</option>
+                          </select>
+                          <svg
+                            className="absolute right-4 top-1/2 transform -translate-y-1/2 pointer-events-none"
+                            width="13"
+                            height="10"
+                            viewBox="0 0 13 10"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M12.3496 1.01053e-06L0.649275 2.03341e-06C0.530815 0.000383513 0.4147 0.0339519 0.313426 0.0970937C0.212154 0.160236 0.129559 0.250559 0.0745317 0.358342C0.0195056 0.466127 -0.00586878 0.587289 0.00113978 0.708788C0.0081493 0.830286 0.0472767 0.94752 0.11431 1.04787L5.96448 9.73002C6.20693 10.09 6.79065 10.09 7.03376 9.73002L12.8839 1.04787C12.9516 0.947729 12.9913 0.830436 12.9987 0.708735C13.0061 0.587033 12.9809 0.465579 12.9258 0.357567C12.8708 0.249555 12.7879 0.159116 12.6863 0.096076C12.5848 0.0330372 12.4683 -0.000190688 12.3496 1.01053e-06Z"
+                              fill="black"
+                            />
+                          </svg>
+                        </div>
+                      </div>
+
+                      {/* Currency Display */}
+                      <div>
+                        <label className="block text-base md:text-[17px] font-medium text-black mb-2">
+                          Currency Display
+                        </label>
+                        <div className="relative">
+                          <select
+                            value={preferencesData.currency}
+                            onChange={(e) =>
+                              handlePreferencesChange("currency", e.target.value)
+                            }
+                            className="w-full h-[51px] px-4 md:px-[27px] py-3 bg-[#F0F0F0] rounded-[5px] text-sm md:text-[15px] text-[#8E8E8E] focus:outline-none focus:border-[#3CC27B] transition-colors appearance-none pr-12"
+                          >
+                            <option value="INR (₹)">INR (₹)</option>
+                            <option value="USD ($)">USD ($)</option>
+                            <option value="EUR (€)">EUR (€)</option>
+                            <option value="GBP (£)">GBP (£)</option>
+                            <option value="JPY (¥)">JPY (¥)</option>
+                          </select>
+                          <svg
+                            className="absolute right-4 top-1/2 transform -translate-y-1/2 pointer-events-none"
+                            width="13"
+                            height="10"
+                            viewBox="0 0 13 10"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M12.3496 1.01053e-06L0.649275 2.03341e-06C0.530815 0.000383513 0.4147 0.0339519 0.313426 0.0970937C0.212154 0.160236 0.129559 0.250559 0.0745317 0.358342C0.0195056 0.466127 -0.00586878 0.587289 0.00113978 0.708788C0.0081493 0.830286 0.0472767 0.94752 0.11431 1.04787L5.96448 9.73002C6.20693 10.09 6.79065 10.09 7.03376 9.73002L12.8839 1.04787C12.9516 0.947729 12.9913 0.830436 12.9987 0.708735C13.0061 0.587033 12.9809 0.465579 12.9258 0.357567C12.8708 0.249555 12.7879 0.159116 12.6863 0.096076C12.5848 0.0330372 12.4683 -0.000190688 12.3496 1.01053e-06Z"
+                              fill="black"
+                            />
+                          </svg>
+                        </div>
+                      </div>
+
+                      {/* Time Zone */}
+                      <div className="lg:col-span-2">
+                        <label className="block text-base md:text-[17px] font-medium text-black mb-2">
+                          Time Zone
+                        </label>
+                        <div className="relative lg:max-w-[550px]">
+                          <select
+                            value={preferencesData.timezone}
+                            onChange={(e) =>
+                              handlePreferencesChange("timezone", e.target.value)
+                            }
+                            className="w-full h-[51px] px-4 md:px-[27px] py-3 bg-[#F0F0F0] rounded-[5px] text-sm md:text-[15px] text-[#8E8E8E] focus:outline-none focus:border-[#3CC27B] transition-colors appearance-none pr-12"
+                          >
+                            <option value="Indian Standard Time (IST)">
+                              Indian Standard Time (IST)
+                            </option>
+                            <option value="Pacific Standard Time (PST)">
+                              Pacific Standard Time (PST)
+                            </option>
+                            <option value="Eastern Standard Time (EST)">
+                              Eastern Standard Time (EST)
+                            </option>
+                            <option value="Central European Time (CET)">
+                              Central European Time (CET)
+                            </option>
+                            <option value="Japan Standard Time (JST)">
+                              Japan Standard Time (JST)
+                            </option>
+                          </select>
+                          <svg
+                            className="absolute right-4 top-1/2 transform -translate-y-1/2 pointer-events-none"
+                            width="13"
+                            height="10"
+                            viewBox="0 0 13 10"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M12.3496 1.01053e-06L0.649275 2.03341e-06C0.530815 0.000383513 0.4147 0.0339519 0.313426 0.0970937C0.212154 0.160236 0.129559 0.250559 0.0745317 0.358342C0.0195056 0.466127 -0.00586878 0.587289 0.00113978 0.708788C0.0081493 0.830286 0.0472767 0.94752 0.11431 1.04787L5.96448 9.73002C6.20693 10.09 6.79065 10.09 7.03376 9.73002L12.8839 1.04787C12.9516 0.947729 12.9913 0.830436 12.9987 0.708735C13.0061 0.587033 12.9809 0.465579 12.9258 0.357567C12.8708 0.249555 12.7879 0.159116 12.6863 0.096076C12.5848 0.0330372 12.4683 -0.000190688 12.3496 1.01053e-06Z"
+                              fill="black"
+                            />
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Save Changes Button */}
+                  <button
+                    type="submit"
+                    className="bg-black text-white rounded-md border-[0.5px] border-[#C3C3C3] px-12 md:px-[60px] py-3 md:py-[9px] text-sm md:text-[15px] font-medium hover:bg-gray-900 transition-colors h-[51px] inline-flex items-center justify-center gap-2"
+                  >
+                    Save Changes
+                  </button>
+                </form>
               </div>
             )}
           </div>
