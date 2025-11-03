@@ -20,7 +20,9 @@ export default function PaymentMethods() {
   const [isUPIModalOpen, setIsUPIModalOpen] = useState(false);
   const [isBankModalOpen, setIsBankModalOpen] = useState(false);
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
-  const [selectedMethod, setSelectedMethod] = useState<PaymentMethod | null>(null);
+  const [selectedMethod, setSelectedMethod] = useState<PaymentMethod | null>(
+    null,
+  );
 
   const paymentMethods: PaymentMethod[] = [
     {

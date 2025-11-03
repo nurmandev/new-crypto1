@@ -126,7 +126,10 @@ export default function PurchaseSuccess() {
                           </span>
                         </div>
                       </div>
-                      <DetailRow label="Payment Method:" value="wallet_credit" />
+                      <DetailRow
+                        label="Payment Method:"
+                        value="wallet_credit"
+                      />
                     </div>
                   </div>
 

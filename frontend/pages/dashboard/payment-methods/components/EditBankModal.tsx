@@ -45,7 +45,7 @@ export default function EditBankModal({
       accountNumber: "123456789",
       holderName: "Yogesh Neware",
       ifscCode: "123456",
-    }
+    },
   );
 
   const handleInputChange = (field: keyof BankFormData, value: string) => {
