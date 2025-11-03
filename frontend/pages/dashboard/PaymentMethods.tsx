@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Pencil, Trash2, Plus } from "lucide-react";
 import EditUPIModal from "./payment-methods/components/EditUPIModal";
 import EditBankModal from "./payment-methods/components/EditBankModal";
+import AddPaymentMethodModal from "./payment-methods/components/AddPaymentMethodModal";
 
 interface PaymentMethod {
   id: string;
@@ -18,6 +19,7 @@ interface PaymentMethod {
 export default function PaymentMethods() {
   const [isUPIModalOpen, setIsUPIModalOpen] = useState(false);
   const [isBankModalOpen, setIsBankModalOpen] = useState(false);
+  const [isAddModalOpen, setIsAddModalOpen] = useState(false);
   const [selectedMethod, setSelectedMethod] = useState<PaymentMethod | null>(null);
 
   const paymentMethods: PaymentMethod[] = [
@@ -89,6 +91,17 @@ export default function PaymentMethods() {
     console.log("Bank Data:", data);
   };
 
+  const handleSelectPaymentMethod = (methodType: string) => {
+    console.log("Selected method type:", methodType);
+    // Open the appropriate modal based on the selected method type
+    if (methodType === "upi") {
+      setIsUPIModalOpen(true);
+    } else if (methodType === "bank") {
+      setIsBankModalOpen(true);
+    }
+    // For other types, you can add similar logic
+  };
+
   return (
     <DashboardLayout>
       <div className="bg-white rounded-lg p-4 md:p-6 lg:p-8">
@@ -103,7 +116,7 @@ export default function PaymentMethods() {
             </p>
           </div>
           <Button
-            onClick={() => setIsBankModalOpen(true)}
+            onClick={() => setIsAddModalOpen(true)}
             className="bg-[#161616] hover:bg-[#2a2a2a] text-white px-6 md:px-9 py-2 rounded-md self-start sm:self-auto"
           >
             <Plus className="w-4 h-4 mr-2" />
@@ -165,6 +178,13 @@ export default function PaymentMethods() {
           ))}
         </div>
       </div>
+
+      {/* Add Payment Method Modal */}
+      <AddPaymentMethodModal
+        isOpen={isAddModalOpen}
+        onClose={() => setIsAddModalOpen(false)}
+        onSelectMethod={handleSelectPaymentMethod}
+      />
 
       {/* Edit UPI Modal */}
       <EditUPIModal
