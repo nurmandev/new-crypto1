@@ -1,5 +1,6 @@
 import { useState, useRef } from "react";
-import DashboardLayout from "./components/DashboardLayout";
+import DashboardHeader from "./components/DashboardHeader";
+import Sidebar from "./components/Sidebar";
 import TransactionItem from "./history/components/TransactionItem";
 import Pagination from "./history/components/Pagination";
 import FilterDropdown from "./history/components/FilterDropdown";
@@ -18,6 +19,7 @@ interface Transaction {
 }
 
 export default function History() {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [selectedFilter, setSelectedFilter] = useState("Approved");
@@ -32,6 +34,10 @@ export default function History() {
   const filterButtonRef = useRef<HTMLButtonElement>(null);
   const dateRangeButtonRef = useRef<HTMLButtonElement>(null);
   const totalPages = 5;
+
+  const closeSidebar = () => {
+    setIsSidebarOpen(false);
+  };
 
   const transactions: Transaction[] = [
     {
