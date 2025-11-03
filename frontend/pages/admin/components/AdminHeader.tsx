@@ -1,6 +1,6 @@
-import React from 'react';
-import { Menu, LogOut, Settings, Bell } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import React from "react";
+import { Menu, LogOut, Settings, Bell } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 interface AdminHeaderProps {
   onMenuClick?: () => void;
@@ -9,7 +9,7 @@ interface AdminHeaderProps {
 
 export const AdminHeader: React.FC<AdminHeaderProps> = ({
   onMenuClick,
-  adminName = 'Admin',
+  adminName = "Admin",
 }) => {
   return (
     <header className="bg-white border-b border-gray-200 px-6 py-4 flex items-center justify-between sticky top-0 z-40">

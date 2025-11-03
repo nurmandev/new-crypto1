@@ -1,5 +1,5 @@
-import React from 'react';
-import { LucideIcon } from 'lucide-react';
+import React from "react";
+import { LucideIcon } from "lucide-react";
 
 interface StatsCardProps {
   title: string;
@@ -9,14 +9,14 @@ interface StatsCardProps {
     percentage: number;
     isPositive: boolean;
   };
-  color?: 'blue' | 'green' | 'purple' | 'orange';
+  color?: "blue" | "green" | "purple" | "orange";
 }
 
 const colorClasses = {
-  blue: 'bg-blue-50 text-blue-600',
-  green: 'bg-green-50 text-green-600',
-  purple: 'bg-purple-50 text-purple-600',
-  orange: 'bg-orange-50 text-orange-600',
+  blue: "bg-blue-50 text-blue-600",
+  green: "bg-green-50 text-green-600",
+  purple: "bg-purple-50 text-purple-600",
+  orange: "bg-orange-50 text-orange-600",
 };
 
 export const StatsCard: React.FC<StatsCardProps> = ({
@@ -24,7 +24,7 @@ export const StatsCard: React.FC<StatsCardProps> = ({
   value,
   icon: Icon,
   trend,
-  color = 'blue',
+  color = "blue",
 }) => {
   return (
     <div className="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-lg transition-shadow">
@@ -42,10 +42,10 @@ export const StatsCard: React.FC<StatsCardProps> = ({
         <div className="flex items-center gap-2">
           <span
             className={`text-sm font-medium ${
-              trend.isPositive ? 'text-green-600' : 'text-red-600'
+              trend.isPositive ? "text-green-600" : "text-red-600"
             }`}
           >
-            {trend.isPositive ? '+' : '-'}
+            {trend.isPositive ? "+" : "-"}
             {Math.abs(trend.percentage)}%
           </span>
           <span className="text-xs text-gray-500">from last month</span>
