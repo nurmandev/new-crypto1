@@ -77,6 +77,18 @@ export default function Profile() {
     console.log("Pin change:", securityData);
   };
 
+  const handlePreferencesChange = (field: string, value: string | boolean) => {
+    setPreferencesData({
+      ...preferencesData,
+      [field]: value,
+    });
+  };
+
+  const handlePreferencesSave = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log("Preferences saved:", preferencesData);
+  };
+
   return (
     <div className="min-h-screen bg-[#F8F8F8] pb-12 md:pb-16">
       {/* Top Navigation Bar */}
