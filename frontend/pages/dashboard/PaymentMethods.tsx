@@ -170,94 +170,118 @@ export default function PaymentMethods() {
   };
 
   return (
-    <div className="min-h-screen bg-[#F8F8F8] pb-12 md:pb-16">
+    <div className="min-h-screen bg-[#F8F8F8] pb-8 sm:pb-12 md:pb-16">
       {/* Top Navigation Bar */}
       <DashboardHeader
         onMenuToggle={() => setIsSidebarOpen(!isSidebarOpen)}
         isMenuOpen={isSidebarOpen}
       />
 
-      <div className="px-4 md:px-6 lg:px-12 mt-4 md:mt-6 flex flex-col lg:flex-row gap-4 md:gap-6">
+      <div className="px-3 sm:px-4 md:px-6 lg:px-12 mt-3 sm:mt-4 md:mt-6 flex flex-col lg:flex-row gap-3 sm:gap-4 md:gap-6">
         {/* Sidebar Navigation */}
         <div className="flex-shrink-0">
           <Sidebar isOpen={isSidebarOpen} onClose={closeSidebar} />
         </div>
 
         {/* Main Content */}
-        <div className="flex-1">
-          <div className="bg-white rounded-lg p-4 md:p-6 lg:p-8">
+        <div className="flex-1 w-full">
+          <div className="bg-white rounded-lg p-3 sm:p-4 md:p-6 lg:p-8">
             {/* Header */}
-            <div className="mb-6 md:mb-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-              <div>
-                <h1 className="text-xl md:text-2xl font-medium text-black mb-2">
+            <div className="mb-4 sm:mb-6 md:mb-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-4">
+              <div className="min-w-0 flex-1">
+                <h1 className="text-lg sm:text-xl md:text-2xl font-medium text-black mb-1 sm:mb-2">
                   Payment Methods
                 </h1>
-                <p className="text-sm md:text-base text-[#838383]">
+                <p className="text-xs sm:text-sm md:text-base text-[#838383]">
                   Manage your payment methods for deposits and withdrawals
                 </p>
               </div>
               <Button
                 onClick={() => setIsAddModalOpen(true)}
-                className="bg-[#161616] hover:bg-[#2a2a2a] text-white px-6 md:px-9 py-2 rounded-md self-start sm:self-auto"
+                className="bg-[#161616] hover:bg-[#2a2a2a] text-white px-4 sm:px-6 md:px-9 py-2 rounded-md text-xs sm:text-sm md:text-base whitespace-nowrap"
               >
-                <Plus className="w-4 h-4 mr-2" />
-                Payment Method
+                <Plus className="w-3 h-3 sm:w-4 sm:h-4 mr-2 flex-shrink-0" />
+                Add Method
               </Button>
             </div>
 
-            {/* Payment Methods Grid */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6">
-              {paymentMethods.map((method) => (
-                <div
-                  key={method.id}
-                  className="bg-[#F8F8F8] rounded-lg p-4 md:p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
+            {/* Empty State */}
+            {paymentMethods.length === 0 && (
+              <div className="text-center py-8 sm:py-12">
+                <p className="text-sm md:text-base text-[#838383] mb-4">
+                  No payment methods added yet
+                </p>
+                <Button
+                  onClick={() => setIsAddModalOpen(true)}
+                  className="bg-[#161616] hover:bg-[#2a2a2a] text-white px-6 py-2 rounded-md"
                 >
-                  <div className="flex items-center gap-3 md:gap-4 flex-1">
-                    <div className="w-8 h-8 md:w-9 md:h-9 rounded-full border border-[#D5D5D5] flex-shrink-0 overflow-hidden bg-white">
-                      <img
-                        src={method.icon}
-                        alt={method.name}
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-center gap-2 flex-wrap mb-1">
-                        <h3 className="text-sm md:text-base font-medium text-black">
-                          {method.name}
-                        </h3>
-                        {method.isPrimary && (
-                          <span className="px-2.5 py-1 bg-[#3CC27B]/30 rounded-full text-[10px] text-black">
-                            Primary
-                          </span>
-                        )}
+                  <Plus className="w-4 h-4 mr-2" />
+                  Add Your First Method
+                </Button>
+              </div>
+            )}
+
+            {/* Payment Methods Grid */}
+            {paymentMethods.length > 0 && (
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 md:gap-6">
+                {paymentMethods.map((method) => (
+                  <div
+                    key={method.id}
+                    className="bg-[#F8F8F8] rounded-lg p-3 sm:p-4 md:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 hover:shadow-md transition-shadow"
+                  >
+                    <div className="flex items-center gap-2 sm:gap-3 md:gap-4 flex-1 min-w-0">
+                      <div className="w-7 h-7 sm:w-8 sm:h-8 md:w-9 md:h-9 rounded-full border border-[#D5D5D5] flex-shrink-0 overflow-hidden bg-white">
+                        <img
+                          src={method.icon}
+                          alt={method.name}
+                          className="w-full h-full object-cover"
+                        />
                       </div>
-                      <p className="text-xs md:text-sm text-black font-light mb-2">
-                        {method.subtitle}
-                      </p>
-                      <p className="text-[11px] md:text-xs text-black font-light truncate">
-                        {method.account}
-                      </p>
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center gap-1 sm:gap-2 flex-wrap mb-1">
+                          <h3 className="text-xs sm:text-sm md:text-base font-medium text-black truncate">
+                            {method.name}
+                          </h3>
+                          {method.isPrimary && (
+                            <span className="px-2 py-0.5 bg-[#3CC27B]/30 rounded-full text-[9px] sm:text-[10px] text-black flex-shrink-0">
+                              Primary
+                            </span>
+                          )}
+                        </div>
+                        <p className="text-[11px] sm:text-xs md:text-sm text-black font-light mb-1 truncate">
+                          {method.subtitle}
+                        </p>
+                        <p className="text-[10px] sm:text-xs text-black font-light truncate">
+                          {method.account}
+                        </p>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-1.5 sm:gap-2 flex-shrink-0">
+                      <button
+                        onClick={() => handleEdit(method)}
+                        className="p-1 sm:p-1.5 hover:bg-white/50 rounded transition-colors"
+                        aria-label="Edit"
+                        title="Edit payment method"
+                      >
+                        <Pencil className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-black" />
+                      </button>
+                      <button
+                        onClick={() => {
+                          if (window.confirm("Are you sure you want to delete this payment method?")) {
+                            handleDelete(method.id);
+                          }
+                        }}
+                        className="p-1 sm:p-1.5 hover:bg-white/50 rounded transition-colors"
+                        aria-label="Delete"
+                        title="Delete payment method"
+                      >
+                        <Trash2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#FA1818]" />
+                      </button>
                     </div>
                   </div>
-                  <div className="flex items-center gap-2 self-end sm:self-auto">
-                    <button
-                      onClick={() => handleEdit(method)}
-                      className="p-1.5 hover:bg-white/50 rounded transition-colors"
-                      aria-label="Edit"
-                    >
-                      <Pencil className="w-4 h-4 text-black" />
-                    </button>
-                    <button
-                      onClick={() => handleDelete(method.id)}
-                      className="p-1.5 hover:bg-white/50 rounded transition-colors"
-                      aria-label="Delete"
-                    >
-                      <Trash2 className="w-4 h-4 text-[#FA1818]" />
-                    </button>
-                  </div>
-                </div>
-              ))}
-            </div>
+                ))}
+              </div>
+            )}
           </div>
         </div>
       </div>
