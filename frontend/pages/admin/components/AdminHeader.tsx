@@ -1,10 +1,6 @@
 import React from 'react';
 
-interface AdminHeaderProps {
-  onMenuClick?: () => void;
-}
-
-export const AdminHeader: React.FC<AdminHeaderProps> = ({ onMenuClick }) => {
+export const AdminHeader: React.FC = () => {
   return (
     <header className="h-[75px] bg-white rounded-[10px] flex items-center justify-between px-8">
       {/* Logo */}

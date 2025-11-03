@@ -129,9 +129,6 @@ export const AdminSidebar: React.FC<AdminSidebarProps> = ({ isOpen = true, onClo
             </svg>
             <span className="font-semibold text-lg">Overview</span>
           </div>
-          <button onClick={onClose} className="ml-auto lg:hidden text-white">
-            <X className="w-5 h-5" />
-          </button>
         </div>
 
         {/* Menu Items */}
