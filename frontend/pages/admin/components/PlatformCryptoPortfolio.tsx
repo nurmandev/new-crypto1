@@ -43,7 +43,7 @@ export const PlatformCryptoPortfolio: React.FC = () => {
             stroke="#627EEA"
             strokeWidth="28"
             strokeDasharray="71 250"
-            strokeDashOffset="-235"
+            strokeDashoffset="-235"
             transform="rotate(-90 100 100)"
           />
 
