@@ -96,7 +96,9 @@ export default function CryptoAccess() {
                 </p>
               </div>
               <div className="bg-red-100 px-3 py-1 rounded-md w-fit">
-                <span className="text-red-600 text-sm font-medium">Inactive</span>
+                <span className="text-red-600 text-sm font-medium">
+                  Inactive
+                </span>
               </div>
             </div>
           </div>
@@ -108,7 +110,9 @@ export default function CryptoAccess() {
                 key={step.id}
                 className="bg-white rounded-lg border border-gray-200 p-6 flex gap-4"
               >
-                <div className={`flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center ${step.color}`}>
+                <div
+                  className={`flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center ${step.color}`}
+                >
                   <span className={`text-lg font-bold ${step.iconColor}`}>
                     {step.status === "completed" ? "✓" : "⏱"}
                   </span>
@@ -120,11 +124,13 @@ export default function CryptoAccess() {
                   <p className="text-gray-600 text-sm mb-3">
                     {step.description}
                   </p>
-                  <span className={`inline-block text-xs font-medium px-2 py-1 rounded ${
-                    step.status === "completed"
-                      ? "bg-green-100 text-green-700"
-                      : "bg-yellow-100 text-yellow-700"
-                  }`}>
+                  <span
+                    className={`inline-block text-xs font-medium px-2 py-1 rounded ${
+                      step.status === "completed"
+                        ? "bg-green-100 text-green-700"
+                        : "bg-yellow-100 text-yellow-700"
+                    }`}
+                  >
                     {step.status === "completed" ? "Completed" : "Pending"}
                   </span>
                 </div>
@@ -139,7 +145,9 @@ export default function CryptoAccess() {
                 key={step.id}
                 className="bg-white rounded-lg border border-gray-200 p-6 flex gap-4 md:col-span-2"
               >
-                <div className={`flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center ${step.color}`}>
+                <div
+                  className={`flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center ${step.color}`}
+                >
                   <span className={`text-lg font-bold ${step.iconColor}`}>
                     {step.icon}
                   </span>
@@ -151,7 +159,9 @@ export default function CryptoAccess() {
                   <p className="text-gray-600 text-sm mb-3">
                     {step.description}
                   </p>
-                  <span className={`inline-block text-xs font-medium px-2 py-1 rounded bg-yellow-100 text-yellow-700`}>
+                  <span
+                    className={`inline-block text-xs font-medium px-2 py-1 rounded bg-yellow-100 text-yellow-700`}
+                  >
                     Enable
                   </span>
                 </div>
@@ -166,7 +176,10 @@ export default function CryptoAccess() {
             </h3>
             <ul className="space-y-3">
               {securityRequirements.map((requirement, index) => (
-                <li key={index} className="flex items-start gap-3 text-gray-800">
+                <li
+                  key={index}
+                  className="flex items-start gap-3 text-gray-800"
+                >
                   <span className="text-green-600 font-bold mt-0.5">•</span>
                   <span className="text-sm md:text-base">{requirement}</span>
                 </li>
