@@ -12,7 +12,6 @@ import { SystemStatusItem } from './components/SystemStatusItem';
 import { AreaChart } from './components/AreaChart';
 
 export const AdminDashboard: React.FC = () => {
-  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const stats = [
     {
@@ -108,12 +107,12 @@ export const AdminDashboard: React.FC = () => {
     <div className="min-h-screen bg-[#F8F8F8] p-6">
       <div className="flex gap-6 max-w-[1920px] mx-auto">
         {/* Sidebar */}
-        <AdminSidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
+        <AdminSidebar isOpen={true} />
 
         {/* Main Content Container */}
         <div className="flex-1 flex flex-col gap-6">
           {/* Header */}
-          <AdminHeader onMenuClick={() => setSidebarOpen(!sidebarOpen)} />
+          <AdminHeader />
 
           {/* Content */}
           <div className="flex-1">
