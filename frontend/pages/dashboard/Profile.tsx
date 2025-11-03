@@ -45,10 +45,28 @@ export default function Profile() {
     });
   };
 
+  const handleSecurityInputChange = (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    setSecurityData({
+      ...securityData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log("Form submitted:", formData);
-    // Handle form submission
+  };
+
+  const handlePasswordUpdate = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log("Password update:", securityData);
+  };
+
+  const handlePinChange = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log("Pin change:", securityData);
   };
 
   return (
