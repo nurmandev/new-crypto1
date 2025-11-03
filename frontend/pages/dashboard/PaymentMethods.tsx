@@ -25,12 +25,10 @@ export default function PaymentMethods() {
   const [selectedMethod, setSelectedMethod] = useState<PaymentMethod | null>(
     null,
   );
+  const [isEditingModal, setIsEditingModal] = useState(false);
 
-  const closeSidebar = () => {
-    setIsSidebarOpen(false);
-  };
-
-  const paymentMethods: PaymentMethod[] = [
+  // State for payment methods
+  const [paymentMethods, setPaymentMethods] = useState<PaymentMethod[]>([
     {
       id: "1",
       type: "UPI",
@@ -56,7 +54,7 @@ export default function PaymentMethods() {
       subtitle: "Paypal Wallet",
       account: "Account :  john.doe@example.com",
       icon: "https://api.builder.io/api/v1/image/assets/TEMP/d1d6bd516909e21fac1ea7f96e71486c9c8ec838?width=80",
-      isPrimary: true,
+      isPrimary: false,
     },
     {
       id: "4",
@@ -65,7 +63,7 @@ export default function PaymentMethods() {
       subtitle: "TRC20 Network",
       account: "Address: 1A1zP1eP5Q...DivfNa...",
       icon: "https://api.builder.io/api/v1/image/assets/TEMP/d1d6bd516909e21fac1ea7f96e71486c9c8ec838?width=80",
-      isPrimary: true,
+      isPrimary: false,
     },
     {
       id: "5",
@@ -74,12 +72,17 @@ export default function PaymentMethods() {
       subtitle: "Skrill Wallet",
       account: "Account : john.doe@example.com",
       icon: "https://api.builder.io/api/v1/image/assets/TEMP/d1d6bd516909e21fac1ea7f96e71486c9c8ec838?width=80",
-      isPrimary: true,
+      isPrimary: false,
     },
-  ];
+  ]);
+
+  const closeSidebar = () => {
+    setIsSidebarOpen(false);
+  };
 
   const handleEdit = (method: PaymentMethod) => {
     setSelectedMethod(method);
+    setIsEditingModal(true);
     if (method.type === "UPI") {
       setIsUPIModalOpen(true);
     } else if (method.type === "Bank") {
@@ -88,19 +91,75 @@ export default function PaymentMethods() {
   };
 
   const handleDelete = (id: string) => {
-    console.log("Delete method:", id);
+    setPaymentMethods(paymentMethods.filter((method) => method.id !== id));
+    console.log("Payment method deleted:", id);
   };
 
   const handleUPISave = (data: { upiId: string; qrCode: File | null }) => {
-    console.log("UPI Data:", data);
+    if (isEditingModal && selectedMethod) {
+      // Update existing method
+      setPaymentMethods(
+        paymentMethods.map((method) =>
+          method.id === selectedMethod.id
+            ? {
+                ...method,
+                account: `Account : ${data.upiId}`,
+              }
+            : method,
+        ),
+      );
+      setIsEditingModal(false);
+    } else {
+      // Add new method
+      const newMethod: PaymentMethod = {
+        id: Date.now().toString(),
+        type: "UPI",
+        name: "UPI Payment",
+        subtitle: "UPI (Google Pay, PhonePe, Paytm)",
+        account: `Account : ${data.upiId}`,
+        icon: "https://api.builder.io/api/v1/image/assets/TEMP/d1d6bd516909e21fac1ea7f96e71486c9c8ec838?width=80",
+        isPrimary: false,
+      };
+      setPaymentMethods([...paymentMethods, newMethod]);
+    }
+    setSelectedMethod(null);
+    console.log("UPI Data saved:", data);
   };
 
   const handleBankSave = (data: any) => {
-    console.log("Bank Data:", data);
+    if (isEditingModal && selectedMethod) {
+      // Update existing method
+      setPaymentMethods(
+        paymentMethods.map((method) =>
+          method.id === selectedMethod.id
+            ? {
+                ...method,
+                account: `Account : ${data.bankName || selectedMethod.account}`,
+              }
+            : method,
+        ),
+      );
+      setIsEditingModal(false);
+    } else {
+      // Add new method
+      const newMethod: PaymentMethod = {
+        id: Date.now().toString(),
+        type: "Bank",
+        name: "Bank Account",
+        subtitle: "Bank Account (IMPS/NEFT/RTGS)",
+        account: `Account : ${data.bankName || "New Bank"}`,
+        icon: "https://api.builder.io/api/v1/image/assets/TEMP/d1d6bd516909e21fac1ea7f96e71486c9c8ec838?width=80",
+        isPrimary: false,
+      };
+      setPaymentMethods([...paymentMethods, newMethod]);
+    }
+    setSelectedMethod(null);
+    console.log("Bank Data saved:", data);
   };
 
   const handleSelectPaymentMethod = (methodType: string) => {
-    console.log("Selected method type:", methodType);
+    setIsEditingModal(false);
+    setSelectedMethod(null);
     // Open the appropriate modal based on the selected method type
     if (methodType === "upi") {
       setIsUPIModalOpen(true);
