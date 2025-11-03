@@ -76,9 +76,9 @@ export default function BuyCrypto() {
                     type="text"
                     value={youPayAmount}
                     onChange={(e) => setYouPayAmount(e.target.value)}
-                    className="w-full h-[51px] bg-[#F0F0F0] border border-[#CACACA] rounded-md px-7 text-[15px] font-bold text-[#8E8E8E]"
+                    className="w-full h-[45px] md:h-[51px] bg-[#F0F0F0] border border-[#CACACA] rounded-md px-4 md:px-7 text-xs md:text-sm lg:text-[15px] font-bold text-[#8E8E8E]"
                   />
-                  <span className="absolute right-7 top-1/2 -translate-y-1/2 text-[13px] text-[#717171]">
+                  <span className="absolute right-4 md:right-7 top-1/2 -translate-y-1/2 text-xs md:text-[13px] text-[#717171]">
                     INR
                   </span>
                 </div>
@@ -86,13 +86,13 @@ export default function BuyCrypto() {
 
               {/* Swap Button */}
               <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 hidden md:block">
-                <button className="w-11 h-11 rounded-full bg-gradient-to-br from-[#3CC27B] to-[#1C5C3A] flex items-center justify-center hover:scale-105 transition-transform shadow-lg">
-                  <ArrowUpDown className="w-5 h-5 text-white" />
+                <button className="w-9 md:w-11 h-9 md:h-11 rounded-full bg-gradient-to-br from-[#3CC27B] to-[#1C5C3A] flex items-center justify-center hover:scale-105 transition-transform shadow-lg">
+                  <ArrowUpDown className="w-4 md:w-5 h-4 md:h-5 text-white" />
                 </button>
               </div>
 
               <div>
-                <label className="block text-[17px] font-medium text-black mb-3">
+                <label className="block text-sm md:text-base lg:text-[17px] font-medium text-black mb-2 md:mb-3">
                   You Receive
                 </label>
                 <div className="relative">
@@ -100,32 +100,32 @@ export default function BuyCrypto() {
                     type="text"
                     value={youReceiveAmount}
                     onChange={(e) => setYouReceiveAmount(e.target.value)}
-                    className="w-full h-[51px] bg-[#F0F0F0] border border-[#CACACA] rounded-md px-7 text-[15px] font-bold text-[#8E8E8E]"
+                    className="w-full h-[45px] md:h-[51px] bg-[#F0F0F0] border border-[#CACACA] rounded-md px-4 md:px-7 text-xs md:text-sm lg:text-[15px] font-bold text-[#8E8E8E]"
                   />
-                  <span className="absolute right-7 top-1/2 -translate-y-1/2 text-[13px] text-[#717171]">
+                  <span className="absolute right-4 md:right-7 top-1/2 -translate-y-1/2 text-xs md:text-[13px] text-[#717171]">
                     ADA
                   </span>
                 </div>
               </div>
             </div>
 
-            <p className="text-[#838383] text-center text-[17px] mb-8">
+            <p className="text-[#838383] text-center text-xs md:text-sm lg:text-[17px] mb-6 md:mb-8">
               1 ADA = ₹28
             </p>
 
             {/* Continue Button */}
             <Link
               to="/payment-method"
-              className="w-full flex items-center justify-center gap-2 bg-black text-white py-4 rounded-md border border-[#C3C3C3] hover:bg-black/90 transition-colors mb-8"
+              className="w-full flex items-center justify-center gap-2 bg-black text-white py-3 md:py-4 rounded-md border border-[#C3C3C3] hover:bg-black/90 transition-colors mb-6 md:mb-8"
             >
-              <span className="text-[15px] font-medium">
+              <span className="text-xs md:text-sm lg:text-[15px] font-medium">
                 Continue To Payment
               </span>
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight className="w-3 h-3 md:w-4 md:h-4" />
             </Link>
 
             {/* Purchase Summary */}
-            <div className="border-l-2 border-[#3CC27B] bg-[#3CC27B]/10 rounded-[10px] p-6">
+            <div className="border-l-2 border-[#3CC27B] bg-[#3CC27B]/10 rounded-lg md:rounded-[10px] p-4 md:p-6">
               <h3 className="text-[15px] font-medium text-black mb-6">
                 Purchase Summary
               </h3>
