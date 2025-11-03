@@ -59,7 +59,11 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
     <>
       {/* Mobile Overlay - Only on mobile when open */}
       {isOpen && !isDesktop && (
-        <div className="fixed inset-0 bg-black/50 z-30" onClick={onClose} />
+        <div
+          className="fixed inset-0 bg-black/50 z-30"
+          onClick={onClose}
+          style={{ pointerEvents: "auto", overscrollBehavior: "contain" }}
+        />
       )}
 
       {/* Sidebar */}
