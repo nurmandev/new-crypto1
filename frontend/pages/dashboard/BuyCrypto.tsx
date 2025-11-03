@@ -29,46 +29,46 @@ export default function BuyCrypto() {
         </div>
 
         {/* Main Content */}
-        <div className="flex-1 space-y-6">
-          <div className="bg-white rounded-[10px] p-8">
+        <div className="flex-1 space-y-4 md:space-y-6">
+          <div className="bg-white rounded-lg md:rounded-[10px] p-4 md:p-6 lg:p-8">
             {/* Buy/Sell Toggle */}
-            <div className="relative mb-6">
-              <div className="w-full h-[51px] bg-[#F0F0F0] rounded-md"></div>
-              <div className="absolute top-1 left-1 w-[calc(50%-4px)] h-[43px] bg-white rounded"></div>
+            <div className="relative mb-6 md:mb-8">
+              <div className="w-full h-[45px] md:h-[51px] bg-[#F0F0F0] rounded-md"></div>
+              <div className="absolute top-1 left-1 w-[calc(50%-4px)] h-[37px] md:h-[43px] bg-white rounded"></div>
               <div className="absolute inset-0 flex">
-                <button className="flex-1 text-xl font-medium text-gray-900">
+                <button className="flex-1 text-sm md:text-base lg:text-xl font-medium text-gray-900">
                   Buy Crypto
                 </button>
                 <Link
                   to="/sell-crypto"
-                  className="flex-1 flex items-center justify-center text-xl font-medium text-gray-900"
+                  className="flex-1 flex items-center justify-center text-sm md:text-base lg:text-xl font-medium text-gray-900"
                 >
                   Sell Crypto
                 </Link>
               </div>
             </div>
 
-            <p className="text-[#838383] text-center text-[17px] mb-8">
+            <p className="text-[#838383] text-center text-xs md:text-sm lg:text-[17px] mb-6 md:mb-8">
               Exchange INR for cryptocurrency instantly
             </p>
 
             {/* Select Cryptocurrency */}
-            <div className="mb-6">
-              <label className="block text-[17px] font-medium text-black mb-3">
+            <div className="mb-6 md:mb-8">
+              <label className="block text-sm md:text-base lg:text-[17px] font-medium text-black mb-2 md:mb-3">
                 Select Cryptocurrency
               </label>
-              <div className="w-full h-[51px] bg-[#F0F0F0] rounded-md px-7 flex items-center justify-between">
-                <span className="text-[13px] font-medium text-black">
+              <div className="w-full h-[45px] md:h-[51px] bg-[#F0F0F0] rounded-md px-4 md:px-7 flex items-center justify-between">
+                <span className="text-xs md:text-sm lg:text-[13px] font-medium text-black truncate">
                   {selectedCrypto}
                 </span>
-                <ChevronDown className="w-3 h-3 text-black" />
+                <ChevronDown className="w-3 h-3 md:w-4 md:h-4 text-black flex-shrink-0" />
               </div>
             </div>
 
             {/* You Pay / You Receive */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6 relative">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-6 md:mb-8 relative">
               <div>
-                <label className="block text-[17px] font-medium text-black mb-3">
+                <label className="block text-sm md:text-base lg:text-[17px] font-medium text-black mb-2 md:mb-3">
                   You Pay
                 </label>
                 <div className="relative">
