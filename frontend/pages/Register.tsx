@@ -87,10 +87,13 @@ export default function Register() {
             ))}
 
             {/* Register Button */}
-            <button className="w-full flex items-center justify-center gap-2 bg-black hover:bg-black/90 text-white py-2.5 rounded-md transition-colors mb-4">
+            <Link
+              to="/admin"
+              className="w-full flex items-center justify-center gap-2 bg-black hover:bg-black/90 text-white py-2.5 rounded-md transition-colors mb-4"
+            >
               <span className="text-sm font-medium">Register</span>
               <ArrowRight className="w-4 h-4" />
-            </button>
+            </Link>
 
             {/* Divider */}
             <div className="relative my-4">
