@@ -164,7 +164,8 @@ export default function DepositWithdraw() {
                 const getLink = () => {
                   if (option.title === "Deposit Fund") return "/deposit-fund";
                   if (option.title === "Withdraw Fund") return "/withdraw-fund";
-                  if (option.title === "Deposit Crypto") return "/deposit-crypto";
+                  if (option.title === "Deposit Crypto")
+                    return "/deposit-crypto";
                   if (option.title === "Withdraw Crypto")
                     return "/withdraw-crypto-form";
                   return "#";
