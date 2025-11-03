@@ -233,7 +233,9 @@ export default function MyWallet() {
                   disabled={pin.join("").length !== 6}
                   className="w-full flex items-center justify-center gap-2 py-2.5 sm:py-3 md:py-4 px-4 sm:px-6 bg-black text-white rounded-md border border-[#C3C3C3] hover:bg-gray-800 disabled:opacity-50 disabled:cursor-not-allowed transition-all mb-3 sm:mb-4"
                 >
-                  <span className="text-xs sm:text-sm md:text-base">Unlock Wallet</span>
+                  <span className="text-xs sm:text-sm md:text-base">
+                    Unlock Wallet
+                  </span>
                   <ChevronRight className="w-3 h-3 sm:w-4 sm:h-4" />
                 </button>
 
@@ -276,13 +278,17 @@ export default function MyWallet() {
                 <h2 className="text-sm sm:text-base md:text-lg lg:text-xl font-medium mb-1 sm:mb-2">
                   Wallet Balance
                 </h2>
-                <p className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold">₹45,230.5</p>
+                <p className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold">
+                  ₹45,230.5
+                </p>
               </div>
               <div>
                 <h2 className="text-sm sm:text-base md:text-lg lg:text-xl font-medium mb-1 sm:mb-2">
                   Asset Value
                 </h2>
-                <p className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold">$1,00,000</p>
+                <p className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold">
+                  $1,00,000
+                </p>
               </div>
             </div>
 
@@ -313,7 +319,9 @@ export default function MyWallet() {
                     style={{ width: "46%" }}
                   ></div>
                 </div>
-                <p className="text-[10px] sm:text-xs md:text-sm">₹34,580 remaining today</p>
+                <p className="text-[10px] sm:text-xs md:text-sm">
+                  ₹34,580 remaining today
+                </p>
               </div>
 
               {/* Monthly Limit */}
@@ -332,7 +340,9 @@ export default function MyWallet() {
                     style={{ width: "46%" }}
                   ></div>
                 </div>
-                <p className="text-[10px] sm:text-xs md:text-sm">₹34,580 remaining today</p>
+                <p className="text-[10px] sm:text-xs md:text-sm">
+                  ₹34,580 remaining today
+                </p>
               </div>
             </div>
           </div>
@@ -344,7 +354,10 @@ export default function MyWallet() {
             </h2>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 sm:gap-4 md:gap-6">
               {assetAllocation.map((asset, index) => (
-                <div key={index} className="flex flex-col items-center gap-2 sm:gap-3">
+                <div
+                  key={index}
+                  className="flex flex-col items-center gap-2 sm:gap-3"
+                >
                   <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 rounded-full border-[5px] sm:border-[7px] border-[#3CC27B] bg-white shadow-lg flex items-center justify-center">
                     <span className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-[#3CC27B]">
                       {asset.name === "INR"
@@ -358,7 +371,9 @@ export default function MyWallet() {
                               : "₮"}
                     </span>
                   </div>
-                  <p className="text-xs sm:text-sm md:text-base lg:text-lg font-normal text-center">{asset.name}</p>
+                  <p className="text-xs sm:text-sm md:text-base lg:text-lg font-normal text-center">
+                    {asset.name}
+                  </p>
                   <p className="text-xs sm:text-sm md:text-base lg:text-lg font-semibold">
                     {asset.percentage}
                   </p>
@@ -389,7 +404,9 @@ export default function MyWallet() {
                 >
                   <div className="flex items-center gap-3">
                     <div className="flex-1 min-w-0">
-                      <p className="text-xs sm:text-sm text-black">{holding.name}</p>
+                      <p className="text-xs sm:text-sm text-black">
+                        {holding.name}
+                      </p>
                       <p className="text-sm sm:text-base md:text-base font-medium text-black truncate">
                         {holding.amount}
                       </p>
@@ -536,8 +553,12 @@ export default function MyWallet() {
                     <p className="text-sm sm:text-base font-bold text-black mb-1">
                       {tx.type}
                     </p>
-                    <p className="text-[10px] sm:text-xs text-black mb-1">{tx.date}</p>
-                    <p className="text-[10px] sm:text-xs text-black truncate">{tx.txId}</p>
+                    <p className="text-[10px] sm:text-xs text-black mb-1">
+                      {tx.date}
+                    </p>
+                    <p className="text-[10px] sm:text-xs text-black truncate">
+                      {tx.txId}
+                    </p>
                   </div>
                   <div className="flex items-center gap-2 sm:gap-4">
                     <span className="px-2 sm:px-3 py-1 bg-[#BDFDDB] text-[#1C5C3A] text-[10px] sm:text-xs rounded whitespace-nowrap">
@@ -547,7 +568,9 @@ export default function MyWallet() {
                       <p className="text-xs sm:text-sm md:text-base lg:text-lg font-medium text-black">
                         {tx.amount}
                       </p>
-                      <p className="text-[10px] sm:text-xs text-black">{tx.inr}</p>
+                      <p className="text-[10px] sm:text-xs text-black">
+                        {tx.inr}
+                      </p>
                     </div>
                   </div>
                 </div>
