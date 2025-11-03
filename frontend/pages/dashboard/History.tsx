@@ -135,7 +135,11 @@ export default function History() {
               </svg>
               Filter
             </button>
-            <button className="inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-black text-white rounded text-xs hover:bg-black/90 transition-colors">
+            <button
+              ref={dateRangeButtonRef}
+              onClick={() => setIsDateRangeOpen(!isDateRangeOpen)}
+              className="inline-flex items-center justify-center gap-2 px-3 py-1.5 bg-black text-white rounded text-xs hover:bg-black/90 transition-colors relative"
+            >
               <svg
                 width="12"
                 height="12"
@@ -151,6 +155,12 @@ export default function History() {
               </svg>
               Date Range
             </button>
+            <DateRangeModal
+              isOpen={isDateRangeOpen}
+              onClose={() => setIsDateRangeOpen(false)}
+              onApply={handleApplyDateRange}
+              anchorRef={dateRangeButtonRef}
+            />
             <FilterDropdown
               isOpen={isFilterOpen}
               onClose={() => setIsFilterOpen(false)}
