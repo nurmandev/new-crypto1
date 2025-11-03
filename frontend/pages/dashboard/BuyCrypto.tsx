@@ -245,11 +245,15 @@ export default function BuyCrypto() {
                 key={item}
                 className="bg-white rounded-lg border border-[#D9D9D9] p-3 md:p-4"
               >
-                <p className="text-sm md:text-base font-bold text-black">Buy BTC</p>
+                <p className="text-sm md:text-base font-bold text-black">
+                  Buy BTC
+                </p>
                 <p className="text-[10px] md:text-xs text-black font-light mt-1">
                   2024-12-20 14:30
                 </p>
-                <p className="text-[10px] md:text-xs text-black font-light">0x1234...5678</p>
+                <p className="text-[10px] md:text-xs text-black font-light">
+                  0x1234...5678
+                </p>
               </div>
             ))}
           </div>

@@ -93,7 +93,9 @@ export default function SellCrypto() {
                 <h2 className="text-white text-2xl md:text-4xl lg:text-5xl font-bold mb-1 md:mb-2">
                   0.05432100 ETH
                 </h2>
-                <p className="text-white text-xs md:text-base lg:text-xl">≈ ₹10,049.385</p>
+                <p className="text-white text-xs md:text-base lg:text-xl">
+                  ≈ ₹10,049.385
+                </p>
               </div>
             </div>
 
@@ -191,7 +193,9 @@ export default function SellCrypto() {
               to="/sell-success"
               className="w-full flex items-center justify-center gap-2 bg-black text-white py-3 md:py-4 rounded-md border border-[#C3C3C3] hover:bg-black/90 transition-colors mb-6 md:mb-8"
             >
-              <span className="text-xs md:text-sm lg:text-[15px] font-medium">Continue To Sell</span>
+              <span className="text-xs md:text-sm lg:text-[15px] font-medium">
+                Continue To Sell
+              </span>
               <ArrowRight className="w-3 h-3 md:w-4 md:h-4" />
             </Link>
 
@@ -263,11 +267,15 @@ export default function SellCrypto() {
                 key={item}
                 className="bg-white rounded-lg border border-[#D9D9D9] p-3 md:p-4"
               >
-                <p className="text-sm md:text-base font-bold text-black">Buy BTC</p>
+                <p className="text-sm md:text-base font-bold text-black">
+                  Buy BTC
+                </p>
                 <p className="text-[10px] md:text-xs text-black font-light mt-1">
                   2024-12-20 14:30
                 </p>
-                <p className="text-[10px] md:text-xs text-black font-light">0x1234...5678</p>
+                <p className="text-[10px] md:text-xs text-black font-light">
+                  0x1234...5678
+                </p>
               </div>
             ))}
           </div>
