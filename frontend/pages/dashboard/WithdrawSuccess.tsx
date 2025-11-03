@@ -1,8 +1,16 @@
+import { useState } from "react";
 import { CheckCircle2 } from "lucide-react";
 import { Link } from "react-router-dom";
-import DashboardLayout from "./components/DashboardLayout";
+import DashboardHeader from "./components/DashboardHeader";
+import Sidebar from "./components/Sidebar";
 
 export default function WithdrawSuccess() {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+
+  const closeSidebar = () => {
+    setIsSidebarOpen(false);
+  };
+
   // Mock transaction data - can be passed via route state or API
   const transactionData = {
     amount: "-100 USDT",
@@ -14,8 +22,21 @@ export default function WithdrawSuccess() {
   };
 
   return (
-    <DashboardLayout>
-      <div className="flex-1 max-w-[1234px]">
+    <div className="min-h-screen bg-[#F8F8F8] pb-12 md:pb-16">
+      {/* Top Navigation Bar */}
+      <DashboardHeader
+        onMenuToggle={() => setIsSidebarOpen(!isSidebarOpen)}
+        isMenuOpen={isSidebarOpen}
+      />
+
+      <div className="px-4 md:px-6 lg:px-12 mt-4 md:mt-6 flex flex-col lg:flex-row gap-4 md:gap-6">
+        {/* Sidebar Navigation */}
+        <div className="flex-shrink-0">
+          <Sidebar isOpen={isSidebarOpen} onClose={closeSidebar} />
+        </div>
+
+        {/* Main Content */}
+        <div className="flex-1 max-w-[1234px]">
         <div className="bg-white rounded-[10px] p-8 md:p-12 lg:p-16 flex flex-col items-center">
           {/* Success Icon */}
           <div className="w-[45px] h-[45px] rounded-full bg-[rgba(60,194,123,0.31)] flex items-center justify-center mb-6">
@@ -96,7 +117,8 @@ export default function WithdrawSuccess() {
           </Link>
         </div>
       </div>
-    </DashboardLayout>
+      </div>
+    </div>
   );
 }
 
