@@ -3,7 +3,7 @@ import DashboardHeader from "./components/DashboardHeader";
 import Sidebar from "./components/Sidebar";
 import { Calendar, Camera, Eye, EyeOff } from "lucide-react";
 
-type Tab = "profile" | "security" | "sell";
+type Tab = "profile" | "security" | "preferences";
 
 export default function Profile() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
@@ -24,6 +24,14 @@ export default function Profile() {
     confirmPassword: "",
     currentPin: "",
     newPin: "",
+  });
+
+  const [preferencesData, setPreferencesData] = useState({
+    emailNotifications: true,
+    smsNotifications: false,
+    language: "English",
+    currency: "INR (₹)",
+    timezone: "Indian Standard Time (IST)",
   });
 
   const [showPassword, setShowPassword] = useState({
