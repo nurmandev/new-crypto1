@@ -145,48 +145,48 @@ export default function SellCrypto() {
             </Link>
 
             <div className="border-l-2 border-[#FA1818] bg-[rgba(253,189,189,0.19)] rounded-lg md:rounded-[10px] p-4 md:p-6">
-              <h3 className="text-[15px] font-medium text-black mb-6">
+              <h3 className="text-xs md:text-sm lg:text-[15px] font-medium text-black mb-4 md:mb-6">
                 Purchase Summary
               </h3>
-              <div className="space-y-3">
-                <div className="flex justify-between items-center">
-                  <span className="text-[14px] text-black font-light">
+              <div className="space-y-2 md:space-y-3">
+                <div className="flex justify-between items-center gap-2">
+                  <span className="text-xs md:text-sm lg:text-[14px] text-black font-light">
                     Cryptocurrency:
                   </span>
-                  <span className="text-[14px] text-black font-medium">
+                  <span className="text-xs md:text-sm lg:text-[14px] text-black font-medium text-right">
                     Ethereum (ETH)
                   </span>
                 </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-[14px] text-black font-light">
+                <div className="flex justify-between items-center gap-2">
+                  <span className="text-xs md:text-sm lg:text-[14px] text-black font-light">
                     Crypto Amount:
                   </span>
-                  <span className="text-[14px] text-black font-medium">
+                  <span className="text-xs md:text-sm lg:text-[14px] text-black font-medium text-right">
                     0.02000000 ETH
                   </span>
                 </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-[14px] text-black font-light">
+                <div className="flex justify-between items-center gap-2">
+                  <span className="text-xs md:text-sm lg:text-[14px] text-black font-light">
                     Exchange Rate:
                   </span>
-                  <span className="text-[14px] text-black font-medium">
+                  <span className="text-xs md:text-sm lg:text-[14px] text-black font-medium text-right">
                     ₹1,85,000
                   </span>
                 </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-[14px] text-black font-light">
+                <div className="flex justify-between items-center gap-2">
+                  <span className="text-xs md:text-sm lg:text-[14px] text-black font-light">
                     Trading Fee (0.5%):
                   </span>
-                  <span className="text-[14px] text-black font-medium">
+                  <span className="text-xs md:text-sm lg:text-[14px] text-black font-medium text-right">
                     ₹18.50
                   </span>
                 </div>
-                <div className="border-t border-[#EDEDED] pt-3 mt-3">
-                  <div className="flex justify-between items-center">
-                    <span className="text-[14px] text-black font-light">
+                <div className="border-t border-[#EDEDED] pt-2 md:pt-3 mt-2 md:mt-3">
+                  <div className="flex justify-between items-center gap-2">
+                    <span className="text-xs md:text-sm lg:text-[14px] text-black font-light">
                       You Will Receive:
                     </span>
-                    <span className="text-[14px] text-[#3CC27B] font-medium">
+                    <span className="text-xs md:text-sm lg:text-[14px] text-[#3CC27B] font-medium">
                       ₹3,681.50
                     </span>
                   </div>
@@ -197,26 +197,26 @@ export default function SellCrypto() {
         </div>
 
         {/* Right Sidebar */}
-        <div className="w-full lg:w-[368px] space-y-4">
-          <div className="flex items-center justify-between">
-            <h3 className="text-[17px] font-medium text-black">
+        <div className="w-full lg:w-[368px] space-y-3 md:space-y-4">
+          <div className="flex items-center justify-between gap-2">
+            <h3 className="text-sm md:text-base lg:text-[17px] font-medium text-black">
               Recent Transactions
             </h3>
-            <button className="px-3 py-1 bg-black text-white rounded text-xs">
+            <button className="px-2 md:px-3 py-1 bg-black text-white rounded text-[10px] md:text-xs whitespace-nowrap">
               view all
             </button>
           </div>
-          <div className="space-y-3">
+          <div className="space-y-2 md:space-y-3">
             {[1, 2, 3, 4].map((item) => (
               <div
                 key={item}
-                className="bg-white rounded-lg border border-[#D9D9D9] p-4"
+                className="bg-white rounded-lg border border-[#D9D9D9] p-3 md:p-4"
               >
-                <p className="text-base font-bold text-black">Buy BTC</p>
-                <p className="text-xs text-black font-light mt-1">
+                <p className="text-sm md:text-base font-bold text-black">Buy BTC</p>
+                <p className="text-[10px] md:text-xs text-black font-light mt-1">
                   2024-12-20 14:30
                 </p>
-                <p className="text-xs text-black font-light">0x1234...5678</p>
+                <p className="text-[10px] md:text-xs text-black font-light">0x1234...5678</p>
               </div>
             ))}
           </div>
