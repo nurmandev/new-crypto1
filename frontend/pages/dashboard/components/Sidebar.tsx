@@ -24,7 +24,7 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
     { icon: Wallet, label: "My Wallet", href: "/dashboard/my-wallet" },
     { icon: CreditCard, label: "Payment Methods", href: "/payment-methods" },
     { icon: History, label: "History", href: "/history" },
-    { icon: Shield, label: "Wallet Security", href: "/wallet-security" },
+    { icon: Shield, label: "Crypto Access", href: "/crypto-access" },
     { icon: User, label: "My Profile", href: "/profile" },
   ];
 
