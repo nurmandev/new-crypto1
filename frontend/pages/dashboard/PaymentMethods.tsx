@@ -1,5 +1,6 @@
 import { useState } from "react";
-import DashboardLayout from "./components/DashboardLayout";
+import DashboardHeader from "./components/DashboardHeader";
+import Sidebar from "./components/Sidebar";
 import { Button } from "@/components/ui/button";
 import { Pencil, Trash2, Plus } from "lucide-react";
 import EditUPIModal from "./payment-methods/components/EditUPIModal";
