@@ -183,9 +183,7 @@ export default function TransactionDetailsModal({
               <span className="text-sm font-light text-black">
                 Network Fee:
               </span>
-              <span className="text-sm font-medium text-black">
-                0.0001 BTC
-              </span>
+              <span className="text-sm font-medium text-black">0.0001 BTC</span>
             </div>
 
             {/* Transaction Hash */}
