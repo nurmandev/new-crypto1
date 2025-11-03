@@ -1,3 +1,10 @@
 export { AdminHeader } from "./AdminHeader";
 export { AdminSidebar } from "./AdminSidebar";
 export { StatsCard } from "./StatsCard";
+export { UserDistributionChart } from "./UserDistributionChart";
+export { PlatformCryptoPortfolio } from "./PlatformCryptoPortfolio";
+export { TransactionChart } from "./TransactionChart";
+export { ProfitCard } from "./ProfitCard";
+export { RecentTransactionItem } from "./RecentTransactionItem";
+export { SystemStatusItem } from "./SystemStatusItem";
+export { AreaChart } from "./AreaChart";
