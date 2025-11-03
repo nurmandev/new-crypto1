@@ -46,7 +46,7 @@ export const UsersPagination: React.FC<UsersPaginationProps> = ({
           }`}
         >
           {i}
-        </button>
+        </button>,
       );
     }
 

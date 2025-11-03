@@ -106,7 +106,7 @@ export const Users: React.FC = () => {
   const filteredUsers = mockUsers.filter(
     (user) =>
       user.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      user.email.toLowerCase().includes(searchQuery.toLowerCase())
+      user.email.toLowerCase().includes(searchQuery.toLowerCase()),
   );
 
   const totalPages = Math.ceil(filteredUsers.length / itemsPerPage);
@@ -121,9 +121,7 @@ export const Users: React.FC = () => {
 
           <div className="bg-white rounded-[10px] p-8">
             <div className="mb-8">
-              <h1 className="text-[20px] font-medium text-black mb-2">
-                Users
-              </h1>
+              <h1 className="text-[20px] font-medium text-black mb-2">Users</h1>
               <p className="text-[17px] text-[#838383]">
                 Manage All Users Joined
               </p>
@@ -144,7 +142,7 @@ export const Users: React.FC = () => {
             <UsersTable
               users={filteredUsers.slice(
                 (currentPage - 1) * itemsPerPage,
-                currentPage * itemsPerPage
+                currentPage * itemsPerPage,
               )}
               onView={handleView}
               onEdit={handleEdit}
