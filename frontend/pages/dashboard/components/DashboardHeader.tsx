@@ -36,16 +36,24 @@ export default function DashboardHeader({
           Go to Home
         </Link>
 
-        {/* User Icon */}
-        <button className="w-7 sm:w-8 md:w-10 h-7 sm:h-8 md:h-10 rounded-full bg-[#D9D9D9] hover:bg-gray-300 transition-colors flex items-center justify-center">
+        {/* User Icon - Links to Profile */}
+        <Link
+          to="/profile"
+          className="w-7 sm:w-8 md:w-10 h-7 sm:h-8 md:h-10 rounded-full bg-[#D9D9D9] hover:bg-gray-400 transition-colors flex items-center justify-center hover:scale-105"
+          title="Go to Profile"
+        >
           <User className="w-4 sm:w-4.5 md:w-5 h-4 sm:h-4.5 md:h-5 text-gray-600" />
-        </button>
+        </Link>
 
-        {/* Notification Bell */}
-        <button className="relative hover:opacity-80 transition-opacity">
+        {/* Notification Bell - Links to notifications area (could be dashboard) */}
+        <Link
+          to="/dashboard"
+          className="relative hover:opacity-80 transition-opacity hover:scale-110 inline-block"
+          title="View Notifications"
+        >
           <Bell className="w-4 sm:w-4.5 md:w-5 h-4 sm:h-4.5 md:h-5 text-[#C7C7C7]" />
-          <span className="absolute -top-1 -right-1 w-1.5 h-1.5 bg-[#3CC27B] rounded-full"></span>
-        </button>
+          <span className="absolute -top-1 -right-1 w-1.5 h-1.5 bg-[#3CC27B] rounded-full animate-pulse"></span>
+        </Link>
 
         {/* Mobile Menu Toggle */}
         <button
