@@ -226,10 +226,11 @@ export const AdminSidebar: React.FC<AdminSidebarProps> = ({
   onClose,
 }) => {
   const location = useLocation();
+  const isActiveRoute = (path: string) => location.pathname === path;
 
   return (
     <aside className="h-screen w-[259px] bg-white rounded-[10px]">
-      {/* Header with green background for Overview */}
+      {/* Header - Shows current active section */}
       <div className="h-[53px] rounded-t-[10px] bg-[#3CC27B] flex items-center px-6">
         <div className="flex items-center gap-2.5 text-white">
           <svg
@@ -244,29 +245,38 @@ export const AdminSidebar: React.FC<AdminSidebarProps> = ({
               fill="white"
             />
           </svg>
-          <span className="font-semibold text-lg">Overview</span>
+          <span className="font-semibold text-lg">
+            {isActiveRoute("/admin/users") ? "Users" : "Overview"}
+          </span>
         </div>
       </div>
 
       {/* Menu Items */}
       <nav className="pt-8 px-6 space-y-4">
-        {menuItems.map((item) => (
-          <Link
-            key={item.path}
-            to={item.path}
-            className="flex items-center gap-2.5 text-black hover:text-[#3CC27B] transition-colors relative group"
-          >
-            <div className="w-[15px] h-[15px] flex items-center justify-center flex-shrink-0">
-              {item.icon}
-            </div>
-            <span className="text-lg font-normal">{item.label}</span>
-            {item.badge && (
-              <span className="ml-auto flex items-center justify-center h-[37px] w-[37px] rounded-full bg-[#3CC27B]/30 text-[#00602D] text-[10px] font-semibold">
-                {item.badge}
-              </span>
-            )}
-          </Link>
-        ))}
+        {menuItems.map((item) => {
+          const isActive = isActiveRoute(item.path);
+          return (
+            <Link
+              key={item.path}
+              to={item.path}
+              className={`flex items-center gap-2.5 transition-colors relative group ${
+                isActive
+                  ? "text-[#3CC27B] font-bold"
+                  : "text-black hover:text-[#3CC27B]"
+              }`}
+            >
+              <div className="w-[15px] h-[15px] flex items-center justify-center flex-shrink-0">
+                {item.icon}
+              </div>
+              <span className="text-lg">{item.label}</span>
+              {item.badge && (
+                <span className="ml-auto flex items-center justify-center h-[37px] w-[37px] rounded-full bg-[#3CC27B]/30 text-[#00602D] text-[10px] font-semibold">
+                  {item.badge}
+                </span>
+              )}
+            </Link>
+          );
+        })}
       </nav>
     </aside>
   );
