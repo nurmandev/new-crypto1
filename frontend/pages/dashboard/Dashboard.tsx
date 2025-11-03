@@ -31,21 +31,26 @@ export default function Dashboard() {
   }, [isSidebarOpen]);
 
   return (
-    <div className="min-h-screen bg-[#F8F8F8] pb-12 md:pb-16">
+    <div className="min-h-screen bg-[#F8F8F8] pb-12 md:pb-16 overflow-x-hidden">
       {/* Top Navigation Bar */}
       <DashboardHeader
         onMenuToggle={() => setIsSidebarOpen(!isSidebarOpen)}
         isMenuOpen={isSidebarOpen}
       />
 
-      <div className="px-4 md:px-6 lg:px-12 mt-4 md:mt-6 flex flex-col lg:flex-row gap-4 md:gap-6">
+      <div className="px-3 sm:px-4 md:px-6 lg:px-12 mt-3 sm:mt-4 md:mt-6 flex flex-col lg:flex-row gap-3 sm:gap-4 md:gap-6">
         {/* Sidebar Navigation */}
-        <div className="flex-shrink-0">
+        <div className="flex-shrink-0 hidden md:block">
+          <Sidebar isOpen={isSidebarOpen} onClose={closeSidebar} />
+        </div>
+
+        {/* Sidebar on Mobile - Controlled by state */}
+        <div className="md:hidden">
           <Sidebar isOpen={isSidebarOpen} onClose={closeSidebar} />
         </div>
 
         {/* Main Content */}
-        <div className="flex-1 space-y-4 md:space-y-6">
+        <div className="flex-1 space-y-3 sm:space-y-4 md:space-y-6 w-full overflow-y-auto">
           {/* Balance Card */}
           <BalanceCard />
 
@@ -63,7 +68,9 @@ export default function Dashboard() {
         </div>
 
         {/* Right Sidebar */}
-        <RightSidebar />
+        <div className="hidden lg:block">
+          <RightSidebar />
+        </div>
       </div>
     </div>
   );
