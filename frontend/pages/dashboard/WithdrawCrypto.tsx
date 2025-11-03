@@ -1,13 +1,19 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import DashboardLayout from "./components/DashboardLayout";
+import DashboardHeader from "./components/DashboardHeader";
+import Sidebar from "./components/Sidebar";
 
 export default function WithdrawCrypto() {
   const navigate = useNavigate();
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const [selectedCrypto, setSelectedCrypto] = useState("USDT");
   const [network, setNetwork] = useState("TRC20");
   const [amount, setAmount] = useState("");
   const [destinationAddress, setDestinationAddress] = useState("");
+
+  const closeSidebar = () => {
+    setIsSidebarOpen(false);
+  };
 
   const availableBalance = 250;
 
@@ -25,8 +31,21 @@ export default function WithdrawCrypto() {
   };
 
   return (
-    <DashboardLayout>
-      <div className="flex-1 max-w-[1234px] space-y-6">
+    <div className="min-h-screen bg-[#F8F8F8] pb-12 md:pb-16">
+      {/* Top Navigation Bar */}
+      <DashboardHeader
+        onMenuToggle={() => setIsSidebarOpen(!isSidebarOpen)}
+        isMenuOpen={isSidebarOpen}
+      />
+
+      <div className="px-4 md:px-6 lg:px-12 mt-4 md:mt-6 flex flex-col lg:flex-row gap-4 md:gap-6">
+        {/* Sidebar Navigation */}
+        <div className="flex-shrink-0">
+          <Sidebar isOpen={isSidebarOpen} onClose={closeSidebar} />
+        </div>
+
+        {/* Main Content */}
+        <div className="flex-1 max-w-[1234px] space-y-6">
         {/* Header */}
         <div>
           <h2 className="text-lg md:text-xl lg:text-[20px] font-medium text-black mb-1 md:mb-2">
@@ -174,6 +193,7 @@ export default function WithdrawCrypto() {
           </form>
         </div>
       </div>
-    </DashboardLayout>
+      </div>
+    </div>
   );
 }
