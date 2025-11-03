@@ -134,45 +134,59 @@ export default function DepositWithdraw() {
   ];
 
   return (
-    <DashboardLayout>
-      <div className="flex-1 max-w-[1234px]">
-        <div className="bg-white rounded-[10px] p-6 md:p-8 lg:p-10 shadow-sm">
-          {/* Header */}
-          <h2 className="text-lg md:text-xl lg:text-[20px] font-medium text-black mb-1 md:mb-2">
-            Deposit & Withdraw
-          </h2>
-          <p className="text-[#838383] text-sm md:text-base lg:text-[17px] font-normal mb-6 md:mb-8 lg:mb-12">
-            Scan the QR code with any UPI app to complete payment
-          </p>
+    <div className="min-h-screen bg-[#F8F8F8] pb-12 md:pb-16">
+      {/* Top Navigation Bar */}
+      <DashboardHeader
+        onMenuToggle={() => setIsSidebarOpen(!isSidebarOpen)}
+        isMenuOpen={isSidebarOpen}
+      />
 
-          {/* Options Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6">
-            {options.map((option, index) => {
-              const getLink = () => {
-                if (option.title === "Deposit Fund") return "/deposit-fund";
-                if (option.title === "Withdraw Fund") return "/withdraw-fund";
-                if (option.title === "Deposit Crypto") return "/deposit-crypto";
-                if (option.title === "Withdraw Crypto")
-                  return "/withdraw-crypto-form";
-                return "#";
-              };
+      <div className="px-4 md:px-6 lg:px-12 mt-4 md:mt-6 flex flex-col lg:flex-row gap-4 md:gap-6">
+        {/* Sidebar Navigation */}
+        <div className="flex-shrink-0">
+          <Sidebar isOpen={isSidebarOpen} onClose={closeSidebar} />
+        </div>
 
-              return (
-                <Link key={index} to={getLink()} className="block">
-                  <OptionCard
-                    title={option.title}
-                    description={option.description}
-                    badge={option.badge}
-                    icon={option.icon}
-                    highlighted={option.highlighted}
-                  />
-                </Link>
-              );
-            })}
+        {/* Main Content */}
+        <div className="flex-1 max-w-[1234px]">
+          <div className="bg-white rounded-[10px] p-6 md:p-8 lg:p-10 shadow-sm">
+            {/* Header */}
+            <h2 className="text-lg md:text-xl lg:text-[20px] font-medium text-black mb-1 md:mb-2">
+              Deposit & Withdraw
+            </h2>
+            <p className="text-[#838383] text-sm md:text-base lg:text-[17px] font-normal mb-6 md:mb-8 lg:mb-12">
+              Scan the QR code with any UPI app to complete payment
+            </p>
+
+            {/* Options Grid */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6">
+              {options.map((option, index) => {
+                const getLink = () => {
+                  if (option.title === "Deposit Fund") return "/deposit-fund";
+                  if (option.title === "Withdraw Fund") return "/withdraw-fund";
+                  if (option.title === "Deposit Crypto") return "/deposit-crypto";
+                  if (option.title === "Withdraw Crypto")
+                    return "/withdraw-crypto-form";
+                  return "#";
+                };
+
+                return (
+                  <Link key={index} to={getLink()} className="block">
+                    <OptionCard
+                      title={option.title}
+                      description={option.description}
+                      badge={option.badge}
+                      icon={option.icon}
+                      highlighted={option.highlighted}
+                    />
+                  </Link>
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>
-    </DashboardLayout>
+    </div>
   );
 }
 
