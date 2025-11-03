@@ -289,22 +289,34 @@ export default function PaymentMethods() {
       {/* Add Payment Method Modal */}
       <AddPaymentMethodModal
         isOpen={isAddModalOpen}
-        onClose={() => setIsAddModalOpen(false)}
+        onClose={() => {
+          setIsAddModalOpen(false);
+          setSelectedMethod(null);
+          setIsEditingModal(false);
+        }}
         onSelectMethod={handleSelectPaymentMethod}
       />
 
       {/* Edit UPI Modal */}
       <EditUPIModal
         isOpen={isUPIModalOpen}
-        onClose={() => setIsUPIModalOpen(false)}
+        onClose={() => {
+          setIsUPIModalOpen(false);
+          setSelectedMethod(null);
+          setIsEditingModal(false);
+        }}
         onSave={handleUPISave}
-        initialUpiId="yneware7@oksbi"
+        initialUpiId={selectedMethod?.account.replace("Account : ", "") || "yneware7@oksbi"}
       />
 
       {/* Edit Bank Modal */}
       <EditBankModal
         isOpen={isBankModalOpen}
-        onClose={() => setIsBankModalOpen(false)}
+        onClose={() => {
+          setIsBankModalOpen(false);
+          setSelectedMethod(null);
+          setIsEditingModal(false);
+        }}
         onSave={handleBankSave}
       />
     </div>
