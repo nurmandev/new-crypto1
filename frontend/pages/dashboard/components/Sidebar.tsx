@@ -22,7 +22,7 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
     { icon: TrendingUp, label: "Buy / Sell Crypto", href: "/buy-crypto" },
     { icon: Wallet, label: "Deposit/Withdraw", href: "/deposit-withdraw" },
     { icon: Wallet, label: "My Wallet", href: "/dashboard/my-wallet" },
-    { icon: CreditCard, label: "Payment Methods", href: "/payment-method" },
+    { icon: CreditCard, label: "Payment Methods", href: "/payment-methods" },
     { icon: History, label: "History", href: "/history" },
     { icon: Shield, label: "Wallet Security", href: "/wallet-security" },
     { icon: User, label: "My Profile", href: "/profile" },

@@ -19,6 +19,7 @@ import BuyCrypto from "./pages/dashboard/BuyCrypto";
 import SellCrypto from "./pages/dashboard/SellCrypto";
 import SellSuccess from "./pages/dashboard/SellSuccess";
 import PaymentMethod from "./pages/dashboard/PaymentMethod";
+import PaymentMethods from "./pages/dashboard/PaymentMethods";
 import UPIPayment from "./pages/dashboard/UPIPayment";
 import WalletPayment from "./pages/dashboard/WalletPayment";
 import DepositWithdraw from "./pages/dashboard/DepositWithdraw";
@@ -54,6 +55,7 @@ const App = () => (
           <Route path="/sell-crypto" element={<SellCrypto />} />
           <Route path="/sell-success" element={<SellSuccess />} />
           <Route path="/payment-method" element={<PaymentMethod />} />
+          <Route path="/payment-methods" element={<PaymentMethods />} />
           <Route path="/upi-payment" element={<UPIPayment />} />
           <Route path="/wallet-payment" element={<WalletPayment />} />
           <Route path="/deposit-withdraw" element={<DepositWithdraw />} />
