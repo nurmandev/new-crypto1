@@ -267,7 +267,11 @@ export default function PaymentMethods() {
                       </button>
                       <button
                         onClick={() => {
-                          if (window.confirm("Are you sure you want to delete this payment method?")) {
+                          if (
+                            window.confirm(
+                              "Are you sure you want to delete this payment method?",
+                            )
+                          ) {
                             handleDelete(method.id);
                           }
                         }}
@@ -306,7 +310,9 @@ export default function PaymentMethods() {
           setIsEditingModal(false);
         }}
         onSave={handleUPISave}
-        initialUpiId={selectedMethod?.account.replace("Account : ", "") || "yneware7@oksbi"}
+        initialUpiId={
+          selectedMethod?.account.replace("Account : ", "") || "yneware7@oksbi"
+        }
       />
 
       {/* Edit Bank Modal */}
