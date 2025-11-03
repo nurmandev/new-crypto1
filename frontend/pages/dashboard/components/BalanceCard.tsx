@@ -22,7 +22,7 @@ export default function BalanceCard() {
     {
       icon: DollarSign,
       label: "Cashout",
-      href: "#",
+      href: "/withdraw-crypto",
       external: false,
     },
     {
@@ -42,7 +42,7 @@ export default function BalanceCard() {
     {
       icon: Wallet,
       label: "Wallet",
-      href: "#",
+      href: "/dashboard/my-wallet",
       external: false,
     },
   ];
