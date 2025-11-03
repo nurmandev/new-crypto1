@@ -558,33 +558,33 @@ export default function MyWallet() {
 
         {/* Crypto Popup Modal */}
         {selectedCrypto && (
-          <div className="fixed inset-0 bg-black/30 z-50 flex items-center justify-center p-4">
-            <div className="bg-white rounded-lg max-w-2xl w-full p-6 md:p-8 relative">
+          <div className="fixed inset-0 bg-black/30 z-50 flex items-center justify-center p-3 sm:p-4">
+            <div className="bg-white rounded-lg max-w-2xl w-full p-4 sm:p-6 md:p-8 relative max-h-[90vh] overflow-y-auto">
               {/* Close Button */}
               <button
                 onClick={() => setSelectedCrypto(null)}
-                className="absolute top-4 right-4 text-gray-500 hover:text-black transition"
+                className="absolute top-3 sm:top-4 right-3 sm:right-4 text-gray-500 hover:text-black transition"
               >
-                <X className="w-6 h-6" />
+                <X className="w-5 h-5 sm:w-6 sm:h-6" />
               </button>
 
               {/* Crypto Info */}
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-7 h-7 rounded-full bg-gray-200"></div>
-                <div>
-                  <p className="text-lg md:text-xl font-medium text-black">
+              <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
+                <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-gray-200"></div>
+                <div className="min-w-0 flex-1">
+                  <p className="text-sm sm:text-base md:text-lg lg:text-xl font-medium text-black truncate">
                     {selectedCrypto.amount}
                   </p>
                 </div>
               </div>
 
-              <p className="text-sm md:text-base text-black mb-6">
+              <p className="text-xs sm:text-sm md:text-base text-black mb-4 sm:mb-6">
                 ₹ INR Value: {selectedCrypto.inrValue}
               </p>
 
               {/* Address Section */}
-              <div className="rounded-lg border-[1.7px] border-dashed border-[#CACACA] bg-[#F0F0F0] p-6 mb-6 relative">
-                <p className="text-base md:text-lg font-medium text-black mb-2">
+              <div className="rounded-lg border-[1.5px] sm:border-[1.7px] border-dashed border-[#CACACA] bg-[#F0F0F0] p-3 sm:p-4 md:p-6 mb-4 sm:mb-6 relative">
+                <p className="text-sm sm:text-base md:text-lg font-medium text-black mb-1 sm:mb-2">
                   {selectedCrypto.name === "Usdt"
                     ? "USDT"
                     : selectedCrypto.name === "Bitcoin"
@@ -594,14 +594,15 @@ export default function MyWallet() {
                         : "ADA"}{" "}
                   Address
                 </p>
-                <p className="text-sm md:text-base text-[#8E8E8E] mb-4 break-all">
+                <p className="text-[10px] sm:text-sm md:text-base text-[#8E8E8E] mb-3 sm:mb-4 break-all pr-8">
                   {selectedCrypto.address}
                 </p>
                 <button
                   onClick={() => copyToClipboard(selectedCrypto.address)}
-                  className="absolute top-6 right-6 text-black hover:text-[#3CC27B] transition"
+                  className="absolute top-3 sm:top-4 md:top-6 right-3 sm:right-4 md:right-6 text-black hover:text-[#3CC27B] transition"
+                  title="Copy address"
                 >
-                  <Copy className="w-4 h-4" />
+                  <Copy className="w-3 h-3 sm:w-4 sm:h-4" />
                 </button>
               </div>
 
