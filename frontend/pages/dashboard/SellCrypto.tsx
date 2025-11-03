@@ -156,7 +156,11 @@ export default function SellCrypto() {
               </div>
 
               <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 hidden md:block">
-                <button className="w-9 md:w-11 h-9 md:h-11 rounded-full bg-gradient-to-br from-[#3CC27B] to-[#1C5C3A] flex items-center justify-center hover:scale-105 transition-transform shadow-lg">
+                <button
+                  onClick={handleSwap}
+                  className="w-9 md:w-11 h-9 md:h-11 rounded-full bg-gradient-to-br from-[#3CC27B] to-[#1C5C3A] flex items-center justify-center hover:scale-105 transition-transform shadow-lg active:scale-95"
+                  title="Swap amounts"
+                >
                   <ArrowUpDown className="w-4 md:w-5 h-4 md:h-5 text-white" />
                 </button>
               </div>
