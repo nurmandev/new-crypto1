@@ -3,6 +3,7 @@ import DashboardLayout from "./components/DashboardLayout";
 import TransactionItem from "./history/components/TransactionItem";
 import Pagination from "./history/components/Pagination";
 import FilterDropdown from "./history/components/FilterDropdown";
+import DateRangeModal from "./history/components/DateRangeModal";
 import TransactionDetailsModal from "./history/components/TransactionDetailsModal";
 import { Calendar, Filter } from "lucide-react";
 
@@ -20,10 +21,16 @@ export default function History() {
   const [currentPage, setCurrentPage] = useState(1);
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [selectedFilter, setSelectedFilter] = useState("Approved");
+  const [isDateRangeOpen, setIsDateRangeOpen] = useState(false);
+  const [dateRange, setDateRange] = useState<{
+    startDate: string;
+    endDate: string;
+  } | null>(null);
   const [selectedTransaction, setSelectedTransaction] =
     useState<Transaction | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const filterButtonRef = useRef<HTMLButtonElement>(null);
+  const dateRangeButtonRef = useRef<HTMLButtonElement>(null);
   const totalPages = 5;
 
   const transactions: Transaction[] = [
@@ -86,6 +93,10 @@ export default function History() {
       setSelectedTransaction(transaction);
       setIsModalOpen(true);
     }
+  };
+
+  const handleApplyDateRange = (startDate: string, endDate: string) => {
+    setDateRange({ startDate, endDate });
   };
 
   return (
@@ -168,9 +179,16 @@ export default function History() {
 
         {/* Footer with Pagination */}
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pt-4">
-          <p className="text-sm md:text-base text-[#838383]">
-            Showing 10 out of 30
-          </p>
+          <div className="flex items-center gap-2">
+            <p className="text-sm md:text-base text-[#838383]">
+              Showing 10 out of 30
+            </p>
+            {dateRange && (
+              <span className="text-xs text-gray-500">
+                • {dateRange.startDate} to {dateRange.endDate}
+              </span>
+            )}
+          </div>
           <Pagination
             currentPage={currentPage}
             totalPages={totalPages}
