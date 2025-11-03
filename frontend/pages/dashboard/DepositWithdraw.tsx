@@ -1,7 +1,14 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import DashboardLayout from "./components/DashboardLayout";
+import DashboardHeader from "./components/DashboardHeader";
+import Sidebar from "./components/Sidebar";
 
 export default function DepositWithdraw() {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+
+  const closeSidebar = () => {
+    setIsSidebarOpen(false);
+  };
   const options = [
     {
       title: "Deposit Fund",
