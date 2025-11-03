@@ -1,69 +1,122 @@
-import React, { useState } from "react";
-import { Users, TrendingUp, BarChart3, Activity } from "lucide-react";
-import { AdminHeader } from "./components/AdminHeader";
-import { AdminSidebar } from "./components/AdminSidebar";
-import { StatsCard } from "./components/StatsCard";
+import React, { useState } from 'react';
+import { Users, TrendingUp, DollarSign, FileText, Upload, ArrowUpDown } from 'lucide-react';
+import { AdminHeader } from './components/AdminHeader';
+import { AdminSidebar } from './components/AdminSidebar';
+import { StatsCard } from './components/StatsCard';
+import { UserDistributionChart } from './components/UserDistributionChart';
+import { PlatformCryptoPortfolio } from './components/PlatformCryptoPortfolio';
+import { TransactionChart } from './components/TransactionChart';
+import { ProfitCard } from './components/ProfitCard';
+import { RecentTransactionItem } from './components/RecentTransactionItem';
+import { SystemStatusItem } from './components/SystemStatusItem';
+import { AreaChart } from './components/AreaChart';
 
 export const AdminDashboard: React.FC = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const stats = [
     {
-      title: "Total Users",
-      value: "12,543",
+      title: 'Total Users',
+      value: '15,420',
       icon: Users,
       trend: { percentage: 12, isPositive: true },
-      color: "blue" as const,
+      color: 'blue' as const,
     },
     {
-      title: "Total Revenue",
-      value: "$45,230",
-      icon: TrendingUp,
+      title: 'Active Users',
+      value: '8,765',
+      icon: Users,
       trend: { percentage: 8, isPositive: true },
-      color: "green" as const,
+      color: 'green' as const,
     },
     {
-      title: "Active Sessions",
-      value: "892",
-      icon: Activity,
-      trend: { percentage: 5, isPositive: false },
-      color: "purple" as const,
+      title: 'Total Volume',
+      value: '₹12.4M',
+      icon: DollarSign,
+      trend: { percentage: 25, isPositive: true },
+      color: 'green' as const,
     },
     {
-      title: "Total Transactions",
-      value: "28,450",
-      icon: BarChart3,
-      trend: { percentage: 23, isPositive: true },
-      color: "orange" as const,
+      title: 'Pending Requests',
+      value: '45',
+      icon: FileText,
+      trend: { percentage: 0, isPositive: false },
+      color: 'orange' as const,
     },
   ];
 
+  const profitCards = [
+    {
+      title: 'Total Monthly Profit',
+      amount: '₹622,500',
+      icon: DollarSign,
+      bgColor: '#E0FCE9',
+      textColor: '#3CC27B',
+    },
+    {
+      title: 'Trading Fees',
+      amount: '₹425,000',
+      icon: TrendingUp,
+      bgColor: '#DFECFE',
+      textColor: '#5F5BE3',
+    },
+    {
+      title: 'Withdrawal Fees',
+      amount: '₹125,000',
+      icon: Upload,
+      bgColor: '#F4EAFF',
+      textColor: '#B674FF',
+    },
+    {
+      title: 'Exchange Fees',
+      amount: '₹180,000',
+      icon: ArrowUpDown,
+      bgColor: '#FFEDD5',
+      textColor: '#3CC27B',
+    },
+  ];
+
+  const recentTransactions = [
+    {
+      email: 'john.doe@email.com',
+      action: 'Buy 0.05 BTC',
+      amount: '₹200,000',
+      timeAgo: '2 mins ago',
+    },
+    {
+      email: 'john.doe@email.com',
+      action: 'Buy 0.05 BTC',
+      amount: '₹200,000',
+      timeAgo: '2 mins ago',
+    },
+    {
+      email: 'john.doe@email.com',
+      action: 'Buy 0.05 BTC',
+      amount: '₹200,000',
+      timeAgo: '2 mins ago',
+    },
+  ];
+
+  const systemStatus = [
+    { label: 'Server Uptime', value: '99%' },
+    { label: 'Active Connections', value: '1240' },
+    { label: 'Avg Response Time', value: '125ms' },
+    { label: 'Error Rate', value: '0.02%' },
+  ];
+
   return (
-    <div className="flex h-screen bg-gray-50">
+    <div className="flex min-h-screen bg-[#F8F8F8]">
       {/* Sidebar */}
-      <AdminSidebar
-        isOpen={sidebarOpen}
-        onClose={() => setSidebarOpen(false)}
-      />
+      <AdminSidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
 
       {/* Main Content */}
-      <div className="flex-1 flex flex-col">
+      <div className="flex-1 flex flex-col overflow-hidden">
         {/* Header */}
         <AdminHeader onMenuClick={() => setSidebarOpen(!sidebarOpen)} />
 
         {/* Content */}
-        <main className="flex-1 overflow-auto p-6">
-          <div className="max-w-7xl mx-auto">
-            {/* Welcome Section */}
-            <div className="mb-8">
-              <h2 className="text-3xl font-bold text-gray-900 mb-2">
-                Welcome Back
-              </h2>
-              <p className="text-gray-600">
-                Here's what's happening with your platform today.
-              </p>
-            </div>
-
+        <main className="flex-1 overflow-auto p-6 lg:p-8">
+          <div className="max-w-[1920px] mx-auto">
             {/* Stats Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
               {stats.map((stat) => (
@@ -72,34 +125,81 @@ export const AdminDashboard: React.FC = () => {
                   title={stat.title}
                   value={stat.value}
                   icon={stat.icon}
-                  trend={stat.trend}
+                  trend={stat.trend.percentage > 0 ? stat.trend : undefined}
                   color={stat.color}
                 />
               ))}
             </div>
 
-            {/* Recent Activity Section */}
-            <div className="bg-white rounded-lg border border-gray-200 p-6">
-              <h3 className="text-lg font-bold text-gray-900 mb-4">
-                Recent Activity
-              </h3>
-              <div className="space-y-4">
-                {[1, 2, 3, 4].map((i) => (
-                  <div
-                    key={i}
-                    className="flex items-center justify-between py-3 border-b border-gray-100 last:border-b-0"
-                  >
-                    <div>
-                      <p className="text-sm font-medium text-gray-900">
-                        User Activity #{i}
-                      </p>
-                      <p className="text-xs text-gray-500">2 hours ago</p>
-                    </div>
-                    <span className="text-xs font-medium text-blue-600 bg-blue-50 px-3 py-1 rounded-full">
-                      Active
-                    </span>
-                  </div>
+            {/* Charts Section */}
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+              <UserDistributionChart />
+              <AreaChart />
+              <PlatformCryptoPortfolio />
+            </div>
+
+            {/* Transaction Chart */}
+            <div className="mb-8">
+              <TransactionChart />
+            </div>
+
+            {/* Platform Profit Overview */}
+            <div className="mb-8">
+              <div className="flex items-center justify-between mb-4">
+                <h2 className="text-xl font-medium text-black">Platform Profit Overview</h2>
+                <span className="text-xs px-3 py-1 rounded-full bg-[#3CC27B]/30 text-black">
+                  +8.5% this month
+                </span>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                {profitCards.map((card) => (
+                  <ProfitCard
+                    key={card.title}
+                    title={card.title}
+                    amount={card.amount}
+                    icon={card.icon}
+                    bgColor={card.bgColor}
+                    textColor={card.textColor}
+                  />
                 ))}
+              </div>
+            </div>
+
+            {/* Recent Transactions & System Status */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              {/* Recent Transactions */}
+              <div className="bg-white rounded-lg border border-gray-200 p-6">
+                <div className="flex items-center justify-between mb-4">
+                  <h2 className="text-xl font-medium text-black">Recent transactions</h2>
+                  <button className="px-3 py-1 bg-black text-white text-xs rounded">
+                    view all
+                  </button>
+                </div>
+                <div className="space-y-4">
+                  {recentTransactions.map((transaction, index) => (
+                    <RecentTransactionItem
+                      key={index}
+                      email={transaction.email}
+                      action={transaction.action}
+                      amount={transaction.amount}
+                      timeAgo={transaction.timeAgo}
+                    />
+                  ))}
+                </div>
+              </div>
+
+              {/* System Status */}
+              <div className="bg-white rounded-lg border border-gray-200 p-6">
+                <h2 className="text-xl font-medium text-black mb-4">System Status</h2>
+                <div className="space-y-2">
+                  {systemStatus.map((status, index) => (
+                    <SystemStatusItem
+                      key={index}
+                      label={status.label}
+                      value={status.value}
+                    />
+                  ))}
+                </div>
               </div>
             </div>
           </div>
