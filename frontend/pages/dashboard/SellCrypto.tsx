@@ -101,11 +101,39 @@ export default function SellCrypto() {
               <label className="block text-sm md:text-base lg:text-[17px] font-medium text-black mb-2 md:mb-3">
                 Select Cryptocurrency
               </label>
-              <div className="w-full h-[45px] md:h-[51px] bg-[#F0F0F0] rounded-md px-4 md:px-7 flex items-center justify-between">
-                <span className="text-xs md:text-sm lg:text-[13px] font-medium text-black truncate">
-                  {selectedCrypto}
-                </span>
-                <ChevronDown className="w-3 h-3 md:w-4 md:h-4 text-black flex-shrink-0" />
+              <div className="relative">
+                <button
+                  onClick={() => setShowCryptoDropdown(!showCryptoDropdown)}
+                  className="w-full h-[45px] md:h-[51px] bg-[#F0F0F0] rounded-md px-4 md:px-7 flex items-center justify-between hover:bg-[#E8E8E8] transition-colors"
+                >
+                  <span className="text-xs md:text-sm lg:text-[13px] font-medium text-black truncate">
+                    {selectedCrypto}
+                  </span>
+                  <ChevronDown
+                    className={`w-3 h-3 md:w-4 md:h-4 text-black flex-shrink-0 transition-transform ${
+                      showCryptoDropdown ? "rotate-180" : ""
+                    }`}
+                  />
+                </button>
+
+                {/* Dropdown Menu */}
+                {showCryptoDropdown && (
+                  <div className="absolute top-full left-0 right-0 mt-2 bg-white border border-[#CACACA] rounded-md shadow-lg z-10">
+                    {cryptoOptions.map((crypto) => (
+                      <button
+                        key={crypto}
+                        onClick={() => handleCryptoSelect(crypto)}
+                        className={`w-full text-left px-4 md:px-7 py-3 md:py-4 text-xs md:text-sm lg:text-[13px] font-medium transition-colors ${
+                          selectedCrypto === crypto
+                            ? "bg-[#3CC27B]/20 text-[#3CC27B]"
+                            : "text-black hover:bg-[#F0F0F0]"
+                        }`}
+                      >
+                        {crypto}
+                      </button>
+                    ))}
+                  </div>
+                )}
               </div>
             </div>
 
