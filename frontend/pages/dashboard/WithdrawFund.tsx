@@ -1,11 +1,17 @@
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import { useState } from "react";
-import DashboardLayout from "./components/DashboardLayout";
+import DashboardHeader from "./components/DashboardHeader";
+import Sidebar from "./components/Sidebar";
 
 export default function WithdrawFund() {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const [amount, setAmount] = useState("");
   const [upiId, setUpiId] = useState("");
+
+  const closeSidebar = () => {
+    setIsSidebarOpen(false);
+  };
 
   const availableBalance = 45230.5;
   const minWithdrawal = 500;
@@ -17,9 +23,22 @@ export default function WithdrawFund() {
   };
 
   return (
-    <DashboardLayout>
-      <div className="flex-1 max-w-[1234px]">
-        <div className="bg-white rounded-[10px] p-6 md:p-8 lg:p-10 shadow-sm">
+    <div className="min-h-screen bg-[#F8F8F8] pb-12 md:pb-16">
+      {/* Top Navigation Bar */}
+      <DashboardHeader
+        onMenuToggle={() => setIsSidebarOpen(!isSidebarOpen)}
+        isMenuOpen={isSidebarOpen}
+      />
+
+      <div className="px-4 md:px-6 lg:px-12 mt-4 md:mt-6 flex flex-col lg:flex-row gap-4 md:gap-6">
+        {/* Sidebar Navigation */}
+        <div className="flex-shrink-0">
+          <Sidebar isOpen={isSidebarOpen} onClose={closeSidebar} />
+        </div>
+
+        {/* Main Content */}
+        <div className="flex-1 max-w-[1234px]">
+          <div className="bg-white rounded-[10px] p-6 md:p-8 lg:p-10 shadow-sm">
           {/* Header */}
           <h2 className="text-lg md:text-xl lg:text-[20px] font-medium text-black mb-1 md:mb-2">
             Withdraw INR
@@ -129,6 +148,7 @@ export default function WithdrawFund() {
           </Link>
         </div>
       </div>
-    </DashboardLayout>
+      </div>
+    </div>
   );
 }
