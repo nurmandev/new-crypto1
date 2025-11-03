@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import DashboardHeader from "./components/DashboardHeader";
 import Sidebar from "./components/Sidebar";
 import BalanceCard from "./components/BalanceCard";
