@@ -69,10 +69,26 @@ export default function Register() {
 
             {/* Input Fields */}
             {[
-              { label: "Full Name", type: "text", placeholder: "Enter Full Name" },
-              { label: "Username", type: "text", placeholder: "Enter Username" },
-              { label: "Email Address", type: "email", placeholder: "Enter Your Mail ID" },
-              { label: "Password", type: "password", placeholder: "Enter Your Password" },
+              {
+                label: "Full Name",
+                type: "text",
+                placeholder: "Enter Full Name",
+              },
+              {
+                label: "Username",
+                type: "text",
+                placeholder: "Enter Username",
+              },
+              {
+                label: "Email Address",
+                type: "email",
+                placeholder: "Enter Your Mail ID",
+              },
+              {
+                label: "Password",
+                type: "password",
+                placeholder: "Enter Your Password",
+              },
             ].map((field, i) => (
               <div key={i} className="mb-4">
                 <label className="block text-sm text-gray-900 font-medium mb-1.5">
