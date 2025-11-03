@@ -117,8 +117,21 @@ export default function Cashout() {
   };
 
   return (
-    <DashboardLayout>
-      <div className="flex-1 max-w-[1234px] space-y-6">
+    <div className="min-h-screen bg-[#F8F8F8] pb-12 md:pb-16">
+      {/* Top Navigation Bar */}
+      <DashboardHeader
+        onMenuToggle={() => setIsSidebarOpen(!isSidebarOpen)}
+        isMenuOpen={isSidebarOpen}
+      />
+
+      <div className="px-4 md:px-6 lg:px-12 mt-4 md:mt-6 flex flex-col lg:flex-row gap-4 md:gap-6">
+        {/* Sidebar Navigation */}
+        <div className="flex-shrink-0">
+          <Sidebar isOpen={isSidebarOpen} onClose={closeSidebar} />
+        </div>
+
+        {/* Main Content */}
+        <div className="flex-1 max-w-[1234px] space-y-6">
         {/* Header */}
         <div>
           <h2 className="text-lg md:text-xl lg:text-[20px] font-medium text-black mb-1 md:mb-2">
@@ -499,7 +512,8 @@ export default function Cashout() {
           </div>
         )}
       </div>
-    </DashboardLayout>
+      </div>
+    </div>
   );
 }
 
