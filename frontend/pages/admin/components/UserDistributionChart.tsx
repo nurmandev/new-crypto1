@@ -1,50 +1,93 @@
 import React from 'react';
-import { PieChart, Pie, Cell, ResponsiveContainer, Legend } from 'recharts';
 
 export const UserDistributionChart: React.FC = () => {
-  const data = [
-    { name: 'Active Users 49%', value: 49, color: '#10B981' },
-    { name: 'Pending Verification 20%', value: 20, color: '#F59E0B' },
-    { name: 'Inactive Users 40%', value: 40, color: '#6B7280' },
-    { name: 'Suspended 2%', value: 2, color: '#EF4444' },
-  ];
-
-  const renderCustomizedLabel = () => null;
-
   return (
     <div className="bg-white rounded-lg border border-gray-200 p-6">
       <h3 className="text-[15px] font-medium text-black mb-4">User Distribution</h3>
 
-      <ResponsiveContainer width="100%" height={300}>
-        <PieChart>
-          <Pie
-            data={data}
-            cx="50%"
-            cy="50%"
-            labelLine={false}
-            label={renderCustomizedLabel}
-            outerRadius={80}
-            innerRadius={40}
-            fill="#8884d8"
-            dataKey="value"
-          >
-            {data.map((entry, index) => (
-              <Cell key={`cell-${index}`} fill={entry.color} />
-            ))}
-          </Pie>
-          <Legend
-            verticalAlign="bottom"
-            height={36}
-            iconType="square"
-            iconSize={11}
-            formatter={(value, entry: any) => (
-              <span className="text-[13px]" style={{ color: entry.color }}>
-                {value}
-              </span>
-            )}
+      <div className="flex flex-col items-center gap-8">
+        {/* Donut Chart */}
+        <svg width="200" height="200" viewBox="0 0 200 200" className="flex-shrink-0">
+          <defs>
+            <circle id="donut" cx="100" cy="100" r="70" fill="none" strokeWidth="30" />
+          </defs>
+
+          {/* Active Users 49% - Green */}
+          <circle
+            cx="100"
+            cy="100"
+            r="70"
+            fill="none"
+            stroke="#10B981"
+            strokeWidth="30"
+            strokeDasharray="122 250"
+            strokeDashoffset="0"
+            transform="rotate(-90 100 100)"
           />
-        </PieChart>
-      </ResponsiveContainer>
+
+          {/* Pending Verification 20% - Orange */}
+          <circle
+            cx="100"
+            cy="100"
+            r="70"
+            fill="none"
+            stroke="#F59E0B"
+            strokeWidth="30"
+            strokeDasharray="50 250"
+            strokeDashoffset="-122"
+            transform="rotate(-90 100 100)"
+          />
+
+          {/* Inactive Users 40% - Gray */}
+          <circle
+            cx="100"
+            cy="100"
+            r="70"
+            fill="none"
+            stroke="#6B7280"
+            strokeWidth="30"
+            strokeDasharray="100 250"
+            strokeDashoffset="-172"
+            transform="rotate(-90 100 100)"
+          />
+
+          {/* Suspended 2% - Red */}
+          <circle
+            cx="100"
+            cy="100"
+            r="70"
+            fill="none"
+            stroke="#EF4444"
+            strokeWidth="30"
+            strokeDasharray="5 250"
+            strokeDashoffset="-272"
+            transform="rotate(-90 100 100)"
+          />
+
+          {/* Inner white circle */}
+          <circle cx="100" cy="100" r="50" fill="white" />
+        </svg>
+
+        {/* Legend */}
+        <div className="grid grid-cols-2 gap-x-4 gap-y-2 w-full">
+          <div className="flex items-center gap-2">
+            <div className="w-3 h-3 bg-[#10B981]" />
+            <span className="text-[13px] text-[#10B981]">Active Users 49%</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <div className="w-3 h-3 bg-[#EF4444]" />
+            <span className="text-[13px] text-[#EF4444]">Suspended 2%</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <div className="w-3 h-3 bg-[#F59E0B]" />
+            <span className="text-[13px] text-[#F59E0B]">Pending Verification 20%</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <div className="w-3 h-3 bg-[#6B7280]" />
+            <span className="text-[13px] text-[#6B7280]">Inactive Users 40%</span>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

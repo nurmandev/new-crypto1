@@ -1,48 +1,106 @@
 import React from 'react';
-import { PieChart, Pie, Cell, ResponsiveContainer, Legend } from 'recharts';
 
 export const PlatformCryptoPortfolio: React.FC = () => {
-  const data = [
-    { name: 'Active Users 49%', value: 49, color: '#10B981' },
-    { name: 'Bitcoin 45.2%', value: 45.2, color: '#F59E0B' },
-    { name: 'Ethereum 28.5%', value: 28.5, color: '#627EEA' },
-    { name: 'Cardano 6.8%', value: 6.8, color: '#0033AD' },
-    { name: 'Others 4.2%', value: 4.2, color: '#6B7280' },
-  ];
-
   return (
     <div className="bg-white rounded-lg border border-gray-200 p-6">
       <h3 className="text-[15px] font-medium text-black mb-4">Platform Crypto Portfolio</h3>
 
-      <ResponsiveContainer width="100%" height={300}>
-        <PieChart>
-          <Pie
-            data={data}
-            cx="50%"
-            cy="50%"
-            labelLine={false}
-            outerRadius={80}
-            innerRadius={50}
-            fill="#8884d8"
-            dataKey="value"
-          >
-            {data.map((entry, index) => (
-              <Cell key={`cell-${index}`} fill={entry.color} />
-            ))}
-          </Pie>
-          <Legend
-            verticalAlign="bottom"
-            height={36}
-            iconType="square"
-            iconSize={11}
-            formatter={(value, entry: any) => (
-              <span className="text-[13px]" style={{ color: entry.color }}>
-                {value}
-              </span>
-            )}
+      <div className="flex flex-col items-center gap-8">
+        {/* Donut Chart */}
+        <svg width="200" height="200" viewBox="0 0 200 200" className="flex-shrink-0">
+          {/* Active Users 49% - Green */}
+          <circle
+            cx="100"
+            cy="100"
+            r="70"
+            fill="none"
+            stroke="#10B981"
+            strokeWidth="28"
+            strokeDasharray="122 250"
+            strokeDashoffset="0"
+            transform="rotate(-90 100 100)"
           />
-        </PieChart>
-      </ResponsiveContainer>
+
+          {/* Bitcoin 45.2% - Orange */}
+          <circle
+            cx="100"
+            cy="100"
+            r="70"
+            fill="none"
+            stroke="#F59E0B"
+            strokeWidth="28"
+            strokeDasharray="113 250"
+            strokeDashoffset="-122"
+            transform="rotate(-90 100 100)"
+          />
+
+          {/* Ethereum 28.5% - Blue */}
+          <circle
+            cx="100"
+            cy="100"
+            r="70"
+            fill="none"
+            stroke="#627EEA"
+            strokeWidth="28"
+            strokeDasharray="71 250"
+            strokeDashOffset="-235"
+            transform="rotate(-90 100 100)"
+          />
+
+          {/* Cardano 6.8% - Dark Blue */}
+          <circle
+            cx="100"
+            cy="100"
+            r="70"
+            fill="none"
+            stroke="#0033AD"
+            strokeWidth="28"
+            strokeDasharray="17 250"
+            strokeDashoffset="-306"
+            transform="rotate(-90 100 100)"
+          />
+
+          {/* Others 4.2% - Gray */}
+          <circle
+            cx="100"
+            cy="100"
+            r="70"
+            fill="none"
+            stroke="#6B7280"
+            strokeWidth="28"
+            strokeDasharray="10 250"
+            strokeDashoffset="-323"
+            transform="rotate(-90 100 100)"
+          />
+
+          {/* Inner white circle */}
+          <circle cx="100" cy="100" r="50" fill="white" />
+        </svg>
+
+        {/* Legend */}
+        <div className="grid grid-cols-2 gap-x-4 gap-y-2 w-full">
+          <div className="flex items-center gap-2">
+            <div className="w-3 h-3 bg-[#10B981]" />
+            <span className="text-[13px] text-[#10B981]">Active Users 49%</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <div className="w-3 h-3 bg-[#0033AD]" />
+            <span className="text-[13px] text-[#0033AD]">Cardano 6.8%</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <div className="w-3 h-3 bg-[#F59E0B]" />
+            <span className="text-[13px] text-[#F59E0B]">Bitcoin 45.2%</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <div className="w-3 h-3 bg-[#627EEA]" />
+            <span className="text-[13px] text-[#627EEA]">Ethereum 28.5%</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <div className="w-3 h-3 bg-[#6B7280]" />
+            <span className="text-[13px] text-[#6B7280]">Others 4.2%</span>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
