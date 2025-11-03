@@ -8,9 +8,11 @@ import {
   Info,
   Truck,
 } from "lucide-react";
-import DashboardLayout from "./components/DashboardLayout";
+import DashboardHeader from "./components/DashboardHeader";
+import Sidebar from "./components/Sidebar";
 
 export default function Cashout() {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const [amount, setAmount] = useState("");
   const [trackingId, setTrackingId] = useState("");
   const [fullName, setFullName] = useState("");
@@ -22,6 +24,10 @@ export default function Cashout() {
   const [landmark, setLandmark] = useState("");
   const [notes, setNotes] = useState("");
   const [showTrackingModal, setShowTrackingModal] = useState(false);
+
+  const closeSidebar = () => {
+    setIsSidebarOpen(false);
+  };
 
   const availableBalance = 45230.5;
 
