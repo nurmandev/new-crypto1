@@ -3,6 +3,7 @@ import DashboardLayout from "./components/DashboardLayout";
 import TransactionItem from "./history/components/TransactionItem";
 import Pagination from "./history/components/Pagination";
 import FilterDropdown from "./history/components/FilterDropdown";
+import TransactionDetailsModal from "./history/components/TransactionDetailsModal";
 import { Calendar, Filter } from "lucide-react";
 
 interface Transaction {
@@ -19,6 +20,9 @@ export default function History() {
   const [currentPage, setCurrentPage] = useState(1);
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [selectedFilter, setSelectedFilter] = useState("Approved");
+  const [selectedTransaction, setSelectedTransaction] =
+    useState<Transaction | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const filterButtonRef = useRef<HTMLButtonElement>(null);
   const totalPages = 5;
 
@@ -77,7 +81,11 @@ export default function History() {
   ];
 
   const handleViewTransaction = (transactionId: string) => {
-    console.log("View transaction:", transactionId);
+    const transaction = transactions.find((t) => t.id === transactionId);
+    if (transaction) {
+      setSelectedTransaction(transaction);
+      setIsModalOpen(true);
+    }
   };
 
   return (
@@ -169,6 +177,13 @@ export default function History() {
             onPageChange={setCurrentPage}
           />
         </div>
+
+        {/* Transaction Details Modal */}
+        <TransactionDetailsModal
+          isOpen={isModalOpen}
+          onClose={() => setIsModalOpen(false)}
+          transaction={selectedTransaction}
+        />
       </div>
     </DashboardLayout>
   );
