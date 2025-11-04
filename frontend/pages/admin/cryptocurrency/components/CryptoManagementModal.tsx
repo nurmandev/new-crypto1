@@ -62,31 +62,31 @@ export const CryptoManagementModal: React.FC<CryptoManagementModalProps> = ({
             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4 sm:gap-x-12 gap-y-3">
               {/* Left Column */}
               <div>
-                <h3 className="text-[17px] font-medium leading-[33px] text-black mb-2 font-roboto">
+                <h3 className="text-[15px] sm:text-[17px] font-semibold sm:font-medium leading-tight sm:leading-[33px] text-black mb-2 sm:mb-3 font-roboto">
                   Current States:
                 </h3>
                 <div className="space-y-2">
-                  <div className="flex justify-between items-center">
-                    <span className="text-sm font-light text-black font-roboto">
+                  <div className="flex justify-between items-center gap-2">
+                    <span className="text-[13px] sm:text-sm font-light text-black font-roboto">
                       Buy Rate:
                     </span>
-                    <span className="text-sm font-medium text-black font-roboto text-right">
+                    <span className="text-[13px] sm:text-sm font-medium text-black font-roboto text-right">
                       {crypto.buyRate}
                     </span>
                   </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-sm font-light text-black font-roboto">
+                  <div className="flex justify-between items-center gap-2">
+                    <span className="text-[13px] sm:text-sm font-light text-black font-roboto">
                       Sell Rate:
                     </span>
-                    <span className="text-sm font-medium text-black font-roboto text-right">
+                    <span className="text-[13px] sm:text-sm font-medium text-black font-roboto text-right">
                       {crypto.sellRate}
                     </span>
                   </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-sm font-light text-black font-roboto">
+                  <div className="flex justify-between items-center gap-2">
+                    <span className="text-[13px] sm:text-sm font-light text-black font-roboto">
                       24h Change:
                     </span>
-                    <span className="text-sm font-medium text-[#3CC27B] font-roboto text-right">
+                    <span className="text-[13px] sm:text-sm font-medium text-[#3CC27B] font-roboto text-right">
                       {crypto.change24h}
                     </span>
                   </div>
@@ -95,31 +95,31 @@ export const CryptoManagementModal: React.FC<CryptoManagementModalProps> = ({
 
               {/* Right Column */}
               <div>
-                <h3 className="text-[17px] font-medium leading-[33px] text-black mb-2 font-roboto">
+                <h3 className="text-[15px] sm:text-[17px] font-semibold sm:font-medium leading-tight sm:leading-[33px] text-black mb-2 sm:mb-3 font-roboto">
                   Status & Settings
                 </h3>
                 <div className="space-y-2">
-                  <div className="flex justify-between items-center">
-                    <span className="text-sm font-light text-black font-roboto">
+                  <div className="flex justify-between items-center gap-2">
+                    <span className="text-[13px] sm:text-sm font-light text-black font-roboto">
                       Status:
                     </span>
-                    <span className="text-sm font-medium text-black font-roboto text-right">
+                    <span className="text-[13px] sm:text-sm font-medium text-black font-roboto text-right">
                       {crypto.status}
                     </span>
                   </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-sm font-light text-black font-roboto">
+                  <div className="flex justify-between items-center gap-2">
+                    <span className="text-[13px] sm:text-sm font-light text-black font-roboto">
                       Last Updated:
                     </span>
-                    <span className="text-sm font-medium text-black font-roboto text-right">
+                    <span className="text-[13px] sm:text-sm font-medium text-black font-roboto text-right">
                       {crypto.lastUpdated}
                     </span>
                   </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-sm font-light text-black font-roboto">
+                  <div className="flex justify-between items-center gap-2">
+                    <span className="text-[13px] sm:text-sm font-light text-black font-roboto">
                       Symbol:
                     </span>
-                    <span className="text-sm font-medium text-black font-roboto text-right">
+                    <span className="text-[13px] sm:text-sm font-medium text-black font-roboto text-right">
                       {crypto.symbol}
                     </span>
                   </div>
