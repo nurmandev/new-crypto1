@@ -7,6 +7,7 @@ import { CryptoManagementModal } from "./components/CryptoManagementModal";
 import { AddCryptoModal } from "./components/AddCryptoModal";
 
 export const CryptocurrencyManagement: React.FC = () => {
+  const [sidebarOpen, setSidebarOpen] = useState(false);
   const [selectedCrypto, setSelectedCrypto] = useState<CryptoData | null>(null);
   const [showAddModal, setShowAddModal] = useState(false);
 
@@ -103,7 +104,10 @@ export const CryptocurrencyManagement: React.FC = () => {
     <div className="min-h-screen bg-[#F8F8F8] p-3 sm:p-6">
       <div className="flex gap-3 sm:gap-6 max-w-[1920px] mx-auto flex-col lg:flex-row">
         {/* Sidebar */}
-        <AdminSidebar isOpen={true} />
+        <AdminSidebar
+          isOpen={sidebarOpen}
+          onClose={() => setSidebarOpen(false)}
+        />
 
         {/* Main Content Container */}
         <div className="flex-1 flex flex-col gap-3 sm:gap-6">
