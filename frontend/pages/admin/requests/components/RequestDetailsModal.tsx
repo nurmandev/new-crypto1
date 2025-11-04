@@ -149,7 +149,9 @@ export const RequestDetailsModal: React.FC<RequestDetailsModalProps> = ({
                 Transaction Details
               </h3>
 
-              <div className={`space-y-3 ${isCryptoTransaction ? "w-full" : "max-w-[275px]"}`}>
+              <div
+                className={`space-y-3 ${isCryptoTransaction ? "w-full" : "max-w-[275px]"}`}
+              >
                 <div className="flex justify-between items-start gap-2">
                   <span className="text-[14px] font-light text-black whitespace-nowrap">
                     Amount:
@@ -242,15 +244,11 @@ export const RequestDetailsModal: React.FC<RequestDetailsModalProps> = ({
               <div className="w-full">
                 <div
                   className={`w-full h-[54px] flex items-center px-[27px] rounded-[10px] border-[0.7px] border-[#CACACA] ${
-                    isApproved
-                      ? "bg-[#3CC27B]/31"
-                      : "bg-[#FDBDBD]/56"
+                    isApproved ? "bg-[#3CC27B]/31" : "bg-[#FDBDBD]/56"
                   }`}
                 >
                   <span className="text-[15px] font-normal text-black">
-                    {isApproved
-                      ? "Verified and Approved"
-                      : "Request Rejected"}
+                    {isApproved ? "Verified and Approved" : "Request Rejected"}
                   </span>
                 </div>
               </div>
