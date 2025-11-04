@@ -49,11 +49,11 @@ export const EditUserModal: React.FC<EditUserModalProps> = ({
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="w-[95vw] sm:w-[90vw] lg:max-w-[1172px] p-5 sm:p-8 lg:p-10 bg-white rounded-[15px] border-none shadow-lg max-h-[90vh] overflow-y-auto">
+      <DialogContent className="w-[95vw] sm:w-[90vw] md:max-w-2xl lg:max-w-4xl p-4 sm:p-6 md:p-8 lg:p-10 bg-white rounded-[15px] border-none shadow-lg max-h-[90vh] overflow-y-auto">
         <DialogTitle className="sr-only">Edit User - {user.name}</DialogTitle>
 
-        <div className="flex flex-col gap-6 lg:gap-[33px]">
-          <h2 className="text-base sm:text-[17px] font-medium text-black leading-[33px]">
+        <div className="flex flex-col gap-5 sm:gap-6 md:gap-8">
+          <h2 className="text-base sm:text-lg md:text-[17px] font-medium text-black leading-tight">
             Edit User - {user.name}
           </h2>
 
