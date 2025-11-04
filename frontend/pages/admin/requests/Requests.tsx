@@ -240,6 +240,4 @@ export function Requests() {
       />
     </div>
   );
-};
-
-export default Requests;
+}
