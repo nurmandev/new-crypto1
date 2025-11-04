@@ -36,6 +36,7 @@ import CryptoAccess from "./pages/dashboard/CryptoAccess";
 import Profile from "./pages/dashboard/Profile";
 import { AdminDashboard } from "./pages/admin/AdminDashboard";
 import { Users } from "./pages/admin/Users";
+import { Transactions } from "./pages/admin/Transactions";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -77,6 +78,7 @@ const App = () => (
           <Route path="/profile" element={<Profile />} />
           <Route path="/admin" element={<AdminDashboard />} />
           <Route path="/admin/users" element={<Users />} />
+          <Route path="/admin/transactions" element={<Transactions />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
