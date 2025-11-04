@@ -83,7 +83,9 @@ export const RequestsTable: React.FC<RequestsTableProps> = ({
                 <div className="text-[12px] font-semibold text-black mb-1 truncate">
                   {request.requestId}
                 </div>
-                <div className="text-[11px] text-[#666] mb-2">{request.type}</div>
+                <div className="text-[11px] text-[#666] mb-2">
+                  {request.type}
+                </div>
                 <div className="space-y-1">
                   <div className="text-[11px] font-medium text-black truncate">
                     {request.userName}
