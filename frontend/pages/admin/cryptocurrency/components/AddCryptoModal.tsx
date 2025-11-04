@@ -96,9 +96,9 @@ export const AddCryptoModal: React.FC<AddCryptoModalProps> = ({
           </div>
 
           {/* Modal Content */}
-          <div className="p-5 sm:p-[30px]">
+          <div className="p-4 sm:p-5 md:p-[30px] overflow-y-auto flex-1">
             {/* Form Grid - 2 columns on desktop, 1 on mobile */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-6">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-6 sm:gap-x-8 gap-y-5 sm:gap-y-6">
               {/* Left Column */}
               <div className="space-y-6">
                 {/* Symbol */}
