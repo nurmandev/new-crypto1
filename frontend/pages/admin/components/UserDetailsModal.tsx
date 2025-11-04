@@ -17,7 +17,7 @@ export const UserDetailsModal: React.FC<UserDetailsModalProps> = ({
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-[566px] p-5 bg-white rounded-[10px] border-none shadow-lg max-h-[90vh] overflow-y-auto">
+      <DialogContent className="w-[95vw] sm:max-w-[566px] p-4 sm:p-5 bg-white rounded-[10px] border-none shadow-lg max-h-[90vh] overflow-y-auto">
         <DialogTitle className="sr-only">
           User Details - {user.name}
         </DialogTitle>
@@ -28,7 +28,7 @@ export const UserDetailsModal: React.FC<UserDetailsModalProps> = ({
                 User Details - {user.name}
               </h2>
 
-              <div className="grid grid-cols-2 gap-x-8 gap-y-4 mb-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-x-8 md:gap-y-4 mb-8">
                 <div>
                   <h3 className="text-[17px] font-medium text-black leading-[33px] mb-2">
                     Personal Information:
@@ -129,7 +129,7 @@ export const UserDetailsModal: React.FC<UserDetailsModalProps> = ({
             </div>
           </div>
 
-          <div className="flex flex-wrap gap-5">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-5">
             <button className="flex items-center justify-center gap-2 px-[60px] py-2 bg-black text-white rounded-md border border-[#C3C3C3] hover:bg-gray-800 transition-colors">
               <svg
                 className="w-4 h-4"

@@ -39,10 +39,10 @@ export const UsersPagination: React.FC<UsersPaginationProps> = ({
         <button
           key={i}
           onClick={() => onPageChange(i)}
-          className={`flex items-center justify-center w-[35px] h-[35px] rounded text-[13px] font-semibold transition-colors ${
+          className={`flex items-center justify-center w-[28px] sm:w-[35px] h-[28px] sm:h-[35px] rounded text-[11px] sm:text-[13px] font-semibold transition-colors ${
             currentPage === i
               ? "bg-[#3CC27B] text-white"
-              : "bg-white text-black hover:bg-gray-100"
+              : "bg-white text-black border border-[#D0D0D0] hover:bg-gray-100"
           }`}
         >
           {i}
@@ -54,26 +54,26 @@ export const UsersPagination: React.FC<UsersPaginationProps> = ({
   };
 
   return (
-    <div className="flex items-center justify-between mt-6">
-      <div className="text-[17px] text-[#838383]">
-        Showing {startItem} out of {totalItems}
+    <div className="flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-0 mt-6 sm:mt-8">
+      <div className="text-[12px] sm:text-[17px] text-[#838383] text-center sm:text-left">
+        Showing {startItem} to {endItem} of {totalItems}
       </div>
 
-      <div className="flex items-center gap-3 h-[35px]">
+      <div className="flex items-center gap-2 sm:gap-3 h-[35px] flex-wrap justify-center sm:justify-end">
         <button
           onClick={handlePrevious}
           disabled={currentPage === 1}
-          className="text-[13px] font-medium text-black hover:text-[#3CC27B] disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+          className="text-[11px] sm:text-[13px] font-medium text-black hover:text-[#3CC27B] disabled:opacity-50 disabled:cursor-not-allowed transition-colors whitespace-nowrap"
         >
           Previous
         </button>
 
-        <div className="flex gap-3">{renderPageNumbers()}</div>
+        <div className="flex gap-1 sm:gap-3">{renderPageNumbers()}</div>
 
         <button
           onClick={handleNext}
           disabled={currentPage === totalPages}
-          className="text-[13px] font-medium text-black hover:text-[#3CC27B] disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+          className="text-[11px] sm:text-[13px] font-medium text-black hover:text-[#3CC27B] disabled:opacity-50 disabled:cursor-not-allowed transition-colors whitespace-nowrap"
         >
           Next
         </button>
