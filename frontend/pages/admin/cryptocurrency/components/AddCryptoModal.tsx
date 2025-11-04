@@ -76,7 +76,7 @@ export const AddCryptoModal: React.FC<AddCryptoModalProps> = ({
       >
         {/* Modal Container */}
         <div
-          className="bg-white rounded-2xl overflow-hidden shadow-2xl w-full max-w-[873px] flex flex-col"
+          className="bg-white rounded-2xl overflow-hidden shadow-2xl w-full max-w-[873px] max-h-[90vh] flex flex-col"
           onClick={(e) => e.stopPropagation()}
         >
           {/* Modal Header with Gradient Background */}
