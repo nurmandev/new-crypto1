@@ -43,84 +43,94 @@ export const TransactionDetailsModal: React.FC<
 
   return (
     <div
-      className="fixed inset-0 bg-black/22 flex items-center justify-center z-50 p-4"
+      className="fixed inset-0 bg-black/22 flex items-center justify-center z-50 p-3 sm:p-4 md:p-6"
       onClick={handleBackdropClick}
     >
-      <div className="bg-white rounded-[15px] w-full max-w-[550px] max-h-[90vh] overflow-y-auto">
-        <div className="p-6 sm:p-8 flex flex-col gap-6 sm:gap-7">
-          <div className="space-y-4 sm:space-y-6">
-            <h2 className="text-base sm:text-[17px] font-medium text-black leading-[33px]">
+      <div className="bg-white rounded-lg sm:rounded-[15px] w-full max-w-[90vw] sm:max-w-md md:max-w-lg lg:max-w-[550px] max-h-[95vh] sm:max-h-[90vh] overflow-y-auto shadow-lg">
+        <div className="p-4 sm:p-5 md:p-6 lg:p-8 flex flex-col gap-4 sm:gap-5 md:gap-6 lg:gap-7">
+          {/* Header Section */}
+          <div className="space-y-3 sm:space-y-4 md:space-y-5 lg:space-y-6">
+            <h2 className="text-sm sm:text-base md:text-lg lg:text-[17px] font-medium text-black break-words">
               Transaction Details - {transaction.transactionId}
             </h2>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-              <div className="space-y-4">
-                <h3 className="text-base sm:text-[17px] font-medium text-black leading-[33px]">
+            {/* Info Sections Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5 md:gap-6">
+              {/* Transaction Info */}
+              <div className="space-y-3 sm:space-y-4">
+                <h3 className="text-xs sm:text-sm md:text-base lg:text-[17px] font-medium text-black">
                   Transaction Info
                 </h3>
 
-                <div className="space-y-3">
-                  <div className="flex justify-between items-start">
-                    <span className="text-sm font-light text-black">
+                <div className="space-y-2 sm:space-y-3">
+                  <div className="flex justify-between items-start gap-2">
+                    <span className="text-xs sm:text-sm font-light text-black flex-shrink-0">
                       Transaction ID:
                     </span>
-                    <span className="text-sm font-medium text-black text-right">
+                    <span className="text-xs sm:text-sm font-medium text-black text-right flex-shrink-0">
                       {transaction.status}
                     </span>
                   </div>
 
-                  <div className="flex justify-between items-start">
-                    <span className="text-sm font-light text-black">Type:</span>
-                    <span className="text-sm font-medium text-black text-right">
+                  <div className="flex justify-between items-start gap-2">
+                    <span className="text-xs sm:text-sm font-light text-black flex-shrink-0">
+                      Type:
+                    </span>
+                    <span className="text-xs sm:text-sm font-medium text-black text-right flex-shrink-0">
                       {transaction.type}
                     </span>
                   </div>
 
-                  <div className="flex justify-between items-start">
-                    <span className="text-sm font-light text-black">
+                  <div className="flex justify-between items-start gap-2">
+                    <span className="text-xs sm:text-sm font-light text-black flex-shrink-0">
                       Status:
                     </span>
-                    <span className="text-sm font-medium text-black text-right">
+                    <span className="text-xs sm:text-sm font-medium text-black text-right flex-shrink-0">
                       {transaction.status}
                     </span>
                   </div>
 
-                  <div className="flex justify-between items-start">
-                    <span className="text-sm font-light text-black">Time</span>
-                    <span className="text-sm font-medium text-black text-right">
+                  <div className="flex justify-between items-start gap-2">
+                    <span className="text-xs sm:text-sm font-light text-black flex-shrink-0">
+                      Time:
+                    </span>
+                    <span className="text-xs sm:text-sm font-medium text-black text-right flex-shrink-0">
                       {transaction.time}
                     </span>
                   </div>
 
-                  <div className="flex justify-between items-start">
-                    <span className="text-sm font-light text-black">
+                  <div className="flex justify-between items-start gap-2">
+                    <span className="text-xs sm:text-sm font-light text-black flex-shrink-0">
                       Payment Method:
                     </span>
-                    <span className="text-sm font-medium text-black text-right">
+                    <span className="text-xs sm:text-sm font-medium text-black text-right flex-shrink-0">
                       {transaction.paymentMethod}
                     </span>
                   </div>
                 </div>
               </div>
 
-              <div className="space-y-4">
-                <h3 className="text-base sm:text-[17px] font-medium text-black leading-[33px]">
+              {/* User Details */}
+              <div className="space-y-3 sm:space-y-4">
+                <h3 className="text-xs sm:text-sm md:text-base lg:text-[17px] font-medium text-black">
                   User Details
                 </h3>
 
-                <div className="space-y-3">
-                  <div className="flex justify-between items-start">
-                    <span className="text-sm font-light text-black">Name:</span>
-                    <span className="text-sm font-medium text-black text-right">
+                <div className="space-y-2 sm:space-y-3">
+                  <div className="flex justify-between items-start gap-2">
+                    <span className="text-xs sm:text-sm font-light text-black flex-shrink-0">
+                      Name:
+                    </span>
+                    <span className="text-xs sm:text-sm font-medium text-black text-right break-words">
                       {transaction.userName}
                     </span>
                   </div>
 
-                  <div className="flex justify-between items-start">
-                    <span className="text-sm font-light text-black">
+                  <div className="flex justify-between items-start gap-2">
+                    <span className="text-xs sm:text-sm font-light text-black flex-shrink-0">
                       Email:
                     </span>
-                    <span className="text-sm font-medium text-black text-right break-all">
+                    <span className="text-xs sm:text-sm font-medium text-black text-right break-all">
                       {transaction.user}
                     </span>
                   </div>
@@ -129,64 +139,68 @@ export const TransactionDetailsModal: React.FC<
             </div>
           </div>
 
-          <div className="space-y-4">
-            <h3 className="text-base sm:text-[17px] font-medium text-black leading-[33px]">
+          {/* Financial Details */}
+          <div className="space-y-3 sm:space-y-4">
+            <h3 className="text-xs sm:text-sm md:text-base lg:text-[17px] font-medium text-black">
               Financial Details
             </h3>
 
-            <div className="space-y-3">
-              <div className="flex justify-between items-start">
-                <span className="text-sm font-light text-black">
+            <div className="space-y-2 sm:space-y-3">
+              <div className="flex justify-between items-start gap-2">
+                <span className="text-xs sm:text-sm font-light text-black flex-shrink-0">
                   Crypto Amount:
                 </span>
-                <span className="text-sm font-medium text-black text-right">
+                <span className="text-xs sm:text-sm font-medium text-black text-right flex-shrink-0">
                   {transaction.amount} {transaction.crypto}
                 </span>
               </div>
 
-              <div className="flex justify-between items-start">
-                <span className="text-sm font-light text-black">
+              <div className="flex justify-between items-start gap-2">
+                <span className="text-xs sm:text-sm font-light text-black flex-shrink-0">
                   INR Value:
                 </span>
-                <span className="text-sm font-medium text-black text-right">
+                <span className="text-xs sm:text-sm font-medium text-black text-right flex-shrink-0">
                   {transaction.inrValue}
                 </span>
               </div>
 
-              <div className="flex justify-between items-start">
-                <span className="text-sm font-light text-black">Fees:</span>
-                <span className="text-sm font-medium text-black text-right">
+              <div className="flex justify-between items-start gap-2">
+                <span className="text-xs sm:text-sm font-light text-black flex-shrink-0">
+                  Fees:
+                </span>
+                <span className="text-xs sm:text-sm font-medium text-black text-right flex-shrink-0">
                   {transaction.fees}
                 </span>
               </div>
             </div>
           </div>
 
-          <div className="rounded-lg border-l-2 border-[#3CC27B] bg-[#3CC27B]/9 p-4">
-            <div className="space-y-3">
-              <div className="flex justify-between items-start">
-                <span className="text-xs font-light text-black">
+          {/* Exchange Rate Box */}
+          <div className="rounded border-l-2 sm:rounded-lg border-[#3CC27B] bg-[#3CC27B]/9 p-3 sm:p-4">
+            <div className="space-y-2 sm:space-y-3">
+              <div className="flex justify-between items-start gap-2">
+                <span className="text-[10px] sm:text-xs font-light text-black flex-shrink-0">
                   Exchange Rate:
                 </span>
-                <span className="text-xs font-medium text-black text-right">
+                <span className="text-[10px] sm:text-xs font-medium text-black text-right flex-shrink-0">
                   {transaction.exchangeRate}
                 </span>
               </div>
 
-              <div className="flex justify-between items-start gap-2">
-                <span className="text-xs font-light text-black">
-                  Transaction Hash:
+              <div className="flex justify-between items-start gap-2 min-w-0">
+                <span className="text-[10px] sm:text-xs font-light text-black flex-shrink-0">
+                  Tx Hash:
                 </span>
-                <div className="flex items-center gap-2">
-                  <span className="text-xs font-medium text-black text-right">
+                <div className="flex items-center gap-1 sm:gap-2 flex-shrink-0">
+                  <span className="text-[10px] sm:text-xs font-medium text-black truncate">
                     {transaction.transactionHash}
                   </span>
                   <button
                     onClick={handleCopyHash}
-                    className="hover:opacity-70 transition-opacity"
+                    className="hover:opacity-70 transition-opacity flex-shrink-0"
                     aria-label="Copy transaction hash"
                   >
-                    <Copy className="w-3 h-3 text-black" />
+                    <Copy className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-black" />
                   </button>
                 </div>
               </div>
