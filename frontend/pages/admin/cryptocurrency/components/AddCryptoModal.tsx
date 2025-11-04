@@ -194,16 +194,16 @@ export const AddCryptoModal: React.FC<AddCryptoModalProps> = ({
                         fill="#8E8E8E"
                       />
                     </svg>
-                    <span className="ml-auto text-[15px] font-medium text-[#515151] font-roboto">
+                    <span className="ml-auto text-[11px] sm:text-[15px] font-medium text-[#515151] font-roboto truncate px-2">
                       {iconFile ? iconFile.name : "Upload"}
                     </span>
                   </div>
                   {iconPreview && (
-                    <div className="mt-3">
+                    <div className="mt-2 sm:mt-3">
                       <img
                         src={iconPreview}
                         alt="Icon preview"
-                        className="w-12 h-12 rounded-lg object-cover shadow-sm"
+                        className="w-10 sm:w-12 h-10 sm:h-12 rounded-lg object-cover shadow-sm"
                       />
                     </div>
                   )}
