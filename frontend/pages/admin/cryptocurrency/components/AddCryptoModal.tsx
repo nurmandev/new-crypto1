@@ -69,23 +69,36 @@ export const AddCryptoModal: React.FC<AddCryptoModalProps> = ({
 
   return (
     <>
-      {/* Overlay */}
+      {/* Overlay with Backdrop Blur */}
       <div
-        className="fixed inset-0 bg-black/22 z-50 flex items-center justify-center p-4"
+        className="fixed inset-0 bg-gradient-to-br from-black/40 to-black/20 z-50 flex items-center justify-center p-4 backdrop-blur-sm"
         onClick={onClose}
       >
-        {/* Modal */}
+        {/* Modal Container */}
         <div
-          className="bg-white rounded-xl p-5 sm:p-[30px] w-full max-w-[873px] flex flex-col gap-2.5"
+          className="bg-white rounded-2xl overflow-hidden shadow-2xl w-full max-w-[873px] flex flex-col"
           onClick={(e) => e.stopPropagation()}
         >
-          <div className="w-full">
-            <h2 className="text-[17px] font-medium leading-[33px] text-black font-roboto mb-5">
-              Add New Cryptocurrency
-            </h2>
+          {/* Modal Header with Gradient Background */}
+          <div className="bg-gradient-to-r from-[#3CC27B] via-[#35b870] to-[#2fa866] px-5 sm:px-[30px] py-6 sm:py-8 relative overflow-hidden">
+            {/* Decorative background elements */}
+            <div className="absolute top-0 right-0 w-40 h-40 bg-white/10 rounded-full -mr-20 -mt-20"></div>
+            <div className="absolute bottom-0 left-0 w-32 h-32 bg-white/10 rounded-full -ml-16 -mb-16"></div>
 
-              {/* Form Grid - 2 columns on desktop, 1 on mobile */}
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-6">
+            <div className="relative z-10">
+              <h2 className="text-[22px] sm:text-[26px] font-bold text-white font-roboto">
+                Add New Cryptocurrency
+              </h2>
+              <p className="text-white/85 text-sm font-roboto mt-2">
+                Enter the details to add a new cryptocurrency to the platform
+              </p>
+            </div>
+          </div>
+
+          {/* Modal Content */}
+          <div className="p-5 sm:p-[30px]">
+            {/* Form Grid - 2 columns on desktop, 1 on mobile */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-6">
               {/* Left Column */}
               <div className="space-y-6">
                 {/* Symbol */}
@@ -120,8 +133,8 @@ export const AddCryptoModal: React.FC<AddCryptoModalProps> = ({
 
                 {/* Buy Rate */}
                 <div>
-                  <label className="text-[15px] font-medium text-black mb-2 block font-roboto">
-                    Buy Rate (₹)
+                  <label className="text-[15px] font-semibold text-black mb-3 block font-roboto">
+                    Buy Rate (₹) <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="text"
@@ -129,18 +142,18 @@ export const AddCryptoModal: React.FC<AddCryptoModalProps> = ({
                     onChange={(e) =>
                       handleInputChange(
                         "buyRate",
-                        e.target.value.replace(/[^0-9]/g, ""),
+                        e.target.value.replace(/[^0-9]/g, "")
                       )
                     }
-                    placeholder="Bitcoin"
-                    className="w-full h-[51px] px-6 rounded-[5px] border border-[#8F8F8F] bg-[#F0F0F0] text-[15px] font-medium text-[#8E8E8E] placeholder:text-[#8E8E8E] font-roboto focus:outline-none focus:border-[#3CC27B] focus:text-black"
+                    placeholder="4123456"
+                    className="w-full h-[48px] px-4 rounded-lg border border-[#E0E0E0] bg-white text-[15px] font-medium text-black placeholder:text-[#999] font-roboto focus:outline-none focus:border-[#3CC27B] focus:ring-2 focus:ring-[#3CC27B]/20 transition-all"
                   />
                 </div>
 
                 {/* Sell Rate */}
                 <div>
-                  <label className="text-[15px] font-medium text-black mb-2 block font-roboto">
-                    Sell Rate (₹)
+                  <label className="text-[15px] font-semibold text-black mb-3 block font-roboto">
+                    Sell Rate (₹) <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="text"
@@ -148,11 +161,11 @@ export const AddCryptoModal: React.FC<AddCryptoModalProps> = ({
                     onChange={(e) =>
                       handleInputChange(
                         "sellRate",
-                        e.target.value.replace(/[^0-9]/g, ""),
+                        e.target.value.replace(/[^0-9]/g, "")
                       )
                     }
-                    placeholder="Bitcoin"
-                    className="w-full h-[51px] px-6 rounded-[5px] border border-[#8F8F8F] bg-[#F0F0F0] text-[15px] font-medium text-[#8E8E8E] placeholder:text-[#8E8E8E] font-roboto focus:outline-none focus:border-[#3CC27B] focus:text-black"
+                    placeholder="4100000"
+                    className="w-full h-[48px] px-4 rounded-lg border border-[#E0E0E0] bg-white text-[15px] font-medium text-black placeholder:text-[#999] font-roboto focus:outline-none focus:border-[#3CC27B] focus:ring-2 focus:ring-[#3CC27B]/20 transition-all"
                   />
                 </div>
 
@@ -186,11 +199,11 @@ export const AddCryptoModal: React.FC<AddCryptoModalProps> = ({
                     </span>
                   </div>
                   {iconPreview && (
-                    <div className="mt-2">
+                    <div className="mt-3">
                       <img
                         src={iconPreview}
                         alt="Icon preview"
-                        className="w-12 h-12 rounded-full object-cover"
+                        className="w-12 h-12 rounded-lg object-cover shadow-sm"
                       />
                     </div>
                   )}
@@ -230,20 +243,29 @@ export const AddCryptoModal: React.FC<AddCryptoModalProps> = ({
                     className="w-full h-[48px] px-4 rounded-lg border border-[#E0E0E0] bg-white text-[15px] font-medium text-black placeholder:text-[#999] font-roboto focus:outline-none focus:border-[#3CC27B] focus:ring-2 focus:ring-[#3CC27B]/20 transition-all"
                   />
                 </div>
+
+                {/* Info Box */}
+                <div className="mt-8 p-4 bg-gradient-to-br from-[#3CC27B]/5 to-[#2fa866]/5 border border-[#3CC27B]/20 rounded-lg">
+                  <p className="text-[13px] text-[#555] font-roboto leading-relaxed">
+                    <span className="font-semibold text-black">Note:</span> All fields marked with
+                    <span className="text-red-500 font-bold"> * </span>
+                    are required. Make sure the wallet address and network details are accurate.
+                  </p>
+                </div>
               </div>
             </div>
 
             {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 sm:gap-5 mt-8">
+            <div className="flex flex-col sm:flex-row gap-4 mt-10 pt-6 border-t border-[#E0E0E0]">
               <button
                 onClick={handleSubmit}
-                className="flex items-center justify-center w-full sm:w-[210px] h-9 bg-black text-white text-[15px] font-medium rounded-md border border-[#C3C3C3] hover:bg-gray-800 transition-colors font-roboto leading-[33px]"
+                className="flex-1 sm:flex-none px-8 h-[44px] bg-gradient-to-r from-[#3CC27B] to-[#2fa866] text-white text-[15px] font-semibold rounded-lg hover:shadow-lg hover:shadow-[#3CC27B]/30 hover:-translate-y-0.5 transition-all active:scale-95 font-roboto"
               >
-                Add
+                Add Cryptocurrency
               </button>
               <button
                 onClick={onClose}
-                className="flex items-center justify-center w-full sm:w-[210px] h-9 bg-white text-black text-[15px] font-medium rounded-md border border-[#C3C3C3] hover:bg-gray-50 transition-colors font-roboto leading-[33px]"
+                className="flex-1 sm:flex-none px-8 h-[44px] bg-white text-black text-[15px] font-semibold rounded-lg border border-[#E0E0E0] hover:bg-gray-50 hover:border-[#3CC27B]/30 transition-all active:scale-95 font-roboto"
               >
                 Cancel
               </button>
