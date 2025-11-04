@@ -4,9 +4,11 @@ import { AdminSidebar } from "../components/AdminSidebar";
 import { CryptoStatsCard } from "./components/CryptoStatsCard";
 import { CryptoTable, CryptoData } from "./components/CryptoTable";
 import { CryptoManagementModal } from "./components/CryptoManagementModal";
+import { AddCryptoModal } from "./components/AddCryptoModal";
 
 export const CryptocurrencyManagement: React.FC = () => {
   const [selectedCrypto, setSelectedCrypto] = useState<CryptoData | null>(null);
+  const [showAddModal, setShowAddModal] = useState(false);
 
   const [cryptoData] = useState<CryptoData[]>([
     {
@@ -48,7 +50,7 @@ export const CryptocurrencyManagement: React.FC = () => {
       symbol: "Cardano",
       logo: "https://api.builder.io/api/v1/image/assets/TEMP/a52e8303a36b4d134cfde22ee850b4520932e3f5?width=80",
       status: "Active",
-      buyRate: "��4,123,456",
+      buyRate: "₹4,123,456",
       sellRate: "₹4,100,000",
       change24h: "+2.34%",
       lastUpdated: "2 mins ago",
@@ -76,6 +78,19 @@ export const CryptocurrencyManagement: React.FC = () => {
 
   const handleDelete = (id: string) => {
     console.log("Delete crypto:", id);
+  };
+
+  const handleAdd = (crypto: {
+    symbol: string;
+    name: string;
+    buyRate: string;
+    sellRate: string;
+    walletAddress: string;
+    network: string;
+    iconFile?: File;
+  }) => {
+    console.log("Add new crypto:", crypto);
+    // TODO: Implement actual add logic
   };
 
   const totalCrypto = cryptoData.length;
@@ -189,7 +204,10 @@ export const CryptocurrencyManagement: React.FC = () => {
                   <h2 className="text-xl font-medium text-black font-roboto">
                     Cryptocurrency Rates
                   </h2>
-                  <button className="inline-flex items-center gap-2 px-6 sm:px-9 py-1 bg-[#161616] text-white text-[15px] font-medium rounded-md h-[35px] hover:bg-gray-800 transition-colors font-roboto leading-[33px] w-full sm:w-auto justify-center">
+                  <button
+                    onClick={() => setShowAddModal(true)}
+                    className="inline-flex items-center gap-2 px-6 sm:px-9 py-1 bg-[#161616] text-white text-[15px] font-medium rounded-md h-[35px] hover:bg-gray-800 transition-colors font-roboto leading-[33px] w-full sm:w-auto justify-center"
+                  >
                     <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
                       <path
                         d="M7.25 0C7.94 0 8.5 0.56 8.5 1.25V6H13.25C13.5815 6 13.8995 6.1317 14.1339 6.36612C14.3683 6.60054 14.5 6.91848 14.5 7.25C14.5 7.58152 14.3683 7.89946 14.1339 8.13388C13.8995 8.3683 13.5815 8.5 13.25 8.5H8.5V13.25C8.5 13.5815 8.3683 13.8995 8.13388 14.1339C7.89946 14.3683 7.58152 14.5 7.25 14.5C6.91848 14.5 6.60054 14.3683 6.36612 14.1339C6.1317 13.8995 6 13.5815 6 13.25V8.5H1.25C0.918479 8.5 0.600537 8.3683 0.366117 8.13388C0.131696 7.89946 0 7.58152 0 7.25C0 6.91848 0.131696 6.60054 0.366117 6.36612C0.600537 6.1317 0.918479 6 1.25 6H6V1.25C6 0.56 6.56 0 7.25 0Z"
@@ -208,13 +226,21 @@ export const CryptocurrencyManagement: React.FC = () => {
         </div>
       </div>
 
-      {/* Modal */}
+      {/* Edit Modal */}
       {selectedCrypto && (
         <CryptoManagementModal
           crypto={selectedCrypto}
           onClose={() => setSelectedCrypto(null)}
           onUpdate={handleUpdate}
           onDelete={handleDelete}
+        />
+      )}
+
+      {/* Add Modal */}
+      {showAddModal && (
+        <AddCryptoModal
+          onClose={() => setShowAddModal(false)}
+          onAdd={handleAdd}
         />
       )}
     </div>
