@@ -203,14 +203,14 @@ export const CryptocurrencyManagement: React.FC = () => {
               </div>
 
               {/* Table Section */}
-              <div className="mb-4 sm:mb-6">
-                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4 mb-4 sm:mb-6">
-                  <h2 className="text-base xs:text-lg sm:text-xl font-semibold xs:font-medium text-black font-roboto">
+              <div className="mb-4 md:mb-6">
+                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4 mb-4 md:mb-6">
+                  <h2 className="text-base sm:text-lg md:text-xl font-semibold sm:font-medium text-black font-roboto">
                     Cryptocurrency Rates
                   </h2>
                   <button
                     onClick={() => setShowAddModal(true)}
-                    className="inline-flex items-center gap-2 px-4 xs:px-6 sm:px-9 py-1 bg-[#161616] text-white text-xs xs:text-sm sm:text-[15px] font-medium rounded-md h-8 xs:h-9 sm:h-[35px] hover:bg-gray-800 active:bg-gray-900 transition-colors font-roboto leading-tight sm:leading-[33px] w-full sm:w-auto justify-center"
+                    className="inline-flex items-center gap-2 px-4 sm:px-6 md:px-9 py-1 bg-[#161616] text-white text-xs sm:text-sm md:text-[15px] font-medium rounded-md h-8 sm:h-9 md:h-[35px] hover:bg-gray-800 active:bg-gray-900 transition-colors font-roboto leading-tight md:leading-[33px] w-full sm:w-auto justify-center"
                   >
                     <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
                       <path
