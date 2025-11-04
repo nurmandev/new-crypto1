@@ -44,7 +44,6 @@ export const RequestDetailsModal: React.FC<RequestDetailsModalProps> = ({
     setNotes("");
   };
 
-  // Check if this is a crypto transaction
   const isCryptoTransaction =
     request.type.toLowerCase().includes("crypto") ||
     ["BTC", "ETH", "USDT", "BNB"].includes(request.currency);
@@ -52,17 +51,15 @@ export const RequestDetailsModal: React.FC<RequestDetailsModalProps> = ({
   return (
     <Dialog open={isOpen} onOpenChange={handleClose}>
       <DialogContent className="w-[95vw] max-w-[606px] p-0 gap-0 bg-white rounded-xl max-h-[90vh] overflow-y-auto">
-        <div className="flex flex-col gap-6 p-6 sm:p-[30px]">
-          <DialogHeader>
+        <div className="flex flex-col gap-[26px] p-5 sm:p-[30px]">
+          <DialogHeader className="p-0 space-y-0">
             <DialogTitle className="text-[17px] font-medium text-black leading-[33px]">
               Request Details - {request.requestId}
             </DialogTitle>
           </DialogHeader>
 
-          <div className="flex flex-col gap-6">
-            {/* Request Information and User Details */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-              {/* Request Information */}
+          <div className="flex flex-col gap-[26px]">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
               <div className="flex flex-col gap-4">
                 <h3 className="text-[17px] font-medium text-black leading-[33px]">
                   Request Information
@@ -116,7 +113,6 @@ export const RequestDetailsModal: React.FC<RequestDetailsModalProps> = ({
                 </div>
               </div>
 
-              {/* User Details */}
               <div className="flex flex-col gap-4">
                 <h3 className="text-[17px] font-medium text-black leading-[33px]">
                   User Details
@@ -144,13 +140,12 @@ export const RequestDetailsModal: React.FC<RequestDetailsModalProps> = ({
               </div>
             </div>
 
-            {/* Transaction Details */}
             <div className="flex flex-col gap-4">
               <h3 className="text-[17px] font-medium text-black leading-[33px]">
                 Transaction Details
               </h3>
 
-              <div className="space-y-3">
+              <div className="space-y-3 max-w-[275px]">
                 <div className="flex justify-between items-start gap-2">
                   <span className="text-[14px] font-light text-black whitespace-nowrap">
                     Amount:
@@ -167,7 +162,9 @@ export const RequestDetailsModal: React.FC<RequestDetailsModalProps> = ({
                         Network:
                       </span>
                       <span className="text-[14px] font-medium text-black text-right">
-                        Bitcoin Network
+                        {request.currency === "BTC"
+                          ? "Bitcoin Network"
+                          : "Ethereum Network"}
                       </span>
                     </div>
 
@@ -176,7 +173,7 @@ export const RequestDetailsModal: React.FC<RequestDetailsModalProps> = ({
                         Transaction Hash:
                       </span>
                       <span className="text-[14px] font-medium text-black text-right break-words">
-                        1A1zP1eP5QGefi2DMPTfTLSLmv7DivfNa
+                        1A1zP1eP5QGefi2DMPTfTL...
                       </span>
                     </div>
                   </>
@@ -204,21 +201,19 @@ export const RequestDetailsModal: React.FC<RequestDetailsModalProps> = ({
               </div>
             </div>
 
-            {/* Notes Input */}
             <div className="w-full">
               <textarea
                 value={notes}
                 onChange={(e) => setNotes(e.target.value)}
                 placeholder="Add a notes for this request"
-                className="w-full h-[79px] px-7 py-4 rounded-[10px] border-[0.7px] border-[#CACACA] bg-[#F0F0F0] text-[15px] text-black placeholder:text-[#8E8E8E] focus:outline-none focus:ring-2 focus:ring-[#3CC27B] resize-none"
+                className="w-full h-[79px] px-[27px] py-[17px] rounded-[10px] border-[0.7px] border-[#CACACA] bg-[#F0F0F0] text-[15px] text-black placeholder:text-[#8E8E8E] focus:outline-none focus:ring-2 focus:ring-[#3CC27B] resize-none font-roboto"
               />
             </div>
 
-            {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-[17px]">
               <button
                 onClick={handleApprove}
-                className="flex-1 h-9 px-[60px] flex items-center justify-center gap-2.5 rounded-md border-[0.5px] border-[#C3C3C3] bg-[#3CC27B] hover:bg-[#3CC27B]/90 transition-colors"
+                className="flex-1 sm:flex-none sm:w-[162px] h-9 flex items-center justify-center gap-2.5 rounded-md border-[0.5px] border-[#C3C3C3] bg-[#3CC27B] hover:bg-[#35ab6b] transition-colors"
               >
                 <Check className="w-3 h-3 text-white flex-shrink-0" />
                 <span className="text-[15px] font-medium text-white leading-[33px]">
@@ -228,7 +223,7 @@ export const RequestDetailsModal: React.FC<RequestDetailsModalProps> = ({
 
               <button
                 onClick={handleReject}
-                className="flex-1 h-9 px-[60px] flex items-center justify-center gap-2.5 rounded-md border-[0.5px] border-[#C3C3C3] bg-[#FA1818] hover:bg-[#FA1818]/90 transition-colors"
+                className="flex-1 sm:flex-none sm:w-[162px] h-9 flex items-center justify-center gap-2.5 rounded-md border-[0.5px] border-[#C3C3C3] bg-[#FA1818] hover:bg-[#e01515] transition-colors"
               >
                 <X className="w-3 h-3 text-white flex-shrink-0" />
                 <span className="text-[15px] font-medium text-white leading-[33px]">
