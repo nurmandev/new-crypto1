@@ -230,21 +230,24 @@ export const AdminSidebar: React.FC<AdminSidebarProps> = ({
 
   return (
     <>
-      {/* Mobile Overlay */}
-      {isOpen && (
-        <div
-          className="fixed inset-0 bg-black/50 z-40 lg:hidden"
-          onClick={onClose}
-        />
-      )}
+      {/* Mobile Overlay - Animated */}
+      <div
+        className={`
+          fixed inset-0 z-40 lg:hidden
+          transition-all duration-300 ease-in-out
+          ${isOpen ? 'bg-black/50 opacity-100' : 'bg-black/0 opacity-0 pointer-events-none'}
+        `}
+        onClick={onClose}
+        aria-hidden={!isOpen}
+      />
 
-      {/* Sidebar */}
+      {/* Sidebar - Mobile Drawer + Desktop Sidebar */}
       <aside
         className={`
         fixed lg:sticky top-0 left-0
         h-screen w-[259px] bg-white rounded-[10px] z-50
-        transition-transform duration-300 ease-in-out
-        ${isOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"}
+        transition-all duration-300 ease-in-out
+        ${isOpen ? 'translate-x-0 shadow-2xl' : '-translate-x-full lg:translate-x-0'}
       `}
       >
         {/* Header - Shows current active section */}
