@@ -235,7 +235,7 @@ export const AdminSidebar: React.FC<AdminSidebarProps> = ({
         className={`
           fixed inset-0 z-40 lg:hidden
           transition-all duration-300 ease-in-out
-          ${isOpen ? 'bg-black/50 opacity-100' : 'bg-black/0 opacity-0 pointer-events-none'}
+          ${isOpen ? "bg-black/50 opacity-100" : "bg-black/0 opacity-0 pointer-events-none"}
         `}
         onClick={onClose}
         aria-hidden={!isOpen}
@@ -247,7 +247,7 @@ export const AdminSidebar: React.FC<AdminSidebarProps> = ({
         fixed lg:sticky top-0 left-0
         h-screen w-[259px] bg-white rounded-[10px] z-50
         transition-all duration-300 ease-in-out
-        ${isOpen ? 'translate-x-0 shadow-2xl' : '-translate-x-full lg:translate-x-0'}
+        ${isOpen ? "translate-x-0 shadow-2xl" : "-translate-x-full lg:translate-x-0"}
       `}
       >
         {/* Header - Shows current active section */}
