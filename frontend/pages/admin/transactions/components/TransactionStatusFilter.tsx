@@ -8,6 +8,7 @@ interface TransactionStatusFilterProps {
 
 const statusOptions = [
   { value: "all", label: "All Transactions" },
+  { value: "active", label: "Active" },
   { value: "completed", label: "Completed" },
   { value: "pending", label: "Pending" },
   { value: "failed", label: "Failed" },
