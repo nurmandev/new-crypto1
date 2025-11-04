@@ -58,10 +58,10 @@ export const EditUserModal: React.FC<EditUserModalProps> = ({
           </h2>
 
           {/* Personal Information and Account Settings Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-x-[46px]">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 lg:gap-x-12">
             {/* Personal Information */}
-            <div className="space-y-4 sm:space-y-6">
-              <h3 className="text-base sm:text-[17px] font-medium text-black leading-[33px]">
+            <div className="space-y-4 sm:space-y-5 md:space-y-6">
+              <h3 className="text-base sm:text-lg md:text-[17px] font-medium text-black leading-tight md:leading-[33px]">
                 Personal Information:
               </h3>
 
