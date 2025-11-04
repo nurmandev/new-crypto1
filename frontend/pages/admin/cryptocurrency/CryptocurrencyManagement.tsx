@@ -101,8 +101,8 @@ export const CryptocurrencyManagement: React.FC = () => {
   ).length;
 
   return (
-    <div className="min-h-screen bg-[#F8F8F8] p-3 sm:p-6">
-      <div className="flex gap-3 sm:gap-6 max-w-[1920px] mx-auto flex-col lg:flex-row">
+    <div className="min-h-screen bg-[#F8F8F8] p-2 xs:p-3 sm:p-6">
+      <div className="flex gap-2 xs:gap-3 sm:gap-6 max-w-[1920px] mx-auto flex-col lg:flex-row">
         {/* Sidebar */}
         <AdminSidebar
           isOpen={sidebarOpen}
@@ -110,26 +110,26 @@ export const CryptocurrencyManagement: React.FC = () => {
         />
 
         {/* Main Content Container */}
-        <div className="flex-1 flex flex-col gap-3 sm:gap-6">
+        <div className="flex-1 flex flex-col gap-2 xs:gap-3 sm:gap-6">
           {/* Header */}
           <AdminHeader onToggleSidebar={() => setSidebarOpen(!sidebarOpen)} />
 
           {/* Content */}
           <div className="flex-1">
             {/* Main White Container */}
-            <div className="bg-white rounded-[10px] p-4 sm:p-6 lg:p-8">
+            <div className="bg-white rounded-lg sm:rounded-[10px] p-3 xs:p-4 sm:p-6 lg:p-8">
               {/* Title Section */}
-              <div className="mb-6">
-                <h1 className="text-xl font-medium text-black mb-2 font-roboto">
+              <div className="mb-4 sm:mb-6">
+                <h1 className="text-lg xs:text-xl sm:text-2xl font-semibold xs:font-medium text-black mb-1 sm:mb-2 font-roboto">
                   Cryptocurrency Management
                 </h1>
-                <p className="text-[17px] font-normal text-[#838383] font-roboto">
+                <p className="text-sm xs:text-base sm:text-[17px] font-normal text-[#838383] font-roboto">
                   Add, Delete and Edit Crypto Exchange Rates
                 </p>
               </div>
 
               {/* Stats Grid */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-6">
+              <div className="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-4 gap-2 xs:gap-3 sm:gap-4 mb-4 sm:mb-6">
                 <CryptoStatsCard
                   title="Total Crypto"
                   value={totalCrypto}
@@ -203,14 +203,14 @@ export const CryptocurrencyManagement: React.FC = () => {
               </div>
 
               {/* Table Section */}
-              <div className="mb-6">
-                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6">
-                  <h2 className="text-xl font-medium text-black font-roboto">
+              <div className="mb-4 sm:mb-6">
+                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4 mb-4 sm:mb-6">
+                  <h2 className="text-base xs:text-lg sm:text-xl font-semibold xs:font-medium text-black font-roboto">
                     Cryptocurrency Rates
                   </h2>
                   <button
                     onClick={() => setShowAddModal(true)}
-                    className="inline-flex items-center gap-2 px-6 sm:px-9 py-1 bg-[#161616] text-white text-[15px] font-medium rounded-md h-[35px] hover:bg-gray-800 transition-colors font-roboto leading-[33px] w-full sm:w-auto justify-center"
+                    className="inline-flex items-center gap-2 px-4 xs:px-6 sm:px-9 py-1 bg-[#161616] text-white text-xs xs:text-sm sm:text-[15px] font-medium rounded-md h-8 xs:h-9 sm:h-[35px] hover:bg-gray-800 active:bg-gray-900 transition-colors font-roboto leading-tight sm:leading-[33px] w-full sm:w-auto justify-center"
                   >
                     <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
                       <path
@@ -221,7 +221,7 @@ export const CryptocurrencyManagement: React.FC = () => {
                     Add Currency
                   </button>
                 </div>
-                <div className="overflow-x-auto">
+                <div className="overflow-x-auto -mx-3 xs:-mx-4 sm:mx-0 px-3 xs:px-4 sm:px-0">
                   <CryptoTable data={cryptoData} onEdit={handleEdit} />
                 </div>
               </div>
