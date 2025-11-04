@@ -101,8 +101,8 @@ export const CryptocurrencyManagement: React.FC = () => {
   ).length;
 
   return (
-    <div className="min-h-screen bg-[#F8F8F8] p-2 xs:p-3 sm:p-6">
-      <div className="flex gap-2 xs:gap-3 sm:gap-6 max-w-[1920px] mx-auto flex-col lg:flex-row">
+    <div className="min-h-screen bg-[#F8F8F8] p-2 sm:p-3 md:p-6">
+      <div className="flex gap-2 sm:gap-3 md:gap-6 max-w-[1920px] mx-auto flex-col lg:flex-row">
         {/* Sidebar */}
         <AdminSidebar
           isOpen={sidebarOpen}
@@ -110,20 +110,20 @@ export const CryptocurrencyManagement: React.FC = () => {
         />
 
         {/* Main Content Container */}
-        <div className="flex-1 flex flex-col gap-2 xs:gap-3 sm:gap-6">
+        <div className="flex-1 flex flex-col gap-2 sm:gap-3 md:gap-6">
           {/* Header */}
           <AdminHeader onToggleSidebar={() => setSidebarOpen(!sidebarOpen)} />
 
           {/* Content */}
           <div className="flex-1">
             {/* Main White Container */}
-            <div className="bg-white rounded-lg sm:rounded-[10px] p-3 xs:p-4 sm:p-6 lg:p-8">
+            <div className="bg-white rounded-lg sm:rounded-[10px] p-3 sm:p-4 md:p-6 lg:p-8">
               {/* Title Section */}
-              <div className="mb-4 sm:mb-6">
-                <h1 className="text-lg xs:text-xl sm:text-2xl font-semibold xs:font-medium text-black mb-1 sm:mb-2 font-roboto">
+              <div className="mb-4 sm:mb-5 md:mb-6">
+                <h1 className="text-lg sm:text-xl md:text-2xl font-semibold sm:font-medium text-black mb-1 sm:mb-2 font-roboto">
                   Cryptocurrency Management
                 </h1>
-                <p className="text-sm xs:text-base sm:text-[17px] font-normal text-[#838383] font-roboto">
+                <p className="text-sm sm:text-base md:text-[17px] font-normal text-[#838383] font-roboto">
                   Add, Delete and Edit Crypto Exchange Rates
                 </p>
               </div>
