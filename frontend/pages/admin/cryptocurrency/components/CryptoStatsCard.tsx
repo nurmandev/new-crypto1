@@ -14,12 +14,12 @@ export const CryptoStatsCard: React.FC<CryptoStatsCardProps> = ({
   bgColor = "#BDFDDB",
 }) => {
   return (
-    <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-6 px-3 xs:px-4 sm:px-[11px] py-3 xs:py-4 sm:py-2.5 bg-white rounded-lg sm:rounded-[10px] border border-[#D4D4D4] min-h-[95px] sm:h-[109px]">
+    <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-6 px-3 sm:px-[11px] py-3 sm:py-2.5 bg-white rounded-lg sm:rounded-[10px] border border-[#D4D4D4] min-h-[95px] sm:h-[109px]">
       <div className="flex flex-col">
-        <span className="text-xs xs:text-sm font-normal leading-normal xs:leading-[33px] text-[#666] font-inter">
+        <span className="text-xs sm:text-sm font-normal leading-normal sm:leading-[33px] text-[#666] font-inter">
           {title}
         </span>
-        <span className="text-lg xs:text-xl sm:text-2xl font-bold leading-normal xs:leading-[33px] text-black font-roboto mt-1">
+        <span className="text-lg sm:text-xl lg:text-2xl font-bold leading-normal sm:leading-[33px] text-black font-roboto mt-1">
           {value}
         </span>
       </div>
