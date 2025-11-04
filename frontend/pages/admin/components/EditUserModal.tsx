@@ -67,7 +67,7 @@ export const EditUserModal: React.FC<EditUserModalProps> = ({
 
               {/* Select Network */}
               <div className="space-y-2">
-                <label className="text-sm sm:text-[15px] font-medium text-black block">
+                <label className="text-xs sm:text-sm md:text-[15px] font-medium text-black block">
                   Select Nework
                 </label>
                 <div className="relative">
@@ -76,13 +76,13 @@ export const EditUserModal: React.FC<EditUserModalProps> = ({
                     onChange={(e) =>
                       setFormData({ ...formData, network: e.target.value })
                     }
-                    className="w-full h-[51px] px-5 sm:px-[29px] rounded-[5px] border-[0.7px] border-[#CACACA] bg-[#F0F0F0] text-sm sm:text-[15px] font-medium text-[#8E8E8E] appearance-none cursor-pointer focus:outline-none focus:ring-2 focus:ring-black/10"
+                    className="w-full h-[44px] sm:h-[48px] md:h-[51px] px-4 sm:px-5 md:px-[29px] rounded-[5px] border-[0.7px] border-[#CACACA] bg-[#F0F0F0] text-xs sm:text-sm md:text-[15px] font-medium text-[#8E8E8E] appearance-none cursor-pointer focus:outline-none focus:ring-2 focus:ring-black/10"
                   >
                     <option value="TRC20">TRC20</option>
                     <option value="ERC20">ERC20</option>
                     <option value="BEP20">BEP20</option>
                   </select>
-                  <ChevronDown className="absolute right-4 sm:right-5 top-1/2 -translate-y-1/2 w-[13px] h-[10px] pointer-events-none text-black" />
+                  <ChevronDown className="absolute right-4 sm:right-4 md:right-5 top-1/2 -translate-y-1/2 w-3 sm:w-3 md:w-[13px] h-2 sm:h-2 md:h-[10px] pointer-events-none text-black" />
                 </div>
               </div>
 
