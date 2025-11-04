@@ -236,6 +236,7 @@ export const Users: React.FC = () => {
         isOpen={isDetailsModalOpen}
         onClose={handleCloseDetailsModal}
         user={selectedUser}
+        onEdit={handleEdit}
       />
 
       <EditUserModal
