@@ -149,7 +149,7 @@ export const RequestDetailsModal: React.FC<RequestDetailsModalProps> = ({
                 Transaction Details
               </h3>
 
-              <div className="space-y-3 max-w-[275px]">
+              <div className={`space-y-3 ${isCryptoTransaction ? "w-full" : "max-w-[275px]"}`}>
                 <div className="flex justify-between items-start gap-2">
                   <span className="text-[14px] font-light text-black whitespace-nowrap">
                     Amount:
@@ -177,7 +177,7 @@ export const RequestDetailsModal: React.FC<RequestDetailsModalProps> = ({
                         Transaction Hash:
                       </span>
                       <span className="text-[14px] font-medium text-black text-right break-words">
-                        1A1zP1eP5QGefi2DMPTfTL...
+                        1A1zP1eP5QGefi2DMPTfTLSLmv7DivfNa
                       </span>
                     </div>
                   </>
