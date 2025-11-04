@@ -239,61 +239,63 @@ export const AdminSidebar: React.FC<AdminSidebarProps> = ({
       )}
 
       {/* Sidebar */}
-      <aside className={`
+      <aside
+        className={`
         fixed lg:sticky top-0 left-0
         h-screen w-[259px] bg-white rounded-[10px] z-50
         transition-transform duration-300 ease-in-out
-        ${isOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
-      `}>
-      {/* Header - Shows current active section */}
-      <div className="h-[53px] rounded-t-[10px] bg-[#3CC27B] flex items-center px-6">
-        <div className="flex items-center gap-2.5 text-white">
-          <svg
-            width="15"
-            height="14"
-            viewBox="0 0 15 14"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M10.5 6.82889L13.68 1.12778L14.9775 1.90556L11.055 8.94444L6.1725 6.02778L2.595 12.4444H15V14H0V0H1.5V11.3089L5.625 3.88889L10.5 6.82889Z"
-              fill="white"
-            />
-          </svg>
-          <span className="font-semibold text-lg">
-            {isActiveRoute("/admin/users") ? "Users" : "Overview"}
-          </span>
-        </div>
-      </div>
-
-      {/* Menu Items */}
-      <nav className="pt-8 px-6 space-y-4">
-        {menuItems.map((item) => {
-          const isActive = isActiveRoute(item.path);
-          return (
-            <Link
-              key={item.path}
-              to={item.path}
-              className={`flex items-center gap-2.5 transition-colors relative group ${
-                isActive
-                  ? "text-[#3CC27B] font-bold"
-                  : "text-black hover:text-[#3CC27B]"
-              }`}
+        ${isOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"}
+      `}
+      >
+        {/* Header - Shows current active section */}
+        <div className="h-[53px] rounded-t-[10px] bg-[#3CC27B] flex items-center px-6">
+          <div className="flex items-center gap-2.5 text-white">
+            <svg
+              width="15"
+              height="14"
+              viewBox="0 0 15 14"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
             >
-              <div className="w-[15px] h-[15px] flex items-center justify-center flex-shrink-0">
-                {item.icon}
-              </div>
-              <span className="text-lg">{item.label}</span>
-              {item.badge && (
-                <span className="ml-auto flex items-center justify-center h-[37px] w-[37px] rounded-full bg-[#3CC27B]/30 text-[#00602D] text-[10px] font-semibold">
-                  {item.badge}
-                </span>
-              )}
-            </Link>
-          );
-        })}
-      </nav>
-    </aside>
+              <path
+                d="M10.5 6.82889L13.68 1.12778L14.9775 1.90556L11.055 8.94444L6.1725 6.02778L2.595 12.4444H15V14H0V0H1.5V11.3089L5.625 3.88889L10.5 6.82889Z"
+                fill="white"
+              />
+            </svg>
+            <span className="font-semibold text-lg">
+              {isActiveRoute("/admin/users") ? "Users" : "Overview"}
+            </span>
+          </div>
+        </div>
+
+        {/* Menu Items */}
+        <nav className="pt-8 px-6 space-y-4">
+          {menuItems.map((item) => {
+            const isActive = isActiveRoute(item.path);
+            return (
+              <Link
+                key={item.path}
+                to={item.path}
+                className={`flex items-center gap-2.5 transition-colors relative group ${
+                  isActive
+                    ? "text-[#3CC27B] font-bold"
+                    : "text-black hover:text-[#3CC27B]"
+                }`}
+              >
+                <div className="w-[15px] h-[15px] flex items-center justify-center flex-shrink-0">
+                  {item.icon}
+                </div>
+                <span className="text-lg">{item.label}</span>
+                {item.badge && (
+                  <span className="ml-auto flex items-center justify-center h-[37px] w-[37px] rounded-full bg-[#3CC27B]/30 text-[#00602D] text-[10px] font-semibold">
+                    {item.badge}
+                  </span>
+                )}
+              </Link>
+            );
+          })}
+        </nav>
+      </aside>
     </>
   );
 };
