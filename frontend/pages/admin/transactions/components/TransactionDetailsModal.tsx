@@ -70,9 +70,7 @@ export const TransactionDetailsModal: React.FC<
                   </div>
 
                   <div className="flex justify-between items-start">
-                    <span className="text-sm font-light text-black">
-                      Type:
-                    </span>
+                    <span className="text-sm font-light text-black">Type:</span>
                     <span className="text-sm font-medium text-black text-right">
                       {transaction.type}
                     </span>
@@ -112,9 +110,7 @@ export const TransactionDetailsModal: React.FC<
 
                 <div className="space-y-3">
                   <div className="flex justify-between items-start">
-                    <span className="text-sm font-light text-black">
-                      Name:
-                    </span>
+                    <span className="text-sm font-light text-black">Name:</span>
                     <span className="text-sm font-medium text-black text-right">
                       {transaction.userName}
                     </span>
