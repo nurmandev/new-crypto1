@@ -1,5 +1,4 @@
 import React, { useState, useMemo } from "react";
-import React, { useState, useMemo } from "react";
 import { useToast } from "@/components/ui/use-toast";
 import { AdminHeader } from "../components/AdminHeader";
 import { AdminSidebar } from "../components/AdminSidebar";
