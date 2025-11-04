@@ -173,7 +173,10 @@ export const Users: React.FC = () => {
             userDate <= new Date(dateRange.end + "T23:59:59");
 
       return (
-        matchesSearch && matchesStatus && matchesVerification && matchesDateRange
+        matchesSearch &&
+        matchesStatus &&
+        matchesVerification &&
+        matchesDateRange
       );
     });
   }, [searchQuery, filters, dateRange]);
