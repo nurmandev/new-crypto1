@@ -1,8 +1,35 @@
 import React from "react";
 
-export const AdminHeader: React.FC = () => {
+interface AdminHeaderProps {
+  onToggleSidebar?: () => void;
+}
+
+export const AdminHeader: React.FC<AdminHeaderProps> = ({ onToggleSidebar }) => {
   return (
     <header className="h-[75px] bg-white rounded-[10px] flex items-center justify-between px-4 sm:px-6 lg:px-8 gap-4">
+      {/* Hamburger Menu - Mobile Only */}
+      <button
+        onClick={onToggleSidebar}
+        className="lg:hidden p-2 hover:bg-gray-100 rounded transition-colors"
+        aria-label="Toggle sidebar"
+      >
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3 6H21M3 12H21M3 18H21"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </button>
+
       {/* Logo - Hidden on mobile, visible on tablet+ */}
       <div className="hidden sm:flex items-center gap-8">
         <img
