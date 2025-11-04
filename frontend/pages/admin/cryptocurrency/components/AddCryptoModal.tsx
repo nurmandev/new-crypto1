@@ -129,7 +129,7 @@ export const AddCryptoModal: React.FC<AddCryptoModalProps> = ({
                     onChange={(e) =>
                       handleInputChange(
                         "buyRate",
-                        e.target.value.replace(/[^0-9]/g, "")
+                        e.target.value.replace(/[^0-9]/g, ""),
                       )
                     }
                     placeholder="Bitcoin"
@@ -148,7 +148,7 @@ export const AddCryptoModal: React.FC<AddCryptoModalProps> = ({
                     onChange={(e) =>
                       handleInputChange(
                         "sellRate",
-                        e.target.value.replace(/[^0-9]/g, "")
+                        e.target.value.replace(/[^0-9]/g, ""),
                       )
                     }
                     placeholder="Bitcoin"
