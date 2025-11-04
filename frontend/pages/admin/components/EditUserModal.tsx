@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { UserData } from "./UsersTableRow";
 import { ChevronDown } from "lucide-react";
@@ -16,17 +16,29 @@ export const EditUserModal: React.FC<EditUserModalProps> = ({
 }) => {
   const [formData, setFormData] = useState({
     network: "TRC20",
-    email: user?.email || "",
+    email: "",
     phone: "+91 9876543210",
     address: "123 Main St, Mumbai, Maharashtra",
-    accountStatus: user?.status || "Active",
-    verificationStatus: user?.verification || "Verified",
+    accountStatus: "Active",
+    verificationStatus: "Verified",
     inrBalance: "4,50,000",
     bitcoin: "0.05234",
     ethereum: "1.2345",
     cardano: "1500",
     tether: "100",
   });
+
+  useEffect(() => {
+    if (user) {
+      setFormData((prev) => ({
+        ...prev,
+        email: user.email,
+        accountStatus: user.status,
+        verificationStatus: user.verification,
+        inrBalance: user.balance.replace("₹", ""),
+      }));
+    }
+  }, [user]);
 
   if (!user) return null;
 
@@ -37,171 +49,170 @@ export const EditUserModal: React.FC<EditUserModalProps> = ({
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="w-[95vw] sm:max-w-[1172px] p-4 sm:p-10 bg-white rounded-[15px] border-none shadow-lg max-h-[90vh] overflow-y-auto">
+      <DialogContent className="w-[95vw] sm:w-[90vw] lg:max-w-[1172px] p-5 sm:p-8 lg:p-10 bg-white rounded-[15px] border-none shadow-lg max-h-[90vh] overflow-y-auto">
         <DialogTitle className="sr-only">Edit User - {user.name}</DialogTitle>
 
-        <div className="flex flex-col gap-8">
-          {/* Personal Information and Account Settings */}
-          <div className="space-y-8">
-            <h2 className="text-[17px] font-medium text-black leading-[33px]">
-              Edit User - {user.name}
-            </h2>
+        <div className="flex flex-col gap-6 lg:gap-[33px]">
+          <h2 className="text-base sm:text-[17px] font-medium text-black leading-[33px]">
+            Edit User - {user.name}
+          </h2>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-x-12">
-              {/* Personal Information */}
-              <div className="space-y-6">
-                <h3 className="text-[17px] font-medium text-black leading-[33px]">
-                  Personal Information:
-                </h3>
+          {/* Personal Information and Account Settings Grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-x-[46px]">
+            {/* Personal Information */}
+            <div className="space-y-4 sm:space-y-6">
+              <h3 className="text-base sm:text-[17px] font-medium text-black leading-[33px]">
+                Personal Information:
+              </h3>
 
-                {/* Select Network */}
-                <div className="space-y-2">
-                  <label className="text-[15px] font-medium text-black">
-                    Select Network
-                  </label>
-                  <div className="relative">
-                    <select
-                      value={formData.network}
-                      onChange={(e) =>
-                        setFormData({ ...formData, network: e.target.value })
-                      }
-                      className="w-full h-[51px] px-7 rounded-[5px] border-[0.7px] border-[#CACACA] bg-[#F0F0F0] text-[15px] font-medium text-[#8E8E8E] appearance-none cursor-pointer"
-                    >
-                      <option value="TRC20">TRC20</option>
-                      <option value="ERC20">ERC20</option>
-                      <option value="BEP20">BEP20</option>
-                    </select>
-                    <ChevronDown className="absolute right-5 top-1/2 -translate-y-1/2 w-[13px] h-[10px] pointer-events-none" />
-                  </div>
-                </div>
-
-                {/* Email Address */}
-                <div className="space-y-2">
-                  <label className="text-[15px] font-medium text-black">
-                    Email Address
-                  </label>
-                  <input
-                    type="email"
-                    value={formData.email}
+              {/* Select Network */}
+              <div className="space-y-2">
+                <label className="text-sm sm:text-[15px] font-medium text-black block">
+                  Select Nework
+                </label>
+                <div className="relative">
+                  <select
+                    value={formData.network}
                     onChange={(e) =>
-                      setFormData({ ...formData, email: e.target.value })
+                      setFormData({ ...formData, network: e.target.value })
                     }
-                    className="w-full h-[51px] px-7 rounded-[5px] border-[0.7px] border-[#CACACA] bg-[#F0F0F0] text-[15px] font-medium text-[#8E8E8E]"
-                  />
-                </div>
-
-                {/* Phone Number */}
-                <div className="space-y-2">
-                  <label className="text-[15px] font-medium text-black">
-                    Phone Number
-                  </label>
-                  <input
-                    type="tel"
-                    value={formData.phone}
-                    onChange={(e) =>
-                      setFormData({ ...formData, phone: e.target.value })
-                    }
-                    className="w-full h-[51px] px-7 rounded-[5px] border-[0.7px] border-[#CACACA] bg-[#F0F0F0] text-[15px] font-medium text-[#8E8E8E]"
-                  />
-                </div>
-
-                {/* Address */}
-                <div className="space-y-2">
-                  <label className="text-[15px] font-medium text-black">
-                    Address
-                  </label>
-                  <textarea
-                    value={formData.address}
-                    onChange={(e) =>
-                      setFormData({ ...formData, address: e.target.value })
-                    }
-                    className="w-full h-[99px] px-7 py-4 rounded-[5px] border-[0.7px] border-[#CACACA] bg-[#F0F0F0] text-[15px] font-medium text-[#8E8E8E] resize-none"
-                  />
+                    className="w-full h-[51px] px-5 sm:px-[29px] rounded-[5px] border-[0.7px] border-[#CACACA] bg-[#F0F0F0] text-sm sm:text-[15px] font-medium text-[#8E8E8E] appearance-none cursor-pointer focus:outline-none focus:ring-2 focus:ring-black/10"
+                  >
+                    <option value="TRC20">TRC20</option>
+                    <option value="ERC20">ERC20</option>
+                    <option value="BEP20">BEP20</option>
+                  </select>
+                  <ChevronDown className="absolute right-4 sm:right-5 top-1/2 -translate-y-1/2 w-[13px] h-[10px] pointer-events-none text-black" />
                 </div>
               </div>
 
-              {/* Account Settings */}
-              <div className="space-y-6">
-                <h3 className="text-[17px] font-medium text-black leading-[33px]">
-                  Account Settings:
-                </h3>
+              {/* Email Address */}
+              <div className="space-y-2">
+                <label className="text-sm sm:text-[15px] font-medium text-black block">
+                  Email Address
+                </label>
+                <input
+                  type="email"
+                  value={formData.email}
+                  onChange={(e) =>
+                    setFormData({ ...formData, email: e.target.value })
+                  }
+                  className="w-full h-[51px] px-5 sm:px-[29px] rounded-[5px] border-[0.7px] border-[#CACACA] bg-[#F0F0F0] text-sm sm:text-[15px] font-medium text-[#8E8E8E] focus:outline-none focus:ring-2 focus:ring-black/10"
+                />
+              </div>
 
-                {/* Account Status */}
-                <div className="space-y-2">
-                  <label className="text-[15px] font-medium text-black">
-                    Account Status
-                  </label>
-                  <div className="relative">
-                    <select
-                      value={formData.accountStatus}
-                      onChange={(e) =>
-                        setFormData({
-                          ...formData,
-                          accountStatus: e.target.value,
-                        })
-                      }
-                      className="w-full h-[51px] px-7 rounded-[5px] border-[0.7px] border-[#CACACA] bg-[#F0F0F0] text-[15px] font-medium text-[#8E8E8E] appearance-none cursor-pointer"
-                    >
-                      <option value="Active">Active</option>
-                      <option value="Inactive">Inactive</option>
-                      <option value="Suspended">Suspended</option>
-                    </select>
-                    <ChevronDown className="absolute right-5 top-1/2 -translate-y-1/2 w-[13px] h-[10px] pointer-events-none" />
-                  </div>
-                </div>
+              {/* Phone Number */}
+              <div className="space-y-2">
+                <label className="text-sm sm:text-[15px] font-medium text-black block">
+                  Phone Number
+                </label>
+                <input
+                  type="tel"
+                  value={formData.phone}
+                  onChange={(e) =>
+                    setFormData({ ...formData, phone: e.target.value })
+                  }
+                  className="w-full h-[51px] px-5 sm:px-[29px] rounded-[5px] border-[0.7px] border-[#CACACA] bg-[#F0F0F0] text-sm sm:text-[15px] font-medium text-[#8E8E8E] focus:outline-none focus:ring-2 focus:ring-black/10"
+                />
+              </div>
 
-                {/* Verification Status */}
-                <div className="space-y-2">
-                  <label className="text-[15px] font-medium text-black">
-                    Verification Status
-                  </label>
-                  <div className="relative">
-                    <select
-                      value={formData.verificationStatus}
-                      onChange={(e) =>
-                        setFormData({
-                          ...formData,
-                          verificationStatus: e.target.value,
-                        })
-                      }
-                      className="w-full h-[51px] px-7 rounded-[5px] border-[0.7px] border-[#CACACA] bg-[#F0F0F0] text-[15px] font-medium text-[#8E8E8E] appearance-none cursor-pointer"
-                    >
-                      <option value="Verified">Verified</option>
-                      <option value="Pending">Pending</option>
-                      <option value="Unverified">Unverified</option>
-                    </select>
-                    <ChevronDown className="absolute right-5 top-1/2 -translate-y-1/2 w-[13px] h-[10px] pointer-events-none" />
-                  </div>
-                </div>
+              {/* Address */}
+              <div className="space-y-2">
+                <label className="text-sm sm:text-[15px] font-medium text-black block">
+                  Address
+                </label>
+                <textarea
+                  value={formData.address}
+                  onChange={(e) =>
+                    setFormData({ ...formData, address: e.target.value })
+                  }
+                  rows={4}
+                  className="w-full min-h-[99px] px-5 sm:px-[29px] py-3 sm:py-4 rounded-[5px] border-[0.7px] border-[#CACACA] bg-[#F0F0F0] text-sm sm:text-[15px] font-medium text-[#8E8E8E] resize-none focus:outline-none focus:ring-2 focus:ring-black/10"
+                />
+              </div>
+            </div>
 
-                {/* INR Balance */}
-                <div className="space-y-2">
-                  <label className="text-[15px] font-medium text-black">
-                    INR Balance (₹)
-                  </label>
-                  <input
-                    type="text"
-                    value={formData.inrBalance}
+            {/* Account Settings */}
+            <div className="space-y-4 sm:space-y-6">
+              <h3 className="text-base sm:text-[17px] font-medium text-black leading-[33px]">
+                Account Settings:
+              </h3>
+
+              {/* Account Status */}
+              <div className="space-y-2">
+                <label className="text-sm sm:text-[15px] font-medium text-black block">
+                  Account Status
+                </label>
+                <div className="relative">
+                  <select
+                    value={formData.accountStatus}
                     onChange={(e) =>
-                      setFormData({ ...formData, inrBalance: e.target.value })
+                      setFormData({
+                        ...formData,
+                        accountStatus: e.target.value,
+                      })
                     }
-                    className="w-full h-[51px] px-7 rounded-[5px] border-[0.7px] border-[#CACACA] bg-[#F0F0F0] text-[15px] font-medium text-[#8E8E8E]"
-                  />
+                    className="w-full h-[51px] px-5 sm:px-[29px] rounded-[5px] border-[0.7px] border-[#CACACA] bg-[#F0F0F0] text-sm sm:text-[15px] font-medium text-[#8E8E8E] appearance-none cursor-pointer focus:outline-none focus:ring-2 focus:ring-black/10"
+                  >
+                    <option value="Active">Active</option>
+                    <option value="Inactive">Inactive</option>
+                    <option value="Suspended">Suspended</option>
+                  </select>
+                  <ChevronDown className="absolute right-4 sm:right-5 top-1/2 -translate-y-1/2 w-[13px] h-[10px] pointer-events-none text-black" />
                 </div>
+              </div>
+
+              {/* Verification Status */}
+              <div className="space-y-2">
+                <label className="text-sm sm:text-[15px] font-medium text-black block">
+                  Verification Status
+                </label>
+                <div className="relative">
+                  <select
+                    value={formData.verificationStatus}
+                    onChange={(e) =>
+                      setFormData({
+                        ...formData,
+                        verificationStatus: e.target.value,
+                      })
+                    }
+                    className="w-full h-[51px] px-5 sm:px-[29px] rounded-[5px] border-[0.7px] border-[#CACACA] bg-[#F0F0F0] text-sm sm:text-[15px] font-medium text-[#8E8E8E] appearance-none cursor-pointer focus:outline-none focus:ring-2 focus:ring-black/10"
+                  >
+                    <option value="Verified">Verified</option>
+                    <option value="Pending">Pending</option>
+                    <option value="Unverified">Unverified</option>
+                  </select>
+                  <ChevronDown className="absolute right-4 sm:right-5 top-1/2 -translate-y-1/2 w-[13px] h-[10px] pointer-events-none text-black" />
+                </div>
+              </div>
+
+              {/* INR Balance */}
+              <div className="space-y-2">
+                <label className="text-sm sm:text-[15px] font-medium text-black block">
+                  INR Balance (₹)
+                </label>
+                <input
+                  type="text"
+                  value={formData.inrBalance}
+                  onChange={(e) =>
+                    setFormData({ ...formData, inrBalance: e.target.value })
+                  }
+                  className="w-full h-[51px] px-5 sm:px-[29px] rounded-[5px] border-[0.7px] border-[#CACACA] bg-[#F0F0F0] text-sm sm:text-[15px] font-medium text-[#8E8E8E] focus:outline-none focus:ring-2 focus:ring-black/10"
+                />
               </div>
             </div>
           </div>
 
           {/* Crypto Holdings */}
-          <div className="space-y-6">
-            <h3 className="text-[17px] font-medium text-black leading-[33px]">
+          <div className="space-y-4 sm:space-y-6">
+            <h3 className="text-base sm:text-[17px] font-medium text-black leading-[33px]">
               Crypto Holdings:
             </h3>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-[13px]">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-x-[13px]">
               {/* Bitcoin */}
               <div className="space-y-2">
-                <label className="text-[15px] font-medium text-black">
+                <label className="text-sm sm:text-[15px] font-medium text-black block">
                   Bitcoin (BTC)
                 </label>
                 <input
@@ -210,13 +221,13 @@ export const EditUserModal: React.FC<EditUserModalProps> = ({
                   onChange={(e) =>
                     setFormData({ ...formData, bitcoin: e.target.value })
                   }
-                  className="w-full h-[51px] px-7 rounded-[5px] border-[0.7px] border-[#CACACA] bg-[#F0F0F0] text-[15px] font-medium text-[#8E8E8E]"
+                  className="w-full h-[51px] px-5 sm:px-[29px] rounded-[5px] border-[0.7px] border-[#CACACA] bg-[#F0F0F0] text-sm sm:text-[15px] font-medium text-[#8E8E8E] focus:outline-none focus:ring-2 focus:ring-black/10"
                 />
               </div>
 
               {/* Ethereum */}
               <div className="space-y-2">
-                <label className="text-[15px] font-medium text-black">
+                <label className="text-sm sm:text-[15px] font-medium text-black block">
                   Ethereum (ETH)
                 </label>
                 <input
@@ -225,13 +236,13 @@ export const EditUserModal: React.FC<EditUserModalProps> = ({
                   onChange={(e) =>
                     setFormData({ ...formData, ethereum: e.target.value })
                   }
-                  className="w-full h-[51px] px-7 rounded-[5px] border-[0.7px] border-[#CACACA] bg-[#F0F0F0] text-[15px] font-medium text-[#8E8E8E]"
+                  className="w-full h-[51px] px-5 sm:px-[29px] rounded-[5px] border-[0.7px] border-[#CACACA] bg-[#F0F0F0] text-sm sm:text-[15px] font-medium text-[#8E8E8E] focus:outline-none focus:ring-2 focus:ring-black/10"
                 />
               </div>
 
               {/* Cardano */}
               <div className="space-y-2">
-                <label className="text-[15px] font-medium text-black">
+                <label className="text-sm sm:text-[15px] font-medium text-black block">
                   Cardano (ADA)
                 </label>
                 <input
@@ -240,13 +251,13 @@ export const EditUserModal: React.FC<EditUserModalProps> = ({
                   onChange={(e) =>
                     setFormData({ ...formData, cardano: e.target.value })
                   }
-                  className="w-full h-[51px] px-7 rounded-[5px] border-[0.7px] border-[#CACACA] bg-[#F0F0F0] text-[15px] font-medium text-[#8E8E8E]"
+                  className="w-full h-[51px] px-5 sm:px-[29px] rounded-[5px] border-[0.7px] border-[#CACACA] bg-[#F0F0F0] text-sm sm:text-[15px] font-medium text-[#8E8E8E] focus:outline-none focus:ring-2 focus:ring-black/10"
                 />
               </div>
 
               {/* Tether USDT */}
               <div className="space-y-2">
-                <label className="text-[15px] font-medium text-black">
+                <label className="text-sm sm:text-[15px] font-medium text-black block">
                   Tether USDT (USDT)
                 </label>
                 <input
@@ -255,23 +266,23 @@ export const EditUserModal: React.FC<EditUserModalProps> = ({
                   onChange={(e) =>
                     setFormData({ ...formData, tether: e.target.value })
                   }
-                  className="w-full h-[51px] px-7 rounded-[5px] border-[0.7px] border-[#CACACA] bg-[#F0F0F0] text-[15px] font-medium text-[#8E8E8E]"
+                  className="w-full h-[51px] px-5 sm:px-[29px] rounded-[5px] border-[0.7px] border-[#CACACA] bg-[#F0F0F0] text-sm sm:text-[15px] font-medium text-[#8E8E8E] focus:outline-none focus:ring-2 focus:ring-black/10"
                 />
               </div>
             </div>
           </div>
 
           {/* Action Buttons */}
-          <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4">
+          <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-[26px] pt-2">
             <button
               onClick={handleSave}
-              className="w-full sm:w-auto flex items-center justify-center px-6 sm:px-[60px] h-9 bg-black text-white text-[13px] sm:text-[15px] font-medium rounded-md border-[0.5px] border-[#C3C3C3] hover:bg-gray-800 transition-colors"
+              className="w-full sm:w-[210px] h-9 flex items-center justify-center bg-black text-white text-sm sm:text-[15px] font-medium rounded-md border-[0.5px] border-[#C3C3C3] hover:bg-gray-800 transition-colors"
             >
               Save Changes
             </button>
             <button
               onClick={onClose}
-              className="w-full sm:w-auto flex items-center justify-center px-6 sm:px-[60px] h-9 bg-white text-black text-[13px] sm:text-[15px] font-medium rounded-md border-[0.5px] border-[#C3C3C3] hover:bg-gray-50 transition-colors"
+              className="w-full sm:w-[210px] h-9 flex items-center justify-center bg-white text-black text-sm sm:text-[15px] font-medium rounded-md border-[0.5px] border-[#C3C3C3] hover:bg-gray-50 transition-colors"
             >
               Cancel
             </button>
