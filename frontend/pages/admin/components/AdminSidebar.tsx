@@ -302,6 +302,12 @@ export const AdminSidebar: React.FC<AdminSidebarProps> = ({
               <Link
                 key={item.path}
                 to={item.path}
+                onClick={() => {
+                  // Close sidebar on mobile when clicking a link
+                  if (window.innerWidth < 1024) {
+                    onClose();
+                  }
+                }}
                 className={`flex items-center gap-2.5 transition-colors relative group ${
                   isActive
                     ? "text-[#3CC27B] font-bold"
