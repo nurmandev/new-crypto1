@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { AdminHeader } from "../../components/AdminHeader";
-import { AdminSidebar } from "../../components/AdminSidebar";
+import { AdminHeader } from "../components/AdminHeader";
+import { AdminSidebar } from "../components/AdminSidebar";
 import { CryptoStatsCard } from "./components/CryptoStatsCard";
 import { CryptoTable, CryptoData } from "./components/CryptoTable";
 import { CryptoManagementModal } from "./components/CryptoManagementModal";
@@ -48,7 +48,7 @@ export const CryptocurrencyManagement: React.FC = () => {
       symbol: "Cardano",
       logo: "https://api.builder.io/api/v1/image/assets/TEMP/a52e8303a36b4d134cfde22ee850b4520932e3f5?width=80",
       status: "Active",
-      buyRate: "₹4,123,456",
+      buyRate: "��4,123,456",
       sellRate: "₹4,100,000",
       change24h: "+2.34%",
       lastUpdated: "2 mins ago",
