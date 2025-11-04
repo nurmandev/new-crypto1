@@ -8,7 +8,7 @@ import { RequestsPagination } from "./components/RequestsPagination";
 import { RequestDetailsModal } from "./components/RequestDetailsModal";
 import { RequestData } from "./components/RequestsTableRow";
 
-export const Requests: React.FC = () => {
+export function Requests() {
   const { toast } = useToast();
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedStatus, setSelectedStatus] = useState("all");
