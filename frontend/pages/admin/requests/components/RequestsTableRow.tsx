@@ -95,25 +95,14 @@ export const RequestsTableRow: React.FC<RequestsTableRowProps> = ({
 
       {/* Actions */}
       <td className="py-4 sm:py-5 px-2 sm:px-0">
-        {request.status === "Pending" ? (
-          <button
-            onClick={() => onView(request.id)}
-            className="hover:opacity-70 transition-opacity p-1"
-            aria-label="View request details"
-            title="View request details"
-          >
-            <Eye className="w-4 h-4 sm:w-5 sm:h-5 text-black" />
-          </button>
-        ) : (
-          <button
-            className="opacity-40 cursor-not-allowed p-1"
-            aria-label="No actions available"
-            title="No actions available"
-            disabled
-          >
-            <Eye className="w-4 h-4 sm:w-5 sm:h-5 text-black" />
-          </button>
-        )}
+        <button
+          onClick={() => onView(request.id)}
+          className="hover:opacity-70 transition-opacity p-1"
+          aria-label="View request details"
+          title="View request details"
+        >
+          <Eye className="w-4 h-4 sm:w-5 sm:h-5 text-black" />
+        </button>
       </td>
     </tr>
   );

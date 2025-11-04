@@ -112,7 +112,7 @@ export function Requests() {
 
   const handleView = (requestId: string) => {
     const request = requests.find((r) => r.id === requestId);
-    if (request && request.status === "Pending") {
+    if (request) {
       setSelectedRequest(request);
       setIsModalOpen(true);
     }

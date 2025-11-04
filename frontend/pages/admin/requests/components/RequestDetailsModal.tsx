@@ -48,6 +48,10 @@ export const RequestDetailsModal: React.FC<RequestDetailsModalProps> = ({
     request.type.toLowerCase().includes("crypto") ||
     ["BTC", "ETH", "USDT", "BNB"].includes(request.currency);
 
+  const isPending = request.status === "Pending";
+  const isApproved = request.status === "Approved";
+  const isRejected = request.status === "Rejected";
+
   return (
     <Dialog open={isOpen} onOpenChange={handleClose}>
       <DialogContent className="w-[95vw] max-w-[606px] p-0 gap-0 bg-white rounded-xl max-h-[90vh] overflow-y-auto">
@@ -201,36 +205,56 @@ export const RequestDetailsModal: React.FC<RequestDetailsModalProps> = ({
               </div>
             </div>
 
-            <div className="w-full">
-              <textarea
-                value={notes}
-                onChange={(e) => setNotes(e.target.value)}
-                placeholder="Add a notes for this request"
-                className="w-full h-[79px] px-[27px] py-[17px] rounded-[10px] border-[0.7px] border-[#CACACA] bg-[#F0F0F0] text-[15px] text-black placeholder:text-[#8E8E8E] focus:outline-none focus:ring-2 focus:ring-[#3CC27B] resize-none font-roboto"
-              />
-            </div>
+            {isPending ? (
+              <>
+                <div className="w-full">
+                  <textarea
+                    value={notes}
+                    onChange={(e) => setNotes(e.target.value)}
+                    placeholder="Add a notes for this request"
+                    className="w-full h-[79px] px-[27px] py-[17px] rounded-[10px] border-[0.7px] border-[#CACACA] bg-[#F0F0F0] text-[15px] text-black placeholder:text-[#8E8E8E] focus:outline-none focus:ring-2 focus:ring-[#3CC27B] resize-none font-roboto"
+                  />
+                </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 sm:gap-[17px]">
-              <button
-                onClick={handleApprove}
-                className="flex-1 sm:flex-none sm:w-[162px] h-9 flex items-center justify-center gap-2.5 rounded-md border-[0.5px] border-[#C3C3C3] bg-[#3CC27B] hover:bg-[#35ab6b] transition-colors"
-              >
-                <Check className="w-3 h-3 text-white flex-shrink-0" />
-                <span className="text-[15px] font-medium text-white leading-[33px]">
-                  Approve
-                </span>
-              </button>
+                <div className="flex flex-col sm:flex-row gap-4 sm:gap-[17px]">
+                  <button
+                    onClick={handleApprove}
+                    className="flex-1 sm:flex-none sm:w-[162px] h-9 flex items-center justify-center gap-2.5 rounded-md border-[0.5px] border-[#C3C3C3] bg-[#3CC27B] hover:bg-[#35ab6b] transition-colors"
+                  >
+                    <Check className="w-3 h-3 text-white flex-shrink-0" />
+                    <span className="text-[15px] font-medium text-white leading-[33px]">
+                      Approve
+                    </span>
+                  </button>
 
-              <button
-                onClick={handleReject}
-                className="flex-1 sm:flex-none sm:w-[162px] h-9 flex items-center justify-center gap-2.5 rounded-md border-[0.5px] border-[#C3C3C3] bg-[#FA1818] hover:bg-[#e01515] transition-colors"
-              >
-                <X className="w-3 h-3 text-white flex-shrink-0" />
-                <span className="text-[15px] font-medium text-white leading-[33px]">
-                  Reject
-                </span>
-              </button>
-            </div>
+                  <button
+                    onClick={handleReject}
+                    className="flex-1 sm:flex-none sm:w-[162px] h-9 flex items-center justify-center gap-2.5 rounded-md border-[0.5px] border-[#C3C3C3] bg-[#FA1818] hover:bg-[#e01515] transition-colors"
+                  >
+                    <X className="w-3 h-3 text-white flex-shrink-0" />
+                    <span className="text-[15px] font-medium text-white leading-[33px]">
+                      Reject
+                    </span>
+                  </button>
+                </div>
+              </>
+            ) : (
+              <div className="w-full">
+                <div
+                  className={`w-full h-[54px] flex items-center px-[27px] rounded-[10px] border-[0.7px] border-[#CACACA] ${
+                    isApproved
+                      ? "bg-[#3CC27B]/31"
+                      : "bg-[#FDBDBD]/56"
+                  }`}
+                >
+                  <span className="text-[15px] font-normal text-black">
+                    {isApproved
+                      ? "Verified and Approved"
+                      : "Request Rejected"}
+                  </span>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </DialogContent>
