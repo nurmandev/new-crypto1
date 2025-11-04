@@ -129,7 +129,7 @@ export const CryptoTable: React.FC<CryptoTableProps> = ({ data, onEdit }) => {
       </div>
 
       {/* Mobile Card View */}
-      <div className="md:hidden space-y-3 sm:space-y-4">
+      <div className="md:hidden space-y-3 md:space-y-4">
         {data.map((crypto) => (
           <div
             key={crypto.id}
