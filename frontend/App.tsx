@@ -38,6 +38,7 @@ import { AdminDashboard } from "./pages/admin/AdminDashboard";
 import { Users } from "./pages/admin/Users";
 import { Transactions } from "./pages/admin/Transactions";
 import { Requests } from "./pages/admin/requests/Requests";
+import { CryptocurrencyManagement } from "./pages/admin/cryptocurrency/CryptocurrencyManagement";
 import { Cryptocurrency } from "./pages/cryptocurrency/Cryptocurrency";
 import NotFound from "./pages/NotFound";
 
@@ -82,7 +83,7 @@ const App = () => (
           <Route path="/admin/users" element={<Users />} />
           <Route path="/admin/transactions" element={<Transactions />} />
           <Route path="/admin/requests" element={<Requests />} />
-          <Route path="/admin/cryptocurrency" element={<Cryptocurrency />} />
+          <Route path="/admin/cryptocurrency" element={<CryptocurrencyManagement />} />
           <Route path="/cryptocurrency" element={<Cryptocurrency />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
