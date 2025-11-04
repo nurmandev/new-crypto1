@@ -204,15 +204,15 @@ export const EditUserModal: React.FC<EditUserModalProps> = ({
           </div>
 
           {/* Crypto Holdings */}
-          <div className="space-y-4 sm:space-y-6">
-            <h3 className="text-base sm:text-[17px] font-medium text-black leading-[33px]">
+          <div className="space-y-4 sm:space-y-5 md:space-y-6">
+            <h3 className="text-base sm:text-lg md:text-[17px] font-medium text-black leading-tight md:leading-[33px]">
               Crypto Holdings:
             </h3>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-x-[13px]">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 lg:gap-x-3">
               {/* Bitcoin */}
               <div className="space-y-2">
-                <label className="text-sm sm:text-[15px] font-medium text-black block">
+                <label className="text-xs sm:text-sm md:text-[15px] font-medium text-black block">
                   Bitcoin (BTC)
                 </label>
                 <input
@@ -221,13 +221,13 @@ export const EditUserModal: React.FC<EditUserModalProps> = ({
                   onChange={(e) =>
                     setFormData({ ...formData, bitcoin: e.target.value })
                   }
-                  className="w-full h-[51px] px-5 sm:px-[29px] rounded-[5px] border-[0.7px] border-[#CACACA] bg-[#F0F0F0] text-sm sm:text-[15px] font-medium text-[#8E8E8E] focus:outline-none focus:ring-2 focus:ring-black/10"
+                  className="w-full h-[44px] sm:h-[48px] md:h-[51px] px-4 sm:px-5 md:px-[29px] rounded-[5px] border-[0.7px] border-[#CACACA] bg-[#F0F0F0] text-xs sm:text-sm md:text-[15px] font-medium text-[#8E8E8E] focus:outline-none focus:ring-2 focus:ring-black/10"
                 />
               </div>
 
               {/* Ethereum */}
               <div className="space-y-2">
-                <label className="text-sm sm:text-[15px] font-medium text-black block">
+                <label className="text-xs sm:text-sm md:text-[15px] font-medium text-black block">
                   Ethereum (ETH)
                 </label>
                 <input
@@ -236,13 +236,13 @@ export const EditUserModal: React.FC<EditUserModalProps> = ({
                   onChange={(e) =>
                     setFormData({ ...formData, ethereum: e.target.value })
                   }
-                  className="w-full h-[51px] px-5 sm:px-[29px] rounded-[5px] border-[0.7px] border-[#CACACA] bg-[#F0F0F0] text-sm sm:text-[15px] font-medium text-[#8E8E8E] focus:outline-none focus:ring-2 focus:ring-black/10"
+                  className="w-full h-[44px] sm:h-[48px] md:h-[51px] px-4 sm:px-5 md:px-[29px] rounded-[5px] border-[0.7px] border-[#CACACA] bg-[#F0F0F0] text-xs sm:text-sm md:text-[15px] font-medium text-[#8E8E8E] focus:outline-none focus:ring-2 focus:ring-black/10"
                 />
               </div>
 
               {/* Cardano */}
               <div className="space-y-2">
-                <label className="text-sm sm:text-[15px] font-medium text-black block">
+                <label className="text-xs sm:text-sm md:text-[15px] font-medium text-black block">
                   Cardano (ADA)
                 </label>
                 <input
@@ -251,13 +251,13 @@ export const EditUserModal: React.FC<EditUserModalProps> = ({
                   onChange={(e) =>
                     setFormData({ ...formData, cardano: e.target.value })
                   }
-                  className="w-full h-[51px] px-5 sm:px-[29px] rounded-[5px] border-[0.7px] border-[#CACACA] bg-[#F0F0F0] text-sm sm:text-[15px] font-medium text-[#8E8E8E] focus:outline-none focus:ring-2 focus:ring-black/10"
+                  className="w-full h-[44px] sm:h-[48px] md:h-[51px] px-4 sm:px-5 md:px-[29px] rounded-[5px] border-[0.7px] border-[#CACACA] bg-[#F0F0F0] text-xs sm:text-sm md:text-[15px] font-medium text-[#8E8E8E] focus:outline-none focus:ring-2 focus:ring-black/10"
                 />
               </div>
 
               {/* Tether USDT */}
               <div className="space-y-2">
-                <label className="text-sm sm:text-[15px] font-medium text-black block">
+                <label className="text-xs sm:text-sm md:text-[15px] font-medium text-black block">
                   Tether USDT (USDT)
                 </label>
                 <input
@@ -266,23 +266,23 @@ export const EditUserModal: React.FC<EditUserModalProps> = ({
                   onChange={(e) =>
                     setFormData({ ...formData, tether: e.target.value })
                   }
-                  className="w-full h-[51px] px-5 sm:px-[29px] rounded-[5px] border-[0.7px] border-[#CACACA] bg-[#F0F0F0] text-sm sm:text-[15px] font-medium text-[#8E8E8E] focus:outline-none focus:ring-2 focus:ring-black/10"
+                  className="w-full h-[44px] sm:h-[48px] md:h-[51px] px-4 sm:px-5 md:px-[29px] rounded-[5px] border-[0.7px] border-[#CACACA] bg-[#F0F0F0] text-xs sm:text-sm md:text-[15px] font-medium text-[#8E8E8E] focus:outline-none focus:ring-2 focus:ring-black/10"
                 />
               </div>
             </div>
           </div>
 
           {/* Action Buttons */}
-          <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-[26px] pt-2">
+          <div className="flex flex-col xs:flex-row items-center gap-2 sm:gap-3 md:gap-4 pt-2 sm:pt-4">
             <button
               onClick={handleSave}
-              className="w-full sm:w-[210px] h-9 flex items-center justify-center bg-black text-white text-sm sm:text-[15px] font-medium rounded-md border-[0.5px] border-[#C3C3C3] hover:bg-gray-800 transition-colors"
+              className="w-full xs:w-auto h-[40px] sm:h-[42px] md:h-9 flex items-center justify-center px-4 sm:px-6 md:px-[60px] bg-black text-white text-xs sm:text-sm md:text-[15px] font-medium rounded-md border-[0.5px] border-[#C3C3C3] hover:bg-gray-800 transition-colors whitespace-nowrap"
             >
               Save Changes
             </button>
             <button
               onClick={onClose}
-              className="w-full sm:w-[210px] h-9 flex items-center justify-center bg-white text-black text-sm sm:text-[15px] font-medium rounded-md border-[0.5px] border-[#C3C3C3] hover:bg-gray-50 transition-colors"
+              className="w-full xs:w-auto h-[40px] sm:h-[42px] md:h-9 flex items-center justify-center px-4 sm:px-6 md:px-[60px] bg-white text-black text-xs sm:text-sm md:text-[15px] font-medium rounded-md border-[0.5px] border-[#C3C3C3] hover:bg-gray-50 transition-colors whitespace-nowrap"
             >
               Cancel
             </button>
