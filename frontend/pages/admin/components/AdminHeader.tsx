@@ -4,11 +4,9 @@ interface AdminHeaderProps {
   onToggleSidebar?: () => void;
 }
 
-export const AdminHeader: React.FC<AdminHeaderProps> = ({
-  onToggleSidebar,
-}) => {
+export const AdminHeader: React.FC<AdminHeaderProps> = ({ onToggleSidebar }) => {
   return (
-    <header className="h-[75px] bg-white rounded-[10px] flex items-center justify-between px-4 sm:px-6 lg:px-8 gap-4">
+    <header className="h-12 xs:h-14 sm:h-[75px] bg-white rounded-lg sm:rounded-[10px] flex items-center justify-between px-3 xs:px-4 sm:px-6 lg:px-8 gap-2 sm:gap-4">
       {/* Hamburger Menu - Mobile Only */}
       <button
         onClick={onToggleSidebar}
