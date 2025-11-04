@@ -1,5 +1,5 @@
 import React from "react";
-import { Copy } from "lucide-react";
+import { Copy, X } from "lucide-react";
 
 export interface DetailedTransactionData {
   id: string;
@@ -66,12 +66,23 @@ export const TransactionDetailsModal: React.FC<
       onClick={handleBackdropClick}
     >
       <div className="bg-white rounded-lg sm:rounded-[15px] w-full max-w-[90vw] sm:max-w-md md:max-w-lg lg:max-w-[550px] max-h-[95vh] sm:max-h-[90vh] overflow-y-auto shadow-lg">
+        {/* Modal Header with Close Button */}
+        <div className="sticky top-0 bg-white border-b border-[#E5E5E5] px-4 sm:px-5 md:px-6 lg:px-8 py-3 sm:py-4 flex items-center justify-between z-10">
+          <h2 className="text-sm sm:text-base md:text-lg lg:text-[17px] font-medium text-black break-words flex-1">
+            Transaction Details - {transaction.transactionId}
+          </h2>
+          <button
+            onClick={onClose}
+            className="ml-4 flex-shrink-0 p-1 hover:bg-gray-100 rounded transition-colors"
+            aria-label="Close modal"
+          >
+            <X className="w-5 h-5 sm:w-6 sm:h-6 text-black" />
+          </button>
+        </div>
+
         <div className="p-4 sm:p-5 md:p-6 lg:p-8 flex flex-col gap-4 sm:gap-5 md:gap-6 lg:gap-7">
           {/* Header Section */}
           <div className="space-y-3 sm:space-y-4 md:space-y-5 lg:space-y-6">
-            <h2 className="text-sm sm:text-base md:text-lg lg:text-[17px] font-medium text-black break-words">
-              Transaction Details - {transaction.transactionId}
-            </h2>
 
             {/* Info Sections Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5 md:gap-6">
