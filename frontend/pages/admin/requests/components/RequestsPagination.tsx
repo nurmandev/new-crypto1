@@ -20,17 +20,17 @@ export const RequestsPagination: React.FC<RequestsPaginationProps> = ({
 
   const renderPageNumbers = () => {
     const pages = [];
-    const maxPagesToShow = 5;
+    const maxPagesToShow = totalPages <= 5 ? totalPages : 5;
 
-    for (let i = 1; i <= Math.min(totalPages, maxPagesToShow); i++) {
+    for (let i = 1; i <= maxPagesToShow; i++) {
       pages.push(
         <button
           key={i}
           onClick={() => onPageChange(i)}
-          className={`flex w-[35px] h-[35px] items-center justify-center rounded-sm text-[13px] font-semibold ${
+          className={`flex w-7 h-7 sm:w-[35px] sm:h-[35px] items-center justify-center rounded-sm text-[11px] sm:text-[13px] font-semibold transition-colors ${
             currentPage === i
               ? "bg-[#3CC27B] text-white"
-              : "bg-white text-black hover:bg-gray-100"
+              : "bg-white text-black border border-[#E0E0E0] hover:bg-gray-100"
           }`}
         >
           {i}
