@@ -1,9 +1,5 @@
 import React from "react";
-import {
-  Dialog,
-  DialogContent,
-  DialogOverlay,
-} from "@/components/ui/dialog";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { UserData } from "./UsersTableRow";
 
 interface UserDetailsModalProps {
@@ -21,8 +17,7 @@ export const UserDetailsModal: React.FC<UserDetailsModalProps> = ({
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogOverlay className="bg-black/20" />
-      <DialogContent className="max-w-[566px] p-5 bg-white rounded-[10px] border-none shadow-lg">
+      <DialogContent className="max-w-[566px] p-5 bg-white rounded-[10px] border-none shadow-lg max-h-[90vh] overflow-y-auto">
         <div className="flex flex-col gap-6">
           <div className="flex flex-col gap-6">
             <div>
