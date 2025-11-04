@@ -130,7 +130,7 @@ export const UserDetailsModal: React.FC<UserDetailsModalProps> = ({
           </div>
 
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-5">
-            <button className="flex items-center justify-center gap-2 px-[60px] py-2 bg-black text-white rounded-md border border-[#C3C3C3] hover:bg-gray-800 transition-colors">
+            <button className="flex items-center justify-center gap-2 px-4 sm:px-[60px] py-2 bg-black text-white text-[12px] sm:text-[15px] rounded-md border border-[#C3C3C3] hover:bg-gray-800 transition-colors whitespace-nowrap flex-1 sm:flex-initial">
               <svg
                 className="w-4 h-4"
                 viewBox="0 0 18 18"
@@ -146,10 +146,11 @@ export const UserDetailsModal: React.FC<UserDetailsModalProps> = ({
                   fill="white"
                 />
               </svg>
-              <span className="text-[15px] font-medium">Edit User</span>
+              <span className="text-[12px] sm:text-[15px] font-medium hidden sm:inline">Edit User</span>
+              <span className="sm:hidden">✏️</span>
             </button>
 
-            <button className="flex items-center justify-center gap-2 px-[60px] py-2 bg-black text-white rounded-md border border-[#C3C3C3] hover:bg-gray-800 transition-colors">
+            <button className="flex items-center justify-center gap-2 px-4 sm:px-[60px] py-2 bg-black text-white text-[12px] sm:text-[15px] rounded-md border border-[#C3C3C3] hover:bg-gray-800 transition-colors whitespace-nowrap flex-1 sm:flex-initial">
               <svg
                 className="w-[14px] h-[11px]"
                 viewBox="0 0 14 11"
@@ -161,10 +162,11 @@ export const UserDetailsModal: React.FC<UserDetailsModalProps> = ({
                   fill="white"
                 />
               </svg>
-              <span className="text-[15px] font-medium">Send Mail</span>
+              <span className="text-[12px] sm:text-[15px] font-medium hidden sm:inline">Send Mail</span>
+              <span className="sm:hidden">✉️</span>
             </button>
 
-            <button className="flex items-center justify-center gap-2 px-[60px] py-2 bg-[#FA1818] text-white rounded-md border border-[#C3C3C3] hover:bg-red-700 transition-colors">
+            <button className="flex items-center justify-center gap-2 px-4 sm:px-[60px] py-2 bg-[#FA1818] text-white text-[12px] sm:text-[15px] rounded-md border border-[#C3C3C3] hover:bg-red-700 transition-colors whitespace-nowrap flex-1 sm:flex-initial">
               <svg
                 className="w-3 h-3"
                 viewBox="0 0 12 12"
