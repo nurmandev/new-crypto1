@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { AdminHeader } from "../components/AdminHeader";
-import { AdminSidebar } from "../components/AdminSidebar";
+import { AdminHeader } from "../../components/AdminHeader";
+import { AdminSidebar } from "../../components/AdminSidebar";
 import { CryptoStatsCard } from "./components/CryptoStatsCard";
 import { CryptoTable, CryptoData } from "./components/CryptoTable";
 import { CryptoManagementModal } from "./components/CryptoManagementModal";
