@@ -3,6 +3,7 @@ import {
   Dialog,
   DialogContent,
   DialogHeader,
+  DialogTitle,
 } from "@/components/ui/dialog";
 import { Check, X, Copy } from "lucide-react";
 import { TransactionData } from "./TransactionsTableRow";
@@ -43,9 +44,9 @@ export const TransactionDetailsModal: React.FC<
       <DialogContent className="max-w-[553px] p-0 gap-0 bg-white rounded-xl">
         <div className="flex flex-col gap-6 p-8">
           <DialogHeader>
-            <h2 className="text-[17px] font-medium text-black leading-[33px]">
+            <DialogTitle className="text-[17px] font-medium text-black leading-[33px]">
               Transaction Details - {transaction.transactionId}
-            </h2>
+            </DialogTitle>
           </DialogHeader>
 
           <div className="flex flex-col gap-6">
