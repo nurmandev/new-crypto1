@@ -221,7 +221,7 @@ export const CryptocurrencyManagement: React.FC = () => {
                     Add Currency
                   </button>
                 </div>
-                <div className="overflow-x-auto -mx-3 xs:-mx-4 sm:mx-0 px-3 xs:px-4 sm:px-0">
+                <div className="overflow-x-auto -mx-3 sm:mx-0 px-3 sm:px-0">
                   <CryptoTable data={cryptoData} onEdit={handleEdit} />
                 </div>
               </div>
