@@ -6,6 +6,7 @@ import { UsersFilters } from "./components/UsersFilters";
 import { UsersTable } from "./components/UsersTable";
 import { UsersPagination } from "./components/UsersPagination";
 import { UserDetailsModal } from "./components/UserDetailsModal";
+import { EditUserModal } from "./components/EditUserModal";
 import { UserData } from "./components/UsersTableRow";
 
 const mockUsers: UserData[] = [
@@ -87,23 +88,33 @@ export const Users: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedUser, setSelectedUser] = useState<UserData | null>(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isDetailsModalOpen, setIsDetailsModalOpen] = useState(false);
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const itemsPerPage = 10;
 
   const handleView = (userId: string) => {
     const user = mockUsers.find((u) => u.id === userId);
     if (user) {
       setSelectedUser(user);
-      setIsModalOpen(true);
+      setIsDetailsModalOpen(true);
     }
   };
 
   const handleEdit = (userId: string) => {
-    console.log("Edit user:", userId);
+    const user = mockUsers.find((u) => u.id === userId);
+    if (user) {
+      setSelectedUser(user);
+      setIsEditModalOpen(true);
+    }
   };
 
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
+  const handleCloseDetailsModal = () => {
+    setIsDetailsModalOpen(false);
+    setSelectedUser(null);
+  };
+
+  const handleCloseEditModal = () => {
+    setIsEditModalOpen(false);
     setSelectedUser(null);
   };
 
@@ -172,8 +183,14 @@ export const Users: React.FC = () => {
       </div>
 
       <UserDetailsModal
-        isOpen={isModalOpen}
-        onClose={handleCloseModal}
+        isOpen={isDetailsModalOpen}
+        onClose={handleCloseDetailsModal}
+        user={selectedUser}
+      />
+
+      <EditUserModal
+        isOpen={isEditModalOpen}
+        onClose={handleCloseEditModal}
         user={selectedUser}
       />
     </div>
