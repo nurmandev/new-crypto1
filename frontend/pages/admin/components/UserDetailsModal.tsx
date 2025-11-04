@@ -18,7 +18,9 @@ export const UserDetailsModal: React.FC<UserDetailsModalProps> = ({
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="max-w-[566px] p-5 bg-white rounded-[10px] border-none shadow-lg max-h-[90vh] overflow-y-auto">
-        <DialogTitle className="sr-only">User Details - {user.name}</DialogTitle>
+        <DialogTitle className="sr-only">
+          User Details - {user.name}
+        </DialogTitle>
         <div className="flex flex-col gap-6">
           <div className="flex flex-col gap-6">
             <div>

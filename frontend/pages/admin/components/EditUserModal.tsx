@@ -39,7 +39,7 @@ export const EditUserModal: React.FC<EditUserModalProps> = ({
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="max-w-[1172px] p-10 bg-white rounded-[15px] border-none shadow-lg max-h-[90vh] overflow-y-auto">
         <DialogTitle className="sr-only">Edit User - {user.name}</DialogTitle>
-        
+
         <div className="flex flex-col gap-8">
           {/* Personal Information and Account Settings */}
           <div className="space-y-8">
