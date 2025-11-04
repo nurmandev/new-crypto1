@@ -5,12 +5,17 @@ export interface TransactionData {
   id: string;
   transactionId: string;
   user: string;
+  userName: string;
   type: "Buy" | "Sell";
   crypto: string;
   amount: string;
   inrValue: string;
-  status: "Completed" | "Pending" | "Failed";
+  status: "Active" | "Completed" | "Pending" | "Failed";
   time: string;
+  paymentMethod: string;
+  fees: string;
+  exchangeRate: string;
+  transactionHash: string;
 }
 
 interface TransactionsTableRowProps {

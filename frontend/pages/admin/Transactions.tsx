@@ -5,116 +5,174 @@ import { TransactionsTable } from "./transactions/components/TransactionsTable";
 import { TransactionStatusFilter } from "./transactions/components/TransactionStatusFilter";
 import { TransactionsPagination } from "./transactions/components/TransactionsPagination";
 import { TransactionData } from "./transactions/components/TransactionsTableRow";
+import { TransactionDetailsModal } from "./transactions/components/TransactionDetailsModal";
 
 const mockTransactions: TransactionData[] = [
   {
     id: "1",
     transactionId: "TXN-001",
     user: "john.doe@email.com",
+    userName: "John Doe",
     type: "Buy",
     crypto: "BTC",
     amount: "0.05",
     inrValue: "₹200,000",
-    status: "Completed",
+    status: "Active",
     time: "2 mins ago",
+    paymentMethod: "UPI",
+    fees: "₹1,000",
+    exchangeRate: "₹4,000,000",
+    transactionHash: "0x1234...5678",
   },
   {
     id: "2",
     transactionId: "TXN-002",
     user: "jane.smith@email.com",
+    userName: "Jane Smith",
     type: "Sell",
     crypto: "ETH",
     amount: "0.05",
     inrValue: "₹280,800",
     status: "Pending",
     time: "5 mins ago",
+    paymentMethod: "Bank Transfer",
+    fees: "₹1,404",
+    exchangeRate: "₹5,616,000",
+    transactionHash: "0xabcd...efgh",
   },
   {
     id: "3",
-    transactionId: "TXN-001",
+    transactionId: "TXN-003",
     user: "john.doe@email.com",
+    userName: "John Doe",
     type: "Buy",
     crypto: "ETH",
     amount: "0.05",
     inrValue: "₹200,000",
     status: "Completed",
     time: "2 mins ago",
+    paymentMethod: "UPI",
+    fees: "₹1,000",
+    exchangeRate: "₹4,000,000",
+    transactionHash: "0x5678...1234",
   },
   {
     id: "4",
-    transactionId: "TXN-001",
+    transactionId: "TXN-004",
     user: "john.doe@email.com",
+    userName: "John Doe",
     type: "Buy",
     crypto: "BTC",
     amount: "0.05",
     inrValue: "₹200,000",
     status: "Completed",
     time: "2 mins ago",
+    paymentMethod: "Card",
+    fees: "₹1,000",
+    exchangeRate: "₹4,000,000",
+    transactionHash: "0x9876...5432",
   },
   {
     id: "5",
-    transactionId: "TXN-001",
+    transactionId: "TXN-005",
     user: "john.doe@email.com",
+    userName: "John Doe",
     type: "Buy",
     crypto: "BTC",
     amount: "0.05",
     inrValue: "₹200,000",
     status: "Completed",
     time: "2 mins ago",
+    paymentMethod: "UPI",
+    fees: "₹1,000",
+    exchangeRate: "₹4,000,000",
+    transactionHash: "0xfedc...ba98",
   },
   {
     id: "6",
-    transactionId: "TXN-001",
+    transactionId: "TXN-006",
     user: "john.doe@email.com",
+    userName: "John Doe",
     type: "Buy",
     crypto: "BTC",
     amount: "0.05",
     inrValue: "₹200,000",
     status: "Completed",
     time: "2 mins ago",
+    paymentMethod: "UPI",
+    fees: "₹1,000",
+    exchangeRate: "₹4,000,000",
+    transactionHash: "0x1111...2222",
   },
   {
     id: "7",
-    transactionId: "TXN-001",
+    transactionId: "TXN-007",
     user: "john.doe@email.com",
+    userName: "John Doe",
     type: "Buy",
     crypto: "BTC",
     amount: "0.05",
     inrValue: "₹200,000",
     status: "Completed",
     time: "2 mins ago",
+    paymentMethod: "Bank Transfer",
+    fees: "₹1,000",
+    exchangeRate: "₹4,000,000",
+    transactionHash: "0x3333...4444",
   },
   {
     id: "8",
-    transactionId: "TXN-001",
+    transactionId: "TXN-008",
     user: "john.doe@email.com",
+    userName: "John Doe",
     type: "Buy",
     crypto: "BTC",
     amount: "0.05",
     inrValue: "₹200,000",
     status: "Completed",
     time: "2 mins ago",
+    paymentMethod: "UPI",
+    fees: "₹1,000",
+    exchangeRate: "₹4,000,000",
+    transactionHash: "0x5555...6666",
   },
   {
     id: "9",
-    transactionId: "TXN-001",
+    transactionId: "TXN-009",
     user: "john.doe@email.com",
+    userName: "John Doe",
     type: "Buy",
     crypto: "BTC",
     amount: "0.05",
     inrValue: "₹200,000",
     status: "Completed",
     time: "2 mins ago",
+    paymentMethod: "Card",
+    fees: "₹1,000",
+    exchangeRate: "₹4,000,000",
+    transactionHash: "0x7777...8888",
   },
 ];
 
 export const Transactions: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedStatus, setSelectedStatus] = useState("all");
+  const [selectedTransaction, setSelectedTransaction] =
+    useState<TransactionData | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const itemsPerPage = 10;
 
   const handleView = (transactionId: string) => {
-    console.log("View transaction:", transactionId);
+    const transaction = mockTransactions.find((t) => t.id === transactionId);
+    if (transaction) {
+      setSelectedTransaction(transaction);
+      setIsModalOpen(true);
+    }
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setSelectedTransaction(null);
   };
 
   const filteredTransactions = useMemo(() => {
@@ -179,6 +237,12 @@ export const Transactions: React.FC = () => {
           </div>
         </div>
       </div>
+
+      <TransactionDetailsModal
+        transaction={selectedTransaction}
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+      />
     </div>
   );
 };
