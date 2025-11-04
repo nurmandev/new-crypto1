@@ -180,7 +180,8 @@ export const UserDetailsModal: React.FC<UserDetailsModalProps> = ({
                   fill="white"
                 />
               </svg>
-              <span className="text-[15px] font-medium">Suspend User</span>
+              <span className="text-[12px] sm:text-[15px] font-medium hidden sm:inline">Suspend User</span>
+              <span className="sm:hidden">❌</span>
             </button>
           </div>
         </div>
