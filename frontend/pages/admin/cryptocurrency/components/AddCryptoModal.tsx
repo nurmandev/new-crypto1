@@ -211,10 +211,10 @@ export const AddCryptoModal: React.FC<AddCryptoModalProps> = ({
               </div>
 
               {/* Right Column */}
-              <div className="space-y-6">
+              <div className="space-y-5 sm:space-y-6">
                 {/* Wallet Address */}
                 <div>
-                  <label className="text-[15px] font-semibold text-black mb-3 block font-roboto">
+                  <label className="text-[13px] sm:text-[15px] font-semibold text-black mb-2 sm:mb-3 block font-roboto">
                     Wallet Address <span className="text-red-500">*</span>
                   </label>
                   <input
@@ -224,7 +224,7 @@ export const AddCryptoModal: React.FC<AddCryptoModalProps> = ({
                       handleInputChange("walletAddress", e.target.value)
                     }
                     placeholder="dsadsad78rguf887gefwef7gwe8f87492r"
-                    className="w-full h-[48px] px-4 rounded-lg border border-[#E0E0E0] bg-white text-[15px] font-medium text-black placeholder:text-[#999] font-roboto focus:outline-none focus:border-[#3CC27B] focus:ring-2 focus:ring-[#3CC27B]/20 transition-all"
+                    className="w-full h-[44px] sm:h-[48px] px-3 sm:px-4 rounded-lg border border-[#E0E0E0] bg-white text-[13px] sm:text-[15px] font-medium text-black placeholder:text-[#999] font-roboto focus:outline-none focus:border-[#3CC27B] focus:ring-2 focus:ring-[#3CC27B]/20 transition-all"
                   />
                 </div>
 
