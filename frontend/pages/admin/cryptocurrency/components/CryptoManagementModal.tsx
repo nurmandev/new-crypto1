@@ -42,14 +42,14 @@ export const CryptoManagementModal: React.FC<CryptoManagementModalProps> = ({
 
   return (
     <>
-      {/* Overlay */}
+      {/* Overlay with Backdrop Blur */}
       <div
-        className="fixed inset-0 bg-black/22 z-50 flex items-center justify-center p-4"
+        className="fixed inset-0 bg-gradient-to-br from-black/40 to-black/20 z-50 flex items-center justify-center p-4 backdrop-blur-sm"
         onClick={onClose}
       >
         {/* Modal */}
         <div
-          className="bg-white rounded-xl p-5 sm:p-[30px] w-full max-w-[553px] flex flex-col gap-6"
+          className="bg-white rounded-2xl p-4 sm:p-5 md:p-[30px] w-full max-w-[553px] flex flex-col gap-4 sm:gap-6 shadow-2xl"
           onClick={(e) => e.stopPropagation()}
         >
           {/* Header Section */}
