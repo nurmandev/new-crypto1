@@ -171,10 +171,10 @@ export const AddCryptoModal: React.FC<AddCryptoModalProps> = ({
 
                 {/* Icon Upload */}
                 <div>
-                  <label className="text-[15px] font-semibold text-black mb-3 block font-roboto">
+                  <label className="text-[13px] sm:text-[15px] font-semibold text-black mb-2 sm:mb-3 block font-roboto">
                     Set Currency Icon/Image
                   </label>
-                  <div className="relative w-full h-[48px] rounded-lg border-2 border-dashed border-[#E0E0E0] bg-white hover:bg-[#F9F9F9] hover:border-[#3CC27B] transition-all flex items-center px-4">
+                  <div className="relative w-full h-[44px] sm:h-[48px] rounded-lg border-2 border-dashed border-[#E0E0E0] bg-white hover:bg-[#F9F9F9] hover:border-[#3CC27B] transition-all flex items-center px-3 sm:px-4">
                     <input
                       type="file"
                       accept="image/*"
