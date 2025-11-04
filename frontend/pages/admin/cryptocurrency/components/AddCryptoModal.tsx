@@ -245,8 +245,8 @@ export const AddCryptoModal: React.FC<AddCryptoModalProps> = ({
                 </div>
 
                 {/* Info Box */}
-                <div className="mt-8 p-4 bg-gradient-to-br from-[#3CC27B]/5 to-[#2fa866]/5 border border-[#3CC27B]/20 rounded-lg">
-                  <p className="text-[13px] text-[#555] font-roboto leading-relaxed">
+                <div className="mt-4 sm:mt-8 p-3 sm:p-4 bg-gradient-to-br from-[#3CC27B]/5 to-[#2fa866]/5 border border-[#3CC27B]/20 rounded-lg">
+                  <p className="text-[12px] sm:text-[13px] text-[#555] font-roboto leading-relaxed">
                     <span className="font-semibold text-black">Note:</span> All
                     fields marked with
                     <span className="text-red-500 font-bold"> * </span>
@@ -258,16 +258,16 @@ export const AddCryptoModal: React.FC<AddCryptoModalProps> = ({
             </div>
 
             {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 mt-10 pt-6 border-t border-[#E0E0E0]">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-6 sm:mt-10 pt-4 sm:pt-6 border-t border-[#E0E0E0]">
               <button
                 onClick={handleSubmit}
-                className="flex-1 sm:flex-none px-8 h-[44px] bg-gradient-to-r from-[#3CC27B] to-[#2fa866] text-white text-[15px] font-semibold rounded-lg hover:shadow-lg hover:shadow-[#3CC27B]/30 hover:-translate-y-0.5 transition-all active:scale-95 font-roboto"
+                className="flex-1 px-6 sm:px-8 h-[40px] sm:h-[44px] bg-gradient-to-r from-[#3CC27B] to-[#2fa866] text-white text-[13px] sm:text-[15px] font-semibold rounded-lg hover:shadow-lg hover:shadow-[#3CC27B]/30 hover:-translate-y-0.5 transition-all active:scale-95 font-roboto"
               >
                 Add Cryptocurrency
               </button>
               <button
                 onClick={onClose}
-                className="flex-1 sm:flex-none px-8 h-[44px] bg-white text-black text-[15px] font-semibold rounded-lg border border-[#E0E0E0] hover:bg-gray-50 hover:border-[#3CC27B]/30 transition-all active:scale-95 font-roboto"
+                className="flex-1 px-6 sm:px-8 h-[40px] sm:h-[44px] bg-white text-black text-[13px] sm:text-[15px] font-semibold rounded-lg border border-[#E0E0E0] hover:bg-gray-50 hover:border-[#3CC27B]/30 transition-all active:scale-95 font-roboto"
               >
                 Cancel
               </button>
