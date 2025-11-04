@@ -4,6 +4,7 @@ import { AdminSidebar } from "../components/AdminSidebar";
 import { RequestsTable } from "./components/RequestsTable";
 import { RequestStatusFilter } from "./components/RequestStatusFilter";
 import { RequestsPagination } from "./components/RequestsPagination";
+import { RequestDetailsModal } from "./components/RequestDetailsModal";
 import { RequestData } from "./components/RequestsTableRow";
 
 const mockRequests: RequestData[] = [
@@ -100,11 +101,33 @@ const mockRequests: RequestData[] = [
 export const Requests: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedStatus, setSelectedStatus] = useState("all");
+  const [selectedRequest, setSelectedRequest] = useState<RequestData | null>(
+    null,
+  );
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const itemsPerPage = 10;
 
   const handleView = (requestId: string) => {
-    console.log("Viewing request:", requestId);
-    // TODO: Implement view request modal
+    const request = mockRequests.find((r) => r.id === requestId);
+    if (request) {
+      setSelectedRequest(request);
+      setIsModalOpen(true);
+    }
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setSelectedRequest(null);
+  };
+
+  const handleApprove = (requestId: string) => {
+    console.log("Approving request:", requestId);
+    // TODO: Implement actual approval logic (API call)
+  };
+
+  const handleReject = (requestId: string) => {
+    console.log("Rejecting request:", requestId);
+    // TODO: Implement actual rejection logic (API call)
   };
 
   const filteredRequests = useMemo(() => {
@@ -180,6 +203,14 @@ export const Requests: React.FC = () => {
           </div>
         </div>
       </div>
+
+      <RequestDetailsModal
+        request={selectedRequest}
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+        onApprove={handleApprove}
+        onReject={handleReject}
+      />
     </div>
   );
 };
