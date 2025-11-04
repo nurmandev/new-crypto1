@@ -229,7 +229,22 @@ export const AdminSidebar: React.FC<AdminSidebarProps> = ({
   const isActiveRoute = (path: string) => location.pathname === path;
 
   return (
-    <aside className="h-screen w-[259px] bg-white rounded-[10px]">
+    <>
+      {/* Mobile Overlay */}
+      {isOpen && (
+        <div
+          className="fixed inset-0 bg-black/50 z-40 lg:hidden"
+          onClick={onClose}
+        />
+      )}
+
+      {/* Sidebar */}
+      <aside className={`
+        fixed lg:sticky top-0 left-0
+        h-screen w-[259px] bg-white rounded-[10px] z-50
+        transition-transform duration-300 ease-in-out
+        ${isOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
+      `}>
       {/* Header - Shows current active section */}
       <div className="h-[53px] rounded-t-[10px] bg-[#3CC27B] flex items-center px-6">
         <div className="flex items-center gap-2.5 text-white">
@@ -279,5 +294,6 @@ export const AdminSidebar: React.FC<AdminSidebarProps> = ({
         })}
       </nav>
     </aside>
+    </>
   );
 };
