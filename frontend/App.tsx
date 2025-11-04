@@ -38,6 +38,7 @@ import { AdminDashboard } from "./pages/admin/AdminDashboard";
 import { Users } from "./pages/admin/Users";
 import { Transactions } from "./pages/admin/Transactions";
 import { Requests } from "./pages/admin/requests/Requests";
+import { Cryptocurrency } from "./pages/cryptocurrency/Cryptocurrency";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -81,6 +82,7 @@ const App = () => (
           <Route path="/admin/users" element={<Users />} />
           <Route path="/admin/transactions" element={<Transactions />} />
           <Route path="/admin/requests" element={<Requests />} />
+          <Route path="/cryptocurrency" element={<Cryptocurrency />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
