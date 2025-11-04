@@ -185,8 +185,8 @@ export function Requests() {
   );
 
   return (
-    <div className="min-h-screen bg-[#F8F8F8] p-3 sm:p-4 md:p-6">
-      <div className="flex flex-col lg:flex-row gap-4 sm:gap-6 max-w-[1920px] mx-auto">
+    <div className="bg-[#F8F8F8]">
+      <div className="flex flex-col lg:flex-row gap-4 sm:gap-6 max-w-[1920px] mx-auto min-h-screen">
         {/* Mobile Menu Button */}
         <button
           onClick={() => setIsSidebarOpen(!isSidebarOpen)}
@@ -215,7 +215,7 @@ export function Requests() {
           onClose={() => setIsSidebarOpen(false)}
         />
 
-        <div className="flex-1 flex flex-col gap-4 sm:gap-6">
+        <div className="flex-1 flex flex-col gap-4 sm:gap-6 p-3 sm:p-4 md:p-6 overflow-y-auto">
           <AdminHeader />
 
           <div className="bg-white rounded-lg sm:rounded-[10px] p-3 sm:p-5 md:p-8">
