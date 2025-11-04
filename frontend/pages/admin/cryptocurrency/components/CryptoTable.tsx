@@ -56,9 +56,9 @@ export const CryptoTable: React.FC<CryptoTableProps> = ({ data, onEdit }) => {
                   index === data.length - 1 ? "border-none" : ""
                 }`}
               >
-                <td className="py-4 sm:py-6">
-                  <div className="flex items-center gap-2 sm:gap-3">
-                    <div className="w-8 h-8 sm:w-[38px] sm:h-[38px] rounded-full overflow-hidden bg-gray-200 flex-shrink-0">
+                <td className="py-3 md:py-6">
+                  <div className="flex items-center gap-2 md:gap-3">
+                    <div className="w-8 h-8 md:w-[38px] md:h-[38px] rounded-full overflow-hidden bg-gray-200 flex-shrink-0">
                       <img
                         src={crypto.logo}
                         alt={crypto.name}
@@ -66,18 +66,18 @@ export const CryptoTable: React.FC<CryptoTableProps> = ({ data, onEdit }) => {
                       />
                     </div>
                     <div className="min-w-0">
-                      <div className="text-[14px] sm:text-[17px] font-semibold text-black font-roboto truncate">
+                      <div className="text-[13px] md:text-[17px] font-semibold text-black font-roboto truncate">
                         {crypto.name}
                       </div>
-                      <div className="text-[12px] sm:text-[15px] font-light text-black font-roboto">
+                      <div className="text-[11px] md:text-[15px] font-light text-black font-roboto">
                         {crypto.symbol}
                       </div>
                     </div>
                   </div>
                 </td>
-                <td className="py-4 sm:py-6">
+                <td className="py-3 md:py-6">
                   <span
-                    className={`inline-flex items-center px-2 sm:px-2.5 py-1 rounded text-[9px] sm:text-[10px] font-normal font-roboto whitespace-nowrap ${
+                    className={`inline-flex items-center px-2 md:px-2.5 py-1 rounded text-[9px] md:text-[10px] font-normal font-roboto whitespace-nowrap ${
                       crypto.status === "Active"
                         ? "bg-[#BDFDDB] text-[#1C5C3A]"
                         : "bg-[#FBD25F]/65 text-black"
@@ -86,16 +86,16 @@ export const CryptoTable: React.FC<CryptoTableProps> = ({ data, onEdit }) => {
                     {crypto.status}
                   </span>
                 </td>
-                <td className="py-4 sm:py-6 text-[13px] sm:text-[15px] font-normal text-black font-roboto">
+                <td className="py-3 md:py-6 text-[12px] md:text-[15px] font-normal text-black font-roboto">
                   {crypto.buyRate}
                 </td>
-                <td className="py-4 sm:py-6 text-[13px] sm:text-[15px] font-normal text-black font-roboto">
+                <td className="py-3 md:py-6 text-[12px] md:text-[15px] font-normal text-black font-roboto">
                   {crypto.sellRate}
                 </td>
-                <td className="py-4 sm:py-6 text-[13px] sm:text-[15px] font-normal text-[#3CC27B] font-roboto">
+                <td className="py-3 md:py-6 text-[12px] md:text-[15px] font-normal text-[#3CC27B] font-roboto">
                   {crypto.change24h}
                 </td>
-                <td className="py-4 sm:py-6 text-[13px] sm:text-[15px] font-light text-black font-roboto">
+                <td className="py-3 md:py-6 text-[12px] md:text-[15px] font-light text-black font-roboto">
                   {crypto.lastUpdated}
                 </td>
                 <td className="py-4 sm:py-6 text-right">
