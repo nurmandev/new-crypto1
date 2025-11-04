@@ -83,7 +83,10 @@ const App = () => (
           <Route path="/admin/users" element={<Users />} />
           <Route path="/admin/transactions" element={<Transactions />} />
           <Route path="/admin/requests" element={<Requests />} />
-          <Route path="/admin/cryptocurrency" element={<CryptocurrencyManagement />} />
+          <Route
+            path="/admin/cryptocurrency"
+            element={<CryptocurrencyManagement />}
+          />
           <Route path="/cryptocurrency" element={<Cryptocurrency />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />

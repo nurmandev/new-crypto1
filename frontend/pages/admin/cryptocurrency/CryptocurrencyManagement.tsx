@@ -7,7 +7,7 @@ import { CryptoManagementModal } from "./components/CryptoManagementModal";
 
 export const CryptocurrencyManagement: React.FC = () => {
   const [selectedCrypto, setSelectedCrypto] = useState<CryptoData | null>(null);
-  
+
   const [cryptoData] = useState<CryptoData[]>([
     {
       id: "btc",
@@ -80,7 +80,9 @@ export const CryptocurrencyManagement: React.FC = () => {
 
   const totalCrypto = cryptoData.length;
   const activeCrypto = cryptoData.filter((c) => c.status === "Active").length;
-  const inactiveCrypto = cryptoData.filter((c) => c.status === "Inactive").length;
+  const inactiveCrypto = cryptoData.filter(
+    (c) => c.status === "Inactive",
+  ).length;
 
   return (
     <div className="min-h-screen bg-[#F8F8F8] p-3 sm:p-6">

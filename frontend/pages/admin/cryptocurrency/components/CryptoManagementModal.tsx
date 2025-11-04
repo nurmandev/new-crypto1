@@ -14,8 +14,12 @@ export const CryptoManagementModal: React.FC<CryptoManagementModalProps> = ({
   onUpdate,
   onDelete,
 }) => {
-  const [buyRate, setBuyRate] = useState(crypto?.buyRate.replace("₹", "").replace(",", "") || "");
-  const [sellRate, setSellRate] = useState(crypto?.sellRate.replace("₹", "").replace(",", "") || "");
+  const [buyRate, setBuyRate] = useState(
+    crypto?.buyRate.replace("₹", "").replace(",", "") || "",
+  );
+  const [sellRate, setSellRate] = useState(
+    crypto?.sellRate.replace("₹", "").replace(",", "") || "",
+  );
 
   if (!crypto) return null;
 
@@ -27,7 +31,10 @@ export const CryptoManagementModal: React.FC<CryptoManagementModalProps> = ({
   };
 
   const handleDelete = () => {
-    if (crypto && window.confirm(`Are you sure you want to delete ${crypto.name}?`)) {
+    if (
+      crypto &&
+      window.confirm(`Are you sure you want to delete ${crypto.name}?`)
+    ) {
       onDelete(crypto.id);
       onClose();
     }
@@ -60,19 +67,25 @@ export const CryptoManagementModal: React.FC<CryptoManagementModalProps> = ({
                 </h3>
                 <div className="space-y-2">
                   <div className="flex justify-between items-center">
-                    <span className="text-sm font-light text-black font-roboto">Buy Rate:</span>
+                    <span className="text-sm font-light text-black font-roboto">
+                      Buy Rate:
+                    </span>
                     <span className="text-sm font-medium text-black font-roboto text-right">
                       {crypto.buyRate}
                     </span>
                   </div>
                   <div className="flex justify-between items-center">
-                    <span className="text-sm font-light text-black font-roboto">Sell Rate:</span>
+                    <span className="text-sm font-light text-black font-roboto">
+                      Sell Rate:
+                    </span>
                     <span className="text-sm font-medium text-black font-roboto text-right">
                       {crypto.sellRate}
                     </span>
                   </div>
                   <div className="flex justify-between items-center">
-                    <span className="text-sm font-light text-black font-roboto">24h Change:</span>
+                    <span className="text-sm font-light text-black font-roboto">
+                      24h Change:
+                    </span>
                     <span className="text-sm font-medium text-[#3CC27B] font-roboto text-right">
                       {crypto.change24h}
                     </span>
@@ -87,7 +100,9 @@ export const CryptoManagementModal: React.FC<CryptoManagementModalProps> = ({
                 </h3>
                 <div className="space-y-2">
                   <div className="flex justify-between items-center">
-                    <span className="text-sm font-light text-black font-roboto">Status:</span>
+                    <span className="text-sm font-light text-black font-roboto">
+                      Status:
+                    </span>
                     <span className="text-sm font-medium text-black font-roboto text-right">
                       {crypto.status}
                     </span>
@@ -101,7 +116,9 @@ export const CryptoManagementModal: React.FC<CryptoManagementModalProps> = ({
                     </span>
                   </div>
                   <div className="flex justify-between items-center">
-                    <span className="text-sm font-light text-black font-roboto">Symbol:</span>
+                    <span className="text-sm font-light text-black font-roboto">
+                      Symbol:
+                    </span>
                     <span className="text-sm font-medium text-black font-roboto text-right">
                       {crypto.symbol}
                     </span>
@@ -126,7 +143,9 @@ export const CryptoManagementModal: React.FC<CryptoManagementModalProps> = ({
                 <input
                   type="text"
                   value={buyRate}
-                  onChange={(e) => setBuyRate(e.target.value.replace(/[^0-9]/g, ""))}
+                  onChange={(e) =>
+                    setBuyRate(e.target.value.replace(/[^0-9]/g, ""))
+                  }
                   placeholder="4123456"
                   className="flex-1 h-[51px] px-6 rounded-[5px] border border-[#8F8F8F] bg-[#F0F0F0] text-[15px] font-medium text-[#8E8E8E] font-roboto focus:outline-none focus:border-[#3CC27B]"
                 />
@@ -148,7 +167,9 @@ export const CryptoManagementModal: React.FC<CryptoManagementModalProps> = ({
                 <input
                   type="text"
                   value={sellRate}
-                  onChange={(e) => setSellRate(e.target.value.replace(/[^0-9]/g, ""))}
+                  onChange={(e) =>
+                    setSellRate(e.target.value.replace(/[^0-9]/g, ""))
+                  }
                   placeholder="4123456"
                   className="flex-1 h-[51px] px-6 rounded-[5px] border border-[#8F8F8F] bg-[#F0F0F0] text-[15px] font-medium text-[#8E8E8E] font-roboto focus:outline-none focus:border-[#3CC27B]"
                 />

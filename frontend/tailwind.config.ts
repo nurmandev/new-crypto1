@@ -59,8 +59,20 @@ export default {
         },
       },
       fontFamily: {
-        roboto: ["Roboto", "-apple-system", "Roboto", "Helvetica", "sans-serif"],
-        russo: ["Russo One", "-apple-system", "Roboto", "Helvetica", "sans-serif"],
+        roboto: [
+          "Roboto",
+          "-apple-system",
+          "Roboto",
+          "Helvetica",
+          "sans-serif",
+        ],
+        russo: [
+          "Russo One",
+          "-apple-system",
+          "Roboto",
+          "Helvetica",
+          "sans-serif",
+        ],
         inter: ["Inter", "-apple-system", "Roboto", "Helvetica", "sans-serif"],
       },
       borderRadius: {
