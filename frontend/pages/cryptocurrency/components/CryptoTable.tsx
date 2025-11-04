@@ -1,12 +1,12 @@
-import React from 'react';
-import { CryptoTableRow } from './CryptoTableRow';
+import React from "react";
+import { CryptoTableRow } from "./CryptoTableRow";
 
 export interface CryptoData {
   id: string;
   logo: string;
   name: string;
   symbol: string;
-  status: 'Active' | 'Inactive';
+  status: "Active" | "Inactive";
   buyRate: string;
   sellRate: string;
   change: string;

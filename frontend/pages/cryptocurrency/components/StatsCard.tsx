@@ -1,24 +1,24 @@
-import React from 'react';
+import React from "react";
 
 interface StatsCardProps {
   title: string;
   value: string | number;
   icon: React.ReactNode;
   trend?: string;
-  variant?: 'default' | 'success' | 'danger';
+  variant?: "default" | "success" | "danger";
 }
 
-export const StatsCard: React.FC<StatsCardProps> = ({ 
-  title, 
-  value, 
-  icon, 
+export const StatsCard: React.FC<StatsCardProps> = ({
+  title,
+  value,
+  icon,
   trend,
-  variant = 'default' 
+  variant = "default",
 }) => {
   const getTrendColor = () => {
-    if (trend?.startsWith('+')) return 'text-[#3CC27B]';
-    if (trend?.startsWith('-')) return 'text-red-500';
-    return 'text-gray-500';
+    if (trend?.startsWith("+")) return "text-[#3CC27B]";
+    if (trend?.startsWith("-")) return "text-red-500";
+    return "text-gray-500";
   };
 
   return (
@@ -33,7 +33,9 @@ export const StatsCard: React.FC<StatsCardProps> = ({
           </div>
         </div>
         {trend && (
-          <div className={`font-roboto text-xs font-medium leading-[33px] ${getTrendColor()}`}>
+          <div
+            className={`font-roboto text-xs font-medium leading-[33px] ${getTrendColor()}`}
+          >
             {trend}
           </div>
         )}

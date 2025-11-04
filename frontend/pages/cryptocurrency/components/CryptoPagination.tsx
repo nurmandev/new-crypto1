@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 interface CryptoPaginationProps {
   currentPage: number;
@@ -23,7 +23,7 @@ export const CryptoPagination: React.FC<CryptoPaginationProps> = ({
       <div className="text-sm text-[#838383] font-roboto">
         Showing {startItem} to {endItem} of {totalItems} results
       </div>
-      
+
       <div className="flex items-center gap-2">
         <button
           onClick={() => onPageChange(Math.max(1, currentPage - 1))}
@@ -32,7 +32,7 @@ export const CryptoPagination: React.FC<CryptoPaginationProps> = ({
         >
           Previous
         </button>
-        
+
         <div className="flex items-center gap-1">
           {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
             <button
@@ -40,15 +40,15 @@ export const CryptoPagination: React.FC<CryptoPaginationProps> = ({
               onClick={() => onPageChange(page)}
               className={`px-3 py-2 rounded-md font-roboto text-sm transition-colors ${
                 currentPage === page
-                  ? 'bg-[#3CC27B] text-white'
-                  : 'border border-[#D4D4D4] text-black hover:border-[#3CC27B]'
+                  ? "bg-[#3CC27B] text-white"
+                  : "border border-[#D4D4D4] text-black hover:border-[#3CC27B]"
               }`}
             >
               {page}
             </button>
           ))}
         </div>
-        
+
         <button
           onClick={() => onPageChange(Math.min(totalPages, currentPage + 1))}
           disabled={currentPage === totalPages}

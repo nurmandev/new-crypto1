@@ -1,10 +1,10 @@
-import React from 'react';
+import React from "react";
 
 interface CryptoTableRowProps {
   logo: string;
   name: string;
   symbol: string;
-  status: 'Active' | 'Inactive';
+  status: "Active" | "Inactive";
   buyRate: string;
   sellRate: string;
   change: string;
@@ -27,11 +27,7 @@ export const CryptoTableRow: React.FC<CryptoTableRowProps> = ({
     <tr className="border-b border-[#E5E5E5] hover:bg-[#F8F8F8] transition-colors">
       <td className="py-4 px-4 text-black font-roboto text-sm">
         <div className="flex items-center gap-3">
-          <img 
-            src={logo} 
-            alt={name} 
-            className="w-10 h-10 rounded-full"
-          />
+          <img src={logo} alt={name} className="w-10 h-10 rounded-full" />
           <div className="flex flex-col">
             <span className="font-medium text-black">{name}</span>
             <span className="text-xs text-[#838383]">{symbol}</span>
@@ -41,9 +37,9 @@ export const CryptoTableRow: React.FC<CryptoTableRowProps> = ({
       <td className="py-4 px-4">
         <span
           className={`inline-flex px-2 py-1 justify-center items-center rounded text-xs font-roboto font-medium ${
-            status === 'Active'
-              ? 'bg-[#BDFDDB] text-[#1C5C3A]'
-              : 'bg-[#FDD25F] text-[#000000]'
+            status === "Active"
+              ? "bg-[#BDFDDB] text-[#1C5C3A]"
+              : "bg-[#FDD25F] text-[#000000]"
           }`}
         >
           {status}

@@ -1,5 +1,5 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import React from "react";
+import { useNavigate } from "react-router-dom";
 
 export const CryptoHeader: React.FC = () => {
   const navigate = useNavigate();
@@ -11,19 +11,19 @@ export const CryptoHeader: React.FC = () => {
         alt="Logo"
         className="h-8"
       />
-      
+
       <h1 className="text-black text-center font-['Russo_One'] text-[30px] font-normal absolute left-1/2 transform -translate-x-1/2">
         Dashboard
       </h1>
 
       <div className="flex items-center gap-4">
         <button
-          onClick={() => navigate('/')}
+          onClick={() => navigate("/")}
           className="inline-flex px-9 py-0.5 justify-center items-center rounded-md bg-[#161616] text-white font-roboto text-[15px] font-medium leading-[33px] h-[37px] hover:bg-[#2a2a2a] transition-colors"
         >
           Go to Home
         </button>
-        
+
         <div className="relative">
           <button className="relative">
             <svg

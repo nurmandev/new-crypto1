@@ -17,7 +17,9 @@ cryptocurrency/
 ## Components
 
 ### CryptoTable
+
 Displays cryptocurrency data in a table format with columns for:
+
 - Cryptocurrency (name & symbol with logo)
 - Status (Active/Inactive badge)
 - Buy Rate (₹)
@@ -27,16 +29,21 @@ Displays cryptocurrency data in a table format with columns for:
 - Actions (Edit button)
 
 ### CryptoTableRow
+
 Individual row component for displaying a single cryptocurrency entry.
 
 ### CryptoStatusFilter
+
 Filter component for filtering cryptocurrencies by status (All, Active, Inactive).
 
 ### CryptoPagination
+
 Pagination component for navigating through cryptocurrency data.
 
 ### Cryptocurrency (Main Page)
+
 Main page component that:
+
 - Uses AdminHeader and AdminSidebar from admin components
 - Manages state for filtering and pagination
 - Displays statistics and the cryptocurrency table
@@ -45,6 +52,7 @@ Main page component that:
 ## Design Patterns
 
 The cryptocurrency page follows the same design patterns as other admin pages (Users, Transactions, Requests):
+
 - Same header and sidebar components
 - Consistent layout and spacing
 - Matching color scheme and typography
