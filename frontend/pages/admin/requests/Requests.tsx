@@ -33,12 +33,12 @@ const mockRequests: RequestData[] = [
   {
     id: "3",
     requestId: "REQ-003",
-    type: "Withdraw Crypto",
-    userName: "Sarah Johnson",
-    userEmail: "sarah.johnson@email.com",
-    amount: "1.5",
-    currency: "ETH",
-    status: "Rejected",
+    type: "Deposit Crypto",
+    userName: "John Doe",
+    userEmail: "john.doe@email.com",
+    amount: "0.05",
+    currency: "BTC",
+    status: "Pending",
     time: "2024-01-20 10:30:00",
   },
   {
