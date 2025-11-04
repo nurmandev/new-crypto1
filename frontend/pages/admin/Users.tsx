@@ -5,6 +5,7 @@ import { UsersSearchBar } from "./components/UsersSearchBar";
 import { UsersFilters } from "./components/UsersFilters";
 import { UsersTable } from "./components/UsersTable";
 import { UsersPagination } from "./components/UsersPagination";
+import { UserDetailsModal } from "./components/UserDetailsModal";
 import { UserData } from "./components/UsersTableRow";
 
 const mockUsers: UserData[] = [
@@ -85,14 +86,25 @@ const mockUsers: UserData[] = [
 export const Users: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
+  const [selectedUser, setSelectedUser] = useState<UserData | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const itemsPerPage = 10;
 
   const handleView = (userId: string) => {
-    console.log("View user:", userId);
+    const user = mockUsers.find((u) => u.id === userId);
+    if (user) {
+      setSelectedUser(user);
+      setIsModalOpen(true);
+    }
   };
 
   const handleEdit = (userId: string) => {
     console.log("Edit user:", userId);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setSelectedUser(null);
   };
 
   const handleFilterClick = () => {
@@ -158,6 +170,12 @@ export const Users: React.FC = () => {
           </div>
         </div>
       </div>
+
+      <UserDetailsModal
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+        user={selectedUser}
+      />
     </div>
   );
 };
