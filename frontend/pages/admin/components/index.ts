@@ -8,3 +8,4 @@ export { ProfitCard } from "./ProfitCard";
 export { RecentTransactionItem } from "./RecentTransactionItem";
 export { SystemStatusItem } from "./SystemStatusItem";
 export { AreaChart } from "./AreaChart";
+export { UserDetailsModal } from "./UserDetailsModal";
