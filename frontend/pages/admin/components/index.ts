@@ -10,3 +10,5 @@ export { SystemStatusItem } from "./SystemStatusItem";
 export { AreaChart } from "./AreaChart";
 export { UserDetailsModal } from "./UserDetailsModal";
 export { EditUserModal } from "./EditUserModal";
+export { FilterModal } from "./FilterModal";
+export { DateRangeModal } from "./DateRangeModal";
