@@ -10,7 +10,8 @@ requests/
 │   ├── RequestsTable.tsx          # Main table component
 │   ├── RequestsTableRow.tsx       # Individual row component with RequestData interface
 │   ├── RequestStatusFilter.tsx    # Status filter with badges (Pending, Approved, Rejected)
-│   └── RequestsPagination.tsx     # Pagination controls
+│   ├── RequestsPagination.tsx     # Pagination controls
+│   └── RequestDetailsModal.tsx    # Modal for viewing and managing request details
 ├── Requests.tsx                   # Main page component
 └── README.md                      # This file
 ```
