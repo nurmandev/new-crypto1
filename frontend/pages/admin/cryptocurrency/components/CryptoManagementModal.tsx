@@ -53,13 +53,13 @@ export const CryptoManagementModal: React.FC<CryptoManagementModalProps> = ({
           onClick={(e) => e.stopPropagation()}
         >
           {/* Header Section */}
-          <div className="space-y-4">
-            <h2 className="text-[17px] font-medium leading-[33px] text-black font-roboto">
+          <div className="space-y-3 sm:space-y-4">
+            <h2 className="text-[16px] sm:text-[17px] font-semibold sm:font-medium leading-tight sm:leading-[33px] text-black font-roboto">
               {crypto.name} ({crypto.symbol}) Management
             </h2>
 
             {/* Current States Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-3">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4 sm:gap-x-12 gap-y-3">
               {/* Left Column */}
               <div>
                 <h3 className="text-[17px] font-medium leading-[33px] text-black mb-2 font-roboto">
