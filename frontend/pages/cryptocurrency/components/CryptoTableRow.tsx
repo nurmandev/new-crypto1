@@ -24,51 +24,43 @@ export const CryptoTableRow: React.FC<CryptoTableRowProps> = ({
   onEdit,
 }) => {
   return (
-    <tr className="border-b border-[#C9C9C9]">
-      <td className="py-4 px-2">
+    <tr className="border-b border-[#E5E5E5] hover:bg-[#F8F8F8] transition-colors">
+      <td className="py-4 px-4 text-black font-roboto text-sm">
         <div className="flex items-center gap-3">
           <img 
             src={logo} 
             alt={name} 
-            className="w-[38px] h-[38px] rounded-full"
+            className="w-10 h-10 rounded-full"
           />
           <div className="flex flex-col">
-            <span className="text-black font-roboto text-[17px] font-semibold">
-              {name}
-            </span>
-            <span className="text-black font-roboto text-[15px] font-light">
-              {symbol}
-            </span>
+            <span className="font-medium text-black">{name}</span>
+            <span className="text-xs text-[#838383]">{symbol}</span>
           </div>
         </div>
       </td>
-      <td className="py-4 px-2">
+      <td className="py-4 px-4">
         <span
-          className={`inline-flex px-2.5 py-1 justify-center items-center rounded text-center font-roboto text-[10px] font-normal ${
+          className={`inline-flex px-2 py-1 justify-center items-center rounded text-xs font-roboto font-medium ${
             status === 'Active'
               ? 'bg-[#BDFDDB] text-[#1C5C3A]'
-              : 'bg-[rgba(251,210,95,0.65)] text-black'
+              : 'bg-[#FDD25F] text-[#000000]'
           }`}
         >
           {status}
         </span>
       </td>
-      <td className="py-4 px-2 text-black font-roboto text-[15px] font-normal">
-        {buyRate}
-      </td>
-      <td className="py-4 px-2 text-black font-roboto text-[15px] font-normal">
-        {sellRate}
-      </td>
-      <td className="py-4 px-2 text-[#3CC27B] font-roboto text-[15px] font-normal">
+      <td className="py-4 px-4 text-black font-roboto text-sm">{buyRate}</td>
+      <td className="py-4 px-4 text-black font-roboto text-sm">{sellRate}</td>
+      <td className="py-4 px-4 text-[#3CC27B] font-roboto text-sm font-medium">
         {change}
       </td>
-      <td className="py-4 px-2 text-black font-roboto text-[15px] font-light">
+      <td className="py-4 px-4 text-[#838383] font-roboto text-sm">
         {lastUpdated}
       </td>
-      <td className="py-4 px-2">
+      <td className="py-4 px-4 text-center">
         <button
           onClick={onEdit}
-          className="hover:opacity-80 transition-opacity"
+          className="inline-flex items-center justify-center hover:opacity-70 transition-opacity"
           aria-label="Edit cryptocurrency"
         >
           <svg

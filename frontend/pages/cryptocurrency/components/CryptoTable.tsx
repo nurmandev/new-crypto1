@@ -20,29 +20,29 @@ interface CryptoTableProps {
 
 export const CryptoTable: React.FC<CryptoTableProps> = ({ data, onEdit }) => {
   return (
-    <div className="w-full overflow-x-auto">
+    <div className="overflow-x-auto">
       <table className="w-full">
         <thead>
-          <tr className="border-b border-[#C9C9C9]">
-            <th className="py-4 px-2 text-left text-[#313131] font-roboto text-[15px] font-bold">
+          <tr className="border-b border-[#E5E5E5]">
+            <th className="py-4 px-4 text-left text-black font-roboto text-sm font-bold">
               Cryptocurrency
             </th>
-            <th className="py-4 px-2 text-left text-[#313131] font-roboto text-[15px] font-bold">
+            <th className="py-4 px-4 text-left text-black font-roboto text-sm font-bold">
               Status
             </th>
-            <th className="py-4 px-2 text-left text-[#313131] font-roboto text-[15px] font-bold">
+            <th className="py-4 px-4 text-left text-black font-roboto text-sm font-bold">
               Buy Rate (₹)
             </th>
-            <th className="py-4 px-2 text-left text-[#313131] font-roboto text-[15px] font-bold">
+            <th className="py-4 px-4 text-left text-black font-roboto text-sm font-bold">
               Sell Rate (₹)
             </th>
-            <th className="py-4 px-2 text-left text-[#313131] font-roboto text-[15px] font-bold">
+            <th className="py-4 px-4 text-left text-black font-roboto text-sm font-bold">
               24h Change
             </th>
-            <th className="py-4 px-2 text-left text-[#313131] font-roboto text-[15px] font-bold">
+            <th className="py-4 px-4 text-left text-black font-roboto text-sm font-bold">
               Last Updated
             </th>
-            <th className="py-4 px-2 text-left text-[#313131] font-roboto text-[15px] font-bold">
+            <th className="py-4 px-4 text-center text-black font-roboto text-sm font-bold">
               Actions
             </th>
           </tr>

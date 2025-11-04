@@ -7,27 +7,17 @@ This folder contains the cryptocurrency management system for the admin dashboar
 ```
 cryptocurrency/
 ├── components/
-│   ├── StatsCard.tsx          # Reusable stats display card
-│   ├── CryptoHeader.tsx       # Page header with navigation
-│   ├── Sidebar.tsx            # Navigation sidebar
-│   ├── CryptoTable.tsx        # Main cryptocurrency rates table
-│   └── CryptoTableRow.tsx     # Individual table row component
-└── Cryptocurrency.tsx         # Main page that connects all components
+│   ├── CryptoTable.tsx          # Cryptocurrency rates table
+│   ├── CryptoTableRow.tsx       # Individual table row component
+│   ├── CryptoStatusFilter.tsx   # Status filter component
+│   └── CryptoPagination.tsx     # Pagination component
+└── Cryptocurrency.tsx           # Main page component
 ```
 
 ## Components
 
-### StatsCard
-Displays statistics like Total Crypto, Active, Inactive, and Avg Change with icons and optional trend indicators.
-
-### CryptoHeader
-Top navigation bar with logo, dashboard title, "Go to Home" button, notifications, and user profile.
-
-### Sidebar
-Full sidebar navigation with all menu items including Overview, Users, Transactions, Requests, Platform, Cryptocurrency (active), Payment Methods, Support, Pages, and Settings.
-
 ### CryptoTable
-Table component displaying cryptocurrency data with columns for:
+Displays cryptocurrency data in a table format with columns for:
 - Cryptocurrency (name & symbol with logo)
 - Status (Active/Inactive badge)
 - Buy Rate (₹)
@@ -37,25 +27,40 @@ Table component displaying cryptocurrency data with columns for:
 - Actions (Edit button)
 
 ### CryptoTableRow
-Individual row component handling the display of each cryptocurrency entry.
+Individual row component for displaying a single cryptocurrency entry.
+
+### CryptoStatusFilter
+Filter component for filtering cryptocurrencies by status (All, Active, Inactive).
+
+### CryptoPagination
+Pagination component for navigating through cryptocurrency data.
 
 ### Cryptocurrency (Main Page)
-Connects all components together and manages the overall page state.
+Main page component that:
+- Uses AdminHeader and AdminSidebar from admin components
+- Manages state for filtering and pagination
+- Displays statistics and the cryptocurrency table
+- Handles add currency functionality
 
-## Features
+## Design Patterns
 
-- Fully responsive design using Tailwind CSS
-- Matches the Figma design pixel-perfectly
-- Statistics cards showing crypto metrics
-- Table with cryptocurrency rates and status
-- Edit functionality for each cryptocurrency
-- Add Currency button for adding new cryptocurrencies
-- Active sidebar navigation
+The cryptocurrency page follows the same design patterns as other admin pages (Users, Transactions, Requests):
+- Same header and sidebar components
+- Consistent layout and spacing
+- Matching color scheme and typography
+- Same table styling conventions
+- Responsive design
 
 ## Route
 
-Access this page at: `/cryptocurrency`
+Access this page at: `/admin/cryptocurrency`
 
-## Usage
+Also accessible at: `/cryptocurrency`
 
-The page is automatically integrated into the app routing. Navigate to `/cryptocurrency` to view the cryptocurrency management dashboard.
+## Features
+
+- Filter cryptocurrencies by status
+- Pagination for managing large datasets
+- Add currency button for adding new cryptocurrencies
+- Edit functionality for each cryptocurrency
+- Responsive design for mobile and desktop
