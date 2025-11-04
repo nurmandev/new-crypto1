@@ -1,4 +1,5 @@
 import React, { useState, useMemo } from "react";
+import { useToast } from "@/components/ui/use-toast";
 import { AdminHeader } from "../components/AdminHeader";
 import { AdminSidebar } from "../components/AdminSidebar";
 import { RequestsTable } from "./components/RequestsTable";
@@ -7,98 +8,8 @@ import { RequestsPagination } from "./components/RequestsPagination";
 import { RequestDetailsModal } from "./components/RequestDetailsModal";
 import { RequestData } from "./components/RequestsTableRow";
 
-const mockRequests: RequestData[] = [
-  {
-    id: "1",
-    requestId: "REQ-001",
-    type: "Deposit INR",
-    userName: "John Doe",
-    userEmail: "john.doe@email.com",
-    amount: "50,000",
-    currency: "INR",
-    status: "Pending",
-    time: "2024-01-20 10:30:00",
-  },
-  {
-    id: "2",
-    requestId: "REQ-002",
-    type: "Withdraw INR",
-    userName: "Jane Smith",
-    userEmail: "jane.smith@email.com",
-    amount: "25000",
-    currency: "INR",
-    status: "Approved",
-    time: "2024-01-20 09:15:00",
-  },
-  {
-    id: "3",
-    requestId: "REQ-003",
-    type: "Deposit Crypto",
-    userName: "John Doe",
-    userEmail: "john.doe@email.com",
-    amount: "0.05",
-    currency: "BTC",
-    status: "Pending",
-    time: "2024-01-20 10:30:00",
-  },
-  {
-    id: "4",
-    requestId: "REQ-004",
-    type: "Deposit",
-    userName: "John Doe",
-    userEmail: "john.doe@email.com",
-    amount: "₹50,000",
-    currency: "INR",
-    status: "Pending",
-    time: "2024-01-20 10:30:00",
-  },
-  {
-    id: "5",
-    requestId: "REQ-005",
-    type: "Deposit",
-    userName: "John Doe",
-    userEmail: "john.doe@email.com",
-    amount: "₹50,000",
-    currency: "INR",
-    status: "Pending",
-    time: "2024-01-20 10:30:00",
-  },
-  {
-    id: "6",
-    requestId: "REQ-006",
-    type: "Deposit",
-    userName: "John Doe",
-    userEmail: "john.doe@email.com",
-    amount: "₹50,000",
-    currency: "INR",
-    status: "Pending",
-    time: "2024-01-20 10:30:00",
-  },
-  {
-    id: "7",
-    requestId: "REQ-007",
-    type: "Deposit",
-    userName: "John Doe",
-    userEmail: "john.doe@email.com",
-    amount: "₹50,000",
-    currency: "INR",
-    status: "Pending",
-    time: "2024-01-20 10:30:00",
-  },
-  {
-    id: "8",
-    requestId: "REQ-008",
-    type: "Deposit",
-    userName: "John Doe",
-    userEmail: "john.doe@email.com",
-    amount: "₹50,000",
-    currency: "INR",
-    status: "Pending",
-    time: "2024-01-20 10:30:00",
-  },
-];
-
 export const Requests: React.FC = () => {
+  const { toast } = useToast();
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedStatus, setSelectedStatus] = useState("all");
   const [selectedRequest, setSelectedRequest] = useState<RequestData | null>(
@@ -107,8 +18,100 @@ export const Requests: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const itemsPerPage = 10;
 
+  // Dynamic state for requests
+  const [requests, setRequests] = useState<RequestData[]>([
+    {
+      id: "1",
+      requestId: "REQ-001",
+      type: "Deposit INR",
+      userName: "John Doe",
+      userEmail: "john.doe@email.com",
+      amount: "50,000",
+      currency: "INR",
+      status: "Pending",
+      time: "2024-01-20 10:30:00",
+    },
+    {
+      id: "2",
+      requestId: "REQ-002",
+      type: "Withdraw INR",
+      userName: "Jane Smith",
+      userEmail: "jane.smith@email.com",
+      amount: "25000",
+      currency: "INR",
+      status: "Approved",
+      time: "2024-01-20 09:15:00",
+    },
+    {
+      id: "3",
+      requestId: "REQ-003",
+      type: "Deposit Crypto",
+      userName: "John Doe",
+      userEmail: "john.doe@email.com",
+      amount: "0.05",
+      currency: "BTC",
+      status: "Pending",
+      time: "2024-01-20 10:30:00",
+    },
+    {
+      id: "4",
+      requestId: "REQ-004",
+      type: "Withdraw Crypto",
+      userName: "Alice Chen",
+      userEmail: "alice.chen@email.com",
+      amount: "1.5",
+      currency: "ETH",
+      status: "Pending",
+      time: "2024-01-20 11:15:00",
+    },
+    {
+      id: "5",
+      requestId: "REQ-005",
+      type: "Deposit INR",
+      userName: "Bob Wilson",
+      userEmail: "bob.wilson@email.com",
+      amount: "100,000",
+      currency: "INR",
+      status: "Pending",
+      time: "2024-01-20 08:45:00",
+    },
+    {
+      id: "6",
+      requestId: "REQ-006",
+      type: "Deposit Crypto",
+      userName: "Carol Davis",
+      userEmail: "carol.davis@email.com",
+      amount: "0.02",
+      currency: "ETH",
+      status: "Rejected",
+      time: "2024-01-19 14:20:00",
+    },
+    {
+      id: "7",
+      requestId: "REQ-007",
+      type: "Withdraw INR",
+      userName: "David Brown",
+      userEmail: "david.brown@email.com",
+      amount: "75,000",
+      currency: "INR",
+      status: "Pending",
+      time: "2024-01-20 12:00:00",
+    },
+    {
+      id: "8",
+      requestId: "REQ-008",
+      type: "Deposit INR",
+      userName: "Emma White",
+      userEmail: "emma.white@email.com",
+      amount: "30,000",
+      currency: "INR",
+      status: "Approved",
+      time: "2024-01-19 16:30:00",
+    },
+  ]);
+
   const handleView = (requestId: string) => {
-    const request = mockRequests.find((r) => r.id === requestId);
+    const request = requests.find((r) => r.id === requestId);
     if (request) {
       setSelectedRequest(request);
       setIsModalOpen(true);
@@ -121,33 +124,57 @@ export const Requests: React.FC = () => {
   };
 
   const handleApprove = (requestId: string) => {
-    console.log("Approving request:", requestId);
-    // TODO: Implement actual approval logic (API call)
+    setRequests((prevRequests) =>
+      prevRequests.map((req) =>
+        req.id === requestId ? { ...req, status: "Approved" } : req,
+      ),
+    );
+
+    const approvedRequest = requests.find((r) => r.id === requestId);
+    toast({
+      title: "Request Approved",
+      description: `${approvedRequest?.requestId} has been approved successfully.`,
+      duration: 3000,
+    });
+
+    handleCloseModal();
   };
 
   const handleReject = (requestId: string) => {
-    console.log("Rejecting request:", requestId);
-    // TODO: Implement actual rejection logic (API call)
+    setRequests((prevRequests) =>
+      prevRequests.map((req) =>
+        req.id === requestId ? { ...req, status: "Rejected" } : req,
+      ),
+    );
+
+    const rejectedRequest = requests.find((r) => r.id === requestId);
+    toast({
+      title: "Request Rejected",
+      description: `${rejectedRequest?.requestId} has been rejected.`,
+      duration: 3000,
+    });
+
+    handleCloseModal();
   };
 
   const filteredRequests = useMemo(() => {
     if (selectedStatus === "all") {
-      return mockRequests;
+      return requests;
     }
 
-    return mockRequests.filter(
+    return requests.filter(
       (request) =>
         request.status.toLowerCase() === selectedStatus.toLowerCase(),
     );
-  }, [selectedStatus]);
+  }, [requests, selectedStatus]);
 
   const statusCounts = useMemo(() => {
     return {
-      pending: mockRequests.filter((r) => r.status === "Pending").length,
-      approved: mockRequests.filter((r) => r.status === "Approved").length,
-      rejected: mockRequests.filter((r) => r.status === "Rejected").length,
+      pending: requests.filter((r) => r.status === "Pending").length,
+      approved: requests.filter((r) => r.status === "Approved").length,
+      rejected: requests.filter((r) => r.status === "Rejected").length,
     };
-  }, []);
+  }, [requests]);
 
   const totalPages = Math.ceil(filteredRequests.length / itemsPerPage);
 
@@ -167,10 +194,10 @@ export const Requests: React.FC = () => {
           <div className="bg-white rounded-[10px] p-4 sm:p-8">
             <div className="mb-6 sm:mb-8">
               <h1 className="text-lg sm:text-xl md:text-[20px] font-medium text-black mb-2">
-                Users
+                Requests
               </h1>
               <p className="text-sm sm:text-base md:text-[17px] text-[#838383]">
-                Manage All Users Joined
+                Manage All User Requests
               </p>
             </div>
 
@@ -214,3 +241,5 @@ export const Requests: React.FC = () => {
     </div>
   );
 };
+
+export default Requests;
