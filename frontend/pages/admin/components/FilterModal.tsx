@@ -55,7 +55,7 @@ export const FilterModal: React.FC<FilterModalProps> = ({
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-[400px] p-6 bg-white rounded-[10px] border-none shadow-lg">
+      <DialogContent className="w-[90vw] sm:max-w-[400px] p-4 sm:p-6 bg-white rounded-[10px] border-none shadow-lg">
         <DialogTitle className="sr-only">Filter Users</DialogTitle>
 
         <div className="flex flex-col gap-6">
@@ -114,22 +114,22 @@ export const FilterModal: React.FC<FilterModalProps> = ({
           </div>
 
           {/* Action Buttons */}
-          <div className="flex gap-3 pt-4">
+          <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 pt-4">
             <button
               onClick={handleApply}
-              className="flex-1 h-[40px] bg-black text-white text-[14px] font-medium rounded-[6px] hover:bg-gray-800 transition-colors"
+              className="flex-1 h-[36px] sm:h-[40px] bg-black text-white text-[12px] sm:text-[14px] font-medium rounded-[6px] hover:bg-gray-800 transition-colors"
             >
               Apply
             </button>
             <button
               onClick={handleReset}
-              className="flex-1 h-[40px] bg-[#F0F0F0] text-black text-[14px] font-medium rounded-[6px] hover:bg-[#E0E0E0] transition-colors"
+              className="flex-1 h-[36px] sm:h-[40px] bg-[#F0F0F0] text-black text-[12px] sm:text-[14px] font-medium rounded-[6px] hover:bg-[#E0E0E0] transition-colors"
             >
               Reset
             </button>
             <button
               onClick={onClose}
-              className="flex-1 h-[40px] bg-white text-black text-[14px] font-medium rounded-[6px] border border-[#D0D0D0] hover:bg-[#F9F9F9] transition-colors"
+              className="flex-1 h-[36px] sm:h-[40px] bg-white text-black text-[12px] sm:text-[14px] font-medium rounded-[6px] border border-[#D0D0D0] hover:bg-[#F9F9F9] transition-colors"
             >
               Close
             </button>

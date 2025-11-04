@@ -37,7 +37,7 @@ export const EditUserModal: React.FC<EditUserModalProps> = ({
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-[1172px] p-10 bg-white rounded-[15px] border-none shadow-lg max-h-[90vh] overflow-y-auto">
+      <DialogContent className="w-[95vw] sm:max-w-[1172px] p-4 sm:p-10 bg-white rounded-[15px] border-none shadow-lg max-h-[90vh] overflow-y-auto">
         <DialogTitle className="sr-only">Edit User - {user.name}</DialogTitle>
 
         <div className="flex flex-col gap-8">
@@ -47,7 +47,7 @@ export const EditUserModal: React.FC<EditUserModalProps> = ({
               Edit User - {user.name}
             </h2>
 
-            <div className="grid grid-cols-2 gap-x-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-x-12">
               {/* Personal Information */}
               <div className="space-y-6">
                 <h3 className="text-[17px] font-medium text-black leading-[33px]">
@@ -198,7 +198,7 @@ export const EditUserModal: React.FC<EditUserModalProps> = ({
               Crypto Holdings:
             </h3>
 
-            <div className="grid grid-cols-4 gap-[13px]">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-[13px]">
               {/* Bitcoin */}
               <div className="space-y-2">
                 <label className="text-[15px] font-medium text-black">
@@ -262,16 +262,16 @@ export const EditUserModal: React.FC<EditUserModalProps> = ({
           </div>
 
           {/* Action Buttons */}
-          <div className="flex items-center gap-4">
+          <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4">
             <button
               onClick={handleSave}
-              className="flex items-center justify-center px-[60px] h-9 bg-black text-white text-[15px] font-medium rounded-md border-[0.5px] border-[#C3C3C3] hover:bg-gray-800 transition-colors"
+              className="w-full sm:w-auto flex items-center justify-center px-6 sm:px-[60px] h-9 bg-black text-white text-[13px] sm:text-[15px] font-medium rounded-md border-[0.5px] border-[#C3C3C3] hover:bg-gray-800 transition-colors"
             >
               Save Changes
             </button>
             <button
               onClick={onClose}
-              className="flex items-center justify-center px-[60px] h-9 bg-white text-black text-[15px] font-medium rounded-md border-[0.5px] border-[#C3C3C3] hover:bg-gray-50 transition-colors"
+              className="w-full sm:w-auto flex items-center justify-center px-6 sm:px-[60px] h-9 bg-white text-black text-[13px] sm:text-[15px] font-medium rounded-md border-[0.5px] border-[#C3C3C3] hover:bg-gray-50 transition-colors"
             >
               Cancel
             </button>
