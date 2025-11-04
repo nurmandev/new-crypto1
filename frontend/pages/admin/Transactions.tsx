@@ -175,6 +175,16 @@ export const Transactions: React.FC = () => {
     setSelectedTransaction(null);
   };
 
+  const handleApprove = (transactionId: string) => {
+    console.log("Approving transaction:", transactionId);
+    // TODO: Implement actual approval logic (API call)
+  };
+
+  const handleReject = (transactionId: string) => {
+    console.log("Rejecting transaction:", transactionId);
+    // TODO: Implement actual rejection logic (API call)
+  };
+
   const filteredTransactions = useMemo(() => {
     if (selectedStatus === "all") {
       return mockTransactions;
@@ -242,6 +252,8 @@ export const Transactions: React.FC = () => {
         transaction={selectedTransaction}
         isOpen={isModalOpen}
         onClose={handleCloseModal}
+        onApprove={handleApprove}
+        onReject={handleReject}
       />
     </div>
   );
