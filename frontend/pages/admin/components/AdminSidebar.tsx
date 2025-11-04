@@ -251,7 +251,7 @@ export const AdminSidebar: React.FC<AdminSidebarProps> = ({
       `}
       >
         {/* Header - Shows current active section */}
-        <div className="h-[53px] rounded-t-[10px] bg-[#3CC27B] flex items-center px-6">
+        <div className="h-[53px] rounded-t-[10px] bg-[#3CC27B] flex items-center justify-between px-6">
           <div className="flex items-center gap-2.5 text-white">
             <svg
               width="15"
@@ -269,6 +269,29 @@ export const AdminSidebar: React.FC<AdminSidebarProps> = ({
               {isActiveRoute("/admin/users") ? "Users" : "Overview"}
             </span>
           </div>
+
+          {/* Close Button - Mobile Only */}
+          <button
+            onClick={onClose}
+            className="lg:hidden flex items-center justify-center w-8 h-8 rounded hover:bg-white/20 transition-colors"
+            aria-label="Close sidebar"
+          >
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M15.5 4.5L4.5 15.5M4.5 4.5L15.5 15.5"
+                stroke="white"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </button>
         </div>
 
         {/* Menu Items */}
