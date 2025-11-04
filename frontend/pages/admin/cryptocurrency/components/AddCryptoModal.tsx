@@ -142,7 +142,7 @@ export const AddCryptoModal: React.FC<AddCryptoModalProps> = ({
                     onChange={(e) =>
                       handleInputChange(
                         "buyRate",
-                        e.target.value.replace(/[^0-9]/g, "")
+                        e.target.value.replace(/[^0-9]/g, ""),
                       )
                     }
                     placeholder="4123456"
@@ -161,7 +161,7 @@ export const AddCryptoModal: React.FC<AddCryptoModalProps> = ({
                     onChange={(e) =>
                       handleInputChange(
                         "sellRate",
-                        e.target.value.replace(/[^0-9]/g, "")
+                        e.target.value.replace(/[^0-9]/g, ""),
                       )
                     }
                     placeholder="4100000"
@@ -247,9 +247,11 @@ export const AddCryptoModal: React.FC<AddCryptoModalProps> = ({
                 {/* Info Box */}
                 <div className="mt-8 p-4 bg-gradient-to-br from-[#3CC27B]/5 to-[#2fa866]/5 border border-[#3CC27B]/20 rounded-lg">
                   <p className="text-[13px] text-[#555] font-roboto leading-relaxed">
-                    <span className="font-semibold text-black">Note:</span> All fields marked with
+                    <span className="font-semibold text-black">Note:</span> All
+                    fields marked with
                     <span className="text-red-500 font-bold"> * </span>
-                    are required. Make sure the wallet address and network details are accurate.
+                    are required. Make sure the wallet address and network
+                    details are accurate.
                   </p>
                 </div>
               </div>
