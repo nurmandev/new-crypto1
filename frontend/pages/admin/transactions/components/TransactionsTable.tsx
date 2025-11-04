@@ -1,8 +1,5 @@
 import React from "react";
-import {
-  TransactionData,
-  TransactionsTableRow,
-} from "./TransactionsTableRow";
+import { TransactionData, TransactionsTableRow } from "./TransactionsTableRow";
 
 interface TransactionsTableProps {
   transactions: TransactionData[];
