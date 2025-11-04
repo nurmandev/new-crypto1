@@ -185,17 +185,17 @@ export function Requests() {
   );
 
   return (
-    <div className="min-h-screen bg-[#F8F8F8] p-4 sm:p-6">
-      <div className="flex flex-col lg:flex-row gap-6 max-w-[1920px] mx-auto">
+    <div className="min-h-screen bg-[#F8F8F8] p-3 sm:p-4 md:p-6">
+      <div className="flex flex-col lg:flex-row gap-4 sm:gap-6 max-w-[1920px] mx-auto">
         {/* Mobile Menu Button */}
         <button
           onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-          className="lg:hidden fixed top-4 left-4 z-50 p-2 bg-white rounded-md shadow-lg"
+          className="lg:hidden fixed top-3 sm:top-4 left-3 sm:left-4 z-50 p-2 bg-white rounded-md shadow-lg"
           aria-label="Toggle navigation menu"
         >
           <svg
-            width="24"
-            height="24"
+            width="20"
+            height="20"
             viewBox="0 0 24 24"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -215,20 +215,20 @@ export function Requests() {
           onClose={() => setIsSidebarOpen(false)}
         />
 
-        <div className="flex-1 flex flex-col gap-6">
+        <div className="flex-1 flex flex-col gap-4 sm:gap-6">
           <AdminHeader />
 
-          <div className="bg-white rounded-[10px] p-4 sm:p-8">
-            <div className="mb-6 sm:mb-8">
-              <h1 className="text-lg sm:text-xl md:text-[20px] font-medium text-black mb-2">
+          <div className="bg-white rounded-lg sm:rounded-[10px] p-3 sm:p-5 md:p-8">
+            <div className="mb-4 sm:mb-6 md:mb-8">
+              <h1 className="text-base sm:text-lg md:text-[20px] font-semibold sm:font-medium text-black mb-1 sm:mb-2">
                 Requests
               </h1>
-              <p className="text-sm sm:text-base md:text-[17px] text-[#838383]">
+              <p className="text-xs sm:text-sm md:text-[17px] text-[#838383]">
                 Manage All User Requests
               </p>
             </div>
 
-            <div className="flex items-center justify-end mb-6 sm:mb-8">
+            <div className="flex items-center justify-end mb-4 sm:mb-6 md:mb-8 overflow-x-auto pb-2">
               <RequestStatusFilter
                 selectedStatus={selectedStatus}
                 onStatusChange={setSelectedStatus}
@@ -238,8 +238,8 @@ export function Requests() {
               />
             </div>
 
-            <div className="overflow-x-auto -mx-4 sm:mx-0">
-              <div className="sm:px-0 px-4">
+            <div className="overflow-x-auto -mx-3 sm:-mx-5 md:mx-0">
+              <div className="px-3 sm:px-5 md:px-0">
                 <RequestsTable
                   requests={paginatedRequests}
                   onView={handleView}
