@@ -84,14 +84,14 @@ export const AddCryptoModal: React.FC<AddCryptoModalProps> = ({
               Add New Cryptocurrency
             </h2>
 
-            {/* Form Grid - 2 columns on desktop, 1 on mobile */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-4">
+              {/* Form Grid - 2 columns on desktop, 1 on mobile */}
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-6">
               {/* Left Column */}
-              <div className="space-y-4">
+              <div className="space-y-6">
                 {/* Symbol */}
                 <div>
-                  <label className="text-[15px] font-medium text-black mb-2 block font-roboto">
-                    Symbol*
+                  <label className="text-[15px] font-semibold text-black mb-3 block font-roboto">
+                    Symbol <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="text"
@@ -100,21 +100,21 @@ export const AddCryptoModal: React.FC<AddCryptoModalProps> = ({
                       handleInputChange("symbol", e.target.value.toUpperCase())
                     }
                     placeholder="BTC"
-                    className="w-full h-[51px] px-6 rounded-[5px] border border-[#8F8F8F] bg-[#F0F0F0] text-[15px] font-medium text-[#8E8E8E] placeholder:text-[#8E8E8E] font-roboto focus:outline-none focus:border-[#3CC27B] focus:text-black"
+                    className="w-full h-[48px] px-4 rounded-lg border border-[#E0E0E0] bg-white text-[15px] font-medium text-black placeholder:text-[#999] font-roboto focus:outline-none focus:border-[#3CC27B] focus:ring-2 focus:ring-[#3CC27B]/20 transition-all"
                   />
                 </div>
 
                 {/* Name */}
                 <div>
-                  <label className="text-[15px] font-medium text-black mb-2 block font-roboto">
-                    Name*
+                  <label className="text-[15px] font-semibold text-black mb-3 block font-roboto">
+                    Name <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="text"
                     value={formData.name}
                     onChange={(e) => handleInputChange("name", e.target.value)}
                     placeholder="Bitcoin"
-                    className="w-full h-[51px] px-6 rounded-[5px] border border-[#8F8F8F] bg-[#F0F0F0] text-[15px] font-medium text-[#8E8E8E] placeholder:text-[#8E8E8E] font-roboto focus:outline-none focus:border-[#3CC27B] focus:text-black"
+                    className="w-full h-[48px] px-4 rounded-lg border border-[#E0E0E0] bg-white text-[15px] font-medium text-black placeholder:text-[#999] font-roboto focus:outline-none focus:border-[#3CC27B] focus:ring-2 focus:ring-[#3CC27B]/20 transition-all"
                   />
                 </div>
 
@@ -158,10 +158,10 @@ export const AddCryptoModal: React.FC<AddCryptoModalProps> = ({
 
                 {/* Icon Upload */}
                 <div>
-                  <label className="text-[15px] font-medium text-black mb-2 block font-roboto">
+                  <label className="text-[15px] font-semibold text-black mb-3 block font-roboto">
                     Set Currency Icon/Image
                   </label>
-                  <div className="relative w-full h-[51px] rounded-[5px] border border-[#8F8F8F] bg-[#F0F0F0] flex items-center px-6">
+                  <div className="relative w-full h-[48px] rounded-lg border-2 border-dashed border-[#E0E0E0] bg-white hover:bg-[#F9F9F9] hover:border-[#3CC27B] transition-all flex items-center px-4">
                     <input
                       type="file"
                       accept="image/*"
@@ -198,11 +198,11 @@ export const AddCryptoModal: React.FC<AddCryptoModalProps> = ({
               </div>
 
               {/* Right Column */}
-              <div className="space-y-4">
+              <div className="space-y-6">
                 {/* Wallet Address */}
                 <div>
-                  <label className="text-[15px] font-medium text-black mb-2 block font-roboto">
-                    Wallet Address*
+                  <label className="text-[15px] font-semibold text-black mb-3 block font-roboto">
+                    Wallet Address <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="text"
@@ -211,14 +211,14 @@ export const AddCryptoModal: React.FC<AddCryptoModalProps> = ({
                       handleInputChange("walletAddress", e.target.value)
                     }
                     placeholder="dsadsad78rguf887gefwef7gwe8f87492r"
-                    className="w-full h-[51px] px-6 rounded-[5px] border border-[#8F8F8F] bg-[#F0F0F0] text-[15px] font-medium text-[#8E8E8E] placeholder:text-[#8E8E8E] font-roboto focus:outline-none focus:border-[#3CC27B] focus:text-black"
+                    className="w-full h-[48px] px-4 rounded-lg border border-[#E0E0E0] bg-white text-[15px] font-medium text-black placeholder:text-[#999] font-roboto focus:outline-none focus:border-[#3CC27B] focus:ring-2 focus:ring-[#3CC27B]/20 transition-all"
                   />
                 </div>
 
                 {/* Network */}
                 <div>
-                  <label className="text-[15px] font-medium text-black mb-2 block font-roboto">
-                    Network*
+                  <label className="text-[15px] font-semibold text-black mb-3 block font-roboto">
+                    Network <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="text"
@@ -227,7 +227,7 @@ export const AddCryptoModal: React.FC<AddCryptoModalProps> = ({
                       handleInputChange("network", e.target.value)
                     }
                     placeholder="Bitcoin network"
-                    className="w-full h-[51px] px-6 rounded-[5px] border border-[#8F8F8F] bg-[#F0F0F0] text-[15px] font-medium text-[#8E8E8E] placeholder:text-[#8E8E8E] font-roboto focus:outline-none focus:border-[#3CC27B] focus:text-black"
+                    className="w-full h-[48px] px-4 rounded-lg border border-[#E0E0E0] bg-white text-[15px] font-medium text-black placeholder:text-[#999] font-roboto focus:outline-none focus:border-[#3CC27B] focus:ring-2 focus:ring-[#3CC27B]/20 transition-all"
                   />
                 </div>
               </div>
