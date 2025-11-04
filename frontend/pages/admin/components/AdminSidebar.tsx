@@ -245,13 +245,13 @@ export const AdminSidebar: React.FC<AdminSidebarProps> = ({
       <aside
         className={`
         fixed lg:sticky top-0 left-0
-        h-screen w-[259px] bg-white rounded-[10px] z-50
-        transition-all duration-300 ease-in-out
+        h-screen max-h-screen w-[259px] bg-white rounded-[10px] z-50 flex flex-col
+        transition-all duration-300 ease-in-out overflow-hidden
         ${isOpen ? "translate-x-0 shadow-2xl" : "-translate-x-full lg:translate-x-0"}
       `}
       >
         {/* Header - Shows current active section */}
-        <div className="h-[53px] rounded-t-[10px] bg-[#3CC27B] flex items-center justify-between px-6">
+        <div className="h-[53px] rounded-t-[10px] bg-[#3CC27B] flex items-center justify-between px-6 flex-shrink-0">
           <div className="flex items-center gap-2.5 text-white">
             <svg
               width="15"
@@ -294,8 +294,8 @@ export const AdminSidebar: React.FC<AdminSidebarProps> = ({
           </button>
         </div>
 
-        {/* Menu Items */}
-        <nav className="pt-8 px-6 space-y-4">
+        {/* Menu Items - Scrollable */}
+        <nav className="pt-8 px-6 space-y-4 overflow-y-auto flex-1">
           {menuItems.map((item) => {
             const isActive = isActiveRoute(item.path);
             return (
