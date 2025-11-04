@@ -83,7 +83,6 @@ export const TransactionDetailsModal: React.FC<
         <div className="p-4 sm:p-5 md:p-6 lg:p-8 flex flex-col gap-4 sm:gap-5 md:gap-6 lg:gap-7">
           {/* Header Section */}
           <div className="space-y-3 sm:space-y-4 md:space-y-5 lg:space-y-6">
-
             {/* Info Sections Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5 md:gap-6">
               {/* Transaction Info */}
