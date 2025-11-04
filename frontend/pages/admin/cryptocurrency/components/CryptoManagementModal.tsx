@@ -129,17 +129,17 @@ export const CryptoManagementModal: React.FC<CryptoManagementModalProps> = ({
           </div>
 
           {/* Quick Actions Section */}
-          <div className="space-y-4">
-            <h3 className="text-[17px] font-medium leading-[33px] text-black font-roboto">
+          <div className="space-y-3 sm:space-y-4 border-t border-[#E0E0E0] pt-3 sm:pt-4">
+            <h3 className="text-[15px] sm:text-[17px] font-semibold sm:font-medium leading-tight sm:leading-[33px] text-black font-roboto">
               Quick Actions
             </h3>
 
             {/* Update Buy Rate */}
             <div>
-              <label className="text-[15px] font-medium text-black mb-2 block font-roboto">
+              <label className="text-[13px] sm:text-[15px] font-medium text-black mb-2 block font-roboto">
                 Update Buy Rate (₹)
               </label>
-              <div className="flex gap-2">
+              <div className="flex flex-col sm:flex-row gap-2">
                 <input
                   type="text"
                   value={buyRate}
@@ -147,11 +147,11 @@ export const CryptoManagementModal: React.FC<CryptoManagementModalProps> = ({
                     setBuyRate(e.target.value.replace(/[^0-9]/g, ""))
                   }
                   placeholder="4123456"
-                  className="flex-1 h-[51px] px-6 rounded-[5px] border border-[#8F8F8F] bg-[#F0F0F0] text-[15px] font-medium text-[#8E8E8E] font-roboto focus:outline-none focus:border-[#3CC27B]"
+                  className="flex-1 h-[44px] sm:h-[51px] px-4 sm:px-6 rounded-lg sm:rounded-[5px] border border-[#E0E0E0] bg-[#F9F9F9] text-[13px] sm:text-[15px] font-medium text-[#666] font-roboto focus:outline-none focus:border-[#3CC27B] focus:ring-2 focus:ring-[#3CC27B]/20 transition-all"
                 />
                 <button
                   onClick={handleUpdate}
-                  className="px-[60px] h-[51px] bg-black text-white text-[15px] font-medium rounded-md border border-[#C3C3C3] hover:bg-gray-800 transition-colors font-roboto leading-[33px]"
+                  className="px-4 sm:px-[60px] h-[44px] sm:h-[51px] bg-black text-white text-[13px] sm:text-[15px] font-medium rounded-lg sm:rounded-md border border-[#C3C3C3] hover:bg-gray-800 transition-colors font-roboto leading-tight sm:leading-[33px] whitespace-nowrap"
                 >
                   Update
                 </button>
@@ -160,10 +160,10 @@ export const CryptoManagementModal: React.FC<CryptoManagementModalProps> = ({
 
             {/* Update Sell Rate */}
             <div>
-              <label className="text-[15px] font-medium text-black mb-2 block font-roboto">
+              <label className="text-[13px] sm:text-[15px] font-medium text-black mb-2 block font-roboto">
                 Update Sell Rate (₹)
               </label>
-              <div className="flex gap-2">
+              <div className="flex flex-col sm:flex-row gap-2">
                 <input
                   type="text"
                   value={sellRate}
@@ -171,11 +171,11 @@ export const CryptoManagementModal: React.FC<CryptoManagementModalProps> = ({
                     setSellRate(e.target.value.replace(/[^0-9]/g, ""))
                   }
                   placeholder="4123456"
-                  className="flex-1 h-[51px] px-6 rounded-[5px] border border-[#8F8F8F] bg-[#F0F0F0] text-[15px] font-medium text-[#8E8E8E] font-roboto focus:outline-none focus:border-[#3CC27B]"
+                  className="flex-1 h-[44px] sm:h-[51px] px-4 sm:px-6 rounded-lg sm:rounded-[5px] border border-[#E0E0E0] bg-[#F9F9F9] text-[13px] sm:text-[15px] font-medium text-[#666] font-roboto focus:outline-none focus:border-[#3CC27B] focus:ring-2 focus:ring-[#3CC27B]/20 transition-all"
                 />
                 <button
                   onClick={handleUpdate}
-                  className="px-[60px] h-[51px] bg-black text-white text-[15px] font-medium rounded-md border border-[#C3C3C3] hover:bg-gray-800 transition-colors font-roboto leading-[33px]"
+                  className="px-4 sm:px-[60px] h-[44px] sm:h-[51px] bg-black text-white text-[13px] sm:text-[15px] font-medium rounded-lg sm:rounded-md border border-[#C3C3C3] hover:bg-gray-800 transition-colors font-roboto leading-tight sm:leading-[33px] whitespace-nowrap"
                 >
                   Update
                 </button>
@@ -185,7 +185,7 @@ export const CryptoManagementModal: React.FC<CryptoManagementModalProps> = ({
             {/* Delete Button */}
             <button
               onClick={handleDelete}
-              className="flex items-center justify-center gap-2.5 w-full sm:w-auto px-[60px] h-9 bg-[#FA1818] text-white text-[15px] font-medium rounded-md border border-[#C3C3C3] hover:bg-[#d81414] transition-colors font-roboto leading-[33px]"
+              className="flex items-center justify-center gap-2.5 w-full sm:w-auto px-4 sm:px-[60px] h-[44px] sm:h-9 bg-[#FA1818] text-white text-[13px] sm:text-[15px] font-medium rounded-lg sm:rounded-md border border-[#C3C3C3] hover:bg-[#d81414] transition-colors font-roboto leading-tight sm:leading-[33px]"
             >
               <svg
                 width="12"
