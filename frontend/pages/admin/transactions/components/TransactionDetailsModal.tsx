@@ -55,7 +55,7 @@ export const TransactionDetailsModal: React.FC<
                 <h3 className="text-[17px] font-medium text-black leading-[33px]">
                   Transaction Info
                 </h3>
-                
+
                 <div className="space-y-3">
                   <div className="flex justify-between items-start">
                     <span className="text-[14px] font-light text-black">
@@ -108,7 +108,7 @@ export const TransactionDetailsModal: React.FC<
                 <h3 className="text-[17px] font-medium text-black leading-[33px]">
                   User Details
                 </h3>
-                
+
                 <div className="space-y-3">
                   <div className="flex justify-between items-start">
                     <span className="text-[14px] font-light text-black">
@@ -135,7 +135,7 @@ export const TransactionDetailsModal: React.FC<
               <h3 className="text-[17px] font-medium text-black leading-[33px]">
                 Financial Details
               </h3>
-              
+
               <div className="space-y-3">
                 <div className="flex justify-between items-start">
                   <span className="text-[14px] font-light text-black">
