@@ -97,22 +97,22 @@ export default function Index() {
       {/* Header */}
       <Navbar />
       {/* Hero Section */}
-      <section className="relative pt-20 pb-32 overflow-hidden">
+      <section className="relative pt-20 md:pt-16 lg:pt-20 pb-16 md:pb-24 lg:pb-32 overflow-hidden min-h-[100vh] md:min-h-[85vh] flex items-start md:items-center">
         <div className="absolute inset-0 opacity-20 bg-gradient-to-r from-transparent via-green-100 to-transparent"></div>
 
         <ParticlesLoad />
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-4xl mx-auto text-center pt-8">
+        <div className="container mx-auto px-3 xs:px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="max-w-4xl mx-auto text-center pt-4 md:pt-6 lg:pt-8">
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 bg-[#BDFDDB] rounded-full px-6 py-2 mb-8">
-              <Rocket className="w-4 h-4 text-[#3CC27B]" />
-              <span className="text-[#0A7741] text-[15px]">
+            <div className="inline-flex items-center gap-1.5 xs:gap-2 bg-[#BDFDDB] rounded-full px-3 xs:px-4 sm:px-5 md:px-6 py-1 xs:py-1.5 sm:py-2 mb-6 xs:mb-8 sm:mb-8">
+              <Rocket className="w-3 xs:w-3.5 sm:w-4 h-3 xs:h-3.5 sm:h-4 text-[#3CC27B] flex-shrink-0" />
+              <span className="text-[#0A7741] text-[11px] xs:text-xs sm:text-sm md:text-[15px] whitespace-nowrap">
                 India's Fastest Growing Crypto Trading Platform
               </span>
             </div>
 
             {/* Main Heading */}
-            <h1 className="text-5xl md:text-7xl font-normal mb-8">
+            <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-normal mb-6 xs:mb-8 sm:mb-8 leading-[1.2] xs:leading-tight">
               <span className="text-[#161616] font-['Russo_One']">
                 Buy & Sell Crypto{" "}
               </span>
@@ -122,73 +122,82 @@ export default function Index() {
             </h1>
 
             {/* Description */}
-            <p className="text-xl text-gray-900 max-w-3xl mx-auto mb-12 leading-relaxed tracking-wide">
+            <p className="text-sm xs:text-base sm:text-lg md:text-xl text-gray-900 max-w-[95%] xs:max-w-[90%] sm:max-w-2xl md:max-w-3xl mx-auto mb-8 xs:mb-10 sm:mb-10 md:mb-12 leading-relaxed tracking-wide">
               The Top Best Secure Exchanging Platform For Your Cryptocurrency
               Providing Services Globally For Buying, Selling, Transferring, and
               Storing Your Digital Asset.
             </p>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-6 justify-center mb-12">
+            <div className="flex flex-col xs:flex-row gap-4 xs:gap-4 sm:gap-5 md:gap-6 justify-center mb-8 xs:mb-10 sm:mb-10 md:mb-12 px-3 xs:px-4 sm:px-0">
               <Link to="/login">
-                <Button className="bg-white hover:bg-gray-50 text-[#161616] border border-gray-300 px-16 h-[56px] text-base font-medium rounded-lg shadow-sm hover:shadow transition-all">
+                <Button className="w-full xs:w-auto bg-white hover:bg-gray-50 text-[#161616] border border-gray-300 px-6 xs:px-8 sm:px-12 md:px-16 h-[44px] xs:h-[48px] sm:h-[52px] md:h-[56px] text-xs xs:text-sm sm:text-base font-medium rounded-md xs:rounded-lg shadow-sm hover:shadow transition-all">
                   Buy Crypto Now
                 </Button>
               </Link>
 
               <Link to="/login">
-                <Button className="bg-white hover:bg-gray-50 text-[#161616] border border-gray-300 px-16 h-[56px] text-base font-medium rounded-lg shadow-sm hover:shadow transition-all">
+                <Button className="w-full xs:w-auto bg-white hover:bg-gray-50 text-[#161616] border border-gray-300 px-6 xs:px-8 sm:px-12 md:px-16 h-[44px] xs:h-[48px] sm:h-[52px] md:h-[56px] text-xs xs:text-sm sm:text-base font-medium rounded-md xs:rounded-lg shadow-sm hover:shadow transition-all">
                   Sell Your Crypto
                 </Button>
               </Link>
             </div>
 
             {/* Social Proof */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-8 text-sm text-gray-900">
-              <div className="flex items-center -space-x-3">
+            <div className="flex flex-col xs:flex-row items-center justify-center gap-4 xs:gap-6 sm:gap-8 text-[11px] xs:text-xs sm:text-sm text-gray-900">
+              <div className="flex items-center -space-x-1.5 xs:-space-x-2 sm:-space-x-3">
                 {[1, 2, 3, 4].map((i) => (
                   <div
                     key={i}
-                    className="w-9 h-9 rounded-full bg-gray-300 border-2 border-white ring-2 ring-gray-100"
+                    className="w-6 xs:w-7 sm:w-8 md:w-9 h-6 xs:h-7 sm:h-8 md:h-9 rounded-full bg-gray-300 border border-white xs:border-2 ring-1 xs:ring-2 ring-gray-100"
                   ></div>
                 ))}
               </div>
-              <span className="font-medium">Join 10,000+ traders</span>
-              <div className="flex gap-1.5">
+              <span className="font-medium whitespace-nowrap text-gray-700">
+                Join 10,000+ traders
+              </span>
+              <div className="flex gap-0.5 xs:gap-1 sm:gap-1.5">
                 {[1, 2, 3, 4].map((i) => (
-                  <span key={i} className="text-[#FBD25F]">
+                  <span
+                    key={i}
+                    className="text-[#FBD25F] text-xs xs:text-sm sm:text-base"
+                  >
                     ★
                   </span>
                 ))}
-                <span className="text-gray-300">★</span>
+                <span className="text-gray-300 text-xs xs:text-sm sm:text-base">
+                  ★
+                </span>
               </div>
-              <span className="font-medium">4.5/5 Ratings</span>
+              <span className="font-medium whitespace-nowrap text-gray-700">
+                4.5/5 Ratings
+              </span>
             </div>
           </div>
 
           {/* Hero Image with Phone Mockups */}
-          <div className="relative mt-24 max-w-5xl mx-auto">
-            <div className="relative">
+          <div className="relative mt-8 xs:mt-12 sm:mt-20 lg:mt-24 max-w-5xl mx-auto mb-8 md:mb-0">
+            <div className="relative px-4 sm:px-0">
               <img
                 src="/images/phone-mockup.png"
                 alt="Mobile App Preview"
-                className="mx-auto w-full max-w-2xl drop-shadow-2xl relative z-10"
+                className="mx-auto w-full max-w-[240px] xs:max-w-[280px] sm:max-w-md lg:max-w-2xl drop-shadow-2xl relative z-10"
               />
-              <div className="absolute -top-10 -left-20 w-32 animate-float">
+              <div className="absolute -top-6 sm:-top-8 lg:-top-10 -left-4 sm:-left-12 lg:-left-20 w-20 sm:w-24 lg:w-32 animate-float hidden sm:block">
                 <img
                   src="/images/crypto-icons/btc.svg"
                   alt="Bitcoin"
                   className="w-full"
                 />
               </div>
-              <div className="absolute -top-5 right-20 w-24 animate-float-delay">
+              <div className="absolute -top-4 sm:-top-5 right-8 sm:right-12 lg:right-20 w-16 sm:w-20 lg:w-24 animate-float-delay hidden sm:block">
                 <img
                   src="/images/crypto-icons/eth.svg"
                   alt="Ethereum"
                   className="w-full"
                 />
               </div>
-              <div className="absolute top-20 -right-10 w-28 animate-float-slow">
+              <div className="absolute top-12 sm:top-16 lg:top-20 -right-2 sm:-right-6 lg:-right-10 w-20 sm:w-24 lg:w-28 animate-float-slow hidden sm:block">
                 <img
                   src="/images/crypto-icons/usdt.svg"
                   alt="USDT"
