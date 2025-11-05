@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ArrowRight, ArrowLeft } from "lucide-react";
 
@@ -36,7 +36,7 @@ export default function ForgotPassword() {
   return (
     <div className="min-h-screen bg-white flex">
       {/* Left Side - Image Section */}
-      <div className="hidden lg:flex lg:w-[66%] bg-[#F6F6F6] relative">
+      <div className="hidden lg:flex lg:w-[55%] bg-[#F6F6F6] relative">
         <img
           src="https://cdn.builder.io/api/v1/image/assets%2Fde402d04e4fc422aa77ac9baf104abf8%2Fad1110e0fde2477dbd70400398231507?format=webp&width=800"
           alt="Bitcoin coins"
@@ -44,19 +44,22 @@ export default function ForgotPassword() {
         />
 
         {/* Logo at bottom */}
-        <div className="absolute bottom-16 left-14">
+        <div className="absolute bottom-6 left-6">
           <Link to="/" className="flex items-center gap-2">
-            <div className="w-12 h-12 bg-gradient-to-br from-green-400 to-green-600 rounded-lg"></div>
-            <span className="text-3xl font-bold text-white">USDTMPAY</span>
+            <img
+              src="/logo.png"
+              alt="Logo"
+              className="h-12 w-auto object-contain"
+            />
           </Link>
         </div>
       </div>
 
       {/* Right Side - Form Section */}
-      <div className="flex-1 flex items-center justify-center px-4 py-12">
-        <div className="w-full max-w-[500px]">
+      <div className="flex-1 flex items-center justify-center px-6 py-10 sm:px-10">
+        <div className="w-full max-w-[450px]">
           {/* Form Container */}
-          <div className="bg-white border border-[#D3D3D3] rounded-lg p-8">
+          <div className="bg-white">
             {/* Back Button */}
             <Link
               to="/login"
@@ -90,7 +93,7 @@ export default function ForgotPassword() {
                     placeholder="Enter your email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="w-full px-7 py-4 bg-[#F0F0F0] rounded-md text-[13px] text-gray-900 placeholder:text-[#8E8E8E] focus:outline-none focus:ring-2 focus:ring-[#3CC27B]"
+                    className="w-full px-5 py-3 bg-[#F0F0F0] rounded-md text-[14px] text-gray-900 placeholder:text-[#8E8E8E] focus:outline-none focus:ring-2 focus:ring-[#3CC27B]"
                     required
                   />
                 </div>
@@ -117,7 +120,7 @@ export default function ForgotPassword() {
                     placeholder="Enter the code sent to your email"
                     value={code}
                     onChange={(e) => setCode(e.target.value)}
-                    className="w-full px-7 py-4 bg-[#F0F0F0] rounded-md text-[13px] text-gray-900 placeholder:text-[#8E8E8E] focus:outline-none focus:ring-2 focus:ring-[#3CC27B]"
+                    className="w-full px-5 py-3 bg-[#F0F0F0] rounded-md text-[14px] text-gray-900 placeholder:text-[#8E8E8E] focus:outline-none focus:ring-2 focus:ring-[#3CC27B]"
                     required
                   />
                 </div>
@@ -155,7 +158,7 @@ export default function ForgotPassword() {
                     placeholder="Enter new password"
                     value={newPassword}
                     onChange={(e) => setNewPassword(e.target.value)}
-                    className="w-full px-7 py-4 bg-[#F0F0F0] rounded-md text-[13px] text-gray-900 placeholder:text-[#8E8E8E] focus:outline-none focus:ring-2 focus:ring-[#3CC27B]"
+                    className="w-full px-5 py-3 bg-[#F0F0F0] rounded-md text-[14px] text-gray-900 placeholder:text-[#8E8E8E] focus:outline-none focus:ring-2 focus:ring-[#3CC27B]"
                     required
                   />
                 </div>
@@ -169,7 +172,7 @@ export default function ForgotPassword() {
                     placeholder="Confirm new password"
                     value={confirmPassword}
                     onChange={(e) => setConfirmPassword(e.target.value)}
-                    className="w-full px-7 py-4 bg-[#F0F0F0] rounded-md text-[13px] text-gray-900 placeholder:text-[#8E8E8E] focus:outline-none focus:ring-2 focus:ring-[#3CC27B]"
+                    className="w-full px-5 py-3 bg-[#F0F0F0] rounded-md text-[14px] text-gray-900 placeholder:text-[#8E8E8E] focus:outline-none focus:ring-2 focus:ring-[#3CC27B]"
                     required
                   />
                 </div>
@@ -197,10 +200,13 @@ export default function ForgotPassword() {
           </div>
 
           {/* Mobile Logo */}
-          <div className="lg:hidden mt-8 flex justify-center">
+          <div className="lg:hidden mt-10 flex justify-center">
             <Link to="/" className="flex items-center gap-2">
-              <div className="w-8 h-8 bg-gradient-to-br from-green-400 to-green-600 rounded-lg"></div>
-              <span className="text-xl font-bold text-gray-900">USDTMPAY</span>
+              <img
+                src="/logo.png"
+                alt="Logo"
+                className="h-12 w-auto object-contain"
+              />
             </Link>
           </div>
         </div>

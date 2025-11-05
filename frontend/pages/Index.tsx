@@ -168,11 +168,34 @@ export default function Index() {
 
           {/* Hero Image with Phone Mockups */}
           <div className="relative mt-16 max-w-5xl mx-auto">
-            <img
-              src="https://cdn.builder.io/api/v1/image/assets%2Fde402d04e4fc422aa77ac9baf104abf8%2Ff6a9e9bf26d74d4c84d8953a0f37e56d?format=webp&width=800"
-              alt="Mobile App Preview"
-              className="mx-auto w-full max-w-2xl drop-shadow-2xl"
-            />
+            <div className="relative">
+              <img
+                src="/images/phone-mockup.png"
+                alt="Mobile App Preview"
+                className="mx-auto w-full max-w-2xl drop-shadow-2xl relative z-10"
+              />
+              <div className="absolute -top-10 -left-20 w-32 animate-float">
+                <img
+                  src="/images/crypto-icons/btc.svg"
+                  alt="Bitcoin"
+                  className="w-full"
+                />
+              </div>
+              <div className="absolute -top-5 right-20 w-24 animate-float-delay">
+                <img
+                  src="/images/crypto-icons/eth.svg"
+                  alt="Ethereum"
+                  className="w-full"
+                />
+              </div>
+              <div className="absolute top-20 -right-10 w-28 animate-float-slow">
+                <img
+                  src="/images/crypto-icons/usdt.svg"
+                  alt="USDT"
+                  className="w-full"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>
