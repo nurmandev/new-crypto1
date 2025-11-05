@@ -103,14 +103,16 @@ export default function Register() {
           ))}
 
           {/* Register Button */}
-          <button
-            type="submit"
-            className="w-full flex items-center justify-center gap-2 bg-black hover:bg-black/90 text-white py-3 px-16 rounded-md border border-[#C3C3C3] transition-colors mb-6"
-          >
-            <span className="text-[15px] font-medium">Register</span>
-            <ArrowRight className="w-4 h-4" />
-          </button>
 
+          <Link to={"/"}>
+            <button
+              type="submit"
+              className="w-full flex items-center justify-center gap-2 bg-black hover:bg-black/90 text-white py-3 px-16 rounded-md border border-[#C3C3C3] transition-colors mb-6"
+            >
+              <span className="text-[15px] font-medium">Register</span>
+              <ArrowRight className="w-4 h-4" />
+            </button>
+          </Link>
           {/* Divider */}
           <div className="relative my-6">
             <div className="absolute inset-0 flex items-center">

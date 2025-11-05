@@ -21,6 +21,7 @@ import {
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import ParticlesLoad from "../components/ParticlesLoad";
+import BottomNav from "../components/BottomNav";
 
 const FAQ_ITEMS = [
   {
@@ -93,11 +94,11 @@ export default function Index() {
   };
 
   return (
-    <div className="min-h-screen bg-[#F8F8F8]">
+    <div className="min-h-screen bg-[#F8F8F8] pb-[60px] sm:pb-0">
       {/* Header */}
       <Navbar />
       {/* Hero Section */}
-      <section className="relative pt-20 md:pt-16 lg:pt-20 pb-16 md:pb-24 lg:pb-32 overflow-hidden min-h-[100vh] md:min-h-[85vh] flex items-start md:items-center">
+      <section className="relative pt-16 md:pt-16 lg:pt-20 pb-16 md:pb-24 lg:pb-32 overflow-hidden min-h-[90vh] md:min-h-[85vh] flex items-start md:items-center">
         <div className="absolute inset-0 opacity-20 bg-gradient-to-r from-transparent via-green-100 to-transparent"></div>
 
         <ParticlesLoad />
@@ -673,6 +674,12 @@ export default function Index() {
 
       {/* Footer */}
       <Footer />
+
+      {/* Bottom Navigation */}
+      <BottomNav />
+
+      {/* Extra padding for mobile to account for bottom nav */}
+      <div className="h-16 block sm:hidden"></div>
     </div>
   );
 }
