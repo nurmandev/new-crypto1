@@ -25,7 +25,7 @@ export default function Services() {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="py-12 bg-white">
+      <section className="pt-28 pb-16 md:pt-32 md:pb-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto text-center">
             <div className="text-[15px] text-gray-900 mb-4">

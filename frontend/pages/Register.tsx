@@ -104,7 +104,7 @@ export default function Register() {
 
           {/* Register Button */}
 
-          <Link to={"/"}>
+          <Link to={"/admin"}>
             <button
               type="submit"
               className="w-full flex items-center justify-center gap-2 bg-black hover:bg-black/90 text-white py-3 px-16 rounded-md border border-[#C3C3C3] transition-colors mb-6"
