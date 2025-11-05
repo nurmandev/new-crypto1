@@ -97,14 +97,14 @@ export default function Index() {
       {/* Header */}
       <Navbar />
       {/* Hero Section */}
-      <section className="relative pt-12 pb-20 overflow-hidden">
+      <section className="relative pt-20 pb-32 overflow-hidden">
         <div className="absolute inset-0 opacity-20 bg-gradient-to-r from-transparent via-green-100 to-transparent"></div>
 
         <ParticlesLoad />
         <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
+          <div className="max-w-4xl mx-auto text-center pt-8">
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 bg-[#BDFDDB] rounded-full px-4 py-1.5 mb-6">
+            <div className="inline-flex items-center gap-2 bg-[#BDFDDB] rounded-full px-6 py-2 mb-8">
               <Rocket className="w-4 h-4 text-[#3CC27B]" />
               <span className="text-[#0A7741] text-[15px]">
                 India's Fastest Growing Crypto Trading Platform
@@ -112,7 +112,7 @@ export default function Index() {
             </div>
 
             {/* Main Heading */}
-            <h1 className="text-5xl md:text-6xl font-normal mb-6">
+            <h1 className="text-5xl md:text-7xl font-normal mb-8">
               <span className="text-[#161616] font-['Russo_One']">
                 Buy & Sell Crypto{" "}
               </span>
@@ -122,39 +122,39 @@ export default function Index() {
             </h1>
 
             {/* Description */}
-            <p className="text-xl text-gray-900 max-w-3xl mx-auto mb-8 leading-relaxed">
+            <p className="text-xl text-gray-900 max-w-3xl mx-auto mb-12 leading-relaxed tracking-wide">
               The Top Best Secure Exchanging Platform For Your Cryptocurrency
               Providing Services Globally For Buying, Selling, Transferring, and
               Storing Your Digital Asset.
             </p>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
+            <div className="flex flex-col sm:flex-row gap-6 justify-center mb-12">
               <Link to="/login">
-                <Button className="bg-white hover:bg-gray-50 text-[#161616] border border-gray-300 px-14 h-[51px] text-[15px] font-medium rounded-md">
+                <Button className="bg-white hover:bg-gray-50 text-[#161616] border border-gray-300 px-16 h-[56px] text-base font-medium rounded-lg shadow-sm hover:shadow transition-all">
                   Buy Crypto Now
                 </Button>
               </Link>
 
               <Link to="/login">
-                <Button className="bg-white hover:bg-gray-50 text-[#161616] border border-gray-300 px-14 h-[51px] text-[15px] font-medium rounded-md">
+                <Button className="bg-white hover:bg-gray-50 text-[#161616] border border-gray-300 px-16 h-[56px] text-base font-medium rounded-lg shadow-sm hover:shadow transition-all">
                   Sell Your Crypto
                 </Button>
               </Link>
             </div>
 
             {/* Social Proof */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-6 text-[13px] text-gray-900">
-              <div className="flex items-center -space-x-2">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-8 text-sm text-gray-900">
+              <div className="flex items-center -space-x-3">
                 {[1, 2, 3, 4].map((i) => (
                   <div
                     key={i}
-                    className="w-[30px] h-[30px] rounded-full bg-gray-300 border-2 border-white"
+                    className="w-9 h-9 rounded-full bg-gray-300 border-2 border-white ring-2 ring-gray-100"
                   ></div>
                 ))}
               </div>
-              <span className="font-light">Join 10,000+ traders</span>
-              <div className="flex gap-1">
+              <span className="font-medium">Join 10,000+ traders</span>
+              <div className="flex gap-1.5">
                 {[1, 2, 3, 4].map((i) => (
                   <span key={i} className="text-[#FBD25F]">
                     ★
@@ -162,12 +162,12 @@ export default function Index() {
                 ))}
                 <span className="text-gray-300">★</span>
               </div>
-              <span className="font-light">4.5/5 Ratings</span>
+              <span className="font-medium">4.5/5 Ratings</span>
             </div>
           </div>
 
           {/* Hero Image with Phone Mockups */}
-          <div className="relative mt-16 max-w-5xl mx-auto">
+          <div className="relative mt-24 max-w-5xl mx-auto">
             <div className="relative">
               <img
                 src="/images/phone-mockup.png"
