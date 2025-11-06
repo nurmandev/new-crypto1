@@ -336,7 +336,9 @@ export const Pages = () => {
                       <td className="py-6">
                         <button
                           className="hover:opacity-70 transition-opacity"
-                          onClick={() => navigate(`/admin/pages/edit/${page.id}`)}
+                          onClick={() =>
+                            navigate(`/admin/pages/edit/${page.id}`)
+                          }
                         >
                           <svg
                             width="18"

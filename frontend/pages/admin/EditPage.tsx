@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 export const EditPage = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const navigate = useNavigate();
-  
+
   const [pageTitle, setPageTitle] = useState("About us");
   const [urlSlug, setUrlSlug] = useState("about-us");
   const [pageContent, setPageContent] = useState(
@@ -16,17 +16,20 @@ Our platform provides:
 Secure trading environment
 User-friendly interface
 Educational resources
-24/7 customer support`
+24/7 customer support`,
   );
   const [metaTitle, setMetaTitle] = useState("About Usdtpay - Our Story");
   const [metaDescription, setMetaDescription] = useState(
-    "Learn about CryptoCrowd's mission and commitment to secure cryptocurrency trading."
+    "Learn about CryptoCrowd's mission and commitment to secure cryptocurrency trading.",
   );
   const [pageType, setPageType] = useState("About Usdtpay - Our Story");
 
   return (
     <div className="min-h-screen bg-[#F8F8F8] flex flex-col">
-      <AdminSidebar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
+      <AdminSidebar
+        isOpen={isSidebarOpen}
+        onClose={() => setIsSidebarOpen(false)}
+      />
 
       <div className="flex flex-col flex-1 lg:ml-[259px]">
         <AdminHeader onMenuClick={() => setIsSidebarOpen(true)} />
@@ -54,7 +57,10 @@ Educational resources
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
                 >
-                  <path d="M5 10V6H13.92L13.95 3.99H5V0L0 5L5 10Z" fill="black" />
+                  <path
+                    d="M5 10V6H13.92L13.95 3.99H5V0L0 5L5 10Z"
+                    fill="black"
+                  />
                 </svg>
                 <span>Back to Pages</span>
               </button>
@@ -93,7 +99,7 @@ Educational resources
                 <label className="block text-sm xs:text-base font-medium text-black mb-2">
                   Page Content
                 </label>
-                
+
                 {/* Rich Text Toolbar */}
                 <div className="flex flex-wrap items-center gap-1 xs:gap-2 mb-2">
                   <button className="flex items-center gap-1 xs:gap-2 px-2 xs:px-3 py-1.5 xs:py-2 bg-black text-white rounded text-xs xs:text-sm hover:opacity-90">
