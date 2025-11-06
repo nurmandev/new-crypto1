@@ -571,11 +571,11 @@ export const Settings = () => {
                       Auto-logout after inactivity
                     </p>
                   </div>
-                  <div className="relative">
+                  <div className="relative w-full xs:w-full sm:w-auto">
                     <select
                       value={sessionTimeout}
                       onChange={(e) => setSessionTimeout(e.target.value)}
-                      className="h-[29px] px-3 pr-8 rounded bg-black text-white text-xs appearance-none cursor-pointer outline-none focus:ring-2 focus:ring-[#3CC27B]/20"
+                      className="w-full h-9 xs:h-[29px] px-2 xs:px-3 pr-8 rounded bg-black text-white text-xs appearance-none cursor-pointer outline-none focus:ring-2 focus:ring-[#3CC27B]/20"
                     >
                       <option value="30">30 Minutes</option>
                       <option value="60">1 Hour</option>
