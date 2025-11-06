@@ -107,6 +107,15 @@ export const PaymentMethods: React.FC = () => {
     setQrCodePreview(null);
   };
 
+  const handleAddClick = () => {
+    setIsAddModalOpen(true);
+  };
+
+  const handleCloseAddModal = () => {
+    setIsAddModalOpen(false);
+    setAddQrCodePreview(null);
+  };
+
   const getStatusColor = (status: string) => {
     return status === "Active"
       ? "bg-[#BDFDDB] text-[#1C5C3A]"
