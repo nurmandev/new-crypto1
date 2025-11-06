@@ -421,197 +421,195 @@ export const PaymentMethods: React.FC = () => {
 
       {/* Add Payment Method Modal */}
       {isAddModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/40 backdrop-blur-sm">
-          <div className="bg-white rounded-lg w-full max-w-[500px] max-h-[85vh] overflow-y-auto p-4 sm:p-6">
-            <h2 className="text-[16px] font-semibold text-black mb-5 leading-snug">
-              Add Payment Method
-            </h2>
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[rgba(0,0,0,0.22)]">
+          <div className="bg-white rounded-[22px] w-full max-w-[810px] max-h-[90vh] overflow-y-auto p-[30px]">
+            <div className="w-full max-w-[750px] mx-auto">
+              <h2 className="text-[17px] font-medium text-black mb-[26px] leading-[33px]">
+                Add Payment Method
+              </h2>
 
-            <div className="grid grid-cols-1 gap-4 sm:gap-5">
-              {/* Method Name */}
-              <div>
-                <label className="block text-sm font-medium text-black mb-1.5">
-                  Method Name
-                </label>
-                <input
-                  type="text"
-                  placeholder="UPI (Google Pay, PhonePe, Paytm)"
-                  className="w-full h-[44px] px-3 rounded-md border border-[#CACACA] bg-[#F0F0F0] text-sm font-medium placeholder:text-[#8E8E8E] text-black outline-none focus:border-[#3CC27B] focus:bg-white transition-colors"
-                />
-              </div>
-
-              {/* Icon / emoji */}
-              <div>
-                <label className="block text-sm font-medium text-black mb-1.5">
-                  Icon / emoji
-                </label>
-                <div className="flex items-center gap-3 h-[44px] px-3 rounded-md border border-[#CACACA] bg-[#F0F0F0]">
-                  <img
-                    src="https://api.builder.io/api/v1/image/assets/TEMP/9612201e1ef1e7bf5a1f77e21ab45da81965bf9f?width=72"
-                    alt="icon"
-                    className="w-8 h-8 rounded-full"
-                  />
-                  <label className="ml-auto cursor-pointer text-xs text-[#8F8F8F] hover:text-black transition-colors">
-                    Upload
-                    <input type="file" className="hidden" accept="image/*" />
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-[33px] gap-y-[26px]">
+                {/* Method Name */}
+                <div>
+                  <label className="block text-[15px] font-medium text-black mb-[8px]">
+                    Method Name
                   </label>
+                  <input
+                    type="text"
+                    placeholder="UPI (Google Pay, PhonePe, Paytm)"
+                    className="w-full h-[51px] px-[29px] rounded-[5px] border-[0.7px] border-[#CACACA] bg-[#F0F0F0] text-[15px] font-medium placeholder:text-[#8E8E8E] text-[#8E8E8E] outline-none focus:border-[#3CC27B] focus:bg-white transition-colors"
+                  />
+                </div>
+
+                {/* Icon / emoji */}
+                <div>
+                  <label className="block text-[15px] font-medium text-black mb-[8px]">
+                    Icon / emoji
+                  </label>
+                  <div className="flex items-center gap-3 h-[51px] px-[15px] rounded-[5px] border-[0.7px] border-[#CACACA] bg-[#F0F0F0]">
+                    <img
+                      src="https://api.builder.io/api/v1/image/assets/TEMP/9612201e1ef1e7bf5a1f77e21ab45da81965bf9f?width=72"
+                      alt="icon"
+                      className="w-[36px] h-[36px] rounded-[30px]"
+                    />
+                    <label className="ml-auto cursor-pointer text-[13px] text-[#8F8F8F] hover:text-black transition-colors">
+                      Upload
+                      <input type="file" className="hidden" accept="image/*" />
+                    </label>
+                  </div>
+                </div>
+
+                {/* Minimum Amount */}
+                <div>
+                  <label className="block text-[15px] font-medium text-black mb-[8px]">
+                    Minimum Amount (₹)
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="100"
+                    className="w-full h-[51px] px-[29px] rounded-[5px] border-[0.7px] border-[#CACACA] bg-[#F0F0F0] text-[15px] font-medium placeholder:text-[#8E8E8E] text-[#8E8E8E] outline-none focus:border-[#3CC27B] focus:bg-white transition-colors"
+                  />
+                </div>
+
+                {/* Maximum Amount */}
+                <div>
+                  <label className="block text-[15px] font-medium text-black mb-[8px]">
+                    Maximum Amount (₹)
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="100000"
+                    className="w-full h-[51px] px-[29px] rounded-[5px] border-[0.7px] border-[#CACACA] bg-[#F0F0F0] text-[15px] font-medium placeholder:text-[#8E8E8E] text-[#8E8E8E] outline-none focus:border-[#3CC27B] focus:bg-white transition-colors"
+                  />
+                </div>
+
+                {/* Fees */}
+                <div>
+                  <label className="block text-[15px] font-medium text-black mb-[8px]">
+                    Fees (%)
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="0"
+                    className="w-full h-[51px] px-[29px] rounded-[5px] border-[0.7px] border-[#CACACA] bg-[#F0F0F0] text-[15px] font-medium placeholder:text-[#8E8E8E] text-[#8E8E8E] outline-none focus:border-[#3CC27B] focus:bg-white transition-colors"
+                  />
+                </div>
+
+                {/* Processing Time */}
+                <div>
+                  <label className="block text-[15px] font-medium text-black mb-[8px]">
+                    Processing Time
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="Instant"
+                    className="w-full h-[51px] px-[29px] rounded-[5px] border-[0.7px] border-[#CACACA] bg-[#F0F0F0] text-[15px] font-medium placeholder:text-[#8E8E8E] text-[#8E8E8E] outline-none focus:border-[#3CC27B] focus:bg-white transition-colors"
+                  />
                 </div>
               </div>
 
-              {/* Minimum Amount */}
-              <div>
-                <label className="block text-sm font-medium text-black mb-1.5">
-                  Minimum Amount (₹)
-                </label>
-                <input
-                  type="text"
-                  placeholder="100"
-                  className="w-full h-[44px] px-3 rounded-md border border-[#CACACA] bg-[#F0F0F0] text-sm font-medium placeholder:text-[#8E8E8E] text-black outline-none focus:border-[#3CC27B] focus:bg-white transition-colors"
-                />
-              </div>
-
-              {/* Maximum Amount */}
-              <div>
-                <label className="block text-sm font-medium text-black mb-1.5">
-                  Maximum Amount (₹)
-                </label>
-                <input
-                  type="text"
-                  placeholder="100000"
-                  className="w-full h-[44px] px-3 rounded-md border border-[#CACACA] bg-[#F0F0F0] text-sm font-medium placeholder:text-[#8E8E8E] text-black outline-none focus:border-[#3CC27B] focus:bg-white transition-colors"
-                />
-              </div>
-
-              {/* Fees */}
-              <div>
-                <label className="block text-sm font-medium text-black mb-1.5">
-                  Fees (%)
-                </label>
-                <input
-                  type="text"
-                  placeholder="0"
-                  className="w-full h-[44px] px-3 rounded-md border border-[#CACACA] bg-[#F0F0F0] text-sm font-medium placeholder:text-[#8E8E8E] text-black outline-none focus:border-[#3CC27B] focus:bg-white transition-colors"
-                />
-              </div>
-
-              {/* Processing Time */}
-              <div>
-                <label className="block text-sm font-medium text-black mb-1.5">
-                  Processing Time
-                </label>
-                <input
-                  type="text"
-                  placeholder="Instant"
-                  className="w-full h-[44px] px-3 rounded-md border border-[#CACACA] bg-[#F0F0F0] text-sm font-medium placeholder:text-[#8E8E8E] text-black outline-none focus:border-[#3CC27B] focus:bg-white transition-colors"
-                />
-              </div>
-
-              {/* Add UPI ID */}
-              <div>
-                <label className="block text-sm font-medium text-black mb-1.5">
+              {/* Add UPI ID - Full Width */}
+              <div className="mt-[26px]">
+                <label className="block text-[15px] font-medium text-black mb-[8px]">
                   Add UPI ID
                 </label>
                 <input
                   type="text"
                   placeholder="upiid@sbibank"
-                  className="w-full h-[44px] px-3 rounded-md border border-[#CACACA] bg-[#F0F0F0] text-sm font-medium placeholder:text-[#8E8E8E] text-black outline-none focus:border-[#3CC27B] focus:bg-white transition-colors"
+                  className="w-full h-[51px] px-[29px] rounded-[5px] border-[0.7px] border-[#CACACA] bg-[#F0F0F0] text-[15px] font-medium placeholder:text-[#8E8E8E] text-[#8E8E8E] outline-none focus:border-[#3CC27B] focus:bg-white transition-colors"
                 />
               </div>
-            </div>
 
-            {/* QR Code Upload Section */}
-            <div className="mt-6">
-              <label className="block text-[15px] font-medium text-black mb-2">
-                QR Code
-              </label>
-              {addQrCodePreview ? (
-                <div className="relative inline-block">
-                  <img
-                    src={addQrCodePreview}
-                    alt="QR Code Preview"
-                    className="w-[164px] h-[164px] object-contain rounded-[5px]"
-                  />
-                  <button
-                    onClick={() => setAddQrCodePreview(null)}
-                    className="absolute -top-2 -right-2 w-[14px] h-[14px] flex items-center justify-center"
-                  >
-                    <svg
-                      width="14"
-                      height="14"
-                      viewBox="0 0 14 14"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
+              {/* QR Code Upload Section */}
+              <div className="mt-[35px]">
+                {addQrCodePreview ? (
+                  <div className="relative inline-block">
+                    <img
+                      src={addQrCodePreview}
+                      alt="QR Code Preview"
+                      className="w-[164px] h-[164px] object-contain rounded-[5px]"
+                    />
+                    <button
+                      onClick={() => setAddQrCodePreview(null)}
+                      className="absolute -top-2 -right-2 w-[14px] h-[14px] flex items-center justify-center"
                     >
-                      <path
-                        d="M7 0C3.1 0 0 3.1 0 7C0 10.9 3.1 14 7 14C10.9 14 14 10.9 14 7C14 3.1 10.9 0 7 0ZM9.7 10.5L7 7.8L4.3 10.5L3.5 9.7L6.2 7L3.5 4.3L4.3 3.5L7 6.2L9.7 3.5L10.5 4.3L7.8 7L10.5 9.7L9.7 10.5Z"
-                        fill="#FA1818"
-                      />
-                    </svg>
-                  </button>
-                </div>
-              ) : (
-                <label className="block w-full h-[145px] cursor-pointer">
-                  <div className="w-full h-full rounded-[5px] border-2 border-dashed border-[#BABABA] flex flex-col items-center justify-center gap-3 hover:border-[#3CC27B] transition-colors">
-                    <svg
-                      width="19"
-                      height="19"
-                      viewBox="0 0 19 19"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M8.20257 14.0616V4.51141L5.1559 7.55808L3.51539 5.85898L9.37437 0L15.2333 5.85898L13.5928 7.55808L10.5462 4.51141V14.0616H8.20257ZM0 18.7487V12.8898H2.34359V16.4051H16.4051V12.8898H18.7487V18.7487H0Z"
-                        fill="black"
-                      />
-                    </svg>
-                    <p className="text-[15px] font-light text-black text-center px-4">
-                      Click to upload QR Code
-                      <br />
-                      PNG, JPG up to 2MB
-                    </p>
+                      <svg
+                        width="14"
+                        height="14"
+                        viewBox="0 0 14 14"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M7 0C3.1 0 0 3.1 0 7C0 10.9 3.1 14 7 14C10.9 14 14 10.9 14 7C14 3.1 10.9 0 7 0ZM9.7 10.5L7 7.8L4.3 10.5L3.5 9.7L6.2 7L3.5 4.3L4.3 3.5L7 6.2L9.7 3.5L10.5 4.3L7.8 7L10.5 9.7L9.7 10.5Z"
+                          fill="#FA1818"
+                        />
+                      </svg>
+                    </button>
                   </div>
-                  <input
-                    type="file"
-                    className="hidden"
-                    accept="image/*"
-                    onChange={(e) => {
-                      const file = e.target.files?.[0];
-                      if (file) {
-                        const reader = new FileReader();
-                        reader.onloadend = () => {
-                          setAddQrCodePreview(reader.result as string);
-                        };
-                        reader.readAsDataURL(file);
-                      }
-                    }}
-                  />
+                ) : (
+                  <label className="block w-full sm:w-[358px] h-[145px] cursor-pointer">
+                    <div className="w-full h-full rounded-[5px] border-2 border-dashed border-[#BABABA] flex flex-col items-center justify-center gap-[12px] hover:border-[#3CC27B] transition-colors">
+                      <svg
+                        width="19"
+                        height="19"
+                        viewBox="0 0 19 19"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M8.20257 14.0616V4.51141L5.1559 7.55808L3.51539 5.85898L9.37437 0L15.2333 5.85898L13.5928 7.55808L10.5462 4.51141V14.0616H8.20257ZM0 18.7487V12.8898H2.34359V16.4051H16.4051V12.8898H18.7487V18.7487H0Z"
+                          fill="black"
+                        />
+                      </svg>
+                      <p className="text-[15px] font-light text-black text-center px-4 leading-[23px]">
+                        Click to upload QR Code
+                        <br />
+                        PNG, JPG up to 2MB
+                      </p>
+                    </div>
+                    <input
+                      type="file"
+                      className="hidden"
+                      accept="image/*"
+                      onChange={(e) => {
+                        const file = e.target.files?.[0];
+                        if (file) {
+                          const reader = new FileReader();
+                          reader.onloadend = () => {
+                            setAddQrCodePreview(reader.result as string);
+                          };
+                          reader.readAsDataURL(file);
+                        }
+                      }}
+                    />
+                  </label>
+                )}
+              </div>
+
+              {/* Description */}
+              <div className="mt-[35px]">
+                <label className="block text-[15px] font-medium text-black mb-[8px]">
+                  Description
                 </label>
-              )}
-            </div>
+                <textarea
+                  placeholder="Unified Payments Interface for instant INR transfers"
+                  className="w-full h-[99px] px-[29px] py-[18px] rounded-[5px] border-[0.7px] border-[#CACACA] bg-[#F0F0F0] text-[15px] font-medium placeholder:text-[#8E8E8E] text-[#8E8E8E] outline-none focus:border-[#3CC27B] focus:bg-white transition-colors resize-none"
+                />
+              </div>
 
-            {/* Description */}
-            <div className="mt-4 sm:mt-5">
-              <label className="block text-sm font-medium text-black mb-1.5">
-                Description
-              </label>
-              <textarea
-                placeholder="Unified Payments Interface for instant INR transfers"
-                rows={3}
-                className="w-full px-3 py-2 rounded-md border border-[#CACACA] bg-[#F0F0F0] text-sm font-medium placeholder:text-[#8E8E8E] text-black outline-none focus:border-[#3CC27B] focus:bg-white transition-colors resize-none"
-              />
-            </div>
-
-            {/* Action Buttons */}
-            <div className="mt-6 flex flex-col sm:flex-row gap-3 pt-4 border-t border-[#E0E0E0]">
-              <button className="flex-1 h-10 px-4 bg-black text-white text-sm font-semibold rounded-md border border-black hover:bg-gray-900 transition-colors">
-                Add
-              </button>
-              <button
-                onClick={handleCloseAddModal}
-                className="flex-1 h-10 px-4 bg-white text-black text-sm font-semibold rounded-md border border-[#D0D0D0] hover:bg-gray-100 transition-colors"
-              >
-                Cancel
-              </button>
+              {/* Action Buttons */}
+              <div className="mt-[28px] flex flex-col sm:flex-row gap-4">
+                <button className="w-full sm:w-[210px] h-[36px] px-[60px] bg-black text-white text-[15px] font-medium rounded-[6px] border-[0.5px] border-[#C3C3C3] hover:bg-gray-900 transition-colors leading-[33px]">
+                  Add
+                </button>
+                <button
+                  onClick={handleCloseAddModal}
+                  className="w-full sm:w-[210px] h-[36px] px-[60px] bg-white text-black text-[15px] font-medium rounded-[6px] border-[0.5px] border-[#C3C3C3] hover:bg-gray-100 transition-colors leading-[33px]"
+                >
+                  Cancel
+                </button>
+              </div>
             </div>
           </div>
         </div>
