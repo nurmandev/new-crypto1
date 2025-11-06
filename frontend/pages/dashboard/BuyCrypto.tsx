@@ -32,14 +32,12 @@ export default function BuyCrypto() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 pb-20 sm:pb-12">
-      {/* Top Navigation Bar */}
       <DashboardHeader
         onMenuToggle={() => setIsSidebarOpen(!isSidebarOpen)}
         isMenuOpen={isSidebarOpen}
       />
 
       <div className="relative flex pt-6 md:pt-8">
-        {/* Sidebar - Hidden by default on mobile */}
         <div
           className={`
           fixed inset-y-0 left-0 z-40 w-72 bg-white/95 backdrop-blur-sm transform transition-all duration-300 
@@ -54,7 +52,6 @@ export default function BuyCrypto() {
           />
         </div>
 
-        {/* Overlay for mobile sidebar */}
         {isSidebarOpen && (
           <div
             className="fixed inset-0 bg-gray-900/60 backdrop-blur-sm z-30 lg:hidden transition-opacity duration-300"
@@ -62,18 +59,15 @@ export default function BuyCrypto() {
           />
         )}
 
-        {/* Main Content Area */}
         <div className="flex-1 min-w-0">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6">
             <div className="grid grid-cols-1 xl:grid-cols-[1fr,368px] gap-6">
               <div className="bg-white rounded-xl p-6 sm:p-8 shadow-sm hover:shadow-md transition-shadow">
-                {/* Page Title */}
                 <div className="mb-8">
                   <h1 className="text-2xl sm:text-3xl font-semibold text-gray-900 mb-2">Buy Cryptocurrency</h1>
                   <p className="text-gray-600">Exchange INR for cryptocurrency instantly with best market rates</p>
                 </div>
                 
-                {/* Buy/Sell Toggle */}
                 <div className="relative mb-8">
                   <div className="w-full h-[51px] bg-gray-50 rounded-lg"></div>
                   <div className="absolute top-1 left-1 w-[calc(50%-4px)] h-[43px] bg-white rounded-md shadow-sm"></div>
@@ -94,7 +88,6 @@ export default function BuyCrypto() {
                   Exchange INR for cryptocurrency instantly
                 </p>
 
-                {/* Select Cryptocurrency */}
                 <div className="mb-8">
                   <label className="block text-sm font-medium text-gray-900 mb-2">
                     Select Cryptocurrency
@@ -114,7 +107,6 @@ export default function BuyCrypto() {
                       />
                     </button>
 
-                    {/* Dropdown Menu */}
                     {showCryptoDropdown && (
                       <div className="absolute top-full left-0 right-0 mt-2 bg-white border border-gray-200 rounded-lg shadow-lg z-10 overflow-hidden">
                         {cryptoOptions.map((crypto) => (
@@ -135,9 +127,7 @@ export default function BuyCrypto() {
                   </div>
                 </div>
 
-                {/* Exchange Form */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
-                  {/* You Pay */}
                   <div className="space-y-2">
                     <label className="block text-sm font-medium text-gray-900">
                       You Pay
@@ -155,7 +145,6 @@ export default function BuyCrypto() {
                     </div>
                   </div>
 
-                  {/* Swap Button */}
                   <div className="absolute left-1/2 top-1/2 -translate-x-1/2 lg:-translate-y-4 z-10 hidden lg:block">
                     <button
                       onClick={handleSwap}
@@ -166,7 +155,6 @@ export default function BuyCrypto() {
                     </button>
                   </div>
 
-                  {/* You Receive */}
                   <div className="space-y-2">
                     <label className="block text-sm font-medium text-gray-900">
                       You Receive
@@ -190,7 +178,6 @@ export default function BuyCrypto() {
                   <span className="text-sm font-medium text-gray-900">1 ADA = ₹28</span>
                 </div>
 
-                {/* Continue Button */}
                 <Link
                   to="/payment-method"
                   className="w-full flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-white h-12 rounded-lg transition-colors mb-8 group"
@@ -201,7 +188,6 @@ export default function BuyCrypto() {
                   <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                 </Link>
 
-                {/* Purchase Summary */}
                 <div className="border-l-4 border-primary/40 bg-primary/5 rounded-xl p-6">
                   <h3 className="text-base font-semibold text-gray-900 mb-6">
                     Purchase Summary
@@ -253,7 +239,6 @@ export default function BuyCrypto() {
                 </div>
               </div>
 
-              {/* Right Sidebar - Recent Transactions */}
               <div className="w-full xl:w-[368px] space-y-4">
                 <div className="flex items-center justify-between">
                   <h3 className="text-base font-semibold text-gray-900">
