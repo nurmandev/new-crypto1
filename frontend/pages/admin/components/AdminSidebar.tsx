@@ -251,7 +251,7 @@ export const AdminSidebar: React.FC<AdminSidebarProps> = ({
       `}
       >
         {/* Header - Shows current active section */}
-        <div className="h-[53px] rounded-t-[10px] bg-[#3CC27B] flex items-center justify-between px-6 flex-shrink-0">
+        <div className="h-[53px] lg:rounded-none rounded-t-[10px] bg-[#3CC27B] flex items-center justify-between px-6 flex-shrink-0">
           <div className="flex items-center gap-2.5 text-white">
             <svg
               width="15"
