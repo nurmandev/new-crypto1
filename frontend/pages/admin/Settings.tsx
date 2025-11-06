@@ -359,7 +359,7 @@ export const Settings = () => {
               </h2>
 
               {/* Color Pickers */}
-              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6 mb-6">
+              <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2 xs:gap-3 sm:gap-4 lg:gap-6 mb-4 xs:mb-6">
                 {/* Primary Color */}
                 <div>
                   <label className="block text-base sm:text-lg font-medium text-black mb-2">
