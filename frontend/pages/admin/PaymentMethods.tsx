@@ -94,7 +94,9 @@ export const PaymentMethods: React.FC = () => {
   const handleEditClick = (method: PaymentMethod) => {
     setSelectedMethod(method);
     setIsEditModalOpen(true);
-    setQrCodePreview("https://api.builder.io/api/v1/image/assets/TEMP/0fb5c6a3a9c9ce714a55e72d5d5f6d7be6d54855?width=328");
+    setQrCodePreview(
+      "https://api.builder.io/api/v1/image/assets/TEMP/0fb5c6a3a9c9ce714a55e72d5d5f6d7be6d54855?width=328",
+    );
   };
 
   const handleCloseModal = () => {
@@ -119,7 +121,8 @@ export const PaymentMethods: React.FC = () => {
 
   const formatLimit = (value: string) => {
     const num = parseInt(value);
-    if (num >= 100000) return `₹${(num / 100000).toFixed(1).replace('.0', '')}L`;
+    if (num >= 100000)
+      return `₹${(num / 100000).toFixed(1).replace(".0", "")}L`;
     if (num >= 1000) return `₹${(num / 1000).toFixed(0)}K`;
     return `₹${value}`;
   };
