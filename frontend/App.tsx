@@ -40,6 +40,8 @@ import { Transactions } from "./pages/admin/Transactions";
 import { Requests } from "./pages/admin/requests/Requests";
 import { CryptocurrencyManagement } from "./pages/admin/cryptocurrency/CryptocurrencyManagement";
 import { Cryptocurrency } from "./pages/cryptocurrency/Cryptocurrency";
+import { Support } from "./pages/admin/Support";
+import { PaymentMethods as AdminPaymentMethods } from "./pages/admin/PaymentMethods";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -83,6 +85,8 @@ const App = () => (
           <Route path="/admin/users" element={<Users />} />
           <Route path="/admin/transactions" element={<Transactions />} />
           <Route path="/admin/requests" element={<Requests />} />
+          <Route path="/admin/support" element={<Support />} />
+          <Route path="/admin/payment-methods" element={<AdminPaymentMethods />} />
           <Route
             path="/admin/cryptocurrency"
             element={<CryptocurrencyManagement />}
