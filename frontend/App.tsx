@@ -44,6 +44,7 @@ import { Support } from "./pages/admin/Support";
 import AdminPaymentMethods from "./pages/admin/payment-methods/Payment";
 import { Settings } from "./pages/admin/Settings";
 import { Pages } from "./pages/admin/Pages";
+import { AddPage } from "./pages/admin/AddPage";
 import { EditPage } from "./pages/admin/EditPage";
 import NotFound from "./pages/NotFound";
 
