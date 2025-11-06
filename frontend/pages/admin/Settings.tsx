@@ -339,7 +339,7 @@ export const Settings = () => {
                             fill="currentColor"
                           />
                         </svg>
-                        <p className="text-sm font-light text-black text-center leading-snug">
+                        <p className="text-xs xs:text-sm font-light text-black text-center leading-tight xs:leading-snug">
                           Click to upload favicon
                           <br />
                           PNG, JPG up to 2MB
@@ -353,8 +353,8 @@ export const Settings = () => {
             </section>
 
             {/* Colors & Typography */}
-            <section className="mb-12">
-              <h2 className="text-lg sm:text-xl font-medium text-black mb-6">
+            <section className="mb-8 xs:mb-10 sm:mb-12">
+              <h2 className="text-base xs:text-lg sm:text-xl font-medium text-black mb-4 xs:mb-6">
                 Colors & Typography
               </h2>
 
