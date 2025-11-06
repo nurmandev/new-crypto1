@@ -258,7 +258,7 @@ export const Support: React.FC = () => {
                       User
                     </th>
                     <th className="text-left py-3 px-2 text-[15px] font-bold text-[#313131]">
-                      Amount (���)
+                      Amount (��)
                     </th>
                     <th className="text-left py-3 px-2 text-[15px] font-bold text-[#313131]">
                       Method
@@ -395,11 +395,11 @@ export const Support: React.FC = () => {
       {/* Request Details Modal */}
       {isModalOpen && selectedRequest && (
         <div
-          className="fixed inset-0 bg-black/22 flex items-center justify-center z-50 p-4"
+          className="fixed inset-0 bg-black/22 backdrop-blur-sm flex items-center justify-center z-50 p-4"
           onClick={() => setIsModalOpen(false)}
         >
           <div
-            className="bg-white rounded-[11px] w-full max-w-[408px] p-10 shadow-lg"
+            className="bg-white rounded-[11px] w-full max-w-[408px] p-10 shadow-xl"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="space-y-6">
