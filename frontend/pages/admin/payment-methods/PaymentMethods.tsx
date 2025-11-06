@@ -469,49 +469,49 @@ export const PaymentMethods: React.FC = () => {
 
               {/* Maximum Amount */}
               <div>
-                <label className="block text-[15px] font-medium text-black mb-2">
+                <label className="block text-sm font-medium text-black mb-1.5">
                   Maximum Amount (₹)
                 </label>
                 <input
                   type="text"
                   placeholder="100000"
-                  className="w-full h-[51px] px-4 rounded-[5px] border-[0.7px] border-[#CACACA] bg-[#F0F0F0] text-[15px] font-medium placeholder:text-[#8E8E8E] text-black outline-none focus:border-[#3CC27B] transition-colors"
+                  className="w-full h-[44px] px-3 rounded-md border border-[#CACACA] bg-[#F0F0F0] text-sm font-medium placeholder:text-[#8E8E8E] text-black outline-none focus:border-[#3CC27B] focus:bg-white transition-colors"
                 />
               </div>
 
               {/* Fees */}
               <div>
-                <label className="block text-[15px] font-medium text-black mb-2">
+                <label className="block text-sm font-medium text-black mb-1.5">
                   Fees (%)
                 </label>
                 <input
                   type="text"
                   placeholder="0"
-                  className="w-full h-[51px] px-4 rounded-[5px] border-[0.7px] border-[#CACACA] bg-[#F0F0F0] text-[15px] font-medium placeholder:text-[#8E8E8E] text-black outline-none focus:border-[#3CC27B] transition-colors"
+                  className="w-full h-[44px] px-3 rounded-md border border-[#CACACA] bg-[#F0F0F0] text-sm font-medium placeholder:text-[#8E8E8E] text-black outline-none focus:border-[#3CC27B] focus:bg-white transition-colors"
                 />
               </div>
 
               {/* Processing Time */}
               <div>
-                <label className="block text-[15px] font-medium text-black mb-2">
+                <label className="block text-sm font-medium text-black mb-1.5">
                   Processing Time
                 </label>
                 <input
                   type="text"
                   placeholder="Instant"
-                  className="w-full h-[51px] px-4 rounded-[5px] border-[0.7px] border-[#CACACA] bg-[#F0F0F0] text-[15px] font-medium placeholder:text-[#8E8E8E] text-black outline-none focus:border-[#3CC27B] transition-colors"
+                  className="w-full h-[44px] px-3 rounded-md border border-[#CACACA] bg-[#F0F0F0] text-sm font-medium placeholder:text-[#8E8E8E] text-black outline-none focus:border-[#3CC27B] focus:bg-white transition-colors"
                 />
               </div>
 
               {/* Add UPI ID */}
-              <div className="lg:col-span-2">
-                <label className="block text-[15px] font-medium text-black mb-2">
+              <div>
+                <label className="block text-sm font-medium text-black mb-1.5">
                   Add UPI ID
                 </label>
                 <input
                   type="text"
                   placeholder="upiid@sbibank"
-                  className="w-full h-[51px] px-4 rounded-[5px] border-[0.7px] border-[#CACACA] bg-[#F0F0F0] text-[15px] font-medium placeholder:text-[#8E8E8E] text-black outline-none focus:border-[#3CC27B] transition-colors"
+                  className="w-full h-[44px] px-3 rounded-md border border-[#CACACA] bg-[#F0F0F0] text-sm font-medium placeholder:text-[#8E8E8E] text-black outline-none focus:border-[#3CC27B] focus:bg-white transition-colors"
                 />
               </div>
             </div>
