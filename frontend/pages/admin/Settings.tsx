@@ -2,82 +2,81 @@ import { useState, useEffect } from "react";
 import { AdminHeader } from "./components/AdminHeader";
 import { AdminSidebar } from "./components/AdminSidebar";
 
+const DEFAULT_SETTINGS = {
+  siteName: "USDTmpay",
+  siteTitle: "Usdtmpay - Secure Cryptocurrency Exchange Platform",
+  siteDescription: "Trade cryptocurrencies securely with CryptoCrowd. Buy and sell Bitcoin, Ethereum and more.",
+  seoKeywords: "cryptocurrency, bitcoin, ethereum, trading, exchange",
+  author: "USDTmpay Team",
+  primaryColor: "#6366F1",
+  secondaryColor: "#8B5CF6",
+  accentColor: "#6FECC2",
+  backgroundColor: "#FFFFFF",
+  textColor: "#1A1B23",
+  fontFamily: "Roboto Bold",
+  supportEmail: "support@usdtmpay.com",
+  contactEmail: "contact@usdtmpay.com",
+  adminEmail: "admin@usdtmpay.com",
+  phone: "+91 9876543210",
+  businessAddress: "123 Crypto Street, Mumbai, Maharashtra 400001",
+  sessionTimeout: "30",
+  maintenanceMode: false,
+};
+
+const getInitialSettings = () => {
+  try {
+    const savedSettings = localStorage.getItem("websiteSettings");
+    if (savedSettings) {
+      return { ...DEFAULT_SETTINGS, ...JSON.parse(savedSettings) };
+    }
+  } catch (error) {
+    console.error("Failed to load settings:", error);
+  }
+  return DEFAULT_SETTINGS;
+};
+
 export const Settings = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const initialSettings = getInitialSettings();
 
   // Site Information
-  const [siteName, setSiteName] = useState("USDTmpay");
-  const [siteTitle, setSiteTitle] = useState("Usdtmpay - Secure Cryptocurrency Exchange Platform");
-  const [siteDescription, setSiteDescription] = useState("Trade cryptocurrencies securely with CryptoCrowd. Buy and sell Bitcoin, Ethereum and more.");
-  const [seoKeywords, setSeoKeywords] = useState("cryptocurrency, bitcoin, ethereum, trading, exchange");
-  const [author, setAuthor] = useState("USDTmpay Team");
+  const [siteName, setSiteName] = useState(initialSettings.siteName);
+  const [siteTitle, setSiteTitle] = useState(initialSettings.siteTitle);
+  const [siteDescription, setSiteDescription] = useState(initialSettings.siteDescription);
+  const [seoKeywords, setSeoKeywords] = useState(initialSettings.seoKeywords);
+  const [author, setAuthor] = useState(initialSettings.author);
 
   // Branding & Assets
   const [logoPreview, setLogoPreview] = useState<string | null>(null);
   const [faviconPreview, setFaviconPreview] = useState<string | null>(null);
 
   // Colors & Typography
-  const [primaryColor, setPrimaryColor] = useState("#6366F1");
-  const [primaryColorText, setPrimaryColorText] = useState("#6366F1");
-  const [secondaryColor, setSecondaryColor] = useState("#8B5CF6");
-  const [secondaryColorText, setSecondaryColorText] = useState("#8B5CF6");
-  const [accentColor, setAccentColor] = useState("#6FECC2");
-  const [accentColorText, setAccentColorText] = useState("#6FECC2");
-  const [backgroundColor, setBackgroundColor] = useState("#FFFFFF");
-  const [backgroundColorText, setBackgroundColorText] = useState("#FFFFFF");
-  const [textColor, setTextColor] = useState("#1A1B23");
-  const [textColorText, setTextColorText] = useState("#1A1B23");
-  const [fontFamily, setFontFamily] = useState("Roboto Bold");
+  const [primaryColor, setPrimaryColor] = useState(initialSettings.primaryColor);
+  const [primaryColorText, setPrimaryColorText] = useState(initialSettings.primaryColor);
+  const [secondaryColor, setSecondaryColor] = useState(initialSettings.secondaryColor);
+  const [secondaryColorText, setSecondaryColorText] = useState(initialSettings.secondaryColor);
+  const [accentColor, setAccentColor] = useState(initialSettings.accentColor);
+  const [accentColorText, setAccentColorText] = useState(initialSettings.accentColor);
+  const [backgroundColor, setBackgroundColor] = useState(initialSettings.backgroundColor);
+  const [backgroundColorText, setBackgroundColorText] = useState(initialSettings.backgroundColor);
+  const [textColor, setTextColor] = useState(initialSettings.textColor);
+  const [textColorText, setTextColorText] = useState(initialSettings.textColor);
+  const [fontFamily, setFontFamily] = useState(initialSettings.fontFamily);
 
   // Contact Information
-  const [supportEmail, setSupportEmail] = useState("support@usdtmpay.com");
-  const [contactEmail, setContactEmail] = useState("contact@usdtmpay.com");
-  const [adminEmail, setAdminEmail] = useState("admin@usdtmpay.com");
-  const [phone, setPhone] = useState("+91 9876543210");
-  const [businessAddress, setBusinessAddress] = useState("123 Crypto Street, Mumbai, Maharashtra 400001");
+  const [supportEmail, setSupportEmail] = useState(initialSettings.supportEmail);
+  const [contactEmail, setContactEmail] = useState(initialSettings.contactEmail);
+  const [adminEmail, setAdminEmail] = useState(initialSettings.adminEmail);
+  const [phone, setPhone] = useState(initialSettings.phone);
+  const [businessAddress, setBusinessAddress] = useState(initialSettings.businessAddress);
 
   // Security Settings
-  const [sessionTimeout, setSessionTimeout] = useState("30");
-  const [maintenanceMode, setMaintenanceMode] = useState(false);
+  const [sessionTimeout, setSessionTimeout] = useState(initialSettings.sessionTimeout);
+  const [maintenanceMode, setMaintenanceMode] = useState(initialSettings.maintenanceMode);
 
   // UI State
   const [isSaving, setIsSaving] = useState(false);
   const [saveMessage, setSaveMessage] = useState<{ type: "success" | "error"; text: string } | null>(null);
-
-  // Load settings from localStorage on mount
-  useEffect(() => {
-    const savedSettings = localStorage.getItem("websiteSettings");
-    if (savedSettings) {
-      try {
-        const settings = JSON.parse(savedSettings);
-        setSiteName(settings.siteName || siteName);
-        setSiteTitle(settings.siteTitle || siteTitle);
-        setSiteDescription(settings.siteDescription || siteDescription);
-        setSeoKeywords(settings.seoKeywords || seoKeywords);
-        setAuthor(settings.author || author);
-        setPrimaryColor(settings.primaryColor || primaryColor);
-        setPrimaryColorText(settings.primaryColor || primaryColor);
-        setSecondaryColor(settings.secondaryColor || secondaryColor);
-        setSecondaryColorText(settings.secondaryColor || secondaryColor);
-        setAccentColor(settings.accentColor || accentColor);
-        setAccentColorText(settings.accentColor || accentColor);
-        setBackgroundColor(settings.backgroundColor || backgroundColor);
-        setBackgroundColorText(settings.backgroundColor || backgroundColor);
-        setTextColor(settings.textColor || textColor);
-        setTextColorText(settings.textColor || textColor);
-        setFontFamily(settings.fontFamily || fontFamily);
-        setSupportEmail(settings.supportEmail || supportEmail);
-        setContactEmail(settings.contactEmail || contactEmail);
-        setAdminEmail(settings.adminEmail || adminEmail);
-        setPhone(settings.phone || phone);
-        setBusinessAddress(settings.businessAddress || businessAddress);
-        setSessionTimeout(settings.sessionTimeout || sessionTimeout);
-        setMaintenanceMode(settings.maintenanceMode || maintenanceMode);
-      } catch (error) {
-        console.error("Failed to load settings:", error);
-      }
-    }
-  }, []);
 
   // Color input change handlers
   const handleColorChange = (value: string, setter: (val: string) => void, textSetter: (val: string) => void) => {
