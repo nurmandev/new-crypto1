@@ -137,27 +137,27 @@ export const Support: React.FC = () => {
         <div className="flex-1 flex flex-col gap-0 lg:gap-6 lg:p-6">
           <AdminHeader />
 
-          <div className="bg-white rounded-none lg:rounded-[10px] p-6 lg:p-8 m-0">
+          <div className="bg-white rounded-none lg:rounded-[10px] p-3 xs:p-4 sm:p-6 lg:p-8 m-0">
             <div className="mb-6">
-              <h1 className="text-[20px] font-medium text-black mb-2">
+              <h1 className="text-lg xs:text-xl sm:text-2xl font-medium text-black mb-1 xs:mb-2">
                 Cashout Management
               </h1>
-              <p className="text-[17px] text-[#838383]">
+              <p className="text-xs xs:text-sm sm:text-base text-[#838383]">
                 Manage user cashout requests and deliveries
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            <div className="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-4 gap-3 xs:gap-4 sm:gap-6 mb-6 xs:mb-8">
               {stats.map((stat, index) => (
                 <div
                   key={index}
-                  className="flex items-center justify-between p-4 border border-[#D4D4D4] rounded-[10px] bg-white"
+                  className="flex flex-col xs:flex-row items-start xs:items-center justify-between p-3 xs:p-4 border border-[#D4D4D4] rounded-[10px] bg-white gap-2 xs:gap-4"
                 >
                   <div>
-                    <div className="text-[14px] font-medium text-black mb-1">
+                    <div className="text-xs xs:text-sm font-medium text-black mb-1">
                       {stat.label}
                     </div>
-                    <div className="text-[20px] font-bold text-black">
+                    <div className="text-lg xs:text-xl font-bold text-black">
                       {stat.value}
                     </div>
                   </div>
@@ -233,20 +233,18 @@ export const Support: React.FC = () => {
               ))}
             </div>
 
-            <div className="mb-6 flex items-center justify-between">
-              <div className="flex items-center gap-4">
-                <input
-                  type="text"
-                  placeholder="Search requests by email, name etc..."
-                  className="px-4 py-2 bg-[#F2F2F2] rounded-[3px] text-[10px] text-[#6B6B6B] outline-none min-w-[277px]"
-                />
-                <select className="px-4 py-2 bg-black text-white rounded text-[12px] outline-none">
-                  <option>All Status</option>
-                  <option>Delivered</option>
-                  <option>Processing</option>
-                  <option>Canceled</option>
-                </select>
-              </div>
+            <div className="mb-6 flex flex-col xs:flex-row items-stretch xs:items-center justify-between gap-2 xs:gap-3">
+              <input
+                type="text"
+                placeholder="Search requests by email, name etc..."
+                className="px-3 xs:px-4 py-2 bg-[#F2F2F2] rounded-[3px] text-xs xs:text-[10px] text-[#6B6B6B] outline-none flex-1 xs:min-w-0"
+              />
+              <select className="px-3 xs:px-4 py-2 bg-black text-white rounded text-xs xs:text-[12px] outline-none whitespace-nowrap">
+                <option>All Status</option>
+                <option>Delivered</option>
+                <option>Processing</option>
+                <option>Canceled</option>
+              </select>
             </div>
 
             <div className="overflow-x-auto">
@@ -367,16 +365,81 @@ export const Support: React.FC = () => {
               </table>
             </div>
 
-            <div className="mt-6 flex items-center justify-between">
-              <p className="text-[17px] text-[#838383]">Showing 10 out of 30</p>
-              <div className="flex items-center gap-3">
-                <button className="text-[13px] font-medium text-black">
+            {/* Mobile Card View */}
+            <div className="lg:hidden space-y-3 xs:space-y-4">
+              {cashoutRequests.map((request) => (
+                <div key={request.id} className="border border-[#C9C9C9] rounded-lg p-3 xs:p-4 space-y-2">
+                  <div className="flex items-start justify-between gap-2">
+                    <div>
+                      <div className="text-sm xs:text-base font-semibold text-black">
+                        {request.requestId}
+                      </div>
+                      <div className="text-xs text-[#838383]">
+                        {request.userName}
+                      </div>
+                    </div>
+                    <span
+                      className={`inline-flex px-2 py-1 rounded text-xs ${getStatusColor(request.status)}`}
+                    >
+                      {request.status}
+                    </span>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-2 text-xs xs:text-sm">
+                    <div>
+                      <span className="text-[#838383]">Amount:</span>
+                      <div className="font-medium text-black">₹{request.amount}</div>
+                    </div>
+                    <div>
+                      <span className="text-[#838383]">Method:</span>
+                      <div className="font-medium text-black">{request.method}</div>
+                    </div>
+                    <div>
+                      <span className="text-[#838383]">Date:</span>
+                      <div className="font-medium text-black">{request.date}</div>
+                    </div>
+                    <div>
+                      <span className="text-[#838383]">ID:</span>
+                      <div className="font-medium text-black text-[10px]">{request.trackingId}</div>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-2 pt-2 border-t border-[#C9C9C9]">
+                    <button
+                      className="p-1 hover:opacity-70"
+                      onClick={() => {
+                        setSelectedRequest(request);
+                        setIsModalOpen(true);
+                      }}
+                    >
+                      <svg
+                        width="16"
+                        height="10"
+                        viewBox="0 0 20 13"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M10 3.9C10.7233 3.9 11.417 4.17393 11.9285 4.66152C12.4399 5.14912 12.7273 5.81044 12.7273 6.5C12.7273 7.18956 12.4399 7.85088 11.9285 8.33848C11.417 8.82607 10.7233 9.1 10 9.1C9.27668 9.1 8.58299 8.82607 8.07153 8.33848C7.56006 7.85088 7.27273 7.18956 7.27273 6.5C7.27273 5.81044 7.56006 5.14912 8.07153 4.66152C8.58299 4.17393 9.27668 3.9 10 3.9ZM10 0C14.5455 0 18.4273 2.69533 20 6.5C18.4273 10.3047 14.5455 13 10 13C5.45455 13 1.57273 10.3047 0 6.5C1.57273 2.69533 5.45455 0 10 0ZM1.98182 6.5C2.71659 7.93027 3.85755 9.13531 5.27498 9.97815C6.69241 10.821 8.32945 11.2678 10 11.2678C11.6705 11.2678 13.3076 10.821 14.725 9.97815C16.1424 9.13531 17.2834 7.93027 18.0182 6.5C17.2834 5.06973 16.1424 3.86469 14.725 3.02185C13.3076 2.17901 11.6705 1.73219 10 1.73219C8.32945 1.73219 6.69241 2.17901 5.27498 3.02185C3.85755 3.86469 2.71659 5.06973 1.98182 6.5Z"
+                          fill="black"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-6 flex flex-col xs:flex-row items-center justify-between gap-4">
+              <p className="text-xs xs:text-sm text-[#838383]">Showing 10 out of 30</p>
+              <div className="flex items-center gap-1 xs:gap-3 overflow-x-auto">
+                <button className="text-xs xs:text-[13px] font-medium text-black whitespace-nowrap px-2">
                   Previous
                 </button>
                 {[1, 2, 3, 4, 5].map((page) => (
                   <button
                     key={page}
-                    className={`w-[35px] h-[35px] flex items-center justify-center rounded-[3px] text-[13px] font-semibold ${
+                    className={`w-7 xs:w-[35px] h-7 xs:h-[35px] flex items-center justify-center rounded-[3px] text-xs xs:text-[13px] font-semibold flex-shrink-0 ${
                       page === currentPage
                         ? "bg-[#3CC27B] text-white"
                         : "bg-white text-black"
@@ -385,7 +448,7 @@ export const Support: React.FC = () => {
                     {page}
                   </button>
                 ))}
-                <button className="text-[13px] font-medium text-black">
+                <button className="text-xs xs:text-[13px] font-medium text-black whitespace-nowrap px-2">
                   Next
                 </button>
               </div>
@@ -397,51 +460,51 @@ export const Support: React.FC = () => {
       {/* Request Details Modal */}
       {isModalOpen && selectedRequest && (
         <div
-          className="fixed inset-0 bg-black/22 backdrop-blur-sm flex items-center justify-center z-50 p-4"
+          className="fixed inset-0 bg-black/22 backdrop-blur-sm flex items-center justify-center z-50 p-3 xs:p-4"
           onClick={() => setIsModalOpen(false)}
         >
           <div
-            className="bg-white rounded-[11px] w-full max-w-[408px] p-10 shadow-xl"
+            className="bg-white rounded-lg xs:rounded-[11px] w-full max-w-[408px] p-5 xs:p-10 shadow-xl max-h-[90vh] overflow-y-auto"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="space-y-6">
-              <h2 className="text-[17px] font-medium text-black leading-[33px]">
+            <div className="space-y-4 xs:space-y-6">
+              <h2 className="text-base xs:text-lg font-medium text-black leading-relaxed">
                 Request Details - {selectedRequest.requestId}
               </h2>
 
-              <div className="space-y-4">
-                <div className="flex justify-between items-start">
-                  <span className="text-[14px] font-light text-black">
+              <div className="space-y-3 xs:space-y-4">
+                <div className="flex flex-col xs:flex-row xs:justify-between xs:items-start gap-2 xs:gap-3">
+                  <span className="text-xs xs:text-sm font-light text-black">
                     Amount :
                   </span>
-                  <span className="text-[14px] font-medium text-black text-right">
+                  <span className="text-xs xs:text-sm font-medium text-black xs:text-right">
                     ₹{selectedRequest.amount}
                   </span>
                 </div>
 
-                <div className="flex justify-between items-start">
-                  <span className="text-[14px] font-light text-black">
+                <div className="flex flex-col xs:flex-row xs:justify-between xs:items-start gap-2 xs:gap-3">
+                  <span className="text-xs xs:text-sm font-light text-black">
                     User
                   </span>
-                  <span className="text-[14px] font-medium text-black text-right">
+                  <span className="text-xs xs:text-sm font-medium text-black xs:text-right break-words">
                     {selectedRequest.userName} ({selectedRequest.userEmail})
                   </span>
                 </div>
 
-                <div className="flex justify-between items-start">
-                  <span className="text-[14px] font-light text-black">
+                <div className="flex flex-col xs:flex-row xs:justify-between xs:items-start gap-2 xs:gap-3">
+                  <span className="text-xs xs:text-sm font-light text-black flex-shrink-0">
                     Address :
                   </span>
-                  <span className="text-[14px] font-medium text-black text-right max-w-[165px]">
+                  <span className="text-xs xs:text-sm font-medium text-black xs:text-right break-words">
                     {selectedRequest.address}
                   </span>
                 </div>
 
-                <div className="flex justify-between items-start">
-                  <span className="text-[14px] font-light text-black">
+                <div className="flex flex-col xs:flex-row xs:justify-between xs:items-start gap-2 xs:gap-3">
+                  <span className="text-xs xs:text-sm font-light text-black flex-shrink-0">
                     User Notes :
                   </span>
-                  <span className="text-[14px] font-medium text-black text-right max-w-[209px]">
+                  <span className="text-xs xs:text-sm font-medium text-black xs:text-right break-words">
                     {selectedRequest.userNotes}
                   </span>
                 </div>
