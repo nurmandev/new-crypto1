@@ -493,7 +493,8 @@ export const Settings = () => {
                   </label>
                   <input
                     type="email"
-                    defaultValue="USDTmpay"
+                    value={supportEmail}
+                    onChange={(e) => setSupportEmail(e.target.value)}
                     className="w-full h-[51px] px-5 rounded-lg border border-[#E0E0E0] bg-white text-sm text-black outline-none focus:border-[#3CC27B] focus:ring-2 focus:ring-[#3CC27B]/20 transition-all"
                   />
                 </div>
@@ -505,7 +506,8 @@ export const Settings = () => {
                   </label>
                   <input
                     type="email"
-                    defaultValue="Usdtmpay - Secure Cryptocurrency Exchange Platform"
+                    value={contactEmail}
+                    onChange={(e) => setContactEmail(e.target.value)}
                     className="w-full h-[51px] px-5 rounded-lg border border-[#E0E0E0] bg-white text-sm text-black outline-none focus:border-[#3CC27B] focus:ring-2 focus:ring-[#3CC27B]/20 transition-all"
                   />
                 </div>
@@ -517,7 +519,8 @@ export const Settings = () => {
                   </label>
                   <input
                     type="email"
-                    defaultValue="USDTmpay"
+                    value={adminEmail}
+                    onChange={(e) => setAdminEmail(e.target.value)}
                     className="w-full h-[51px] px-5 rounded-lg border border-[#E0E0E0] bg-white text-sm text-black outline-none focus:border-[#3CC27B] focus:ring-2 focus:ring-[#3CC27B]/20 transition-all"
                   />
                 </div>
@@ -529,7 +532,8 @@ export const Settings = () => {
                   </label>
                   <input
                     type="tel"
-                    defaultValue="+91 9876543210"
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
                     className="w-full h-[51px] px-5 rounded-lg border border-[#E0E0E0] bg-white text-sm text-black outline-none focus:border-[#3CC27B] focus:ring-2 focus:ring-[#3CC27B]/20 transition-all"
                   />
                 </div>
@@ -541,7 +545,8 @@ export const Settings = () => {
                   </label>
                   <textarea
                     rows={4}
-                    defaultValue="123 Crypto Street, Mumbai, Maharashtra 400001"
+                    value={businessAddress}
+                    onChange={(e) => setBusinessAddress(e.target.value)}
                     className="w-full px-5 py-3 rounded-lg border border-[#E0E0E0] bg-white text-sm text-black outline-none focus:border-[#3CC27B] focus:ring-2 focus:ring-[#3CC27B]/20 transition-all resize-none"
                   />
                 </div>
