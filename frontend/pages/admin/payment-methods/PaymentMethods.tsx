@@ -587,25 +587,25 @@ export const PaymentMethods: React.FC = () => {
             </div>
 
             {/* Description */}
-            <div className="mt-6">
-              <label className="block text-[15px] font-medium text-black mb-2">
+            <div className="mt-4 sm:mt-5">
+              <label className="block text-sm font-medium text-black mb-1.5">
                 Description
               </label>
               <textarea
                 placeholder="Unified Payments Interface for instant INR transfers"
-                rows={4}
-                className="w-full px-4 py-3 rounded-[5px] border-[0.7px] border-[#CACACA] bg-[#F0F0F0] text-[15px] font-medium placeholder:text-[#8E8E8E] text-black outline-none focus:border-[#3CC27B] transition-colors resize-none"
+                rows={3}
+                className="w-full px-3 py-2 rounded-md border border-[#CACACA] bg-[#F0F0F0] text-sm font-medium placeholder:text-[#8E8E8E] text-black outline-none focus:border-[#3CC27B] focus:bg-white transition-colors resize-none"
               />
             </div>
 
             {/* Action Buttons */}
-            <div className="mt-8 flex flex-col sm:flex-row gap-4">
-              <button className="flex-1 h-[36px] px-4 bg-black text-white text-[15px] font-medium rounded-md border border-[#C3C3C3] hover:bg-gray-800 transition-colors">
+            <div className="mt-6 flex flex-col sm:flex-row gap-3 pt-4 border-t border-[#E0E0E0]">
+              <button className="flex-1 h-10 px-4 bg-black text-white text-sm font-semibold rounded-md border border-black hover:bg-gray-900 transition-colors">
                 Add
               </button>
               <button
                 onClick={handleCloseAddModal}
-                className="flex-1 h-[36px] px-4 bg-white text-black text-[15px] font-medium rounded-md border border-[#C3C3C3] hover:bg-gray-50 transition-colors"
+                className="flex-1 h-10 px-4 bg-white text-black text-sm font-semibold rounded-md border border-[#D0D0D0] hover:bg-gray-100 transition-colors"
               >
                 Cancel
               </button>
