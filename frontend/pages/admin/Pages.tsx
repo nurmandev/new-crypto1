@@ -225,7 +225,10 @@ export const Pages = () => {
                   Manage all website Pages
                 </p>
               </div>
-              <button className="inline-flex items-center justify-center gap-2.5 px-9 py-2 bg-[#161616] text-white rounded-md hover:bg-black transition-colors text-sm sm:text-base font-medium">
+              <button
+                onClick={() => navigate("/admin/pages/add")}
+                className="inline-flex items-center justify-center gap-2.5 px-9 py-2 bg-[#161616] text-white rounded-md hover:bg-black transition-colors text-sm sm:text-base font-medium"
+              >
                 <svg
                   width="15"
                   height="15"

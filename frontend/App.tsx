@@ -99,6 +99,7 @@ const App = () => (
             element={<CryptocurrencyManagement />}
           />
           <Route path="/admin/pages" element={<Pages />} />
+          <Route path="/admin/pages/add" element={<AddPage />} />
           <Route path="/admin/pages/edit/:id" element={<EditPage />} />
           <Route path="/admin/settings" element={<Settings />} />
           <Route path="/cryptocurrency" element={<Cryptocurrency />} />
