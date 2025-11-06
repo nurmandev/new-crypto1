@@ -196,7 +196,8 @@ export const Settings = () => {
                   </label>
                   <input
                     type="text"
-                    defaultValue="USDTmpay"
+                    value={siteName}
+                    onChange={(e) => setSiteName(e.target.value)}
                     className="w-full h-[51px] px-5 rounded-lg border border-[#E0E0E0] bg-white text-sm text-black outline-none focus:border-[#3CC27B] focus:ring-2 focus:ring-[#3CC27B]/20 transition-all"
                   />
                 </div>
@@ -208,7 +209,8 @@ export const Settings = () => {
                   </label>
                   <input
                     type="text"
-                    defaultValue="Usdtmpay - Secure Cryptocurrency Exchange Platform"
+                    value={siteTitle}
+                    onChange={(e) => setSiteTitle(e.target.value)}
                     className="w-full h-[51px] px-5 rounded-lg border border-[#E0E0E0] bg-white text-sm text-black outline-none focus:border-[#3CC27B] focus:ring-2 focus:ring-[#3CC27B]/20 transition-all"
                   />
                 </div>
@@ -220,7 +222,8 @@ export const Settings = () => {
                   </label>
                   <textarea
                     rows={4}
-                    defaultValue="Trade cryptocurrencies securely with CryptoCrowd. Buy and sell Bitcoin, Ethereum and more."
+                    value={siteDescription}
+                    onChange={(e) => setSiteDescription(e.target.value)}
                     className="w-full px-5 py-3 rounded-lg border border-[#E0E0E0] bg-white text-sm text-black outline-none focus:border-[#3CC27B] focus:ring-2 focus:ring-[#3CC27B]/20 transition-all resize-none"
                   />
                 </div>
@@ -232,7 +235,8 @@ export const Settings = () => {
                   </label>
                   <input
                     type="text"
-                    defaultValue="cryptocurrency, bitcoin, ethereum, trading, exchange"
+                    value={seoKeywords}
+                    onChange={(e) => setSeoKeywords(e.target.value)}
                     className="w-full h-[51px] px-5 rounded-lg border border-[#E0E0E0] bg-white text-sm text-black outline-none focus:border-[#3CC27B] focus:ring-2 focus:ring-[#3CC27B]/20 transition-all"
                   />
                 </div>
@@ -244,7 +248,8 @@ export const Settings = () => {
                   </label>
                   <input
                     type="text"
-                    defaultValue="USDTmpay Team"
+                    value={author}
+                    onChange={(e) => setAuthor(e.target.value)}
                     className="w-full h-[51px] px-5 rounded-lg border border-[#E0E0E0] bg-white text-sm text-black outline-none focus:border-[#3CC27B] focus:ring-2 focus:ring-[#3CC27B]/20 transition-all"
                   />
                 </div>
