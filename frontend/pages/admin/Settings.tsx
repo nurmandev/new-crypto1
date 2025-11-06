@@ -1,10 +1,164 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { AdminHeader } from "./components/AdminHeader";
 import { AdminSidebar } from "./components/AdminSidebar";
 
 export const Settings = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  // Site Information
+  const [siteName, setSiteName] = useState("USDTmpay");
+  const [siteTitle, setSiteTitle] = useState("Usdtmpay - Secure Cryptocurrency Exchange Platform");
+  const [siteDescription, setSiteDescription] = useState("Trade cryptocurrencies securely with CryptoCrowd. Buy and sell Bitcoin, Ethereum and more.");
+  const [seoKeywords, setSeoKeywords] = useState("cryptocurrency, bitcoin, ethereum, trading, exchange");
+  const [author, setAuthor] = useState("USDTmpay Team");
+
+  // Branding & Assets
+  const [logoPreview, setLogoPreview] = useState<string | null>(null);
+  const [faviconPreview, setFaviconPreview] = useState<string | null>(null);
+
+  // Colors & Typography
+  const [primaryColor, setPrimaryColor] = useState("#6366F1");
+  const [primaryColorText, setPrimaryColorText] = useState("#6366F1");
+  const [secondaryColor, setSecondaryColor] = useState("#8B5CF6");
+  const [secondaryColorText, setSecondaryColorText] = useState("#8B5CF6");
+  const [accentColor, setAccentColor] = useState("#6FECC2");
+  const [accentColorText, setAccentColorText] = useState("#6FECC2");
+  const [backgroundColor, setBackgroundColor] = useState("#FFFFFF");
+  const [backgroundColorText, setBackgroundColorText] = useState("#FFFFFF");
+  const [textColor, setTextColor] = useState("#1A1B23");
+  const [textColorText, setTextColorText] = useState("#1A1B23");
+  const [fontFamily, setFontFamily] = useState("Roboto Bold");
+
+  // Contact Information
+  const [supportEmail, setSupportEmail] = useState("support@usdtmpay.com");
+  const [contactEmail, setContactEmail] = useState("contact@usdtmpay.com");
+  const [adminEmail, setAdminEmail] = useState("admin@usdtmpay.com");
+  const [phone, setPhone] = useState("+91 9876543210");
+  const [businessAddress, setBusinessAddress] = useState("123 Crypto Street, Mumbai, Maharashtra 400001");
+
+  // Security Settings
+  const [sessionTimeout, setSessionTimeout] = useState("30");
   const [maintenanceMode, setMaintenanceMode] = useState(false);
+
+  // UI State
+  const [isSaving, setIsSaving] = useState(false);
+  const [saveMessage, setSaveMessage] = useState<{ type: "success" | "error"; text: string } | null>(null);
+
+  // Load settings from localStorage on mount
+  useEffect(() => {
+    const savedSettings = localStorage.getItem("websiteSettings");
+    if (savedSettings) {
+      try {
+        const settings = JSON.parse(savedSettings);
+        setSiteName(settings.siteName || siteName);
+        setSiteTitle(settings.siteTitle || siteTitle);
+        setSiteDescription(settings.siteDescription || siteDescription);
+        setSeoKeywords(settings.seoKeywords || seoKeywords);
+        setAuthor(settings.author || author);
+        setPrimaryColor(settings.primaryColor || primaryColor);
+        setPrimaryColorText(settings.primaryColor || primaryColor);
+        setSecondaryColor(settings.secondaryColor || secondaryColor);
+        setSecondaryColorText(settings.secondaryColor || secondaryColor);
+        setAccentColor(settings.accentColor || accentColor);
+        setAccentColorText(settings.accentColor || accentColor);
+        setBackgroundColor(settings.backgroundColor || backgroundColor);
+        setBackgroundColorText(settings.backgroundColor || backgroundColor);
+        setTextColor(settings.textColor || textColor);
+        setTextColorText(settings.textColor || textColor);
+        setFontFamily(settings.fontFamily || fontFamily);
+        setSupportEmail(settings.supportEmail || supportEmail);
+        setContactEmail(settings.contactEmail || contactEmail);
+        setAdminEmail(settings.adminEmail || adminEmail);
+        setPhone(settings.phone || phone);
+        setBusinessAddress(settings.businessAddress || businessAddress);
+        setSessionTimeout(settings.sessionTimeout || sessionTimeout);
+        setMaintenanceMode(settings.maintenanceMode || maintenanceMode);
+      } catch (error) {
+        console.error("Failed to load settings:", error);
+      }
+    }
+  }, []);
+
+  // Color input change handlers
+  const handleColorChange = (value: string, setter: (val: string) => void, textSetter: (val: string) => void) => {
+    setter(value);
+    textSetter(value);
+  };
+
+  // Color text input change handler
+  const handleColorTextChange = (value: string, setter: (val: string) => void, textSetter: (val: string) => void) => {
+    textSetter(value);
+    if (/^#[0-9A-F]{6}$/i.test(value)) {
+      setter(value);
+    }
+  };
+
+  // File upload handlers
+  const handleLogoUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file && file.type.startsWith("image/")) {
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        setLogoPreview(event.target?.result as string);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
+  const handleFaviconUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file && file.type.startsWith("image/")) {
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        setFaviconPreview(event.target?.result as string);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
+  // Save settings handler
+  const handleSaveSettings = async () => {
+    setIsSaving(true);
+    try {
+      const settings = {
+        siteName,
+        siteTitle,
+        siteDescription,
+        seoKeywords,
+        author,
+        primaryColor,
+        secondaryColor,
+        accentColor,
+        backgroundColor,
+        textColor,
+        fontFamily,
+        supportEmail,
+        contactEmail,
+        adminEmail,
+        phone,
+        businessAddress,
+        sessionTimeout,
+        maintenanceMode,
+        logoPreview,
+        faviconPreview,
+      };
+
+      // Save to localStorage
+      localStorage.setItem("websiteSettings", JSON.stringify(settings));
+
+      // Here you could also make an API call to save to backend
+      // await fetch('/api/admin/settings', { method: 'POST', body: JSON.stringify(settings) })
+
+      setSaveMessage({ type: "success", text: "Settings saved successfully!" });
+      setTimeout(() => setSaveMessage(null), 3000);
+    } catch (error) {
+      console.error("Failed to save settings:", error);
+      setSaveMessage({ type: "error", text: "Failed to save settings. Please try again." });
+      setTimeout(() => setSaveMessage(null), 3000);
+    } finally {
+      setIsSaving(false);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-[#F8F8F8]">
