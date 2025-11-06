@@ -176,8 +176,8 @@ const menuItems = [
     ),
   },
   {
-    label: "Pages",
-    path: "/admin/pages",
+    label: "Settings",
+    path: "/admin/settings",
     icon: (
       <svg
         width="15"
