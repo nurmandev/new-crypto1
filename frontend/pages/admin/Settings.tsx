@@ -268,29 +268,42 @@ export const Settings = () => {
                   <label className="block text-base sm:text-lg font-medium text-black mb-2">
                     Logo Upload
                   </label>
-                  <label className="block w-full h-[165px] cursor-pointer">
-                    <div className="w-full h-full rounded-lg border-2 border-dashed border-[#BABABA] flex flex-col items-center justify-center gap-3 hover:border-[#3CC27B] hover:bg-[#F8F8F8] transition-all">
-                      <svg
-                        width="20"
-                        height="20"
-                        viewBox="0 0 20 20"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="text-black"
+                  {logoPreview ? (
+                    <div className="w-full h-[165px] rounded-lg border-2 border-[#BABABA] flex flex-col items-center justify-center gap-3 bg-gray-50 relative">
+                      <img src={logoPreview} alt="Logo preview" className="max-h-32 max-w-full object-contain" />
+                      <button
+                        type="button"
+                        onClick={() => setLogoPreview(null)}
+                        className="text-sm text-[#3CC27B] hover:text-[#35a869] transition-colors"
                       >
-                        <path
-                          d="M8.75 15V4.8125L5.5 8.0625L3.75 6.25L10 0L16.25 6.25L14.5 8.0625L11.25 4.8125V15H8.75ZM0 20V13.75H2.5V17.5H17.5V13.75H20V20H0Z"
-                          fill="currentColor"
-                        />
-                      </svg>
-                      <p className="text-sm font-light text-black text-center leading-snug">
-                        Click to upload logo
-                        <br />
-                        PNG, JPG up to 2MB
-                      </p>
+                        Clear
+                      </button>
                     </div>
-                    <input type="file" className="hidden" accept="image/*" />
-                  </label>
+                  ) : (
+                    <label className="block w-full h-[165px] cursor-pointer">
+                      <div className="w-full h-full rounded-lg border-2 border-dashed border-[#BABABA] flex flex-col items-center justify-center gap-3 hover:border-[#3CC27B] hover:bg-[#F8F8F8] transition-all">
+                        <svg
+                          width="20"
+                          height="20"
+                          viewBox="0 0 20 20"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="text-black"
+                        >
+                          <path
+                            d="M8.75 15V4.8125L5.5 8.0625L3.75 6.25L10 0L16.25 6.25L14.5 8.0625L11.25 4.8125V15H8.75ZM0 20V13.75H2.5V17.5H17.5V13.75H20V20H0Z"
+                            fill="currentColor"
+                          />
+                        </svg>
+                        <p className="text-sm font-light text-black text-center leading-snug">
+                          Click to upload logo
+                          <br />
+                          PNG, JPG up to 2MB
+                        </p>
+                      </div>
+                      <input type="file" className="hidden" accept="image/*" onChange={handleLogoUpload} />
+                    </label>
+                  )}
                 </div>
 
                 {/* Favicon Upload */}
@@ -298,29 +311,42 @@ export const Settings = () => {
                   <label className="block text-base sm:text-lg font-medium text-black mb-2">
                     Favicon Upload
                   </label>
-                  <label className="block w-full h-[165px] cursor-pointer">
-                    <div className="w-full h-full rounded-lg border-2 border-dashed border-[#BABABA] flex flex-col items-center justify-center gap-3 hover:border-[#3CC27B] hover:bg-[#F8F8F8] transition-all">
-                      <svg
-                        width="20"
-                        height="20"
-                        viewBox="0 0 20 20"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="text-black"
+                  {faviconPreview ? (
+                    <div className="w-full h-[165px] rounded-lg border-2 border-[#BABABA] flex flex-col items-center justify-center gap-3 bg-gray-50 relative">
+                      <img src={faviconPreview} alt="Favicon preview" className="max-h-12 max-w-12 object-contain" />
+                      <button
+                        type="button"
+                        onClick={() => setFaviconPreview(null)}
+                        className="text-sm text-[#3CC27B] hover:text-[#35a869] transition-colors"
                       >
-                        <path
-                          d="M8.75 15V4.8125L5.5 8.0625L3.75 6.25L10 0L16.25 6.25L14.5 8.0625L11.25 4.8125V15H8.75ZM0 20V13.75H2.5V17.5H17.5V13.75H20V20H0Z"
-                          fill="currentColor"
-                        />
-                      </svg>
-                      <p className="text-sm font-light text-black text-center leading-snug">
-                        Click to upload logo
-                        <br />
-                        PNG, JPG up to 2MB
-                      </p>
+                        Clear
+                      </button>
                     </div>
-                    <input type="file" className="hidden" accept="image/*" />
-                  </label>
+                  ) : (
+                    <label className="block w-full h-[165px] cursor-pointer">
+                      <div className="w-full h-full rounded-lg border-2 border-dashed border-[#BABABA] flex flex-col items-center justify-center gap-3 hover:border-[#3CC27B] hover:bg-[#F8F8F8] transition-all">
+                        <svg
+                          width="20"
+                          height="20"
+                          viewBox="0 0 20 20"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="text-black"
+                        >
+                          <path
+                            d="M8.75 15V4.8125L5.5 8.0625L3.75 6.25L10 0L16.25 6.25L14.5 8.0625L11.25 4.8125V15H8.75ZM0 20V13.75H2.5V17.5H17.5V13.75H20V20H0Z"
+                            fill="currentColor"
+                          />
+                        </svg>
+                        <p className="text-sm font-light text-black text-center leading-snug">
+                          Click to upload favicon
+                          <br />
+                          PNG, JPG up to 2MB
+                        </p>
+                      </div>
+                      <input type="file" className="hidden" accept="image/*" onChange={handleFaviconUpload} />
+                    </label>
+                  )}
                 </div>
               </div>
             </section>
