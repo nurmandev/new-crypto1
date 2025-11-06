@@ -423,38 +423,38 @@ export const PaymentMethods: React.FC = () => {
 
       {/* Add Payment Method Modal */}
       {isAddModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[rgba(0,0,0,0.22)]">
-          <div className="bg-white rounded-[22px] w-full max-w-[810px] max-h-[90vh] overflow-y-auto p-[30px]">
-            <div className="w-full max-w-[750px] mx-auto">
-              <h2 className="text-[17px] font-medium text-black mb-[26px] leading-[33px]">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 md:p-6 bg-black/30 backdrop-blur-sm">
+          <div className="bg-white rounded-xl shadow-xl w-full max-w-xs sm:max-w-sm md:max-w-2xl max-h-[90vh] overflow-y-auto">
+            <div className="p-4 sm:p-6 md:p-8">
+              <h2 className="text-lg sm:text-xl font-semibold text-black mb-6 sm:mb-8">
                 Add Payment Method
               </h2>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-[33px] gap-y-[26px]">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                 {/* Method Name */}
                 <div>
-                  <label className="block text-[15px] font-medium text-black mb-[8px]">
+                  <label className="block text-sm font-semibold text-black mb-2">
                     Method Name
                   </label>
                   <input
                     type="text"
                     placeholder="UPI (Google Pay, PhonePe, Paytm)"
-                    className="w-full h-[51px] px-[29px] rounded-[5px] border-[0.7px] border-[#CACACA] bg-[#F0F0F0] text-[15px] font-medium placeholder:text-[#8E8E8E] text-[#8E8E8E] outline-none focus:border-[#3CC27B] focus:bg-white transition-colors"
+                    className="w-full px-3 py-2.5 rounded-lg border border-[#E0E0E0] bg-white text-sm placeholder:text-gray-400 text-black outline-none focus:border-[#3CC27B] focus:ring-2 focus:ring-[#3CC27B]/20 transition-all"
                   />
                 </div>
 
                 {/* Icon / emoji */}
                 <div>
-                  <label className="block text-[15px] font-medium text-black mb-[8px]">
+                  <label className="block text-sm font-semibold text-black mb-2">
                     Icon / emoji
                   </label>
-                  <div className="flex items-center gap-3 h-[51px] px-[15px] rounded-[5px] border-[0.7px] border-[#CACACA] bg-[#F0F0F0]">
+                  <div className="flex items-center gap-3 px-3 py-2.5 rounded-lg border border-[#E0E0E0] bg-white">
                     <img
                       src="https://api.builder.io/api/v1/image/assets/TEMP/9612201e1ef1e7bf5a1f77e21ab45da81965bf9f?width=72"
                       alt="icon"
-                      className="w-[36px] h-[36px] rounded-[30px]"
+                      className="w-7 h-7 rounded-full"
                     />
-                    <label className="ml-auto cursor-pointer text-[13px] text-[#8F8F8F] hover:text-black transition-colors">
+                    <label className="ml-auto cursor-pointer text-xs text-[#666] hover:text-black transition-colors font-medium">
                       Upload
                       <input type="file" className="hidden" accept="image/*" />
                     </label>
@@ -463,77 +463,77 @@ export const PaymentMethods: React.FC = () => {
 
                 {/* Minimum Amount */}
                 <div>
-                  <label className="block text-[15px] font-medium text-black mb-[8px]">
+                  <label className="block text-sm font-semibold text-black mb-2">
                     Minimum Amount (₹)
                   </label>
                   <input
                     type="text"
                     placeholder="100"
-                    className="w-full h-[51px] px-[29px] rounded-[5px] border-[0.7px] border-[#CACACA] bg-[#F0F0F0] text-[15px] font-medium placeholder:text-[#8E8E8E] text-[#8E8E8E] outline-none focus:border-[#3CC27B] focus:bg-white transition-colors"
+                    className="w-full px-3 py-2.5 rounded-lg border border-[#E0E0E0] bg-white text-sm placeholder:text-gray-400 text-black outline-none focus:border-[#3CC27B] focus:ring-2 focus:ring-[#3CC27B]/20 transition-all"
                   />
                 </div>
 
                 {/* Maximum Amount */}
                 <div>
-                  <label className="block text-[15px] font-medium text-black mb-[8px]">
+                  <label className="block text-sm font-semibold text-black mb-2">
                     Maximum Amount (₹)
                   </label>
                   <input
                     type="text"
                     placeholder="100000"
-                    className="w-full h-[51px] px-[29px] rounded-[5px] border-[0.7px] border-[#CACACA] bg-[#F0F0F0] text-[15px] font-medium placeholder:text-[#8E8E8E] text-[#8E8E8E] outline-none focus:border-[#3CC27B] focus:bg-white transition-colors"
+                    className="w-full px-3 py-2.5 rounded-lg border border-[#E0E0E0] bg-white text-sm placeholder:text-gray-400 text-black outline-none focus:border-[#3CC27B] focus:ring-2 focus:ring-[#3CC27B]/20 transition-all"
                   />
                 </div>
 
                 {/* Fees */}
                 <div>
-                  <label className="block text-[15px] font-medium text-black mb-[8px]">
+                  <label className="block text-sm font-semibold text-black mb-2">
                     Fees (%)
                   </label>
                   <input
                     type="text"
                     placeholder="0"
-                    className="w-full h-[51px] px-[29px] rounded-[5px] border-[0.7px] border-[#CACACA] bg-[#F0F0F0] text-[15px] font-medium placeholder:text-[#8E8E8E] text-[#8E8E8E] outline-none focus:border-[#3CC27B] focus:bg-white transition-colors"
+                    className="w-full px-3 py-2.5 rounded-lg border border-[#E0E0E0] bg-white text-sm placeholder:text-gray-400 text-black outline-none focus:border-[#3CC27B] focus:ring-2 focus:ring-[#3CC27B]/20 transition-all"
                   />
                 </div>
 
                 {/* Processing Time */}
                 <div>
-                  <label className="block text-[15px] font-medium text-black mb-[8px]">
+                  <label className="block text-sm font-semibold text-black mb-2">
                     Processing Time
                   </label>
                   <input
                     type="text"
                     placeholder="Instant"
-                    className="w-full h-[51px] px-[29px] rounded-[5px] border-[0.7px] border-[#CACACA] bg-[#F0F0F0] text-[15px] font-medium placeholder:text-[#8E8E8E] text-[#8E8E8E] outline-none focus:border-[#3CC27B] focus:bg-white transition-colors"
+                    className="w-full px-3 py-2.5 rounded-lg border border-[#E0E0E0] bg-white text-sm placeholder:text-gray-400 text-black outline-none focus:border-[#3CC27B] focus:ring-2 focus:ring-[#3CC27B]/20 transition-all"
+                  />
+                </div>
+
+                {/* Add UPI ID */}
+                <div>
+                  <label className="block text-sm font-semibold text-black mb-2">
+                    Add UPI ID
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="upiid@sbibank"
+                    className="w-full px-3 py-2.5 rounded-lg border border-[#E0E0E0] bg-white text-sm placeholder:text-gray-400 text-black outline-none focus:border-[#3CC27B] focus:ring-2 focus:ring-[#3CC27B]/20 transition-all"
                   />
                 </div>
               </div>
 
-              {/* Add UPI ID - Full Width */}
-              <div className="mt-[26px]">
-                <label className="block text-[15px] font-medium text-black mb-[8px]">
-                  Add UPI ID
-                </label>
-                <input
-                  type="text"
-                  placeholder="upiid@sbibank"
-                  className="w-full h-[51px] px-[29px] rounded-[5px] border-[0.7px] border-[#CACACA] bg-[#F0F0F0] text-[15px] font-medium placeholder:text-[#8E8E8E] text-[#8E8E8E] outline-none focus:border-[#3CC27B] focus:bg-white transition-colors"
-                />
-              </div>
-
               {/* QR Code Upload Section */}
-              <div className="mt-[35px]">
+              <div className="mt-6 sm:mt-8">
                 {addQrCodePreview ? (
                   <div className="relative inline-block">
                     <img
                       src={addQrCodePreview}
                       alt="QR Code Preview"
-                      className="w-[164px] h-[164px] object-contain rounded-[5px]"
+                      className="w-32 h-32 object-contain rounded-lg border border-[#E0E0E0]"
                     />
                     <button
                       onClick={() => setAddQrCodePreview(null)}
-                      className="absolute -top-2 -right-2 w-[14px] h-[14px] flex items-center justify-center"
+                      className="absolute -top-2 -right-2 w-5 h-5 flex items-center justify-center bg-white rounded-full shadow-lg hover:bg-gray-50 transition-colors"
                     >
                       <svg
                         width="14"
@@ -550,25 +550,29 @@ export const PaymentMethods: React.FC = () => {
                     </button>
                   </div>
                 ) : (
-                  <label className="block w-full sm:w-[358px] h-[145px] cursor-pointer">
-                    <div className="w-full h-full rounded-[5px] border-2 border-dashed border-[#BABABA] flex flex-col items-center justify-center gap-[12px] hover:border-[#3CC27B] transition-colors">
+                  <label className="block w-full cursor-pointer">
+                    <div className="w-full py-8 sm:py-10 rounded-lg border-2 border-dashed border-[#D0D0D0] flex flex-col items-center justify-center gap-3 hover:border-[#3CC27B] hover:bg-[#F8F8F8] transition-all">
                       <svg
-                        width="19"
-                        height="19"
+                        width="24"
+                        height="24"
                         viewBox="0 0 19 19"
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
+                        className="text-gray-400"
                       >
                         <path
                           d="M8.20257 14.0616V4.51141L5.1559 7.55808L3.51539 5.85898L9.37437 0L15.2333 5.85898L13.5928 7.55808L10.5462 4.51141V14.0616H8.20257ZM0 18.7487V12.8898H2.34359V16.4051H16.4051V12.8898H18.7487V18.7487H0Z"
-                          fill="black"
+                          fill="currentColor"
                         />
                       </svg>
-                      <p className="text-[15px] font-light text-black text-center px-4 leading-[23px]">
-                        Click to upload QR Code
-                        <br />
-                        PNG, JPG up to 2MB
-                      </p>
+                      <div className="text-center">
+                        <p className="text-sm font-semibold text-black">
+                          Click to upload QR Code
+                        </p>
+                        <p className="text-xs text-gray-500 mt-1">
+                          PNG, JPG up to 2MB
+                        </p>
+                      </div>
                     </div>
                     <input
                       type="file"
@@ -590,26 +594,27 @@ export const PaymentMethods: React.FC = () => {
               </div>
 
               {/* Description */}
-              <div className="mt-[35px]">
-                <label className="block text-[15px] font-medium text-black mb-[8px]">
+              <div className="mt-6 sm:mt-8">
+                <label className="block text-sm font-semibold text-black mb-2">
                   Description
                 </label>
                 <textarea
                   placeholder="Unified Payments Interface for instant INR transfers"
-                  className="w-full h-[99px] px-[29px] py-[18px] rounded-[5px] border-[0.7px] border-[#CACACA] bg-[#F0F0F0] text-[15px] font-medium placeholder:text-[#8E8E8E] text-[#8E8E8E] outline-none focus:border-[#3CC27B] focus:bg-white transition-colors resize-none"
+                  rows={3}
+                  className="w-full px-3 py-2.5 rounded-lg border border-[#E0E0E0] bg-white text-sm placeholder:text-gray-400 text-black outline-none focus:border-[#3CC27B] focus:ring-2 focus:ring-[#3CC27B]/20 transition-all resize-none"
                 />
               </div>
 
               {/* Action Buttons */}
-              <div className="mt-[28px] flex flex-col sm:flex-row gap-4">
-                <button className="w-full sm:w-[210px] h-[36px] px-[60px] bg-black text-white text-[15px] font-medium rounded-[6px] border-[0.5px] border-[#C3C3C3] hover:bg-gray-900 transition-colors leading-[33px]">
-                  Add
-                </button>
+              <div className="mt-8 flex flex-col-reverse sm:flex-row gap-3 sm:gap-4">
                 <button
                   onClick={handleCloseAddModal}
-                  className="w-full sm:w-[210px] h-[36px] px-[60px] bg-white text-black text-[15px] font-medium rounded-[6px] border-[0.5px] border-[#C3C3C3] hover:bg-gray-100 transition-colors leading-[33px]"
+                  className="flex-1 h-10 px-4 bg-white text-black text-sm font-semibold rounded-lg border-2 border-[#E0E0E0] hover:bg-gray-50 hover:border-gray-300 transition-all"
                 >
                   Cancel
+                </button>
+                <button className="flex-1 h-10 px-4 bg-black text-white text-sm font-semibold rounded-lg hover:bg-gray-900 transition-all shadow-sm">
+                  Add
                 </button>
               </div>
             </div>
