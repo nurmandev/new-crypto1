@@ -295,7 +295,7 @@ export const Settings = () => {
                             fill="currentColor"
                           />
                         </svg>
-                        <p className="text-sm font-light text-black text-center leading-snug">
+                        <p className="text-xs xs:text-sm font-light text-black text-center leading-tight xs:leading-snug">
                           Click to upload logo
                           <br />
                           PNG, JPG up to 2MB
@@ -308,7 +308,7 @@ export const Settings = () => {
 
                 {/* Favicon Upload */}
                 <div>
-                  <label className="block text-base sm:text-lg font-medium text-black mb-2">
+                  <label className="block text-xs xs:text-sm sm:text-base lg:text-lg font-medium text-black mb-2">
                     Favicon Upload
                   </label>
                   {faviconPreview ? (
