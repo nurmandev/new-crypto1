@@ -312,22 +312,23 @@ export const Settings = () => {
                     Favicon Upload
                   </label>
                   {faviconPreview ? (
-                    <div className="w-full h-[165px] rounded-lg border-2 border-[#BABABA] flex flex-col items-center justify-center gap-3 bg-gray-50 relative">
-                      <img src={faviconPreview} alt="Favicon preview" className="max-h-12 max-w-12 object-contain" />
+                    <div className="w-full h-[120px] xs:h-[135px] sm:h-[165px] rounded-lg border-2 border-[#BABABA] flex flex-col items-center justify-center gap-2 xs:gap-3 bg-gray-50 relative">
+                      <img src={faviconPreview} alt="Favicon preview" className="max-h-8 xs:max-h-10 sm:max-h-12 max-w-8 xs:max-w-10 sm:max-w-12 object-contain" />
                       <button
                         type="button"
                         onClick={() => setFaviconPreview(null)}
-                        className="text-sm text-[#3CC27B] hover:text-[#35a869] transition-colors"
+                        className="text-xs xs:text-sm text-[#3CC27B] hover:text-[#35a869] transition-colors"
                       >
                         Clear
                       </button>
                     </div>
                   ) : (
-                    <label className="block w-full h-[165px] cursor-pointer">
-                      <div className="w-full h-full rounded-lg border-2 border-dashed border-[#BABABA] flex flex-col items-center justify-center gap-3 hover:border-[#3CC27B] hover:bg-[#F8F8F8] transition-all">
+                    <label className="block w-full h-[120px] xs:h-[135px] sm:h-[165px] cursor-pointer">
+                      <div className="w-full h-full rounded-lg border-2 border-dashed border-[#BABABA] flex flex-col items-center justify-center gap-2 xs:gap-3 hover:border-[#3CC27B] hover:bg-[#F8F8F8] transition-all">
                         <svg
-                          width="20"
-                          height="20"
+                          width="16"
+                          height="16"
+                          className="xs:w-5 xs:h-5 sm:w-[20px] sm:h-[20px]"
                           viewBox="0 0 20 20"
                           fill="none"
                           xmlns="http://www.w3.org/2000/svg"
