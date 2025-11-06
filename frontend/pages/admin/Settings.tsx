@@ -5,7 +5,8 @@ import { AdminSidebar } from "./components/AdminSidebar";
 const DEFAULT_SETTINGS = {
   siteName: "USDTmpay",
   siteTitle: "Usdtmpay - Secure Cryptocurrency Exchange Platform",
-  siteDescription: "Trade cryptocurrencies securely with CryptoCrowd. Buy and sell Bitcoin, Ethereum and more.",
+  siteDescription:
+    "Trade cryptocurrencies securely with CryptoCrowd. Buy and sell Bitcoin, Ethereum and more.",
   seoKeywords: "cryptocurrency, bitcoin, ethereum, trading, exchange",
   author: "USDTmpay Team",
   primaryColor: "#6366F1",
@@ -42,7 +43,9 @@ export const Settings = () => {
   // Site Information
   const [siteName, setSiteName] = useState(initialSettings.siteName);
   const [siteTitle, setSiteTitle] = useState(initialSettings.siteTitle);
-  const [siteDescription, setSiteDescription] = useState(initialSettings.siteDescription);
+  const [siteDescription, setSiteDescription] = useState(
+    initialSettings.siteDescription,
+  );
   const [seoKeywords, setSeoKeywords] = useState(initialSettings.seoKeywords);
   const [author, setAuthor] = useState(initialSettings.author);
 
@@ -51,41 +54,76 @@ export const Settings = () => {
   const [faviconPreview, setFaviconPreview] = useState<string | null>(null);
 
   // Colors & Typography
-  const [primaryColor, setPrimaryColor] = useState(initialSettings.primaryColor);
-  const [primaryColorText, setPrimaryColorText] = useState(initialSettings.primaryColor);
-  const [secondaryColor, setSecondaryColor] = useState(initialSettings.secondaryColor);
-  const [secondaryColorText, setSecondaryColorText] = useState(initialSettings.secondaryColor);
+  const [primaryColor, setPrimaryColor] = useState(
+    initialSettings.primaryColor,
+  );
+  const [primaryColorText, setPrimaryColorText] = useState(
+    initialSettings.primaryColor,
+  );
+  const [secondaryColor, setSecondaryColor] = useState(
+    initialSettings.secondaryColor,
+  );
+  const [secondaryColorText, setSecondaryColorText] = useState(
+    initialSettings.secondaryColor,
+  );
   const [accentColor, setAccentColor] = useState(initialSettings.accentColor);
-  const [accentColorText, setAccentColorText] = useState(initialSettings.accentColor);
-  const [backgroundColor, setBackgroundColor] = useState(initialSettings.backgroundColor);
-  const [backgroundColorText, setBackgroundColorText] = useState(initialSettings.backgroundColor);
+  const [accentColorText, setAccentColorText] = useState(
+    initialSettings.accentColor,
+  );
+  const [backgroundColor, setBackgroundColor] = useState(
+    initialSettings.backgroundColor,
+  );
+  const [backgroundColorText, setBackgroundColorText] = useState(
+    initialSettings.backgroundColor,
+  );
   const [textColor, setTextColor] = useState(initialSettings.textColor);
   const [textColorText, setTextColorText] = useState(initialSettings.textColor);
   const [fontFamily, setFontFamily] = useState(initialSettings.fontFamily);
 
   // Contact Information
-  const [supportEmail, setSupportEmail] = useState(initialSettings.supportEmail);
-  const [contactEmail, setContactEmail] = useState(initialSettings.contactEmail);
+  const [supportEmail, setSupportEmail] = useState(
+    initialSettings.supportEmail,
+  );
+  const [contactEmail, setContactEmail] = useState(
+    initialSettings.contactEmail,
+  );
   const [adminEmail, setAdminEmail] = useState(initialSettings.adminEmail);
   const [phone, setPhone] = useState(initialSettings.phone);
-  const [businessAddress, setBusinessAddress] = useState(initialSettings.businessAddress);
+  const [businessAddress, setBusinessAddress] = useState(
+    initialSettings.businessAddress,
+  );
 
   // Security Settings
-  const [sessionTimeout, setSessionTimeout] = useState(initialSettings.sessionTimeout);
-  const [maintenanceMode, setMaintenanceMode] = useState(initialSettings.maintenanceMode);
+  const [sessionTimeout, setSessionTimeout] = useState(
+    initialSettings.sessionTimeout,
+  );
+  const [maintenanceMode, setMaintenanceMode] = useState(
+    initialSettings.maintenanceMode,
+  );
 
   // UI State
   const [isSaving, setIsSaving] = useState(false);
-  const [saveMessage, setSaveMessage] = useState<{ type: "success" | "error"; text: string } | null>(null);
+  const [saveMessage, setSaveMessage] = useState<{
+    type: "success" | "error";
+    text: string;
+  } | null>(null);
 
   // Color input change handlers
-  const handleColorChange = (value: string, setter: (val: string) => void, textSetter: (val: string) => void) => {
+  const handleColorChange = (
+    value: string,
+    setter: (val: string) => void,
+    textSetter: (val: string) => void,
+  ) => {
     setter(value);
     textSetter(value);
   };
 
   // Color text input change handler
-  const handleColorTextChange = (value: string, setter: (val: string) => void, textSetter: (val: string) => void) => {
+  const handleColorTextChange = (
+    value: string,
+    setter: (val: string) => void,
+    textSetter: (val: string) => void,
+  ) => {
     textSetter(value);
     if (/^#[0-9A-F]{6}$/i.test(value)) {
       setter(value);
@@ -152,7 +190,10 @@ export const Settings = () => {
       setTimeout(() => setSaveMessage(null), 3000);
     } catch (error) {
       console.error("Failed to save settings:", error);
-      setSaveMessage({ type: "error", text: "Failed to save settings. Please try again." });
+      setSaveMessage({
+        type: "error",
+        text: "Failed to save settings. Please try again.",
+      });
       setTimeout(() => setSaveMessage(null), 3000);
     } finally {
       setIsSaving(false);
@@ -269,7 +310,11 @@ export const Settings = () => {
                   </label>
                   {logoPreview ? (
                     <div className="w-full h-[120px] xs:h-[135px] sm:h-[165px] rounded-lg border-2 border-[#BABABA] flex flex-col items-center justify-center gap-2 xs:gap-3 bg-gray-50 relative">
-                      <img src={logoPreview} alt="Logo preview" className="max-h-20 xs:max-h-24 sm:max-h-32 max-w-full object-contain" />
+                      <img
+                        src={logoPreview}
+                        alt="Logo preview"
+                        className="max-h-20 xs:max-h-24 sm:max-h-32 max-w-full object-contain"
+                      />
                       <button
                         type="button"
                         onClick={() => setLogoPreview(null)}
@@ -301,7 +346,12 @@ export const Settings = () => {
                           PNG, JPG up to 2MB
                         </p>
                       </div>
-                      <input type="file" className="hidden" accept="image/*" onChange={handleLogoUpload} />
+                      <input
+                        type="file"
+                        className="hidden"
+                        accept="image/*"
+                        onChange={handleLogoUpload}
+                      />
                     </label>
                   )}
                 </div>
@@ -313,7 +363,11 @@ export const Settings = () => {
                   </label>
                   {faviconPreview ? (
                     <div className="w-full h-[120px] xs:h-[135px] sm:h-[165px] rounded-lg border-2 border-[#BABABA] flex flex-col items-center justify-center gap-2 xs:gap-3 bg-gray-50 relative">
-                      <img src={faviconPreview} alt="Favicon preview" className="max-h-8 xs:max-h-10 sm:max-h-12 max-w-8 xs:max-w-10 sm:max-w-12 object-contain" />
+                      <img
+                        src={faviconPreview}
+                        alt="Favicon preview"
+                        className="max-h-8 xs:max-h-10 sm:max-h-12 max-w-8 xs:max-w-10 sm:max-w-12 object-contain"
+                      />
                       <button
                         type="button"
                         onClick={() => setFaviconPreview(null)}
@@ -345,7 +399,12 @@ export const Settings = () => {
                           PNG, JPG up to 2MB
                         </p>
                       </div>
-                      <input type="file" className="hidden" accept="image/*" onChange={handleFaviconUpload} />
+                      <input
+                        type="file"
+                        className="hidden"
+                        accept="image/*"
+                        onChange={handleFaviconUpload}
+                      />
                     </label>
                   )}
                 </div>
@@ -369,13 +428,25 @@ export const Settings = () => {
                     <input
                       type="color"
                       value={primaryColor}
-                      onChange={(e) => handleColorChange(e.target.value, setPrimaryColor, setPrimaryColorText)}
+                      onChange={(e) =>
+                        handleColorChange(
+                          e.target.value,
+                          setPrimaryColor,
+                          setPrimaryColorText,
+                        )
+                      }
                       className="w-10 h-10 xs:w-[51px] xs:h-[51px] rounded-lg border-2 border-[#BFBFBF] cursor-pointer"
                     />
                     <input
                       type="text"
                       value={primaryColorText}
-                      onChange={(e) => handleColorTextChange(e.target.value, setPrimaryColor, setPrimaryColorText)}
+                      onChange={(e) =>
+                        handleColorTextChange(
+                          e.target.value,
+                          setPrimaryColor,
+                          setPrimaryColorText,
+                        )
+                      }
                       className="w-full xs:flex-1 h-10 xs:h-[51px] px-2 xs:px-3 rounded-lg border border-[#E0E0E0] bg-white text-xs xs:text-sm text-black outline-none focus:border-[#3CC27B] focus:ring-2 focus:ring-[#3CC27B]/20 transition-all uppercase"
                     />
                   </div>
@@ -390,13 +461,25 @@ export const Settings = () => {
                     <input
                       type="color"
                       value={secondaryColor}
-                      onChange={(e) => handleColorChange(e.target.value, setSecondaryColor, setSecondaryColorText)}
+                      onChange={(e) =>
+                        handleColorChange(
+                          e.target.value,
+                          setSecondaryColor,
+                          setSecondaryColorText,
+                        )
+                      }
                       className="w-10 h-10 xs:w-[51px] xs:h-[51px] rounded-lg border-2 border-[#BFBFBF] cursor-pointer"
                     />
                     <input
                       type="text"
                       value={secondaryColorText}
-                      onChange={(e) => handleColorTextChange(e.target.value, setSecondaryColor, setSecondaryColorText)}
+                      onChange={(e) =>
+                        handleColorTextChange(
+                          e.target.value,
+                          setSecondaryColor,
+                          setSecondaryColorText,
+                        )
+                      }
                       className="w-full xs:flex-1 h-10 xs:h-[51px] px-2 xs:px-3 rounded-lg border border-[#E0E0E0] bg-white text-xs xs:text-sm text-black outline-none focus:border-[#3CC27B] focus:ring-2 focus:ring-[#3CC27B]/20 transition-all uppercase"
                     />
                   </div>
@@ -411,13 +494,25 @@ export const Settings = () => {
                     <input
                       type="color"
                       value={accentColor}
-                      onChange={(e) => handleColorChange(e.target.value, setAccentColor, setAccentColorText)}
+                      onChange={(e) =>
+                        handleColorChange(
+                          e.target.value,
+                          setAccentColor,
+                          setAccentColorText,
+                        )
+                      }
                       className="w-10 h-10 xs:w-[51px] xs:h-[51px] rounded-lg border-2 border-[#BFBFBF] cursor-pointer"
                     />
                     <input
                       type="text"
                       value={accentColorText}
-                      onChange={(e) => handleColorTextChange(e.target.value, setAccentColor, setAccentColorText)}
+                      onChange={(e) =>
+                        handleColorTextChange(
+                          e.target.value,
+                          setAccentColor,
+                          setAccentColorText,
+                        )
+                      }
                       className="w-full xs:flex-1 h-10 xs:h-[51px] px-2 xs:px-3 rounded-lg border border-[#E0E0E0] bg-white text-xs xs:text-sm text-black outline-none focus:border-[#3CC27B] focus:ring-2 focus:ring-[#3CC27B]/20 transition-all uppercase"
                     />
                   </div>
@@ -432,13 +527,25 @@ export const Settings = () => {
                     <input
                       type="color"
                       value={backgroundColor}
-                      onChange={(e) => handleColorChange(e.target.value, setBackgroundColor, setBackgroundColorText)}
+                      onChange={(e) =>
+                        handleColorChange(
+                          e.target.value,
+                          setBackgroundColor,
+                          setBackgroundColorText,
+                        )
+                      }
                       className="w-10 h-10 xs:w-[51px] xs:h-[51px] rounded-lg border-2 border-[#BFBFBF] cursor-pointer"
                     />
                     <input
                       type="text"
                       value={backgroundColorText}
-                      onChange={(e) => handleColorTextChange(e.target.value, setBackgroundColor, setBackgroundColorText)}
+                      onChange={(e) =>
+                        handleColorTextChange(
+                          e.target.value,
+                          setBackgroundColor,
+                          setBackgroundColorText,
+                        )
+                      }
                       className="w-full xs:flex-1 h-10 xs:h-[51px] px-2 xs:px-3 rounded-lg border border-[#E0E0E0] bg-white text-xs xs:text-sm text-black outline-none focus:border-[#3CC27B] focus:ring-2 focus:ring-[#3CC27B]/20 transition-all uppercase"
                     />
                   </div>
@@ -453,13 +560,25 @@ export const Settings = () => {
                     <input
                       type="color"
                       value={textColor}
-                      onChange={(e) => handleColorChange(e.target.value, setTextColor, setTextColorText)}
+                      onChange={(e) =>
+                        handleColorChange(
+                          e.target.value,
+                          setTextColor,
+                          setTextColorText,
+                        )
+                      }
                       className="w-10 h-10 xs:w-[51px] xs:h-[51px] rounded-lg border-2 border-[#BFBFBF] cursor-pointer"
                     />
                     <input
                       type="text"
                       value={textColorText}
-                      onChange={(e) => handleColorTextChange(e.target.value, setTextColor, setTextColorText)}
+                      onChange={(e) =>
+                        handleColorTextChange(
+                          e.target.value,
+                          setTextColor,
+                          setTextColorText,
+                        )
+                      }
                       className="w-full xs:flex-1 h-10 xs:h-[51px] px-2 xs:px-3 rounded-lg border border-[#E0E0E0] bg-white text-xs xs:text-sm text-black outline-none focus:border-[#3CC27B] focus:ring-2 focus:ring-[#3CC27B]/20 transition-all uppercase"
                     />
                   </div>
@@ -616,7 +735,9 @@ export const Settings = () => {
                   >
                     <div
                       className={`absolute top-0.5 w-3.5 h-3.5 bg-white rounded-full transition-transform ${
-                        maintenanceMode ? "translate-x-[30px]" : "translate-x-0.5"
+                        maintenanceMode
+                          ? "translate-x-[30px]"
+                          : "translate-x-0.5"
                       }`}
                     />
                   </button>

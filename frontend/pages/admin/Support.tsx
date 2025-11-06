@@ -20,7 +20,9 @@ export const Support: React.FC = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedStatus, setSelectedStatus] = useState("all");
-  const [selectedRequest, setSelectedRequest] = useState<CashoutRequest | null>(null);
+  const [selectedRequest, setSelectedRequest] = useState<CashoutRequest | null>(
+    null,
+  );
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const cashoutRequests: CashoutRequest[] = [
@@ -409,28 +411,36 @@ export const Support: React.FC = () => {
 
               <div className="space-y-4">
                 <div className="flex justify-between items-start">
-                  <span className="text-[14px] font-light text-black">Amount :</span>
+                  <span className="text-[14px] font-light text-black">
+                    Amount :
+                  </span>
                   <span className="text-[14px] font-medium text-black text-right">
                     ₹{selectedRequest.amount}
                   </span>
                 </div>
 
                 <div className="flex justify-between items-start">
-                  <span className="text-[14px] font-light text-black">User</span>
+                  <span className="text-[14px] font-light text-black">
+                    User
+                  </span>
                   <span className="text-[14px] font-medium text-black text-right">
                     {selectedRequest.userName} ({selectedRequest.userEmail})
                   </span>
                 </div>
 
                 <div className="flex justify-between items-start">
-                  <span className="text-[14px] font-light text-black">Address :</span>
+                  <span className="text-[14px] font-light text-black">
+                    Address :
+                  </span>
                   <span className="text-[14px] font-medium text-black text-right max-w-[165px]">
                     {selectedRequest.address}
                   </span>
                 </div>
 
                 <div className="flex justify-between items-start">
-                  <span className="text-[14px] font-light text-black">User Notes :</span>
+                  <span className="text-[14px] font-light text-black">
+                    User Notes :
+                  </span>
                   <span className="text-[14px] font-medium text-black text-right max-w-[209px]">
                     {selectedRequest.userNotes}
                   </span>

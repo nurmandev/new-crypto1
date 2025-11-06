@@ -82,7 +82,13 @@ export const Pages = () => {
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <rect width="35" height="35" rx="17.5" fill="#3CC27B" fillOpacity="0.31" />
+          <rect
+            width="35"
+            height="35"
+            rx="17.5"
+            fill="#3CC27B"
+            fillOpacity="0.31"
+          />
           <path
             d="M23 10.9971H22.9991V10.3C22.9991 10.2606 22.991 10.2216 22.9752 10.1852C22.9594 10.1488 22.9362 10.1157 22.907 10.0879C22.8779 10.06 22.8432 10.0379 22.8051 10.0228C22.767 10.0078 22.7261 10 22.6848 10H16.7139L12 14.5001V24.7C12 24.8658 12.1406 25 12.3143 25H22.6848C22.7261 25 22.767 24.9922 22.8051 24.9772C22.8432 24.9621 22.8779 24.94 22.907 24.9121C22.9362 24.8843 22.9594 24.8512 22.9752 24.8148C22.991 24.7784 22.9991 24.7394 22.9991 24.7V24.2755H23V10.9971ZM13.8087 23.2737V15.1001H17.0282C17.1115 15.1001 17.1914 15.0685 17.2504 15.0122C17.3093 14.9559 17.3424 14.8796 17.3424 14.8001V11.7267H21.1913V23.2737H13.8087Z"
             fill="#3CC27B"
@@ -101,7 +107,13 @@ export const Pages = () => {
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <rect width="35" height="35" rx="17.5" fill="#3CC27B" fillOpacity="0.31" />
+          <rect
+            width="35"
+            height="35"
+            rx="17.5"
+            fill="#3CC27B"
+            fillOpacity="0.31"
+          />
           <path
             fillRule="evenodd"
             clipRule="evenodd"
@@ -122,7 +134,13 @@ export const Pages = () => {
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <rect width="35" height="35" rx="17.5" fill="#FBD25F" fillOpacity="0.65" />
+          <rect
+            width="35"
+            height="35"
+            rx="17.5"
+            fill="#FBD25F"
+            fillOpacity="0.65"
+          />
           <path
             fillRule="evenodd"
             clipRule="evenodd"
@@ -143,7 +161,13 @@ export const Pages = () => {
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <rect width="35" height="35" rx="17.5" fill="#3CC27B" fillOpacity="0.31" />
+          <rect
+            width="35"
+            height="35"
+            rx="17.5"
+            fill="#3CC27B"
+            fillOpacity="0.31"
+          />
           <path
             d="M17.5 25C15.7625 24.5625 14.328 23.5655 13.1965 22.009C12.065 20.4525 11.4995 18.7245 11.5 16.825V12.25L17.5 10L23.5 12.25V16.825C23.5 18.725 22.9345 20.4533 21.8035 22.0098C20.6725 23.5663 19.238 24.563 17.5 25ZM17.5 23.425C18.8 23.0125 19.875 22.1875 20.725 20.95C21.575 19.7125 22 18.3375 22 16.825V13.2812L17.5 11.5938L13 13.2812V16.825C13 18.3375 13.425 19.7125 14.275 20.95C15.125 22.1875 16.2 23.0125 17.5 23.425Z"
             fill="#3CC27B"
@@ -179,7 +203,10 @@ export const Pages = () => {
 
   return (
     <div className="min-h-screen bg-[#F8F8F8] flex flex-col">
-      <AdminSidebar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
+      <AdminSidebar
+        isOpen={isSidebarOpen}
+        onClose={() => setIsSidebarOpen(false)}
+      />
 
       <div className="flex flex-col flex-1 lg:ml-[259px]">
         <AdminHeader onMenuClick={() => setIsSidebarOpen(true)} />
@@ -189,8 +216,12 @@ export const Pages = () => {
             {/* Header */}
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6 sm:mb-8">
               <div>
-                <h1 className="text-xl sm:text-2xl font-medium text-black mb-2">Pages</h1>
-                <p className="text-base sm:text-lg text-[#838383]">Manage all website Pages</p>
+                <h1 className="text-xl sm:text-2xl font-medium text-black mb-2">
+                  Pages
+                </h1>
+                <p className="text-base sm:text-lg text-[#838383]">
+                  Manage all website Pages
+                </p>
               </div>
               <button className="inline-flex items-center justify-center gap-2.5 px-9 py-2 bg-[#161616] text-white rounded-md hover:bg-black transition-colors text-sm sm:text-base font-medium">
                 <svg
@@ -217,8 +248,12 @@ export const Pages = () => {
                   className="flex items-center justify-between gap-4 p-4 rounded-xl border border-[#D4D4D4] bg-white"
                 >
                   <div className="flex flex-col">
-                    <span className="text-sm text-black mb-1">{stat.label}</span>
-                    <span className="text-xl font-bold text-black">{stat.value}</span>
+                    <span className="text-sm text-black mb-1">
+                      {stat.label}
+                    </span>
+                    <span className="text-xl font-bold text-black">
+                      {stat.value}
+                    </span>
                   </div>
                   {stat.icon}
                 </div>
@@ -226,20 +261,36 @@ export const Pages = () => {
             </div>
 
             {/* Table Header */}
-            <h2 className="text-lg sm:text-xl font-medium text-black mb-6">All Pages</h2>
+            <h2 className="text-lg sm:text-xl font-medium text-black mb-6">
+              All Pages
+            </h2>
 
             {/* Table - Desktop */}
             <div className="hidden lg:block overflow-x-auto">
               <table className="w-full">
                 <thead>
                   <tr className="border-b border-[#C9C9C9]">
-                    <th className="text-left py-4 text-[#313131] font-bold text-sm">Title</th>
-                    <th className="text-left py-4 text-[#313131] font-bold text-sm">Slug</th>
-                    <th className="text-left py-4 text-[#313131] font-bold text-sm">Type</th>
-                    <th className="text-left py-4 text-[#313131] font-bold text-sm">Status</th>
-                    <th className="text-left py-4 text-[#313131] font-bold text-sm">Created</th>
-                    <th className="text-left py-4 text-[#313131] font-bold text-sm">Updated</th>
-                    <th className="text-left py-4 text-[#313131] font-bold text-sm">Actions</th>
+                    <th className="text-left py-4 text-[#313131] font-bold text-sm">
+                      Title
+                    </th>
+                    <th className="text-left py-4 text-[#313131] font-bold text-sm">
+                      Slug
+                    </th>
+                    <th className="text-left py-4 text-[#313131] font-bold text-sm">
+                      Type
+                    </th>
+                    <th className="text-left py-4 text-[#313131] font-bold text-sm">
+                      Status
+                    </th>
+                    <th className="text-left py-4 text-[#313131] font-bold text-sm">
+                      Created
+                    </th>
+                    <th className="text-left py-4 text-[#313131] font-bold text-sm">
+                      Updated
+                    </th>
+                    <th className="text-left py-4 text-[#313131] font-bold text-sm">
+                      Actions
+                    </th>
                   </tr>
                 </thead>
                 <tbody>
@@ -250,14 +301,16 @@ export const Pages = () => {
                           <div className="text-black font-semibold text-base mb-1">
                             {page.title}
                           </div>
-                          <div className="text-black text-sm font-light">{page.subtitle}</div>
+                          <div className="text-black text-sm font-light">
+                            {page.subtitle}
+                          </div>
                         </div>
                       </td>
                       <td className="py-6 text-black text-sm">{page.slug}</td>
                       <td className="py-6">
                         <span
                           className={`inline-flex items-center px-2.5 py-1 rounded text-xs ${getTypeStyle(
-                            page.type
+                            page.type,
                           )}`}
                         >
                           {page.type}
@@ -266,14 +319,18 @@ export const Pages = () => {
                       <td className="py-6">
                         <span
                           className={`inline-flex items-center px-2.5 py-1 rounded text-xs ${getStatusStyle(
-                            page.status
+                            page.status,
                           )}`}
                         >
                           {page.status}
                         </span>
                       </td>
-                      <td className="py-6 text-black text-sm font-light">{page.created}</td>
-                      <td className="py-6 text-black text-sm font-light">{page.updated}</td>
+                      <td className="py-6 text-black text-sm font-light">
+                        {page.created}
+                      </td>
+                      <td className="py-6 text-black text-sm font-light">
+                        {page.updated}
+                      </td>
                       <td className="py-6">
                         <button className="hover:opacity-70 transition-opacity">
                           <svg
@@ -312,7 +369,9 @@ export const Pages = () => {
                       <div className="text-black font-semibold text-base mb-1">
                         {page.title}
                       </div>
-                      <div className="text-black text-sm font-light mb-2">{page.subtitle}</div>
+                      <div className="text-black text-sm font-light mb-2">
+                        {page.subtitle}
+                      </div>
                       <div className="text-black text-sm">{page.slug}</div>
                     </div>
                     <button className="hover:opacity-70 transition-opacity flex-shrink-0">
@@ -337,14 +396,14 @@ export const Pages = () => {
                   <div className="flex flex-wrap items-center gap-2">
                     <span
                       className={`inline-flex items-center px-2.5 py-1 rounded text-xs ${getTypeStyle(
-                        page.type
+                        page.type,
                       )}`}
                     >
                       {page.type}
                     </span>
                     <span
                       className={`inline-flex items-center px-2.5 py-1 rounded text-xs ${getStatusStyle(
-                        page.status
+                        page.status,
                       )}`}
                     >
                       {page.status}
@@ -353,11 +412,15 @@ export const Pages = () => {
                   <div className="grid grid-cols-2 gap-2 text-sm">
                     <div>
                       <span className="text-[#838383]">Created: </span>
-                      <span className="text-black font-light">{page.created}</span>
+                      <span className="text-black font-light">
+                        {page.created}
+                      </span>
                     </div>
                     <div>
                       <span className="text-[#838383]">Updated: </span>
-                      <span className="text-black font-light">{page.updated}</span>
+                      <span className="text-black font-light">
+                        {page.updated}
+                      </span>
                     </div>
                   </div>
                 </div>
