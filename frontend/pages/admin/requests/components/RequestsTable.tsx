@@ -146,9 +146,7 @@ export const RequestsTable: React.FC<RequestsTableProps> = ({
             </div>
           ))
         ) : (
-          <div className="text-center py-12 text-[#999]">
-            No requests found
-          </div>
+          <div className="text-center py-12 text-[#999]">No requests found</div>
         )}
       </div>
     </div>

@@ -64,10 +64,15 @@ export default function BuyCrypto() {
             <div className="grid grid-cols-1 xl:grid-cols-[1fr,368px] gap-6">
               <div className="bg-white rounded-xl p-6 sm:p-8 shadow-sm hover:shadow-md transition-shadow">
                 <div className="mb-8">
-                  <h1 className="text-2xl sm:text-3xl font-semibold text-gray-900 mb-2">Buy Cryptocurrency</h1>
-                  <p className="text-gray-600">Exchange INR for cryptocurrency instantly with best market rates</p>
+                  <h1 className="text-2xl sm:text-3xl font-semibold text-gray-900 mb-2">
+                    Buy Cryptocurrency
+                  </h1>
+                  <p className="text-gray-600">
+                    Exchange INR for cryptocurrency instantly with best market
+                    rates
+                  </p>
                 </div>
-                
+
                 <div className="relative mb-8">
                   <div className="w-full h-[51px] bg-gray-50 rounded-lg"></div>
                   <div className="absolute top-1 left-1 w-[calc(50%-4px)] h-[43px] bg-white rounded-md shadow-sm"></div>
@@ -140,7 +145,9 @@ export default function BuyCrypto() {
                         className="w-full h-[51px] bg-gray-50 border border-gray-200 rounded-lg px-4 text-base font-medium text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary/20"
                       />
                       <div className="absolute right-4 top-1/2 -translate-y-1/2 bg-gray-100 rounded-md px-2 py-1">
-                        <span className="text-sm font-medium text-gray-900">INR</span>
+                        <span className="text-sm font-medium text-gray-900">
+                          INR
+                        </span>
                       </div>
                     </div>
                   </div>
@@ -167,7 +174,9 @@ export default function BuyCrypto() {
                         className="w-full h-[51px] bg-gray-50 border border-gray-200 rounded-lg px-4 text-base font-medium text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary/20"
                       />
                       <div className="absolute right-4 top-1/2 -translate-y-1/2 bg-gray-100 rounded-md px-2 py-1">
-                        <span className="text-sm font-medium text-gray-900">ADA</span>
+                        <span className="text-sm font-medium text-gray-900">
+                          ADA
+                        </span>
                       </div>
                     </div>
                   </div>
@@ -175,7 +184,9 @@ export default function BuyCrypto() {
 
                 <div className="flex items-center justify-center gap-2 mb-8">
                   <span className="text-sm text-gray-600">Exchange Rate:</span>
-                  <span className="text-sm font-medium text-gray-900">1 ADA = ₹28</span>
+                  <span className="text-sm font-medium text-gray-900">
+                    1 ADA = ₹28
+                  </span>
                 </div>
 
                 <Link
@@ -270,7 +281,9 @@ export default function BuyCrypto() {
                       </div>
                       <div className="flex items-center gap-2 text-xs">
                         <span className="text-gray-500">ID:</span>
-                        <code className="font-mono text-gray-900">0x1234...5678</code>
+                        <code className="font-mono text-gray-900">
+                          0x1234...5678
+                        </code>
                       </div>
                     </div>
                   ))}
