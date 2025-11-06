@@ -245,9 +245,9 @@ export const AdminSidebar: React.FC<AdminSidebarProps> = ({
       <aside
         className={`
         fixed lg:sticky top-0 left-0
-        h-screen max-h-screen w-[259px] bg-white rounded-[10px] z-50 flex flex-col
+        h-screen max-h-screen w-[259px] bg-white lg:rounded-none z-50 flex flex-col
         transition-all duration-300 ease-in-out overflow-hidden
-        ${isOpen ? "translate-x-0 shadow-2xl" : "-translate-x-full lg:translate-x-0"}
+        ${isOpen ? "translate-x-0 shadow-2xl lg:shadow-none" : "-translate-x-full lg:translate-x-0"}
       `}
       >
         {/* Header - Shows current active section */}
