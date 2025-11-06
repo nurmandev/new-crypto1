@@ -367,13 +367,15 @@ export const Settings = () => {
                   <div className="flex items-center gap-2">
                     <input
                       type="color"
-                      defaultValue="#6366F1"
+                      value={primaryColor}
+                      onChange={(e) => handleColorChange(e.target.value, setPrimaryColor, setPrimaryColorText)}
                       className="w-[51px] h-[51px] rounded-lg border-2 border-[#BFBFBF] cursor-pointer"
                     />
                     <input
                       type="text"
-                      defaultValue="#63553f1"
-                      className="flex-1 h-[51px] px-3 rounded-lg border border-[#E0E0E0] bg-white text-sm text-[#8E8E8E] outline-none focus:border-[#3CC27B] focus:ring-2 focus:ring-[#3CC27B]/20 transition-all"
+                      value={primaryColorText}
+                      onChange={(e) => handleColorTextChange(e.target.value, setPrimaryColor, setPrimaryColorText)}
+                      className="flex-1 h-[51px] px-3 rounded-lg border border-[#E0E0E0] bg-white text-sm text-black outline-none focus:border-[#3CC27B] focus:ring-2 focus:ring-[#3CC27B]/20 transition-all uppercase"
                     />
                   </div>
                 </div>
@@ -386,13 +388,15 @@ export const Settings = () => {
                   <div className="flex items-center gap-2">
                     <input
                       type="color"
-                      defaultValue="#8B5CF6"
+                      value={secondaryColor}
+                      onChange={(e) => handleColorChange(e.target.value, setSecondaryColor, setSecondaryColorText)}
                       className="w-[51px] h-[51px] rounded-lg border-2 border-[#BFBFBF] cursor-pointer"
                     />
                     <input
                       type="text"
-                      defaultValue="#63553f1"
-                      className="flex-1 h-[51px] px-3 rounded-lg border border-[#E0E0E0] bg-white text-sm text-[#8E8E8E] outline-none focus:border-[#3CC27B] focus:ring-2 focus:ring-[#3CC27B]/20 transition-all"
+                      value={secondaryColorText}
+                      onChange={(e) => handleColorTextChange(e.target.value, setSecondaryColor, setSecondaryColorText)}
+                      className="flex-1 h-[51px] px-3 rounded-lg border border-[#E0E0E0] bg-white text-sm text-black outline-none focus:border-[#3CC27B] focus:ring-2 focus:ring-[#3CC27B]/20 transition-all uppercase"
                     />
                   </div>
                 </div>
@@ -405,13 +409,15 @@ export const Settings = () => {
                   <div className="flex items-center gap-2">
                     <input
                       type="color"
-                      defaultValue="#6FECC2"
+                      value={accentColor}
+                      onChange={(e) => handleColorChange(e.target.value, setAccentColor, setAccentColorText)}
                       className="w-[51px] h-[51px] rounded-lg border-2 border-[#BFBFBF] cursor-pointer"
                     />
                     <input
                       type="text"
-                      defaultValue="#63553f1"
-                      className="flex-1 h-[51px] px-3 rounded-lg border border-[#E0E0E0] bg-white text-sm text-[#8E8E8E] outline-none focus:border-[#3CC27B] focus:ring-2 focus:ring-[#3CC27B]/20 transition-all"
+                      value={accentColorText}
+                      onChange={(e) => handleColorTextChange(e.target.value, setAccentColor, setAccentColorText)}
+                      className="flex-1 h-[51px] px-3 rounded-lg border border-[#E0E0E0] bg-white text-sm text-black outline-none focus:border-[#3CC27B] focus:ring-2 focus:ring-[#3CC27B]/20 transition-all uppercase"
                     />
                   </div>
                 </div>
@@ -424,13 +430,15 @@ export const Settings = () => {
                   <div className="flex items-center gap-2">
                     <input
                       type="color"
-                      defaultValue="#FFFFFF"
+                      value={backgroundColor}
+                      onChange={(e) => handleColorChange(e.target.value, setBackgroundColor, setBackgroundColorText)}
                       className="w-[51px] h-[51px] rounded-lg border-2 border-[#BFBFBF] cursor-pointer"
                     />
                     <input
                       type="text"
-                      defaultValue="#63553f1"
-                      className="flex-1 h-[51px] px-3 rounded-lg border border-[#E0E0E0] bg-white text-sm text-[#8E8E8E] outline-none focus:border-[#3CC27B] focus:ring-2 focus:ring-[#3CC27B]/20 transition-all"
+                      value={backgroundColorText}
+                      onChange={(e) => handleColorTextChange(e.target.value, setBackgroundColor, setBackgroundColorText)}
+                      className="flex-1 h-[51px] px-3 rounded-lg border border-[#E0E0E0] bg-white text-sm text-black outline-none focus:border-[#3CC27B] focus:ring-2 focus:ring-[#3CC27B]/20 transition-all uppercase"
                     />
                   </div>
                 </div>
@@ -443,13 +451,15 @@ export const Settings = () => {
                   <div className="flex items-center gap-2">
                     <input
                       type="color"
-                      defaultValue="#1A1B23"
+                      value={textColor}
+                      onChange={(e) => handleColorChange(e.target.value, setTextColor, setTextColorText)}
                       className="w-[51px] h-[51px] rounded-lg border-2 border-[#BFBFBF] cursor-pointer"
                     />
                     <input
                       type="text"
-                      defaultValue="#63553f1"
-                      className="flex-1 h-[51px] px-3 rounded-lg border border-[#E0E0E0] bg-white text-sm text-[#8E8E8E] outline-none focus:border-[#3CC27B] focus:ring-2 focus:ring-[#3CC27B]/20 transition-all"
+                      value={textColorText}
+                      onChange={(e) => handleColorTextChange(e.target.value, setTextColor, setTextColorText)}
+                      className="flex-1 h-[51px] px-3 rounded-lg border border-[#E0E0E0] bg-white text-sm text-black outline-none focus:border-[#3CC27B] focus:ring-2 focus:ring-[#3CC27B]/20 transition-all uppercase"
                     />
                   </div>
                 </div>
@@ -462,8 +472,9 @@ export const Settings = () => {
                 </label>
                 <input
                   type="text"
-                  defaultValue="Roboto Bold"
-                  className="w-full h-[51px] px-5 rounded-lg border border-[#E0E0E0] bg-white text-sm text-[#8E8E8E] outline-none focus:border-[#3CC27B] focus:ring-2 focus:ring-[#3CC27B]/20 transition-all"
+                  value={fontFamily}
+                  onChange={(e) => setFontFamily(e.target.value)}
+                  className="w-full h-[51px] px-5 rounded-lg border border-[#E0E0E0] bg-white text-sm text-black outline-none focus:border-[#3CC27B] focus:ring-2 focus:ring-[#3CC27B]/20 transition-all"
                 />
               </div>
             </section>
