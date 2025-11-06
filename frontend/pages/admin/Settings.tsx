@@ -599,12 +599,12 @@ export const Settings = () => {
                 </div>
 
                 {/* Maintenance Mode */}
-                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                <div className="flex flex-col xs:flex-col sm:flex-row sm:items-center sm:justify-between gap-3 xs:gap-4">
                   <div>
-                    <h3 className="text-base sm:text-lg font-medium text-black">
+                    <h3 className="text-xs xs:text-sm sm:text-base lg:text-lg font-medium text-black">
                       Maintenance Mode
                     </h3>
-                    <p className="text-sm text-black font-light mt-1">
+                    <p className="text-xs xs:text-sm text-black font-light mt-1">
                       Enable maintenance mode for website
                     </p>
                   </div>
