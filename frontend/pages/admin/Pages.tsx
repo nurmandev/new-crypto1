@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { AdminHeader } from "./components/AdminHeader";
 import { AdminSidebar } from "./components/AdminSidebar";
+import { useNavigate } from "react-router-dom";
 
 interface Page {
   id: string;
@@ -69,6 +70,7 @@ const mockPages: Page[] = [
 export const Pages = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [pages] = useState<Page[]>(mockPages);
+  const navigate = useNavigate();
 
   const stats = [
     {
@@ -332,7 +334,10 @@ export const Pages = () => {
                         {page.updated}
                       </td>
                       <td className="py-6">
-                        <button className="hover:opacity-70 transition-opacity">
+                        <button
+                          className="hover:opacity-70 transition-opacity"
+                          onClick={() => navigate(`/admin/pages/edit/${page.id}`)}
+                        >
                           <svg
                             width="18"
                             height="18"
