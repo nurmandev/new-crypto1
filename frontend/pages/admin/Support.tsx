@@ -368,7 +368,10 @@ export const Support: React.FC = () => {
             {/* Mobile Card View */}
             <div className="lg:hidden space-y-3 xs:space-y-4">
               {cashoutRequests.map((request) => (
-                <div key={request.id} className="border border-[#C9C9C9] rounded-lg p-3 xs:p-4 space-y-2">
+                <div
+                  key={request.id}
+                  className="border border-[#C9C9C9] rounded-lg p-3 xs:p-4 space-y-2"
+                >
                   <div className="flex items-start justify-between gap-2">
                     <div>
                       <div className="text-sm xs:text-base font-semibold text-black">
@@ -388,19 +391,27 @@ export const Support: React.FC = () => {
                   <div className="grid grid-cols-2 gap-2 text-xs xs:text-sm">
                     <div>
                       <span className="text-[#838383]">Amount:</span>
-                      <div className="font-medium text-black">₹{request.amount}</div>
+                      <div className="font-medium text-black">
+                        ₹{request.amount}
+                      </div>
                     </div>
                     <div>
                       <span className="text-[#838383]">Method:</span>
-                      <div className="font-medium text-black">{request.method}</div>
+                      <div className="font-medium text-black">
+                        {request.method}
+                      </div>
                     </div>
                     <div>
                       <span className="text-[#838383]">Date:</span>
-                      <div className="font-medium text-black">{request.date}</div>
+                      <div className="font-medium text-black">
+                        {request.date}
+                      </div>
                     </div>
                     <div>
                       <span className="text-[#838383]">ID:</span>
-                      <div className="font-medium text-black text-[10px]">{request.trackingId}</div>
+                      <div className="font-medium text-black text-[10px]">
+                        {request.trackingId}
+                      </div>
                     </div>
                   </div>
 
@@ -431,7 +442,9 @@ export const Support: React.FC = () => {
             </div>
 
             <div className="mt-6 flex flex-col xs:flex-row items-center justify-between gap-4">
-              <p className="text-xs xs:text-sm text-[#838383]">Showing 10 out of 30</p>
+              <p className="text-xs xs:text-sm text-[#838383]">
+                Showing 10 out of 30
+              </p>
               <div className="flex items-center gap-1 xs:gap-3 overflow-x-auto">
                 <button className="text-xs xs:text-[13px] font-medium text-black whitespace-nowrap px-2">
                   Previous
