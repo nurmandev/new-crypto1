@@ -42,6 +42,7 @@ import { CryptocurrencyManagement } from "./pages/admin/cryptocurrency/Cryptocur
 import { Cryptocurrency } from "./pages/cryptocurrency/Cryptocurrency";
 import { Support } from "./pages/admin/Support";
 import AdminPaymentMethods from "./pages/admin/payment-methods/Payment";
+import { Settings } from "./pages/admin/Settings";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
