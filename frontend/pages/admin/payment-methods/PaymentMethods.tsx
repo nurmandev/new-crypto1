@@ -427,28 +427,28 @@ export const PaymentMethods: React.FC = () => {
             <div className="grid grid-cols-1 gap-4 sm:gap-5">
               {/* Method Name */}
               <div>
-                <label className="block text-[15px] font-medium text-black mb-2">
+                <label className="block text-sm font-medium text-black mb-1.5">
                   Method Name
                 </label>
                 <input
                   type="text"
                   placeholder="UPI (Google Pay, PhonePe, Paytm)"
-                  className="w-full h-[51px] px-4 rounded-[5px] border-[0.7px] border-[#CACACA] bg-[#F0F0F0] text-[15px] font-medium placeholder:text-[#8E8E8E] text-black outline-none focus:border-[#3CC27B] transition-colors"
+                  className="w-full h-[44px] px-3 rounded-md border border-[#CACACA] bg-[#F0F0F0] text-sm font-medium placeholder:text-[#8E8E8E] text-black outline-none focus:border-[#3CC27B] focus:bg-white transition-colors"
                 />
               </div>
 
               {/* Icon / emoji */}
               <div>
-                <label className="block text-[15px] font-medium text-black mb-2">
+                <label className="block text-sm font-medium text-black mb-1.5">
                   Icon / emoji
                 </label>
-                <div className="flex items-center gap-4 h-[51px] px-4 rounded-[5px] border-[0.7px] border-[#CACACA] bg-[#F0F0F0]">
+                <div className="flex items-center gap-3 h-[44px] px-3 rounded-md border border-[#CACACA] bg-[#F0F0F0]">
                   <img
                     src="https://api.builder.io/api/v1/image/assets/TEMP/9612201e1ef1e7bf5a1f77e21ab45da81965bf9f?width=72"
                     alt="icon"
-                    className="w-9 h-9 rounded-full"
+                    className="w-8 h-8 rounded-full"
                   />
-                  <label className="ml-auto cursor-pointer text-[13px] text-[#8F8F8F] hover:text-black transition-colors">
+                  <label className="ml-auto cursor-pointer text-xs text-[#8F8F8F] hover:text-black transition-colors">
                     Upload
                     <input type="file" className="hidden" accept="image/*" />
                   </label>
@@ -457,13 +457,13 @@ export const PaymentMethods: React.FC = () => {
 
               {/* Minimum Amount */}
               <div>
-                <label className="block text-[15px] font-medium text-black mb-2">
+                <label className="block text-sm font-medium text-black mb-1.5">
                   Minimum Amount (₹)
                 </label>
                 <input
                   type="text"
                   placeholder="100"
-                  className="w-full h-[51px] px-4 rounded-[5px] border-[0.7px] border-[#CACACA] bg-[#F0F0F0] text-[15px] font-medium placeholder:text-[#8E8E8E] text-black outline-none focus:border-[#3CC27B] transition-colors"
+                  className="w-full h-[44px] px-3 rounded-md border border-[#CACACA] bg-[#F0F0F0] text-sm font-medium placeholder:text-[#8E8E8E] text-black outline-none focus:border-[#3CC27B] focus:bg-white transition-colors"
                 />
               </div>
 
