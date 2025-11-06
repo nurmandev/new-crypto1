@@ -160,17 +160,17 @@ export const Settings = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#F8F8F8]">
+    <div className="min-h-screen bg-[#F8F8F8] flex flex-col">
       <AdminSidebar
         isOpen={isSidebarOpen}
         onClose={() => setIsSidebarOpen(false)}
       />
 
-      <div className="lg:ml-[259px]">
+      <div className="flex flex-col flex-1 lg:ml-[259px]">
         <AdminHeader onMenuClick={() => setIsSidebarOpen(true)} />
 
-        <div className="p-2 xs:p-3 sm:p-6 lg:p-8">
-          <div className="bg-white rounded-lg shadow-sm p-4 xs:p-5 sm:p-8">
+        <div className="flex-1 p-3 sm:p-4 md:p-6 lg:p-8">
+          <div className="bg-white rounded-xl shadow-sm p-4 xs:p-5 sm:p-8 h-full">
             {/* Page Header */}
             <div className="mb-6 xs:mb-8">
               <h1 className="text-lg xs:text-xl sm:text-2xl font-medium text-black mb-1 xs:mb-2">
