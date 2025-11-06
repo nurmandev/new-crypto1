@@ -134,7 +134,7 @@ export const PaymentMethods: React.FC = () => {
     const num = parseInt(value);
     if (num >= 100000)
       return `₹${(num / 100000).toFixed(1).replace(".0", "")}L`;
-    if (num >= 1000) return `₹${(num / 1000).toFixed(0)}K`;
+    if (num >= 1000) return `���${(num / 1000).toFixed(0)}K`;
     return `₹${value}`;
   };
 
@@ -303,7 +303,7 @@ export const PaymentMethods: React.FC = () => {
       {/* Edit Payment Method Modal */}
       {isEditModalOpen && selectedMethod && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/[0.22]">
-          <div className="bg-white rounded-[14px] w-full max-w-[848px] max-h-[90vh] overflow-y-auto p-6 sm:p-8">
+          <div className="bg-white rounded-[16px] w-full max-w-[806px] max-h-[90vh] overflow-y-auto p-6 sm:p-8">
             <h2 className="text-[17px] font-medium text-black mb-6 leading-[33px]">
               Edit Payment Method
             </h2>
@@ -385,81 +385,6 @@ export const PaymentMethods: React.FC = () => {
                   defaultValue={selectedMethod.processingTime}
                   className="w-full h-[51px] px-4 rounded-[5px] border-[0.7px] border-[#CACACA] bg-[#F0F0F0] text-[15px] font-medium text-[#8E8E8E] outline-none focus:border-[#3CC27B] transition-colors"
                 />
-              </div>
-
-              {/* Add UPI ID - Only for UPI */}
-              {selectedMethod.upiId && (
-                <div className="lg:col-span-2">
-                  <label className="block text-[15px] font-medium text-black mb-2">
-                    Add UPI ID
-                  </label>
-                  <input
-                    type="text"
-                    defaultValue={selectedMethod.upiId}
-                    className="w-full h-[51px] px-4 rounded-[5px] border-[0.7px] border-[#CACACA] bg-[#F0F0F0] text-[15px] font-medium text-[#8E8E8E] outline-none focus:border-[#3CC27B] transition-colors"
-                  />
-                </div>
-              )}
-            </div>
-
-            {/* QR Code Section */}
-            <div className="mt-6">
-              <label className="block text-[15px] font-medium text-black mb-2">
-                QR Code
-              </label>
-              <div className="flex items-start gap-4">
-                <div className="relative">
-                  {qrCodePreview ? (
-                    <div className="relative">
-                      <img
-                        src={qrCodePreview}
-                        alt="QR Code"
-                        className="w-[164px] h-[164px] object-contain"
-                      />
-                      <button
-                        onClick={() => setQrCodePreview(null)}
-                        className="absolute -top-2 -right-2 w-[14px] h-[14px] flex items-center justify-center"
-                      >
-                        <svg
-                          width="14"
-                          height="14"
-                          viewBox="0 0 14 14"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M7 0C3.1 0 0 3.1 0 7C0 10.9 3.1 14 7 14C10.9 14 14 10.9 14 7C14 3.1 10.9 0 7 0ZM9.7 10.5L7 7.8L4.3 10.5L3.5 9.7L6.2 7L3.5 4.3L4.3 3.5L7 6.2L9.7 3.5L10.5 4.3L7.8 7L10.5 9.7L9.7 10.5Z"
-                            fill="#FA1818"
-                          />
-                        </svg>
-                      </button>
-                    </div>
-                  ) : (
-                    <div className="w-[164px] h-[164px] border-2 border-dashed border-gray-300 rounded flex items-center justify-center">
-                      <span className="text-gray-400 text-sm">No QR Code</span>
-                    </div>
-                  )}
-                </div>
-                <label className="mt-20 cursor-pointer">
-                  <div className="flex items-center justify-center px-4 py-1.5 bg-black text-white rounded-[3px] text-[12px] hover:bg-gray-800 transition-colors">
-                    Upload
-                  </div>
-                  <input
-                    type="file"
-                    className="hidden"
-                    accept="image/*"
-                    onChange={(e) => {
-                      const file = e.target.files?.[0];
-                      if (file) {
-                        const reader = new FileReader();
-                        reader.onloadend = () => {
-                          setQrCodePreview(reader.result as string);
-                        };
-                        reader.readAsDataURL(file);
-                      }
-                    }}
-                  />
-                </label>
               </div>
             </div>
 
