@@ -41,7 +41,7 @@ import { Requests } from "./pages/admin/requests/Requests";
 import { CryptocurrencyManagement } from "./pages/admin/cryptocurrency/CryptocurrencyManagement";
 import { Cryptocurrency } from "./pages/cryptocurrency/Cryptocurrency";
 import { Support } from "./pages/admin/Support";
-import { PaymentMethods as AdminPaymentMethods } from "./pages/admin/PaymentMethods";
+import AdminPaymentMethods from "./pages/admin/payment-methods/Payment";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
