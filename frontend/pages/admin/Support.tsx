@@ -281,24 +281,24 @@ export const Support: React.FC = () => {
                   {cashoutRequests.map((request) => (
                     <tr key={request.id} className="border-b border-[#C9C9C9]">
                       <td className="py-4 px-2">
-                        <div className="text-[17px] font-semibold text-black">
+                        <div className="text-sm font-semibold text-black">
                           {request.requestId}
                         </div>
                       </td>
                       <td className="py-4 px-2">
                         <div>
-                          <div className="text-[17px] font-semibold text-black">
+                          <div className="text-sm font-semibold text-black">
                             {request.userName}
                           </div>
-                          <div className="text-[15px] font-light text-black">
+                          <div className="text-xs font-light text-black">
                             {request.userEmail}
                           </div>
                         </div>
                       </td>
-                      <td className="py-4 px-2 text-[15px] text-black">
+                      <td className="py-4 px-2 text-xs sm:text-sm text-black">
                         {request.amount}
                       </td>
-                      <td className="py-4 px-2 text-[15px] text-black">
+                      <td className="py-4 px-2 text-xs sm:text-sm text-black">
                         {request.method}
                       </td>
                       <td className="py-4 px-2">
@@ -308,10 +308,10 @@ export const Support: React.FC = () => {
                           {request.status}
                         </span>
                       </td>
-                      <td className="py-4 px-2 text-[15px] font-light text-black">
+                      <td className="py-4 px-2 text-xs sm:text-sm font-light text-black">
                         {request.date}
                       </td>
-                      <td className="py-4 px-2 text-[15px] text-black">
+                      <td className="py-4 px-2 text-xs sm:text-sm text-black">
                         {request.trackingId}
                       </td>
                       <td className="py-4 px-2">
