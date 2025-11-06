@@ -182,15 +182,15 @@ export const Settings = () => {
             </div>
 
             {/* Site Information */}
-            <section className="mb-12">
-              <h2 className="text-lg sm:text-xl font-medium text-black mb-6">
+            <section className="mb-8 xs:mb-10 sm:mb-12">
+              <h2 className="text-base xs:text-lg sm:text-xl font-medium text-black mb-4 xs:mb-6">
                 Site Information
               </h2>
 
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 xs:grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-3 xs:gap-4 sm:gap-6">
                 {/* Site Name */}
                 <div>
-                  <label className="block text-base sm:text-lg font-medium text-black mb-2">
+                  <label className="block text-xs xs:text-sm sm:text-base lg:text-lg font-medium text-black mb-1.5 xs:mb-2">
                     Site Name
                   </label>
                   <input
