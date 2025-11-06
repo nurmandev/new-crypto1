@@ -379,7 +379,10 @@ export const Pages = () => {
                       </div>
                       <div className="text-black text-sm">{page.slug}</div>
                     </div>
-                    <button className="hover:opacity-70 transition-opacity flex-shrink-0">
+                    <button
+                      className="hover:opacity-70 transition-opacity flex-shrink-0"
+                      onClick={() => navigate(`/admin/pages/edit/${page.id}`)}
+                    >
                       <svg
                         width="18"
                         height="18"
