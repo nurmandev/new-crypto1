@@ -22,10 +22,12 @@ interface PaymentMethod {
 export const PaymentMethods: React.FC = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const [isAddModalOpen, setIsAddModalOpen] = useState(false);
   const [selectedMethod, setSelectedMethod] = useState<PaymentMethod | null>(
     null,
   );
   const [qrCodePreview, setQrCodePreview] = useState<string | null>(null);
+  const [addQrCodePreview, setAddQrCodePreview] = useState<string | null>(null);
 
   const paymentMethods: PaymentMethod[] = [
     {
