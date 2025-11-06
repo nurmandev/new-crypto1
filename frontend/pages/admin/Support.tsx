@@ -247,7 +247,7 @@ export const Support: React.FC = () => {
               </select>
             </div>
 
-            <div className="overflow-x-auto">
+            <div className="hidden lg:block overflow-x-auto">
               <table className="w-full">
                 <thead>
                   <tr className="border-b border-[#C9C9C9]">
