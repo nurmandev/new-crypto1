@@ -317,7 +317,7 @@ export const PaymentMethods: React.FC = () => {
                 <input
                   type="text"
                   defaultValue={selectedMethod.name}
-                  className="w-full h-[51px] px-4 rounded-[5px] border-[0.7px] border-[#CACACA] bg-[#F0F0F0] text-[15px] font-medium text-[#8E8E8E] outline-none focus:border-[#3CC27B] transition-colors"
+                  className="w-full h-[44px] px-3 rounded-md border border-[#CACACA] bg-[#F0F0F0] text-sm font-medium text-[#8E8E8E] outline-none focus:border-[#3CC27B] focus:bg-white transition-colors"
                 />
               </div>
 
