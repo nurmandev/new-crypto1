@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import DashboardHeader from "./components/DashboardHeader";
 import Sidebar from "./components/Sidebar";
 import BalanceCard from "./components/BalanceCard";
@@ -9,46 +9,88 @@ import MoreServices from "./components/MoreServices";
 import RightSidebar from "./components/RightSidebar";
 
 export default function Dashboard() {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const closeSidebar = () => {
     setIsSidebarOpen(false);
   };
 
   return (
-    <div className="min-h-screen bg-[#F8F8F8] pb-12 md:pb-16">
+    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 pb-20 sm:pb-12">
       {/* Top Navigation Bar */}
       <DashboardHeader
         onMenuToggle={() => setIsSidebarOpen(!isSidebarOpen)}
         isMenuOpen={isSidebarOpen}
       />
 
-      <div className="px-4 md:px-6 lg:px-12 mt-4 md:mt-6 flex flex-col lg:flex-row gap-4 md:gap-6">
-        {/* Sidebar Navigation */}
-        <div className="flex-shrink-0">
+      <div className="relative flex pt-6 md:pt-8">
+        {/* Sidebar Navigation - Hidden by default on mobile */}
+        <div
+          className={`
+          fixed inset-y-0 left-0 z-40 w-72 bg-white/95 backdrop-blur-sm transform transition-all duration-300 
+          shadow-xl overflow-y-auto border-r border-gray-100
+          ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"}
+          lg:relative lg:translate-x-0 lg:shadow-none lg:border-r lg:w-64
+        `}
+        >
           <Sidebar isOpen={isSidebarOpen} onClose={closeSidebar} />
         </div>
 
-        {/* Main Content */}
-        <div className="flex-1 space-y-4 md:space-y-6">
-          {/* Balance Card */}
-          <BalanceCard />
+        {/* Overlay for mobile sidebar */}
+        {isSidebarOpen && (
+          <div
+            className="fixed inset-0 bg-gray-900/60 backdrop-blur-sm z-30 lg:hidden transition-opacity duration-300"
+            onClick={closeSidebar}
+          />
+        )}
 
-          {/* Stats Cards */}
-          <StatsCards />
+        {/* Main Content Area */}
+        <div className="flex-1 min-w-0">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-2 pb-6">
+            <div className="grid grid-cols-1 xl:grid-cols-[1fr,340px] gap-6">
+              {/* Main Content */}
+              <div className="space-y-6">
+                {/* Balance Card */}
+                <div className="transition-all duration-300 hover:translate-y-[-2px]">
+                  <BalanceCard />
+                </div>
 
-          {/* Your Crypto Holdings */}
-          <CryptoHoldings />
+                {/* Stats Cards */}
+                <div className="overflow-x-auto -mx-4 px-4 pb-4">
+                  <div className="transition-all duration-300 hover:translate-y-[-2px]">
+                    <StatsCards />
+                  </div>
+                </div>
 
-          {/* Live Price Markets */}
-          <LivePriceMarkets />
+                {/* Your Crypto Holdings */}
+                <div className="transition-all duration-300 hover:translate-y-[-2px]">
+                  <CryptoHoldings />
+                </div>
 
-          {/* More Coming Soon */}
-          <MoreServices />
+                {/* Live Price Markets */}
+                <div className="overflow-x-auto -mx-4 px-4 pb-4">
+                  <div className="transition-all duration-300 hover:translate-y-[-2px]">
+                    <LivePriceMarkets />
+                  </div>
+                </div>
+
+                {/* More Coming Soon */}
+                <div className="transition-all duration-300 hover:translate-y-[-2px]">
+                  <MoreServices />
+                </div>
+              </div>
+
+              {/* Right Sidebar - Hidden on mobile, shown on xl breakpoint */}
+              <div className="hidden xl:block">
+                <div className="sticky top-6 space-y-6">
+                  <div className="transition-all duration-300 hover:translate-y-[-2px]">
+                    <RightSidebar />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-
-        {/* Right Sidebar */}
-        <RightSidebar />
       </div>
     </div>
   );

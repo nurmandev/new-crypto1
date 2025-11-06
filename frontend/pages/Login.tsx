@@ -51,24 +51,25 @@ export default function Login() {
           <div className="relative mb-6">
             <div className="w-full h-[51px] bg-[#F0F0F0] rounded-md"></div>
             <div
-              className={`absolute top-1 left-1 w-[calc(50%-4px)] h-[43px] bg-white rounded transition-transform duration-300 ${
-                !isSignIn ? "translate-x-full" : ""
-              }`}
+              className={`absolute top-1 left-1 w-[calc(50%-4px)] h-[43px] bg-white rounded-md shadow-sm transition-all duration-300 ease-out`}
             ></div>
             <div className="absolute inset-0 flex">
               <button
-                onClick={() => setIsSignIn(true)}
-                className={`flex-1 text-[15px] font-medium transition-colors ${
-                  isSignIn ? "text-gray-900" : "text-gray-500"
-                }`}
+                onClick={(e) => {
+                  setIsSignIn(true);
+                  const btn = e.currentTarget;
+                  btn.style.transform = "scale(0.95)";
+                  setTimeout(() => {
+                    btn.style.transform = "scale(1)";
+                  }, 150);
+                }}
+                className="flex-1 text-[15px] font-medium text-gray-900 transition-all duration-300 active:scale-95 hover:text-gray-800"
               >
                 Sign In
               </button>
               <Link
                 to="/register"
-                className={`flex-1 flex items-center justify-center text-[15px] font-medium transition-colors ${
-                  !isSignIn ? "text-gray-900" : "text-gray-500"
-                }`}
+                className="flex-1 flex items-center justify-center text-[15px] font-medium text-gray-500 transition-all duration-300 active:scale-95 hover:text-gray-700"
               >
                 Sign Up
               </Link>

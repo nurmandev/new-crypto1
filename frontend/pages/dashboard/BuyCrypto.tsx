@@ -1,5 +1,5 @@
 import { Bell, ArrowUpDown, ArrowRight, ChevronDown } from "lucide-react";
-import { useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import DashboardHeader from "./components/DashboardHeader";
 import Sidebar from "./components/Sidebar";
@@ -31,36 +31,59 @@ export default function BuyCrypto() {
   };
 
   return (
-    <div className="min-h-screen bg-[#F8F8F8] pb-12 md:pb-16">
+    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 pb-20 sm:pb-12">
       {/* Top Navigation Bar */}
       <DashboardHeader
         onMenuToggle={() => setIsSidebarOpen(!isSidebarOpen)}
         isMenuOpen={isSidebarOpen}
       />
 
-      <div className="px-4 md:px-6 lg:px-12 mt-4 md:mt-6 flex flex-col lg:flex-row gap-4 md:gap-6">
-        {/* Sidebar */}
-        <div className="flex-shrink-0">
+      <div className="relative flex pt-6 md:pt-8">
+        {/* Sidebar - Hidden by default on mobile */}
+        <div
+          className={`
+          fixed inset-y-0 left-0 z-40 w-72 bg-white/95 backdrop-blur-sm transform transition-all duration-300 
+          shadow-xl overflow-y-auto border-r border-gray-100
+          ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"}
+          lg:relative lg:translate-x-0 lg:shadow-none lg:border-r lg:w-64
+        `}
+        >
           <Sidebar
             isOpen={isSidebarOpen}
             onClose={() => setIsSidebarOpen(false)}
           />
         </div>
 
-        {/* Main Content */}
-        <div className="flex-1 space-y-4 md:space-y-6">
-          <div className="bg-white rounded-lg md:rounded-[10px] p-4 md:p-6 lg:p-8">
+        {/* Overlay for mobile sidebar */}
+        {isSidebarOpen && (
+          <div
+            className="fixed inset-0 bg-gray-900/60 backdrop-blur-sm z-30 lg:hidden transition-opacity duration-300"
+            onClick={() => setIsSidebarOpen(false)}
+          />
+        )}
+
+        {/* Main Content Area */}
+        <div className="flex-1 min-w-0">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <div className="grid grid-cols-1 xl:grid-cols-[1fr,368px] gap-6">
+          <div className="bg-white rounded-xl p-6 sm:p-8 shadow-sm hover:shadow-md transition-shadow">
+            {/* Page Title */}
+            <div className="mb-8">
+              <h1 className="text-2xl sm:text-3xl font-semibold text-gray-900 mb-2">Buy Cryptocurrency</h1>
+              <p className="text-gray-600">Exchange INR for cryptocurrency instantly with best market rates</p>
+            </div>
+            
             {/* Buy/Sell Toggle */}
-            <div className="relative mb-6 md:mb-8">
-              <div className="w-full h-[45px] md:h-[51px] bg-[#F0F0F0] rounded-md"></div>
-              <div className="absolute top-1 left-1 w-[calc(50%-4px)] h-[37px] md:h-[43px] bg-white rounded"></div>
+            <div className="relative mb-8">
+              <div className="w-full h-[51px] bg-gray-50 rounded-lg"></div>
+              <div className="absolute top-1 left-1 w-[calc(50%-4px)] h-[43px] bg-white rounded-md shadow-sm"></div>
               <div className="absolute inset-0 flex">
-                <button className="flex-1 text-sm md:text-base lg:text-xl font-medium text-gray-900">
+                <button className="flex-1 text-base font-medium text-gray-900">
                   Buy Crypto
                 </button>
                 <Link
                   to="/sell-crypto"
-                  className="flex-1 flex items-center justify-center text-sm md:text-base lg:text-xl font-medium text-gray-900"
+                  className="flex-1 flex items-center justify-center text-base font-medium text-gray-500 hover:text-gray-900 transition-colors"
                 >
                   Sell Crypto
                 </Link>
@@ -72,20 +95,20 @@ export default function BuyCrypto() {
             </p>
 
             {/* Select Cryptocurrency */}
-            <div className="mb-6 md:mb-8">
-              <label className="block text-sm md:text-base lg:text-[17px] font-medium text-black mb-2 md:mb-3">
+            <div className="mb-8">
+              <label className="block text-sm font-medium text-gray-900 mb-2">
                 Select Cryptocurrency
               </label>
               <div className="relative">
                 <button
                   onClick={() => setShowCryptoDropdown(!showCryptoDropdown)}
-                  className="w-full h-[45px] md:h-[51px] bg-[#F0F0F0] rounded-md px-4 md:px-7 flex items-center justify-between hover:bg-[#E8E8E8] transition-colors"
+                  className="w-full h-[51px] bg-gray-50 rounded-lg px-4 flex items-center justify-between hover:bg-gray-100 transition-colors border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/20"
                 >
-                  <span className="text-xs md:text-sm lg:text-[13px] font-medium text-black truncate">
+                  <span className="text-sm font-medium text-gray-900 truncate">
                     {selectedCrypto}
                   </span>
                   <ChevronDown
-                    className={`w-3 h-3 md:w-4 md:h-4 text-black flex-shrink-0 transition-transform ${
+                    className={`w-4 h-4 text-gray-500 flex-shrink-0 transition-transform duration-200 ${
                       showCryptoDropdown ? "rotate-180" : ""
                     }`}
                   />
@@ -93,15 +116,15 @@ export default function BuyCrypto() {
 
                 {/* Dropdown Menu */}
                 {showCryptoDropdown && (
-                  <div className="absolute top-full left-0 right-0 mt-2 bg-white border border-[#CACACA] rounded-md shadow-lg z-10">
+                  <div className="absolute top-full left-0 right-0 mt-2 bg-white border border-gray-200 rounded-lg shadow-lg z-10 overflow-hidden">
                     {cryptoOptions.map((crypto) => (
                       <button
                         key={crypto}
                         onClick={() => handleCryptoSelect(crypto)}
-                        className={`w-full text-left px-4 md:px-7 py-3 md:py-4 text-xs md:text-sm lg:text-[13px] font-medium transition-colors ${
+                        className={`w-full text-left px-4 py-3.5 text-sm font-medium transition-colors ${
                           selectedCrypto === crypto
-                            ? "bg-[#3CC27B]/20 text-[#3CC27B]"
-                            : "text-black hover:bg-[#F0F0F0]"
+                            ? "bg-primary/10 text-primary"
+                            : "text-gray-900 hover:bg-gray-50"
                         }`}
                       >
                         {crypto}
@@ -112,10 +135,11 @@ export default function BuyCrypto() {
               </div>
             </div>
 
-            {/* You Pay / You Receive */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-6 md:mb-8 relative">
-              <div>
-                <label className="block text-sm md:text-base lg:text-[17px] font-medium text-black mb-2 md:mb-3">
+            {/* Exchange Form */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+              {/* You Pay */}
+              <div className="space-y-2">
+                <label className="block text-sm font-medium text-gray-900">
                   You Pay
                 </label>
                 <div className="relative">
@@ -123,27 +147,28 @@ export default function BuyCrypto() {
                     type="text"
                     value={youPayAmount}
                     onChange={(e) => setYouPayAmount(e.target.value)}
-                    className="w-full h-[45px] md:h-[51px] bg-[#F0F0F0] border border-[#CACACA] rounded-md px-4 md:px-7 text-xs md:text-sm lg:text-[15px] font-bold text-[#8E8E8E]"
+                    className="w-full h-[51px] bg-gray-50 border border-gray-200 rounded-lg px-4 text-base font-medium text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary/20"
                   />
-                  <span className="absolute right-4 md:right-7 top-1/2 -translate-y-1/2 text-xs md:text-[13px] text-[#717171]">
-                    INR
-                  </span>
+                  <div className="absolute right-4 top-1/2 -translate-y-1/2 bg-gray-100 rounded-md px-2 py-1">
+                    <span className="text-sm font-medium text-gray-900">INR</span>
+                  </div>
                 </div>
               </div>
 
               {/* Swap Button */}
-              <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 hidden md:block">
+              <div className="absolute left-1/2 top-1/2 -translate-x-1/2 lg:-translate-y-4 z-10 hidden lg:block">
                 <button
                   onClick={handleSwap}
-                  className="w-9 md:w-11 h-9 md:h-11 rounded-full bg-gradient-to-br from-[#3CC27B] to-[#1C5C3A] flex items-center justify-center hover:scale-105 transition-transform shadow-lg active:scale-95"
+                  className="w-12 h-12 rounded-full bg-white flex items-center justify-center hover:scale-105 transition-all duration-200 shadow-lg active:scale-95 border border-gray-200"
                   title="Swap amounts"
                 >
-                  <ArrowUpDown className="w-4 md:w-5 h-4 md:h-5 text-white" />
+                  <ArrowUpDown className="w-5 h-5 text-gray-600" />
                 </button>
               </div>
 
-              <div>
-                <label className="block text-sm md:text-base lg:text-[17px] font-medium text-black mb-2 md:mb-3">
+              {/* You Receive */}
+              <div className="space-y-2">
+                <label className="block text-sm font-medium text-gray-900">
                   You Receive
                 </label>
                 <div className="relative">
@@ -151,74 +176,75 @@ export default function BuyCrypto() {
                     type="text"
                     value={youReceiveAmount}
                     onChange={(e) => setYouReceiveAmount(e.target.value)}
-                    className="w-full h-[45px] md:h-[51px] bg-[#F0F0F0] border border-[#CACACA] rounded-md px-4 md:px-7 text-xs md:text-sm lg:text-[15px] font-bold text-[#8E8E8E]"
+                    className="w-full h-[51px] bg-gray-50 border border-gray-200 rounded-lg px-4 text-base font-medium text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary/20"
                   />
-                  <span className="absolute right-4 md:right-7 top-1/2 -translate-y-1/2 text-xs md:text-[13px] text-[#717171]">
-                    ADA
-                  </span>
+                  <div className="absolute right-4 top-1/2 -translate-y-1/2 bg-gray-100 rounded-md px-2 py-1">
+                    <span className="text-sm font-medium text-gray-900">ADA</span>
+                  </div>
                 </div>
               </div>
             </div>
 
-            <p className="text-[#838383] text-center text-xs md:text-sm lg:text-[17px] mb-6 md:mb-8">
-              1 ADA = ₹28
-            </p>
+            <div className="flex items-center justify-center gap-2 mb-8">
+              <span className="text-sm text-gray-600">Exchange Rate:</span>
+              <span className="text-sm font-medium text-gray-900">1 ADA = ₹28</span>
+            </div>
 
             {/* Continue Button */}
             <Link
               to="/payment-method"
-              className="w-full flex items-center justify-center gap-2 bg-black text-white py-3 md:py-4 rounded-md border border-[#C3C3C3] hover:bg-black/90 transition-colors mb-6 md:mb-8"
+              className="w-full flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-white h-12 rounded-lg transition-colors mb-8 group"
             >
-              <span className="text-xs md:text-sm lg:text-[15px] font-medium">
+              <span className="text-sm font-medium">
                 Continue To Payment
               </span>
-              <ArrowRight className="w-3 h-3 md:w-4 md:h-4" />
+              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
             </Link>
 
             {/* Purchase Summary */}
-            <div className="border-l-2 border-[#3CC27B] bg-[#3CC27B]/10 rounded-lg md:rounded-[10px] p-4 md:p-6">
-              <h3 className="text-xs md:text-sm lg:text-[15px] font-medium text-black mb-4 md:mb-6">
+            <div className="border-l-4 border-primary/40 bg-primary/5 rounded-xl p-6">
+              <h3 className="text-base font-semibold text-gray-900 mb-6">
                 Purchase Summary
               </h3>
-              <div className="space-y-2 md:space-y-3">
-                <div className="flex justify-between items-center gap-2">
-                  <span className="text-xs md:text-sm lg:text-[14px] text-black font-light">
-                    Cryptocurrency:
+              <div className="space-y-4">
+                <div className="flex justify-between items-center">
+                  <span className="text-sm text-gray-600">
+                    Cryptocurrency
                   </span>
-                  <span className="text-xs md:text-sm lg:text-[14px] text-black font-medium text-right">
+                  <span className="text-sm font-medium text-gray-900">
                     Ethereum (ETH)
                   </span>
                 </div>
-                <div className="flex justify-between items-center gap-2">
-                  <span className="text-xs md:text-sm lg:text-[14px] text-black font-light">
-                    Crypto Amount:
+                <div className="flex justify-between items-center">
+                  <span className="text-sm text-gray-600">
+                    Crypto Amount
                   </span>
-                  <span className="text-xs md:text-sm lg:text-[14px] text-black font-medium text-right">
+                  <span className="text-sm font-medium text-gray-900">
                     0.02000000 ETH
                   </span>
                 </div>
-                <div className="flex justify-between items-center gap-2">
-                  <span className="text-xs md:text-sm lg:text-[14px] text-black font-light">
-                    Exchange Rate:
+                <div className="flex justify-between items-center">
+                  <span className="text-sm text-gray-600">
+                    Exchange Rate
                   </span>
-                  <span className="text-xs md:text-sm lg:text-[14px] text-black font-medium text-right">
+                  <span className="text-sm font-medium text-gray-900">
                     ₹1,85,000
                   </span>
                 </div>
-                <div className="flex justify-between items-center gap-2">
-                  <span className="text-xs md:text-sm lg:text-[14px] text-black font-light">
-                    Trading Fee (0.5%):
+                <div className="flex justify-between items-center">
+                  <span className="text-sm text-gray-600">
+                    Trading Fee (0.5%)
                   </span>
-                  <span className="text-xs md:text-sm lg:text-[14px] text-black font-medium text-right">
+                  <span className="text-sm font-medium text-gray-900">
                     ₹18.50
                   </span>
                 </div>
-                <div className="border-t border-[#EDEDED] pt-2 md:pt-3 mt-2 md:mt-3">
-                  <div className="flex justify-between items-center gap-2">
-                    <span className="text-xs md:text-sm lg:text-[14px] text-black font-light">
+                <div className="border-t border-gray-200 pt-4 mt-4">
+                  <div className="flex justify-between items-center">
+                    <span className="text-sm font-medium text-gray-900">
                       Total To Pay
                     </span>
-                    <span className="text-xs md:text-sm lg:text-[14px] text-[#3CC27B] font-medium">
+                    <span className="text-base font-semibold text-primary">
                       ₹3,681.50
                     </span>
                   </div>
@@ -229,31 +255,39 @@ export default function BuyCrypto() {
         </div>
 
         {/* Right Sidebar - Recent Transactions */}
-        <div className="w-full lg:w-[368px] space-y-3 md:space-y-4">
-          <div className="flex items-center justify-between gap-2">
-            <h3 className="text-sm md:text-base lg:text-[17px] font-medium text-black">
+        <div className="w-full xl:w-[368px] space-y-4">
+          <div className="flex items-center justify-between">
+            <h3 className="text-base font-semibold text-gray-900">
               Recent Transactions
             </h3>
-            <button className="px-2 md:px-3 py-1 bg-black text-white rounded text-[10px] md:text-xs whitespace-nowrap">
-              view all
+            <button className="px-3 py-1.5 bg-gray-900 text-white rounded-lg text-xs font-medium hover:bg-gray-800 transition-colors">
+              View All
             </button>
           </div>
 
-          <div className="space-y-2 md:space-y-3">
+          <div className="space-y-3">
             {[1, 2, 3, 4].map((item) => (
               <div
                 key={item}
-                className="bg-white rounded-lg border border-[#D9D9D9] p-3 md:p-4"
+                className="bg-white rounded-xl border border-gray-200 p-4 hover:border-primary/20 hover:shadow-sm transition-all duration-200"
               >
-                <p className="text-sm md:text-base font-bold text-black">
-                  Buy BTC
-                </p>
-                <p className="text-[10px] md:text-xs text-black font-light mt-1">
-                  2024-12-20 14:30
-                </p>
-                <p className="text-[10px] md:text-xs text-black font-light">
-                  0x1234...5678
-                </p>
+                <div className="flex items-start justify-between mb-3">
+                  <div>
+                    <h4 className="text-sm font-semibold text-gray-900 mb-1">
+                      Buy BTC
+                    </h4>
+                    <p className="text-xs text-gray-500">
+                      2024-12-20 14:30
+                    </p>
+                  </div>
+                  <span className="px-2 py-1 bg-primary/10 text-primary text-xs font-medium rounded">
+                    Completed
+                  </span>
+                </div>
+                <div className="flex items-center gap-2 text-xs">
+                  <span className="text-gray-500">ID:</span>
+                  <code className="font-mono text-gray-900">0x1234...5678</code>
+                </div>
               </div>
             ))}
           </div>
