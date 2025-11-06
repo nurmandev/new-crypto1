@@ -302,118 +302,119 @@ export const PaymentMethods: React.FC = () => {
 
       {/* Edit Payment Method Modal */}
       {isEditModalOpen && selectedMethod && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/40 backdrop-blur-sm">
-          <div className="bg-white rounded-lg w-full max-w-[500px] max-h-[85vh] overflow-y-auto p-4 sm:p-6">
-            <h2 className="text-[16px] font-semibold text-black mb-5 leading-snug">
-              Edit Payment Method
-            </h2>
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[rgba(0,0,0,0.22)]">
+          <div className="bg-white rounded-[11px] w-full max-w-[803px] max-h-[90vh] overflow-y-auto p-[30px]">
+            <div className="w-full max-w-[750px] mx-auto">
+              <h2 className="text-[17px] font-medium text-black mb-[26px] leading-[33px]">
+                Edit Payment Method
+              </h2>
 
-            <div className="grid grid-cols-1 gap-4 sm:gap-5">
-              {/* Method Name */}
-              <div>
-                <label className="block text-[15px] font-medium text-black mb-2">
-                  Method Name
-                </label>
-                <input
-                  type="text"
-                  defaultValue={selectedMethod.name}
-                  className="w-full h-[44px] px-3 rounded-md border border-[#CACACA] bg-[#F0F0F0] text-sm font-medium text-[#8E8E8E] outline-none focus:border-[#3CC27B] focus:bg-white transition-colors"
-                />
-              </div>
-
-              {/* Icon / emoji */}
-              <div>
-                <label className="block text-sm font-medium text-black mb-1.5">
-                  Icon / emoji
-                </label>
-                <div className="flex items-center gap-3 h-[44px] px-3 rounded-md border border-[#CACACA] bg-[#F0F0F0]">
-                  <img
-                    src={selectedMethod.icon}
-                    alt="icon"
-                    className="w-8 h-8 rounded-full"
-                  />
-                  <label className="ml-auto cursor-pointer text-xs text-[#8F8F8F] hover:text-black transition-colors">
-                    Upload
-                    <input type="file" className="hidden" accept="image/*" />
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-[33px] gap-y-[26px]">
+                {/* Method Name */}
+                <div>
+                  <label className="block text-[15px] font-medium text-black mb-[8px]">
+                    Method Name
                   </label>
+                  <input
+                    type="text"
+                    defaultValue={selectedMethod.name}
+                    className="w-full h-[51px] px-[29px] rounded-[5px] border-[0.7px] border-[#CACACA] bg-[#F0F0F0] text-[15px] font-medium text-[#8E8E8E] outline-none focus:border-[#3CC27B] focus:bg-white transition-colors"
+                  />
+                </div>
+
+                {/* Icon / emoji */}
+                <div>
+                  <label className="block text-[15px] font-medium text-black mb-[8px]">
+                    Icon / emoji
+                  </label>
+                  <div className="flex items-center gap-3 h-[51px] px-[15px] rounded-[5px] border-[0.7px] border-[#CACACA] bg-[#F0F0F0]">
+                    <img
+                      src={selectedMethod.icon}
+                      alt="icon"
+                      className="w-[36px] h-[36px] rounded-[30px]"
+                    />
+                    <label className="ml-auto cursor-pointer text-[13px] text-[#8F8F8F] hover:text-black transition-colors">
+                      Upload
+                      <input type="file" className="hidden" accept="image/*" />
+                    </label>
+                  </div>
+                </div>
+
+                {/* Minimum Amount */}
+                <div>
+                  <label className="block text-[15px] font-medium text-black mb-[8px]">
+                    Minimum Amount (₹)
+                  </label>
+                  <input
+                    type="text"
+                    defaultValue={selectedMethod.limit.min}
+                    className="w-full h-[51px] px-[29px] rounded-[5px] border-[0.7px] border-[#CACACA] bg-[#F0F0F0] text-[15px] font-medium text-[#8E8E8E] outline-none focus:border-[#3CC27B] focus:bg-white transition-colors"
+                  />
+                </div>
+
+                {/* Maximum Amount */}
+                <div>
+                  <label className="block text-[15px] font-medium text-black mb-[8px]">
+                    Maximum Amount (��)
+                  </label>
+                  <input
+                    type="text"
+                    defaultValue={selectedMethod.limit.max}
+                    className="w-full h-[51px] px-[29px] rounded-[5px] border-[0.7px] border-[#CACACA] bg-[#F0F0F0] text-[15px] font-medium text-[#8E8E8E] outline-none focus:border-[#3CC27B] focus:bg-white transition-colors"
+                  />
+                </div>
+
+                {/* Fees */}
+                <div>
+                  <label className="block text-[15px] font-medium text-black mb-[8px]">
+                    Fees (%)
+                  </label>
+                  <input
+                    type="text"
+                    defaultValue={selectedMethod.fees}
+                    className="w-full h-[51px] px-[29px] rounded-[5px] border-[0.7px] border-[#CACACA] bg-[#F0F0F0] text-[15px] font-medium text-[#8E8E8E] outline-none focus:border-[#3CC27B] focus:bg-white transition-colors"
+                  />
+                </div>
+
+                {/* Processing Time */}
+                <div>
+                  <label className="block text-[15px] font-medium text-black mb-[8px]">
+                    Processing Time
+                  </label>
+                  <input
+                    type="text"
+                    defaultValue={selectedMethod.processingTime}
+                    className="w-full h-[51px] px-[29px] rounded-[5px] border-[0.7px] border-[#CACACA] bg-[#F0F0F0] text-[15px] font-medium text-[#8E8E8E] outline-none focus:border-[#3CC27B] focus:bg-white transition-colors"
+                  />
                 </div>
               </div>
 
-              {/* Minimum Amount */}
-              <div>
-                <label className="block text-sm font-medium text-black mb-1.5">
-                  Minimum Amount (₹)
+              {/* Description */}
+              <div className="mt-[26px]">
+                <label className="block text-[15px] font-medium text-black mb-[8px]">
+                  Description
                 </label>
-                <input
-                  type="text"
-                  defaultValue={selectedMethod.limit.min}
-                  className="w-full h-[44px] px-3 rounded-md border border-[#CACACA] bg-[#F0F0F0] text-sm font-medium text-[#8E8E8E] outline-none focus:border-[#3CC27B] focus:bg-white transition-colors"
+                <textarea
+                  defaultValue={selectedMethod.description}
+                  className="w-full h-[99px] px-[29px] py-[18px] rounded-[5px] border-[0.7px] border-[#CACACA] bg-[#F0F0F0] text-[15px] font-medium text-[#8E8E8E] outline-none focus:border-[#3CC27B] focus:bg-white transition-colors resize-none"
                 />
               </div>
 
-              {/* Maximum Amount */}
-              <div>
-                <label className="block text-sm font-medium text-black mb-1.5">
-                  Maximum Amount (₹)
-                </label>
-                <input
-                  type="text"
-                  defaultValue={selectedMethod.limit.max}
-                  className="w-full h-[44px] px-3 rounded-md border border-[#CACACA] bg-[#F0F0F0] text-sm font-medium text-[#8E8E8E] outline-none focus:border-[#3CC27B] focus:bg-white transition-colors"
-                />
+              {/* Action Buttons */}
+              <div className="mt-[28px] flex flex-col sm:flex-row gap-[11px]">
+                <button className="w-full sm:w-[210px] h-[36px] px-[60px] bg-black text-white text-[15px] font-medium rounded-[6px] border-[0.5px] border-[#C3C3C3] hover:bg-gray-900 transition-colors leading-[33px]">
+                  Save Changes
+                </button>
+                <button className="w-full sm:w-[210px] h-[36px] px-[60px] bg-[#FA1818] text-white text-[15px] font-medium rounded-[6px] border-[0.5px] border-[#C3C3C3] hover:bg-red-700 transition-colors leading-[33px]">
+                  Disable
+                </button>
+                <button
+                  onClick={handleCloseModal}
+                  className="w-full sm:w-[210px] h-[36px] px-[60px] bg-white text-black text-[15px] font-medium rounded-[6px] border-[0.5px] border-[#C3C3C3] hover:bg-gray-100 transition-colors leading-[33px]"
+                >
+                  Cancel
+                </button>
               </div>
-
-              {/* Fees */}
-              <div>
-                <label className="block text-sm font-medium text-black mb-1.5">
-                  Fees (%)
-                </label>
-                <input
-                  type="text"
-                  defaultValue={selectedMethod.fees}
-                  className="w-full h-[44px] px-3 rounded-md border border-[#CACACA] bg-[#F0F0F0] text-sm font-medium text-[#8E8E8E] outline-none focus:border-[#3CC27B] focus:bg-white transition-colors"
-                />
-              </div>
-
-              {/* Processing Time */}
-              <div>
-                <label className="block text-sm font-medium text-black mb-1.5">
-                  Processing Time
-                </label>
-                <input
-                  type="text"
-                  defaultValue={selectedMethod.processingTime}
-                  className="w-full h-[44px] px-3 rounded-md border border-[#CACACA] bg-[#F0F0F0] text-sm font-medium text-[#8E8E8E] outline-none focus:border-[#3CC27B] focus:bg-white transition-colors"
-                />
-              </div>
-            </div>
-
-            {/* Description */}
-            <div className="mt-4 sm:mt-5">
-              <label className="block text-sm font-medium text-black mb-1.5">
-                Description
-              </label>
-              <textarea
-                defaultValue={selectedMethod.description}
-                rows={3}
-                className="w-full px-3 py-2 rounded-md border border-[#CACACA] bg-[#F0F0F0] text-sm font-medium text-[#8E8E8E] outline-none focus:border-[#3CC27B] focus:bg-white transition-colors resize-none"
-              />
-            </div>
-
-            {/* Action Buttons */}
-            <div className="mt-6 flex flex-col sm:flex-row gap-3 pt-4 border-t border-[#E0E0E0]">
-              <button className="flex-1 h-10 px-4 bg-black text-white text-sm font-semibold rounded-md border border-black hover:bg-gray-900 transition-colors">
-                Save Changes
-              </button>
-              <button className="flex-1 h-10 px-4 bg-[#FA1818] text-white text-sm font-semibold rounded-md border border-[#FA1818] hover:bg-red-700 transition-colors">
-                Disable
-              </button>
-              <button
-                onClick={handleCloseModal}
-                className="flex-1 h-10 px-4 bg-white text-black text-sm font-semibold rounded-md border border-[#D0D0D0] hover:bg-gray-100 transition-colors"
-              >
-                Cancel
-              </button>
             </div>
           </div>
         </div>
