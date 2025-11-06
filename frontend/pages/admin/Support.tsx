@@ -12,79 +12,95 @@ interface CashoutRequest {
   status: "Delivered" | "Processing" | "Shipped";
   date: string;
   trackingId: string;
+  address: string;
+  userNotes: string;
 }
 
 export const Support: React.FC = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedStatus, setSelectedStatus] = useState("all");
+  const [selectedRequest, setSelectedRequest] = useState<CashoutRequest | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const cashoutRequests: CashoutRequest[] = [
     {
       id: "1",
       requestId: "CSH001",
       userName: "John Doe",
-      userEmail: "john.doe@email.com",
+      userEmail: "john@example.com",
       amount: "5,000",
       method: "Cash Delivery",
       status: "Delivered",
       date: "2024-01-15",
       trackingId: "TRK123456789",
+      address: "123 Main Street, Mumbai, Maharashtra 400001",
+      userNotes: "Please deliver during office hours",
     },
     {
       id: "2",
       requestId: "CSH001",
       userName: "John Doe",
-      userEmail: "john.doe@email.com",
+      userEmail: "john@example.com",
       amount: "5,000",
       method: "Cash Delivery",
       status: "Processing",
       date: "2024-01-15",
       trackingId: "TRK123456789",
+      address: "123 Main Street, Mumbai, Maharashtra 400001",
+      userNotes: "Please deliver during office hours",
     },
     {
       id: "3",
       requestId: "CSH001",
       userName: "John Doe",
-      userEmail: "john.doe@email.com",
+      userEmail: "john@example.com",
       amount: "5,000",
       method: "Cash Delivery",
       status: "Shipped",
       date: "2024-01-15",
       trackingId: "TRK123456789",
+      address: "123 Main Street, Mumbai, Maharashtra 400001",
+      userNotes: "Please deliver during office hours",
     },
     {
       id: "4",
       requestId: "CSH001",
       userName: "John Doe",
-      userEmail: "john.doe@email.com",
+      userEmail: "john@example.com",
       amount: "5,000",
       method: "Cash Delivery",
       status: "Delivered",
       date: "2024-01-15",
       trackingId: "TRK123456789",
+      address: "123 Main Street, Mumbai, Maharashtra 400001",
+      userNotes: "Please deliver during office hours",
     },
     {
       id: "5",
       requestId: "CSH001",
       userName: "John Doe",
-      userEmail: "john.doe@email.com",
+      userEmail: "john@example.com",
       amount: "5,000",
       method: "Cash Delivery",
       status: "Delivered",
       date: "2024-01-15",
       trackingId: "TRK123456789",
+      address: "123 Main Street, Mumbai, Maharashtra 400001",
+      userNotes: "Please deliver during office hours",
     },
     {
       id: "6",
       requestId: "CSH001",
       userName: "John Doe",
-      userEmail: "john.doe@email.com",
+      userEmail: "john@example.com",
       amount: "5,000",
       method: "Cash Delivery",
       status: "Delivered",
       date: "2024-01-15",
       trackingId: "TRK123456789",
+      address: "123 Main Street, Mumbai, Maharashtra 400001",
+      userNotes: "Please deliver during office hours",
     },
   ];
 
@@ -242,7 +258,7 @@ export const Support: React.FC = () => {
                       User
                     </th>
                     <th className="text-left py-3 px-2 text-[15px] font-bold text-[#313131]">
-                      Amount (��)
+                      Amount (���)
                     </th>
                     <th className="text-left py-3 px-2 text-[15px] font-bold text-[#313131]">
                       Method
@@ -300,7 +316,13 @@ export const Support: React.FC = () => {
                       </td>
                       <td className="py-4 px-2">
                         <div className="flex items-center gap-2">
-                          <button className="p-1 hover:opacity-70">
+                          <button
+                            className="p-1 hover:opacity-70"
+                            onClick={() => {
+                              setSelectedRequest(request);
+                              setIsModalOpen(true);
+                            }}
+                          >
                             <svg
                               width="20"
                               height="13"
@@ -369,6 +391,55 @@ export const Support: React.FC = () => {
           </div>
         </div>
       </div>
+
+      {/* Request Details Modal */}
+      {isModalOpen && selectedRequest && (
+        <div
+          className="fixed inset-0 bg-black/22 flex items-center justify-center z-50 p-4"
+          onClick={() => setIsModalOpen(false)}
+        >
+          <div
+            className="bg-white rounded-[11px] w-full max-w-[408px] p-10 shadow-lg"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="space-y-6">
+              <h2 className="text-[17px] font-medium text-black leading-[33px]">
+                Request Details - {selectedRequest.requestId}
+              </h2>
+
+              <div className="space-y-4">
+                <div className="flex justify-between items-start">
+                  <span className="text-[14px] font-light text-black">Amount :</span>
+                  <span className="text-[14px] font-medium text-black text-right">
+                    ₹{selectedRequest.amount}
+                  </span>
+                </div>
+
+                <div className="flex justify-between items-start">
+                  <span className="text-[14px] font-light text-black">User</span>
+                  <span className="text-[14px] font-medium text-black text-right">
+                    {selectedRequest.userName} ({selectedRequest.userEmail})
+                  </span>
+                </div>
+
+                <div className="flex justify-between items-start">
+                  <span className="text-[14px] font-light text-black">Address :</span>
+                  <span className="text-[14px] font-medium text-black text-right max-w-[165px]">
+                    {selectedRequest.address}
+                  </span>
+                </div>
+
+                <div className="flex justify-between items-start">
+                  <span className="text-[14px] font-light text-black">User Notes :</span>
+                  <span className="text-[14px] font-medium text-black text-right max-w-[209px]">
+                    {selectedRequest.userNotes}
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
