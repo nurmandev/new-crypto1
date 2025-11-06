@@ -571,11 +571,15 @@ export const Settings = () => {
                     </p>
                   </div>
                   <div className="relative">
-                    <select className="h-[29px] px-3 pr-8 rounded bg-black text-white text-xs appearance-none cursor-pointer outline-none focus:ring-2 focus:ring-[#3CC27B]/20">
-                      <option>30 Minutes</option>
-                      <option>1 Hour</option>
-                      <option>2 Hours</option>
-                      <option>4 Hours</option>
+                    <select
+                      value={sessionTimeout}
+                      onChange={(e) => setSessionTimeout(e.target.value)}
+                      className="h-[29px] px-3 pr-8 rounded bg-black text-white text-xs appearance-none cursor-pointer outline-none focus:ring-2 focus:ring-[#3CC27B]/20"
+                    >
+                      <option value="30">30 Minutes</option>
+                      <option value="60">1 Hour</option>
+                      <option value="120">2 Hours</option>
+                      <option value="240">4 Hours</option>
                     </select>
                     <svg
                       className="absolute right-2 top-1/2 -translate-y-1/2 w-3 h-3 pointer-events-none"
@@ -619,10 +623,27 @@ export const Settings = () => {
               </div>
             </section>
 
+            {/* Save Notification */}
+            {saveMessage && (
+              <div
+                className={`mb-6 p-4 rounded-lg text-sm font-medium transition-all ${
+                  saveMessage.type === "success"
+                    ? "bg-[#E8F5E9] text-[#2E7D32] border border-[#4CAF50]"
+                    : "bg-[#FFEBEE] text-[#C62828] border border-[#F44336]"
+                }`}
+              >
+                {saveMessage.text}
+              </div>
+            )}
+
             {/* Save Button */}
             <div className="flex justify-end pt-6 border-t border-[#E0E0E0]">
-              <button className="px-8 py-3 bg-[#3CC27B] text-white text-base font-semibold rounded-lg hover:bg-[#35a869] transition-all shadow-sm">
-                Save Changes
+              <button
+                onClick={handleSaveSettings}
+                disabled={isSaving}
+                className="px-8 py-3 bg-[#3CC27B] text-white text-base font-semibold rounded-lg hover:bg-[#35a869] disabled:bg-[#999999] disabled:cursor-not-allowed transition-all shadow-sm"
+              >
+                {isSaving ? "Saving..." : "Save Changes"}
               </button>
             </div>
           </div>
