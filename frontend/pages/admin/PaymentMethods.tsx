@@ -159,7 +159,10 @@ export const PaymentMethods: React.FC = () => {
                   Add, Delete and Edit Payment Methods
                 </p>
               </div>
-              <button className="flex items-center gap-2 px-9 py-2 bg-[#161616] text-white rounded-md hover:bg-black transition-colors whitespace-nowrap">
+              <button
+                onClick={handleAddClick}
+                className="flex items-center gap-2 px-9 py-2 bg-[#161616] text-white rounded-md hover:bg-black transition-colors whitespace-nowrap"
+              >
                 <svg
                   width="15"
                   height="15"
