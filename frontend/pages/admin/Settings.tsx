@@ -425,21 +425,21 @@ export const Settings = () => {
 
                 {/* Background Color */}
                 <div>
-                  <label className="block text-base sm:text-lg font-medium text-black mb-2">
+                  <label className="block text-xs xs:text-sm sm:text-base font-medium text-black mb-1.5 xs:mb-2">
                     Background Color
                   </label>
-                  <div className="flex items-center gap-2">
+                  <div className="flex flex-col xs:flex-row items-start xs:items-center gap-2">
                     <input
                       type="color"
                       value={backgroundColor}
                       onChange={(e) => handleColorChange(e.target.value, setBackgroundColor, setBackgroundColorText)}
-                      className="w-[51px] h-[51px] rounded-lg border-2 border-[#BFBFBF] cursor-pointer"
+                      className="w-10 h-10 xs:w-[51px] xs:h-[51px] rounded-lg border-2 border-[#BFBFBF] cursor-pointer"
                     />
                     <input
                       type="text"
                       value={backgroundColorText}
                       onChange={(e) => handleColorTextChange(e.target.value, setBackgroundColor, setBackgroundColorText)}
-                      className="flex-1 h-[51px] px-3 rounded-lg border border-[#E0E0E0] bg-white text-sm text-black outline-none focus:border-[#3CC27B] focus:ring-2 focus:ring-[#3CC27B]/20 transition-all uppercase"
+                      className="w-full xs:flex-1 h-10 xs:h-[51px] px-2 xs:px-3 rounded-lg border border-[#E0E0E0] bg-white text-xs xs:text-sm text-black outline-none focus:border-[#3CC27B] focus:ring-2 focus:ring-[#3CC27B]/20 transition-all uppercase"
                     />
                   </div>
                 </div>
