@@ -256,8 +256,8 @@ export const Settings = () => {
             </section>
 
             {/* Branding & Assets */}
-            <section className="mb-8 xs:mb-10 sm:mb-12">
-              <h2 className="text-base xs:text-lg sm:text-xl font-medium text-black mb-4 xs:mb-6">
+            <section className="mb-8 xs:mb-10 sm:mb-12 pb-8 xs:pb-10 sm:pb-12 border-b border-[#E0E0E0]">
+              <h2 className="text-base xs:text-lg sm:text-xl font-semibold text-black mb-4 xs:mb-5 sm:mb-6">
                 Branding & Assets
               </h2>
 
