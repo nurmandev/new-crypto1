@@ -169,8 +169,8 @@ export const Settings = () => {
       <div className="lg:ml-[259px]">
         <AdminHeader onMenuClick={() => setIsSidebarOpen(true)} />
 
-        <div className="p-4 sm:p-6 lg:p-8">
-          <div className="bg-white rounded-lg shadow-sm p-6 sm:p-8">
+        <div className="p-2 xs:p-3 sm:p-6 lg:p-8">
+          <div className="bg-white rounded-lg shadow-sm p-4 xs:p-5 sm:p-8">
             {/* Page Header */}
             <div className="mb-8">
               <h1 className="text-xl sm:text-2xl font-medium text-black mb-2">
