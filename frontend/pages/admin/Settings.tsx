@@ -468,14 +468,14 @@ export const Settings = () => {
 
               {/* Font Family */}
               <div>
-                <label className="block text-base sm:text-lg font-medium text-black mb-2">
+                <label className="block text-xs xs:text-sm sm:text-base lg:text-lg font-medium text-black mb-1.5 xs:mb-2">
                   Font Family
                 </label>
                 <input
                   type="text"
                   value={fontFamily}
                   onChange={(e) => setFontFamily(e.target.value)}
-                  className="w-full h-[51px] px-5 rounded-lg border border-[#E0E0E0] bg-white text-sm text-black outline-none focus:border-[#3CC27B] focus:ring-2 focus:ring-[#3CC27B]/20 transition-all"
+                  className="w-full h-10 xs:h-[48px] sm:h-[51px] px-3 xs:px-4 sm:px-5 rounded-lg border border-[#E0E0E0] bg-white text-xs xs:text-sm text-black outline-none focus:border-[#3CC27B] focus:ring-2 focus:ring-[#3CC27B]/20 transition-all"
                 />
               </div>
             </section>
