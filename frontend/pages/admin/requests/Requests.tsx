@@ -185,12 +185,12 @@ export function Requests() {
   );
 
   return (
-    <div className="bg-[#F8F8F8]">
-      <div className="flex flex-col lg:flex-row gap-4 sm:gap-6 max-w-[1920px] mx-auto min-h-screen">
+    <div className="bg-[#F8F8F8] min-h-screen">
+      <div className="flex flex-col lg:flex-row gap-0 max-w-[1920px] mx-auto min-h-screen">
         {/* Mobile Menu Button */}
         <button
           onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-          className="lg:hidden fixed top-3 sm:top-4 left-3 sm:left-4 z-50 p-2 bg-white rounded-md shadow-lg"
+          className="lg:hidden fixed top-3 sm:top-4 left-3 sm:left-4 z-50 p-2 bg-white rounded-md shadow-lg hover:shadow-xl transition-shadow active:scale-95"
           aria-label="Toggle navigation menu"
         >
           <svg
@@ -210,15 +210,26 @@ export function Requests() {
           </svg>
         </button>
 
-        <AdminSidebar
-          isOpen={isSidebarOpen}
-          onClose={() => setIsSidebarOpen(false)}
-        />
+        {/* Sidebar with Mobile Overlay */}
+        <div>
+          <AdminSidebar
+            isOpen={isSidebarOpen}
+            onClose={() => setIsSidebarOpen(false)}
+          />
+          {isSidebarOpen && (
+            <div
+              className="fixed inset-0 bg-black/40 lg:hidden z-30"
+              onClick={() => setIsSidebarOpen(false)}
+            />
+          )}
+        </div>
 
-        <div className="flex-1 flex flex-col gap-4 sm:gap-6 p-3 sm:p-4 md:p-6 overflow-y-auto">
+        {/* Main Content */}
+        <div className="flex-1 flex flex-col gap-0 min-h-screen lg:gap-4 pt-16 sm:pt-20 lg:pt-0 lg:p-6">
           <AdminHeader />
 
-          <div className="bg-white rounded-lg sm:rounded-[10px] p-3 sm:p-5 md:p-8">
+          <div className="bg-white rounded-none sm:rounded-lg lg:rounded-[10px] p-3 sm:p-5 md:p-8 m-3 sm:m-4 md:m-0 flex flex-col flex-1">
+            {/* Header Section */}
             <div className="mb-4 sm:mb-6 md:mb-8">
               <h1 className="text-base sm:text-lg md:text-[20px] font-semibold sm:font-medium text-black mb-1 sm:mb-2">
                 Requests
@@ -228,18 +239,22 @@ export function Requests() {
               </p>
             </div>
 
-            <div className="flex items-center justify-end mb-4 sm:mb-6 md:mb-8 overflow-x-auto pb-2">
-              <RequestStatusFilter
-                selectedStatus={selectedStatus}
-                onStatusChange={setSelectedStatus}
-                pendingCount={statusCounts.pending}
-                approvedCount={statusCounts.approved}
-                rejectedCount={statusCounts.rejected}
-              />
+            {/* Filter Section */}
+            <div className="mb-4 sm:mb-6 md:mb-8 overflow-x-auto">
+              <div className="min-w-max lg:min-w-0">
+                <RequestStatusFilter
+                  selectedStatus={selectedStatus}
+                  onStatusChange={setSelectedStatus}
+                  pendingCount={statusCounts.pending}
+                  approvedCount={statusCounts.approved}
+                  rejectedCount={statusCounts.rejected}
+                />
+              </div>
             </div>
 
-            <div className="overflow-x-auto -mx-3 sm:-mx-5 md:mx-0">
-              <div className="px-3 sm:px-5 md:px-0">
+            {/* Table Section - Scrollable on Mobile */}
+            <div className="flex-1 overflow-hidden mb-4 sm:mb-6">
+              <div className="overflow-x-auto h-full">
                 <RequestsTable
                   requests={paginatedRequests}
                   onView={handleView}
@@ -247,13 +262,16 @@ export function Requests() {
               </div>
             </div>
 
-            <RequestsPagination
-              currentPage={currentPage}
-              totalPages={totalPages}
-              onPageChange={setCurrentPage}
-              totalItems={filteredRequests.length}
-              itemsPerPage={itemsPerPage}
-            />
+            {/* Pagination Section */}
+            <div className="mt-auto">
+              <RequestsPagination
+                currentPage={currentPage}
+                totalPages={totalPages}
+                onPageChange={setCurrentPage}
+                totalItems={filteredRequests.length}
+                itemsPerPage={itemsPerPage}
+              />
+            </div>
           </div>
         </div>
       </div>
