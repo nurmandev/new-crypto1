@@ -420,11 +420,11 @@ export const PaymentMethods: React.FC = () => {
       {isAddModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/40 backdrop-blur-sm">
           <div className="bg-white rounded-lg w-full max-w-[500px] max-h-[85vh] overflow-y-auto p-4 sm:p-6">
-            <h2 className="text-[17px] font-medium text-black mb-6 leading-[33px]">
+            <h2 className="text-[16px] font-semibold text-black mb-5 leading-snug">
               Add Payment Method
             </h2>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 gap-4 sm:gap-5">
               {/* Method Name */}
               <div>
                 <label className="block text-[15px] font-medium text-black mb-2">
