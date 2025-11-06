@@ -344,9 +344,7 @@ export const Support: React.FC = () => {
             </div>
 
             <div className="mt-6 flex items-center justify-between">
-              <p className="text-[17px] text-[#838383]">
-                Showing 10 out of 30
-              </p>
+              <p className="text-[17px] text-[#838383]">Showing 10 out of 30</p>
               <div className="flex items-center gap-3">
                 <button className="text-[13px] font-medium text-black">
                   Previous
