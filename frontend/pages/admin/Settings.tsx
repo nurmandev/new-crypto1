@@ -210,20 +210,20 @@ export const Settings = () => {
                     type="text"
                     value={siteTitle}
                     onChange={(e) => setSiteTitle(e.target.value)}
-                    className="w-full h-[51px] px-5 rounded-lg border border-[#E0E0E0] bg-white text-sm text-black outline-none focus:border-[#3CC27B] focus:ring-2 focus:ring-[#3CC27B]/20 transition-all"
+                    className="w-full h-[44px] xs:h-[48px] sm:h-[51px] px-3 xs:px-4 sm:px-5 rounded-lg border border-[#E0E0E0] bg-white text-xs xs:text-sm text-black outline-none focus:border-[#3CC27B] focus:ring-2 focus:ring-[#3CC27B]/20 transition-all"
                   />
                 </div>
 
                 {/* Site Description */}
-                <div className="lg:col-span-2">
-                  <label className="block text-base sm:text-lg font-medium text-black mb-2">
+                <div className="col-span-1 sm:col-span-2 lg:col-span-2">
+                  <label className="block text-xs xs:text-sm sm:text-base lg:text-lg font-medium text-black mb-1.5 xs:mb-2">
                     Site Description
                   </label>
                   <textarea
-                    rows={4}
+                    rows={3}
                     value={siteDescription}
                     onChange={(e) => setSiteDescription(e.target.value)}
-                    className="w-full px-5 py-3 rounded-lg border border-[#E0E0E0] bg-white text-sm text-black outline-none focus:border-[#3CC27B] focus:ring-2 focus:ring-[#3CC27B]/20 transition-all resize-none"
+                    className="w-full px-3 xs:px-4 sm:px-5 py-2 xs:py-2.5 sm:py-3 rounded-lg border border-[#E0E0E0] bg-white text-xs xs:text-sm text-black outline-none focus:border-[#3CC27B] focus:ring-2 focus:ring-[#3CC27B]/20 transition-all resize-none"
                   />
                 </div>
 
