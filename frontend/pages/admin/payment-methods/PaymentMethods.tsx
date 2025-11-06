@@ -405,6 +405,9 @@ export const PaymentMethods: React.FC = () => {
               <button className="flex-1 h-10 px-4 bg-black text-white text-sm font-semibold rounded-md border border-black hover:bg-gray-900 transition-colors">
                 Save Changes
               </button>
+              <button className="flex-1 h-10 px-4 bg-[#FA1818] text-white text-sm font-semibold rounded-md border border-[#FA1818] hover:bg-red-700 transition-colors">
+                Disable
+              </button>
               <button
                 onClick={handleCloseModal}
                 className="flex-1 h-10 px-4 bg-white text-black text-sm font-semibold rounded-md border border-[#D0D0D0] hover:bg-gray-100 transition-colors"
