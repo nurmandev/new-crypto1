@@ -13,12 +13,19 @@ interface PaymentMethod {
     max: string;
   };
   fees: string;
+  processingTime?: string;
+  upiId?: string;
   users: string;
   volume: string;
 }
 
 export const PaymentMethods: React.FC = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const [selectedMethod, setSelectedMethod] = useState<PaymentMethod | null>(
+    null,
+  );
+  const [qrCodePreview, setQrCodePreview] = useState<string | null>(null);
 
   const paymentMethods: PaymentMethod[] = [
     {
@@ -27,8 +34,10 @@ export const PaymentMethods: React.FC = () => {
       description: "Unified Payments Interface for instant INR transfers",
       icon: "https://api.builder.io/api/v1/image/assets/TEMP/3b4b05425288bd712f9b8242b4ec54b5d99eaaa0?width=80",
       status: "Active",
-      limit: { min: "₹100", max: "₹100,00" },
-      fees: "Free",
+      limit: { min: "100", max: "100000" },
+      fees: "0",
+      processingTime: "Instant",
+      upiId: "upiid@sbibank",
       users: "1245",
       volume: "₹12.4M",
     },
@@ -38,8 +47,9 @@ export const PaymentMethods: React.FC = () => {
       description: "Direct bank transfers via IMPS or NEFT",
       icon: "https://api.builder.io/api/v1/image/assets/TEMP/05f69dce74b342ec7e7542328e39eafd0a211cad?width=80",
       status: "Disabled",
-      limit: { min: "₹500", max: "₹500,000" },
-      fees: "Free",
+      limit: { min: "500", max: "500000" },
+      fees: "0",
+      processingTime: "1-2 hours",
       users: "1245",
       volume: "₹12.4M",
     },
@@ -49,8 +59,9 @@ export const PaymentMethods: React.FC = () => {
       description: "USDT Cryptocurrency transfer",
       icon: "https://api.builder.io/api/v1/image/assets/TEMP/b67df80ecf07d1e6b2dba2dd757c30dda2e5bda1?width=80",
       status: "Active",
-      limit: { min: "₹1,000", max: "₹1,000,000" },
-      fees: "2%",
+      limit: { min: "1000", max: "1000000" },
+      fees: "2",
+      processingTime: "10-30 mins",
       users: "1245",
       volume: "₹12.4M",
     },
@@ -60,8 +71,9 @@ export const PaymentMethods: React.FC = () => {
       description: "Skrill digital wallet transfers",
       icon: "https://api.builder.io/api/v1/image/assets/TEMP/39bc7f7fbab201d2ddf81e65d221a85f20fff91b?width=80",
       status: "Active",
-      limit: { min: "₹100", max: "₹100,00" },
-      fees: "2.5%",
+      limit: { min: "100", max: "100000" },
+      fees: "2.5",
+      processingTime: "Instant",
       users: "1245",
       volume: "₹12.4M",
     },
@@ -71,12 +83,25 @@ export const PaymentMethods: React.FC = () => {
       description: "Paypal Digital Wallet Trasfers",
       icon: "https://api.builder.io/api/v1/image/assets/TEMP/3b4b05425288bd712f9b8242b4ec54b5d99eaaa0?width=80",
       status: "Active",
-      limit: { min: "₹1,000", max: "₹200,000" },
-      fees: "2.5%",
+      limit: { min: "1000", max: "200000" },
+      fees: "2.5",
+      processingTime: "Instant",
       users: "1245",
       volume: "₹12.4M",
     },
   ];
+
+  const handleEditClick = (method: PaymentMethod) => {
+    setSelectedMethod(method);
+    setIsEditModalOpen(true);
+    setQrCodePreview("https://api.builder.io/api/v1/image/assets/TEMP/0fb5c6a3a9c9ce714a55e72d5d5f6d7be6d54855?width=328");
+  };
+
+  const handleCloseModal = () => {
+    setIsEditModalOpen(false);
+    setSelectedMethod(null);
+    setQrCodePreview(null);
+  };
 
   const getStatusColor = (status: string) => {
     return status === "Active"
@@ -85,7 +110,18 @@ export const PaymentMethods: React.FC = () => {
   };
 
   const getFeeColor = (fee: string) => {
-    return fee === "Free" ? "text-[#3CC27B]" : "text-black";
+    return fee === "0" || fee === "Free" ? "text-[#3CC27B]" : "text-black";
+  };
+
+  const formatFee = (fee: string) => {
+    return fee === "0" ? "Free" : `${fee}%`;
+  };
+
+  const formatLimit = (value: string) => {
+    const num = parseInt(value);
+    if (num >= 100000) return `₹${(num / 100000).toFixed(1).replace('.0', '')}L`;
+    if (num >= 1000) return `₹${(num / 1000).toFixed(0)}K`;
+    return `₹${value}`;
   };
 
   return (
@@ -100,7 +136,7 @@ export const PaymentMethods: React.FC = () => {
           <AdminHeader />
 
           <div className="bg-white rounded-none lg:rounded-[10px] p-6 lg:p-8 m-0">
-            <div className="mb-6 flex items-center justify-between">
+            <div className="mb-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
               <div>
                 <h1 className="text-[20px] font-medium text-black mb-2">
                   Payment Methods Management
@@ -109,7 +145,7 @@ export const PaymentMethods: React.FC = () => {
                   Add, Delete and Edit Payment Methods
                 </p>
               </div>
-              <button className="flex items-center gap-2 px-9 py-2 bg-[#161616] text-white rounded-md hover:bg-black transition-colors">
+              <button className="flex items-center gap-2 px-9 py-2 bg-[#161616] text-white rounded-md hover:bg-black transition-colors whitespace-nowrap">
                 <svg
                   width="15"
                   height="15"
@@ -127,7 +163,7 @@ export const PaymentMethods: React.FC = () => {
             </div>
 
             <div className="overflow-x-auto">
-              <table className="w-full">
+              <table className="w-full min-w-[800px]">
                 <thead>
                   <tr className="border-b border-[#C9C9C9]">
                     <th className="text-left py-3 px-2 text-[15px] font-bold text-[#313131]">
@@ -184,14 +220,14 @@ export const PaymentMethods: React.FC = () => {
                       </td>
                       <td className="py-4 px-2">
                         <div className="text-[15px] text-black">
-                          <div>Min: {method.limit.min}</div>
-                          <div>Max: {method.limit.max}</div>
+                          <div>Min: {formatLimit(method.limit.min)}</div>
+                          <div>Max: {formatLimit(method.limit.max)}</div>
                         </div>
                       </td>
                       <td
                         className={`py-4 px-2 text-[15px] ${getFeeColor(method.fees)}`}
                       >
-                        {method.fees}
+                        {formatFee(method.fees)}
                       </td>
                       <td className="py-4 px-2 text-[15px] font-light text-black">
                         {method.users}
@@ -201,7 +237,10 @@ export const PaymentMethods: React.FC = () => {
                       </td>
                       <td className="py-4 px-2">
                         <div className="flex items-center gap-2">
-                          <button className="p-1 hover:opacity-70">
+                          <button
+                            onClick={() => handleEditClick(method)}
+                            className="p-1 hover:opacity-70 transition-opacity"
+                          >
                             <svg
                               width="18"
                               height="18"
@@ -219,7 +258,7 @@ export const PaymentMethods: React.FC = () => {
                               />
                             </svg>
                           </button>
-                          <button className="p-1 hover:opacity-70">
+                          <button className="p-1 hover:opacity-70 transition-opacity">
                             <svg
                               width="16"
                               height="18"
@@ -243,6 +282,197 @@ export const PaymentMethods: React.FC = () => {
           </div>
         </div>
       </div>
+
+      {/* Edit Payment Method Modal */}
+      {isEditModalOpen && selectedMethod && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/[0.22]">
+          <div className="bg-white rounded-[14px] w-full max-w-[848px] max-h-[90vh] overflow-y-auto p-6 sm:p-8">
+            <h2 className="text-[17px] font-medium text-black mb-6 leading-[33px]">
+              Edit Payment Method
+            </h2>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              {/* Method Name */}
+              <div>
+                <label className="block text-[15px] font-medium text-black mb-2">
+                  Method Name
+                </label>
+                <input
+                  type="text"
+                  defaultValue={selectedMethod.name}
+                  className="w-full h-[51px] px-4 rounded-[5px] border-[0.7px] border-[#CACACA] bg-[#F0F0F0] text-[15px] font-medium text-[#8E8E8E] outline-none focus:border-[#3CC27B] transition-colors"
+                />
+              </div>
+
+              {/* Icon / emoji */}
+              <div>
+                <label className="block text-[15px] font-medium text-black mb-2">
+                  Icon / emoji
+                </label>
+                <div className="flex items-center gap-4 h-[51px] px-4 rounded-[5px] border-[0.7px] border-[#CACACA] bg-[#F0F0F0]">
+                  <img
+                    src={selectedMethod.icon}
+                    alt="icon"
+                    className="w-9 h-9 rounded-full"
+                  />
+                  <label className="ml-auto cursor-pointer text-[13px] text-[#8F8F8F] hover:text-black transition-colors">
+                    Upload
+                    <input type="file" className="hidden" accept="image/*" />
+                  </label>
+                </div>
+              </div>
+
+              {/* Minimum Amount */}
+              <div>
+                <label className="block text-[15px] font-medium text-black mb-2">
+                  Minimum Amount (₹)
+                </label>
+                <input
+                  type="text"
+                  defaultValue={selectedMethod.limit.min}
+                  className="w-full h-[51px] px-4 rounded-[5px] border-[0.7px] border-[#CACACA] bg-[#F0F0F0] text-[15px] font-medium text-[#8E8E8E] outline-none focus:border-[#3CC27B] transition-colors"
+                />
+              </div>
+
+              {/* Maximum Amount */}
+              <div>
+                <label className="block text-[15px] font-medium text-black mb-2">
+                  Maximum Amount (₹)
+                </label>
+                <input
+                  type="text"
+                  defaultValue={selectedMethod.limit.max}
+                  className="w-full h-[51px] px-4 rounded-[5px] border-[0.7px] border-[#CACACA] bg-[#F0F0F0] text-[15px] font-medium text-[#8E8E8E] outline-none focus:border-[#3CC27B] transition-colors"
+                />
+              </div>
+
+              {/* Fees */}
+              <div>
+                <label className="block text-[15px] font-medium text-black mb-2">
+                  Fees (%)
+                </label>
+                <input
+                  type="text"
+                  defaultValue={selectedMethod.fees}
+                  className="w-full h-[51px] px-4 rounded-[5px] border-[0.7px] border-[#CACACA] bg-[#F0F0F0] text-[15px] font-medium text-[#8E8E8E] outline-none focus:border-[#3CC27B] transition-colors"
+                />
+              </div>
+
+              {/* Processing Time */}
+              <div>
+                <label className="block text-[15px] font-medium text-black mb-2">
+                  Processing Time
+                </label>
+                <input
+                  type="text"
+                  defaultValue={selectedMethod.processingTime}
+                  className="w-full h-[51px] px-4 rounded-[5px] border-[0.7px] border-[#CACACA] bg-[#F0F0F0] text-[15px] font-medium text-[#8E8E8E] outline-none focus:border-[#3CC27B] transition-colors"
+                />
+              </div>
+
+              {/* Add UPI ID - Only for UPI */}
+              {selectedMethod.upiId && (
+                <div className="lg:col-span-2">
+                  <label className="block text-[15px] font-medium text-black mb-2">
+                    Add UPI ID
+                  </label>
+                  <input
+                    type="text"
+                    defaultValue={selectedMethod.upiId}
+                    className="w-full h-[51px] px-4 rounded-[5px] border-[0.7px] border-[#CACACA] bg-[#F0F0F0] text-[15px] font-medium text-[#8E8E8E] outline-none focus:border-[#3CC27B] transition-colors"
+                  />
+                </div>
+              )}
+            </div>
+
+            {/* QR Code Section */}
+            <div className="mt-6">
+              <label className="block text-[15px] font-medium text-black mb-2">
+                QR Code
+              </label>
+              <div className="flex items-start gap-4">
+                <div className="relative">
+                  {qrCodePreview ? (
+                    <div className="relative">
+                      <img
+                        src={qrCodePreview}
+                        alt="QR Code"
+                        className="w-[164px] h-[164px] object-contain"
+                      />
+                      <button
+                        onClick={() => setQrCodePreview(null)}
+                        className="absolute -top-2 -right-2 w-[14px] h-[14px] flex items-center justify-center"
+                      >
+                        <svg
+                          width="14"
+                          height="14"
+                          viewBox="0 0 14 14"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M7 0C3.1 0 0 3.1 0 7C0 10.9 3.1 14 7 14C10.9 14 14 10.9 14 7C14 3.1 10.9 0 7 0ZM9.7 10.5L7 7.8L4.3 10.5L3.5 9.7L6.2 7L3.5 4.3L4.3 3.5L7 6.2L9.7 3.5L10.5 4.3L7.8 7L10.5 9.7L9.7 10.5Z"
+                            fill="#FA1818"
+                          />
+                        </svg>
+                      </button>
+                    </div>
+                  ) : (
+                    <div className="w-[164px] h-[164px] border-2 border-dashed border-gray-300 rounded flex items-center justify-center">
+                      <span className="text-gray-400 text-sm">No QR Code</span>
+                    </div>
+                  )}
+                </div>
+                <label className="mt-20 cursor-pointer">
+                  <div className="flex items-center justify-center px-4 py-1.5 bg-black text-white rounded-[3px] text-[12px] hover:bg-gray-800 transition-colors">
+                    Upload
+                  </div>
+                  <input
+                    type="file"
+                    className="hidden"
+                    accept="image/*"
+                    onChange={(e) => {
+                      const file = e.target.files?.[0];
+                      if (file) {
+                        const reader = new FileReader();
+                        reader.onloadend = () => {
+                          setQrCodePreview(reader.result as string);
+                        };
+                        reader.readAsDataURL(file);
+                      }
+                    }}
+                  />
+                </label>
+              </div>
+            </div>
+
+            {/* Description */}
+            <div className="mt-6">
+              <label className="block text-[15px] font-medium text-black mb-2">
+                Description
+              </label>
+              <textarea
+                defaultValue={selectedMethod.description}
+                rows={4}
+                className="w-full px-4 py-3 rounded-[5px] border-[0.7px] border-[#CACACA] bg-[#F0F0F0] text-[15px] font-medium text-[#8E8E8E] outline-none focus:border-[#3CC27B] transition-colors resize-none"
+              />
+            </div>
+
+            {/* Action Buttons */}
+            <div className="mt-8 flex flex-col sm:flex-row gap-4">
+              <button className="flex-1 h-[36px] px-4 bg-black text-white text-[15px] font-medium rounded-md border border-[#C3C3C3] hover:bg-gray-800 transition-colors">
+                Save Changes
+              </button>
+              <button
+                onClick={handleCloseModal}
+                className="flex-1 h-[36px] px-4 bg-white text-black text-[15px] font-medium rounded-md border border-[#C3C3C3] hover:bg-gray-50 transition-colors"
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
