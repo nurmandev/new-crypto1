@@ -169,7 +169,7 @@ export const Settings = () => {
       <div className="flex flex-col flex-1 lg:ml-[259px]">
         <AdminHeader onMenuClick={() => setIsSidebarOpen(true)} />
 
-        <div className="flex-1 p-3 sm:p-4 md:p-6 lg:p-8 overflow-y-auto">
+        <div className="flex-1 px-3 sm:px-4 md:px-6 lg:px-8 py-3 sm:py-4 md:py-6 lg:py-8 overflow-y-auto">
           <div className="bg-white rounded-xl shadow-sm p-4 xs:p-5 sm:p-8">
             {/* Page Header */}
             <div className="pb-6 xs:pb-8 border-b border-[#E0E0E0] mb-6 xs:mb-8">
