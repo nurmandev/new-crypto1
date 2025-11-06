@@ -555,19 +555,19 @@ export const Settings = () => {
             </section>
 
             {/* Security Settings */}
-            <section className="mb-12">
-              <h2 className="text-lg sm:text-xl font-medium text-black mb-6">
+            <section className="mb-8 xs:mb-10 sm:mb-12">
+              <h2 className="text-base xs:text-lg sm:text-xl font-medium text-black mb-4 xs:mb-6">
                 Security Settings
               </h2>
 
-              <div className="space-y-6">
+              <div className="space-y-4 xs:space-y-5 sm:space-y-6">
                 {/* Session Timeout */}
-                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                <div className="flex flex-col xs:flex-col sm:flex-row sm:items-center sm:justify-between gap-3 xs:gap-4">
                   <div>
-                    <h3 className="text-base sm:text-lg font-medium text-black">
+                    <h3 className="text-xs xs:text-sm sm:text-base lg:text-lg font-medium text-black">
                       Session Timeout
                     </h3>
-                    <p className="text-sm text-black font-light mt-1">
+                    <p className="text-xs xs:text-sm text-black font-light mt-1">
                       Auto-logout after inactivity
                     </p>
                   </div>
