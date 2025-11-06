@@ -95,6 +95,7 @@ const App = () => (
             path="/admin/cryptocurrency"
             element={<CryptocurrencyManagement />}
           />
+          <Route path="/admin/settings" element={<Settings />} />
           <Route path="/cryptocurrency" element={<Cryptocurrency />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
