@@ -418,8 +418,8 @@ export const PaymentMethods: React.FC = () => {
 
       {/* Add Payment Method Modal */}
       {isAddModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/[0.22]">
-          <div className="bg-white rounded-[22px] w-full max-w-[810px] max-h-[90vh] overflow-y-auto p-6 sm:p-8">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/40 backdrop-blur-sm">
+          <div className="bg-white rounded-lg w-full max-w-[500px] max-h-[85vh] overflow-y-auto p-4 sm:p-6">
             <h2 className="text-[17px] font-medium text-black mb-6 leading-[33px]">
               Add Payment Method
             </h2>
