@@ -323,16 +323,16 @@ export const PaymentMethods: React.FC = () => {
 
               {/* Icon / emoji */}
               <div>
-                <label className="block text-[15px] font-medium text-black mb-2">
+                <label className="block text-sm font-medium text-black mb-1.5">
                   Icon / emoji
                 </label>
-                <div className="flex items-center gap-4 h-[51px] px-4 rounded-[5px] border-[0.7px] border-[#CACACA] bg-[#F0F0F0]">
+                <div className="flex items-center gap-3 h-[44px] px-3 rounded-md border border-[#CACACA] bg-[#F0F0F0]">
                   <img
                     src={selectedMethod.icon}
                     alt="icon"
-                    className="w-9 h-9 rounded-full"
+                    className="w-8 h-8 rounded-full"
                   />
-                  <label className="ml-auto cursor-pointer text-[13px] text-[#8F8F8F] hover:text-black transition-colors">
+                  <label className="ml-auto cursor-pointer text-xs text-[#8F8F8F] hover:text-black transition-colors">
                     Upload
                     <input type="file" className="hidden" accept="image/*" />
                   </label>
@@ -341,49 +341,49 @@ export const PaymentMethods: React.FC = () => {
 
               {/* Minimum Amount */}
               <div>
-                <label className="block text-[15px] font-medium text-black mb-2">
+                <label className="block text-sm font-medium text-black mb-1.5">
                   Minimum Amount (₹)
                 </label>
                 <input
                   type="text"
                   defaultValue={selectedMethod.limit.min}
-                  className="w-full h-[51px] px-4 rounded-[5px] border-[0.7px] border-[#CACACA] bg-[#F0F0F0] text-[15px] font-medium text-[#8E8E8E] outline-none focus:border-[#3CC27B] transition-colors"
+                  className="w-full h-[44px] px-3 rounded-md border border-[#CACACA] bg-[#F0F0F0] text-sm font-medium text-[#8E8E8E] outline-none focus:border-[#3CC27B] focus:bg-white transition-colors"
                 />
               </div>
 
               {/* Maximum Amount */}
               <div>
-                <label className="block text-[15px] font-medium text-black mb-2">
+                <label className="block text-sm font-medium text-black mb-1.5">
                   Maximum Amount (₹)
                 </label>
                 <input
                   type="text"
                   defaultValue={selectedMethod.limit.max}
-                  className="w-full h-[51px] px-4 rounded-[5px] border-[0.7px] border-[#CACACA] bg-[#F0F0F0] text-[15px] font-medium text-[#8E8E8E] outline-none focus:border-[#3CC27B] transition-colors"
+                  className="w-full h-[44px] px-3 rounded-md border border-[#CACACA] bg-[#F0F0F0] text-sm font-medium text-[#8E8E8E] outline-none focus:border-[#3CC27B] focus:bg-white transition-colors"
                 />
               </div>
 
               {/* Fees */}
               <div>
-                <label className="block text-[15px] font-medium text-black mb-2">
+                <label className="block text-sm font-medium text-black mb-1.5">
                   Fees (%)
                 </label>
                 <input
                   type="text"
                   defaultValue={selectedMethod.fees}
-                  className="w-full h-[51px] px-4 rounded-[5px] border-[0.7px] border-[#CACACA] bg-[#F0F0F0] text-[15px] font-medium text-[#8E8E8E] outline-none focus:border-[#3CC27B] transition-colors"
+                  className="w-full h-[44px] px-3 rounded-md border border-[#CACACA] bg-[#F0F0F0] text-sm font-medium text-[#8E8E8E] outline-none focus:border-[#3CC27B] focus:bg-white transition-colors"
                 />
               </div>
 
               {/* Processing Time */}
               <div>
-                <label className="block text-[15px] font-medium text-black mb-2">
+                <label className="block text-sm font-medium text-black mb-1.5">
                   Processing Time
                 </label>
                 <input
                   type="text"
                   defaultValue={selectedMethod.processingTime}
-                  className="w-full h-[51px] px-4 rounded-[5px] border-[0.7px] border-[#CACACA] bg-[#F0F0F0] text-[15px] font-medium text-[#8E8E8E] outline-none focus:border-[#3CC27B] transition-colors"
+                  className="w-full h-[44px] px-3 rounded-md border border-[#CACACA] bg-[#F0F0F0] text-sm font-medium text-[#8E8E8E] outline-none focus:border-[#3CC27B] focus:bg-white transition-colors"
                 />
               </div>
             </div>
