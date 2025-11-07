@@ -185,8 +185,12 @@ export default function Dashboard() {
           <div className="bg-gradient-to-r from-[#3CC27B] to-[#00602D] rounded-[10px] p-4 sm:p-8">
             <div className="flex items-start justify-between mb-6 sm:mb-8">
               <div>
-                <p className="text-white text-sm sm:text-xl mb-1 sm:mb-2">Wallet Balance</p>
-                <h2 className="text-white text-3xl sm:text-5xl font-bold">₹5,656.6</h2>
+                <p className="text-white text-sm sm:text-xl mb-1 sm:mb-2">
+                  Wallet Balance
+                </p>
+                <h2 className="text-white text-3xl sm:text-5xl font-bold">
+                  ₹5,656.6
+                </h2>
               </div>
               <button className="text-white/80 hover:text-white p-1">
                 <svg
@@ -215,19 +219,30 @@ export default function Dashboard() {
             <div className="flex flex-wrap gap-4 sm:gap-6 justify-start sm:justify-start">
               <ActionButton icon={<PlusIcon />} label="Add Fund" />
               <ActionButton icon={<CashoutIcon />} label="Cashout" />
-              <ActionButton icon={<TrendingUp className="w-6 sm:w-8 h-6 sm:h-8" />} label="Buy" />
-              <ActionButton icon={<TrendingDown className="w-6 sm:w-8 h-6 sm:h-8" />} label="Sell" />
+              <ActionButton
+                icon={<TrendingUp className="w-6 sm:w-8 h-6 sm:h-8" />}
+                label="Buy"
+              />
+              <ActionButton
+                icon={<TrendingDown className="w-6 sm:w-8 h-6 sm:h-8" />}
+                label="Sell"
+              />
               <ActionButton icon={<WalletIcon />} label="Wallet" />
             </div>
           </div>
 
           {/* More Coming Soon */}
           <div className="bg-white rounded-[10px] p-4 sm:p-8">
-            <h3 className="text-base sm:text-xl font-medium mb-4 sm:mb-6">More Coming Soon</h3>
+            <h3 className="text-base sm:text-xl font-medium mb-4 sm:mb-6">
+              More Coming Soon
+            </h3>
             <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-5 gap-3 sm:gap-6">
               <ComingSoonItem label="Recharge" sublabel="Mobile & DTH" />
               <ComingSoonItem label="Bill Pay" sublabel="Utility Bills" />
-              <ComingSoonItem label="Bank Transfer" sublabel="Direct Transfer" />
+              <ComingSoonItem
+                label="Bank Transfer"
+                sublabel="Direct Transfer"
+              />
               <ComingSoonItem label="Savings" sublabel="Investment Plans" />
               <ComingSoonItem label="Online Transfer" sublabel="P2P Payments" />
             </div>
@@ -245,7 +260,9 @@ export default function Dashboard() {
               title="Today's P&L"
               value="+₹2,340"
               valueColor="text-[#3CC27B]"
-              icon={<TrendingUp className="w-5 h-5 sm:w-6 sm:h-6 text-[#3CC27B]" />}
+              icon={
+                <TrendingUp className="w-5 h-5 sm:w-6 sm:h-6 text-[#3CC27B]" />
+              }
               iconBg="bg-[#3CC27B]/20"
             />
             <StatsCard
@@ -259,7 +276,9 @@ export default function Dashboard() {
           {/* Crypto Holdings */}
           <div>
             <div className="flex items-center justify-between mb-4 sm:mb-6 gap-2">
-              <h3 className="text-base sm:text-2xl font-medium">My Crypto Holdings</h3>
+              <h3 className="text-base sm:text-2xl font-medium">
+                My Crypto Holdings
+              </h3>
               <button className="flex items-center gap-1 sm:gap-2 px-2 sm:px-4 py-1.5 sm:py-2 bg-black text-white rounded text-xs sm:text-xs whitespace-nowrap">
                 <Plus className="w-3 h-3 sm:w-4 sm:h-4" />
                 <span className="hidden sm:inline">Add Crypto</span>
@@ -415,7 +434,9 @@ function ActionButton({
       <div className="w-16 sm:w-28 h-16 sm:h-28 rounded-full border-4 sm:border-[7px] border-[#3CC27B] bg-white shadow-lg flex items-center justify-center cursor-pointer hover:scale-105 transition-transform">
         {icon}
       </div>
-      <span className="text-white text-xs sm:text-lg font-medium text-center">{label}</span>
+      <span className="text-white text-xs sm:text-lg font-medium text-center">
+        {label}
+      </span>
     </div>
   );
 }
@@ -430,8 +451,12 @@ function StatsCard({
   return (
     <div className="bg-white rounded-lg border border-[#D4D4D4] p-3 sm:p-5 flex items-center justify-between gap-4 sm:gap-8">
       <div>
-        <p className="text-xs sm:text-sm text-black mb-1 sm:mb-2 font-normal">{title}</p>
-        <p className={`text-base sm:text-lg font-medium ${valueColor}`}>{value}</p>
+        <p className="text-xs sm:text-sm text-black mb-1 sm:mb-2 font-normal">
+          {title}
+        </p>
+        <p className={`text-base sm:text-lg font-medium ${valueColor}`}>
+          {value}
+        </p>
       </div>
       <div
         className={`w-8 h-8 sm:w-10 sm:h-10 ${iconBg} rounded-full flex items-center justify-center flex-shrink-0`}
@@ -471,12 +496,16 @@ function CryptoHoldingItem() {
       <div className="flex items-center gap-2 sm:gap-3 min-w-0">
         <div className="w-8 sm:w-10 h-8 sm:h-10 rounded-full bg-gradient-to-br from-orange-400 to-yellow-600 flex-shrink-0"></div>
         <div className="min-w-0">
-          <p className="text-base sm:text-lg font-bold text-black truncate">Doge</p>
+          <p className="text-base sm:text-lg font-bold text-black truncate">
+            Doge
+          </p>
           <p className="text-xs sm:text-sm text-gray-600 truncate">Doge</p>
         </div>
       </div>
       <div className="text-right flex-shrink-0">
-        <p className="text-base sm:text-lg font-medium text-black whitespace-nowrap">₹4,123,456</p>
+        <p className="text-base sm:text-lg font-medium text-black whitespace-nowrap">
+          ₹4,123,456
+        </p>
         <span className="inline-block mt-1 px-2 sm:px-3 py-0.5 sm:py-1 bg-[#BDFDDB] text-black text-[10px] sm:text-xs rounded">
           +3.14%
         </span>
@@ -587,7 +616,10 @@ function CashoutIcon() {
       xmlns="http://www.w3.org/2000/svg"
       className="w-6 sm:w-10 h-6 sm:h-10"
     >
-      <path d="M20 2C10.06 2 1.88 8.47 0 17.4C1.88 26.33 10.06 32.8 20 32.8C29.94 32.8 38.12 26.33 40 17.4C38.12 8.47 29.94 2 20 2ZM20 28C14.48 28 10 23.52 10 18C10 12.48 14.48 8 20 8C25.52 8 30 12.48 30 18C30 23.52 25.52 28 20 28ZM20 12C16.68 12 14 14.68 14 18C14 21.32 16.68 24 20 24C23.32 24 26 21.32 26 18C26 14.68 23.32 12 20 12Z" fill="#3CC27B"/>
+      <path
+        d="M20 2C10.06 2 1.88 8.47 0 17.4C1.88 26.33 10.06 32.8 20 32.8C29.94 32.8 38.12 26.33 40 17.4C38.12 8.47 29.94 2 20 2ZM20 28C14.48 28 10 23.52 10 18C10 12.48 14.48 8 20 8C25.52 8 30 12.48 30 18C30 23.52 25.52 28 20 28ZM20 12C16.68 12 14 14.68 14 18C14 21.32 16.68 24 20 24C23.32 24 26 21.32 26 18C26 14.68 23.32 12 20 12Z"
+        fill="#3CC27B"
+      />
     </svg>
   );
 }
@@ -602,7 +634,10 @@ function WalletIcon() {
       xmlns="http://www.w3.org/2000/svg"
       className="w-6 sm:w-10 h-6 sm:h-10"
     >
-      <path d="M32 6H8C5.8 6 4.02 7.9 4.02 10.1L4 34C4 36.2 5.8 38 8 38H32C34.2 38 36 36.2 36 34V10C36 7.8 34.2 6 32 6ZM32 34H8V10H32V34ZM26 22C27.66 22 28.99 20.66 28.99 19C28.99 17.34 27.66 16 26 16C24.34 16 23 17.34 23 19C23 20.66 24.34 22 26 22Z" fill="#3CC27B"/>
+      <path
+        d="M32 6H8C5.8 6 4.02 7.9 4.02 10.1L4 34C4 36.2 5.8 38 8 38H32C34.2 38 36 36.2 36 34V10C36 7.8 34.2 6 32 6ZM32 34H8V10H32V34ZM26 22C27.66 22 28.99 20.66 28.99 19C28.99 17.34 27.66 16 26 16C24.34 16 23 17.34 23 19C23 20.66 24.34 22 26 22Z"
+        fill="#3CC27B"
+      />
     </svg>
   );
 }
