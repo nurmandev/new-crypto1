@@ -56,11 +56,14 @@ export default function Dashboard() {
                   <BalanceCard />
                 </div>
 
+                {/* More Coming Soon */}
+                <div className="transition-all duration-300 hover:translate-y-[-2px]">
+                  <MoreServices />
+                </div>
+
                 {/* Stats Cards */}
-                <div className="overflow-x-auto -mx-4 px-4 pb-4">
-                  <div className="transition-all duration-300 hover:translate-y-[-2px]">
-                    <StatsCards />
-                  </div>
+                <div className="transition-all duration-300 hover:translate-y-[-2px]">
+                  <StatsCards />
                 </div>
 
                 {/* Your Crypto Holdings */}
@@ -73,11 +76,6 @@ export default function Dashboard() {
                   <div className="transition-all duration-300 hover:translate-y-[-2px]">
                     <LivePriceMarkets />
                   </div>
-                </div>
-
-                {/* More Coming Soon */}
-                <div className="transition-all duration-300 hover:translate-y-[-2px]">
-                  <MoreServices />
                 </div>
               </div>
 
