@@ -7,6 +7,7 @@ import CryptoHoldings from "./components/CryptoHoldings";
 import LivePriceMarkets from "./components/LivePriceMarkets";
 import MoreServices from "./components/MoreServices";
 import RightSidebar from "./components/RightSidebar";
+import BottomNav from "./components/BottomNav";
 
 export default function Dashboard() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -16,7 +17,7 @@ export default function Dashboard() {
   };
 
   return (
-    <div className="min-h-screen bg-[#F8F8F8] pb-20 sm:pb-12">
+    <div className="min-h-screen bg-[#F8F8F8] pb-24 sm:pb-12 md:pb-0">
       {/* Top Navigation Bar */}
       <DashboardHeader
         onMenuToggle={() => setIsSidebarOpen(!isSidebarOpen)}
@@ -92,6 +93,9 @@ export default function Dashboard() {
           </div>
         </div>
       </div>
+
+      {/* Bottom Navigation - Mobile Only */}
+      <BottomNav />
     </div>
   );
 }
