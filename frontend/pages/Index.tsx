@@ -569,14 +569,6 @@ export default function Index() {
                   </div>
                 </div>
 
-                {/* Bitcoin Image */}
-                <div className="hidden lg:block absolute -bottom-6 -right-12 w-40 md:w-48 lg:w-56 h-40 md:h-48 lg:h-56 opacity-30">
-                  <img
-                    src="https://api.builder.io/api/v1/image/assets/TEMP/b234ffe9ebcbed92046a393a086f19e7a0a49a6b"
-                    alt="Bitcoin"
-                    className="w-full h-full"
-                  />
-                </div>
               </div>
             </div>
           </div>
