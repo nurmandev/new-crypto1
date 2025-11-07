@@ -203,35 +203,35 @@ export default function Index() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 bg-gradient-to-r from-[#3CC27B] to-[#00602D] relative overflow-hidden">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-8 max-w-6xl mx-auto">
+      <section className="py-12 md:py-20 bg-gradient-to-r from-[#3CC27B] to-[#00602D] relative overflow-hidden">
+        <div className="container mx-auto px-3 xs:px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-6 md:gap-8 max-w-7xl mx-auto">
             {/* Stats Cards */}
-            <div className="w-full flex flex-col sm:flex-row sm:flex-wrap md:flex-nowrap justify-center md:justify-start gap-4">
+            <div className="w-full grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
               {[
                 { value: "10K +", label: "Active Users" },
-                { value: "₹50Cr+", label: "Trading Volume" },
+                { value: "₹500+", label: "Trading Volume" },
                 { value: "700+", label: "Crypto Coins" },
                 { value: "1.3B+", label: "Cash Out" },
               ].map((stat, i) => (
                 <div
                   key={i}
-                  className="bg-white/20 backdrop-blur-sm rounded-lg p-6 text-center flex-1 min-w-[150px]"
+                  className="bg-white/20 backdrop-blur-sm rounded-lg p-4 sm:p-5 md:p-6 text-center"
                 >
-                  <div className="text-3xl font-bold text-white mb-1">
+                  <div className="text-xl xs:text-2xl sm:text-3xl font-bold text-white mb-1 xs:mb-2">
                     {stat.value}
                   </div>
-                  <div className="text-white text-[17px]">{stat.label}</div>
+                  <div className="text-white text-[12px] xs:text-sm sm:text-base">{stat.label}</div>
                 </div>
               ))}
             </div>
 
             {/* Bitcoin Image */}
-            <div className="flex justify-center md:justify-end relative">
+            <div className="flex justify-center lg:justify-end relative flex-shrink-0">
               <img
                 src="https://api.builder.io/api/v1/image/assets/TEMP/b234ffe9ebcbed92046a393a086f19e7a0a49a6b"
                 alt="Bitcoin Coin"
-                className="w-40 h-40 md:w-56 md:h-56 drop-shadow-2xl"
+                className="w-32 h-32 sm:w-40 sm:h-40 lg:w-56 lg:h-56 drop-shadow-2xl"
               />
             </div>
           </div>
