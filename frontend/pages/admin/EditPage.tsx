@@ -37,7 +37,7 @@ Educational resources
           sidebarOpen={isSidebarOpen}
         />
 
-        <div className="flex-1 p-3 xs:p-4 sm:p-6 lg:p-8 overflow-y-auto">
+        <div className="flex-1 p-3 xs:p-4 sm:p-6 lg:p-0 overflow-y-auto">
           <div className="bg-white rounded-xl shadow-sm p-4 xs:p-6 sm:p-8">
             {/* Header */}
             <div className="flex flex-col xs:flex-row items-start xs:items-center justify-between gap-4 mb-6">
