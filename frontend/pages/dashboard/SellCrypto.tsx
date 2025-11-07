@@ -43,7 +43,7 @@ export default function SellCrypto() {
   };
 
   return (
-    <div className="min-h-screen bg-[#F8F8F8] pb-12 md:pb-16">
+    <div className="min-h-screen bg-[#F8F8F8] pb-20 sm:pb-12 md:pb-0">
       {/* Top Navigation Bar */}
       <DashboardHeader
         onMenuToggle={() => setIsSidebarOpen(!isSidebarOpen)}
