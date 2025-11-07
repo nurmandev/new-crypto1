@@ -19,7 +19,7 @@ import { SystemStatusItem } from "./components/SystemStatusItem";
 import { AreaChart } from "./components/AreaChart";
 
 export const AdminDashboard: React.FC = () => {
-  const [isSidebarOpen] = React.useState(true);
+  const [isSidebarOpen, setIsSidebarOpen] = React.useState(false);
   const stats = [
     {
       title: "Total Users",
@@ -111,20 +111,34 @@ export const AdminDashboard: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-[#F8F8F8] p-6">
-      <div className="flex gap-6 max-w-[1920px] mx-auto">
-        {/* Sidebar */}
-        <AdminSidebar isOpen={true} />
+    <div className="min-h-screen bg-[#F8F8F8]">
+      <div className="flex gap-0 lg:gap-6 max-w-[1920px] mx-auto min-h-screen">
+        {/* Sidebar with Mobile Overlay */}
+        <div>
+          <AdminSidebar
+            isOpen={isSidebarOpen}
+            onClose={() => setIsSidebarOpen(false)}
+          />
+          {isSidebarOpen && (
+            <div
+              className="fixed inset-0 bg-black/40 lg:hidden z-30"
+              onClick={() => setIsSidebarOpen(false)}
+            />
+          )}
+        </div>
 
         {/* Main Content Container */}
-        <div className="flex-1 flex flex-col gap-6">
+        <div className="flex-1 flex flex-col gap-0 min-h-screen lg:gap-4 pt-16 sm:pt-20 lg:pt-0 lg:p-6">
           {/* Header */}
-          <AdminHeader sidebarOpen={isSidebarOpen} />
+          <AdminHeader
+            onMenuClick={() => setIsSidebarOpen(true)}
+            sidebarOpen={isSidebarOpen}
+          />
 
           {/* Content */}
-          <div className="flex-1">
+          <div className="flex-1 p-3 sm:p-4 md:p-6 lg:p-0">
             {/* Stats Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-6 sm:mb-8">
               {stats.map((stat) => (
                 <StatsCard
                   key={stat.title}
