@@ -16,7 +16,7 @@ export default function Dashboard() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 pb-20 sm:pb-12">
+    <div className="min-h-screen bg-[#F8F8F8] pb-20 sm:pb-12">
       {/* Top Navigation Bar */}
       <DashboardHeader
         onMenuToggle={() => setIsSidebarOpen(!isSidebarOpen)}
