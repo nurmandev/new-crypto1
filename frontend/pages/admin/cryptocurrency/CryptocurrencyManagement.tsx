@@ -112,7 +112,10 @@ export const CryptocurrencyManagement: React.FC = () => {
         {/* Main Content Container */}
         <div className="flex-1 flex flex-col gap-2 sm:gap-3 md:gap-6 p-2 sm:p-3 md:p-6 overflow-y-auto">
           {/* Header */}
-          <AdminHeader onToggleSidebar={() => setSidebarOpen(!sidebarOpen)} />
+          <AdminHeader
+            onToggleSidebar={() => setSidebarOpen(true)}
+            sidebarOpen={sidebarOpen}
+          />
 
           {/* Content */}
           <div className="flex-1">
