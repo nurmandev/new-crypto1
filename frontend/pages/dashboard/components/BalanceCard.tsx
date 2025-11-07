@@ -15,7 +15,7 @@ export default function BalanceCard() {
   const actions = [
     {
       icon: Plus,
-      label: "Add Balance",
+      label: "Add Fund",
       href: "/buy-crypto",
       external: false,
     },
@@ -50,7 +50,7 @@ export default function BalanceCard() {
   return (
     <div className="bg-gradient-to-r from-[#3CC27B] to-[#00602D] rounded-lg md:rounded-[10px] p-4 md:p-6 lg:p-8 text-white shadow-lg">
       <div className="mb-4 md:mb-6">
-        <p className="text-base md:text-lg lg:text-xl mb-2">Your Balance</p>
+        <p className="text-base md:text-lg lg:text-xl mb-2">Wallet Balance</p>
         <div className="flex items-center gap-2 md:gap-3">
           <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold">
             {showBalance ? "₹5,656.6" : "₹••••••"}
