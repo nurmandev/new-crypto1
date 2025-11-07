@@ -2,13 +2,13 @@ import { Plus } from "lucide-react";
 
 export default function CryptoHoldings() {
   return (
-    <div className="bg-white rounded-lg p-4 md:p-6 shadow-sm">
-      <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 md:gap-0 mb-4 md:mb-6">
-        <h2 className="text-lg md:text-2xl font-medium text-black">
+    <div className="bg-white rounded-lg p-3 md:p-6 shadow-sm">
+      <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-3 md:gap-0 mb-4 md:mb-6">
+        <h2 className="text-base md:text-2xl font-medium text-black">
           My Crypto Holdings
         </h2>
-        <button className="flex items-center gap-2 px-3 md:px-4 py-2 bg-black text-white rounded text-xs md:text-sm hover:bg-gray-900 transition-colors whitespace-nowrap">
-          <Plus className="w-3.5 md:w-4 h-3.5 md:h-4" />
+        <button className="flex items-center gap-1.5 px-2.5 md:px-4 py-1.5 md:py-2 bg-black text-white rounded text-[10px] md:text-sm hover:bg-gray-900 transition-colors whitespace-nowrap">
+          <Plus className="w-3 md:w-4 h-3 md:h-4" />
           <span>Add Crypto</span>
         </button>
       </div>
