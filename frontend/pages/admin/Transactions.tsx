@@ -205,8 +205,8 @@ export const Transactions: React.FC = () => {
   );
 
   return (
-    <div className="min-h-screen bg-[#F8F8F8] p-4 sm:p-6">
-      <div className="flex gap-6 max-w-[1920px] mx-auto flex-1">
+    <div className="min-h-screen bg-[#F8F8F8]">
+      <div className="flex gap-0 lg:gap-6 max-w-[1920px] mx-auto min-h-screen">
         <AdminSidebar
           isOpen={isSidebarOpen}
           onClose={() => setIsSidebarOpen(false)}
