@@ -649,16 +649,16 @@ export default function Index() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-[#3CC27B] to-[#00602D]">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl md:text-5xl font-['Russo_One'] text-white mb-6">
+      <section className="py-16 md:py-20 lg:py-28 bg-gradient-to-r from-[#3CC27B] to-[#00602D]">
+        <div className="container mx-auto px-3 xs:px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl xs:text-4xl sm:text-5xl font-['Russo_One'] text-white mb-4 xs:mb-6">
             Ready to Start Trading Crypto?
           </h2>
-          <p className="text-xl text-white max-w-3xl mx-auto mb-8">
+          <p className="text-sm xs:text-base sm:text-lg text-white max-w-3xl mx-auto mb-8 xs:mb-10">
             Join thousands of traders buying and selling cryptocurrencies on
             India's most trusted platform
           </p>
-          <Button className="bg-white hover:bg-gray-100 text-[#161616] px-14 h-[51px] text-[15px] font-medium rounded-md">
+          <Button className="bg-white hover:bg-gray-100 text-[#161616] px-8 xs:px-10 sm:px-14 h-[40px] xs:h-[44px] sm:h-[51px] text-xs xs:text-sm sm:text-[15px] font-medium rounded-md">
             Buy Crypto Now
           </Button>
         </div>
