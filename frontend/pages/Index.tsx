@@ -555,46 +555,46 @@ export default function Index() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-['Russo_One'] text-[#161616] mb-4">
+      <section className="py-16 md:py-20 lg:py-28">
+        <div className="container mx-auto px-3 xs:px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12 md:mb-16">
+            <h2 className="text-3xl xs:text-4xl sm:text-5xl font-['Russo_One'] text-[#161616] mb-3 xs:mb-4">
               Don't just take our word for it
             </h2>
-            <p className="text-xl text-gray-900 max-w-3xl mx-auto">
+            <p className="text-sm xs:text-base sm:text-lg text-gray-900 max-w-3xl mx-auto">
               We're proud to be working with these incredible traders, and
               thankful for their feedback, suggestions, and support.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 max-w-6xl mx-auto">
             {[1, 2, 3, 4, 5, 6].map((i) => (
               <div
                 key={i}
-                className={`bg-white rounded-lg p-6 ${i === 4 ? "border-2 border-[#3CC27B] shadow-xl" : "shadow-md"}`}
+                className={`bg-white rounded-lg p-4 md:p-6 ${i === 4 ? "border-2 border-[#3CC27B] shadow-xl" : "shadow-md"}`}
               >
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 rounded-full bg-gray-300"></div>
-                  <div>
-                    <div className="font-medium text-[15px]">Sarah Johnson</div>
-                    <div className="text-[15px] text-gray-600">
+                <div className="flex items-center gap-2 md:gap-3 mb-4">
+                  <div className="w-10 md:w-12 h-10 md:h-12 rounded-full bg-gray-300 flex-shrink-0"></div>
+                  <div className="min-w-0">
+                    <div className="font-medium text-[13px] md:text-[15px]">Sarah Johnson</div>
+                    <div className="text-[12px] md:text-[13px] text-gray-600">
                       @sarahtrades
                     </div>
                   </div>
-                  <Twitter className="w-4 h-4 ml-auto" />
+                  <Twitter className="w-3 md:w-4 h-3 md:h-4 ml-auto flex-shrink-0" />
                 </div>
-                <p className="text-[17px] text-gray-900 mb-4 leading-relaxed">
+                <p className="text-[13px] md:text-[15px] text-gray-900 mb-4 leading-relaxed">
                   "The platform is incredibly user-friendly and the instant
                   buy/sell feature has saved me so much time. Best trading
                   experience I've had in 3 years!"
                 </p>
                 <div className="flex gap-1">
                   {[1, 2, 3, 4].map((j) => (
-                    <span key={j} className="text-[#F9AA4B]">
+                    <span key={j} className="text-[#F9AA4B] text-sm">
                       ★
                     </span>
                   ))}
-                  <span className="text-gray-300">★</span>
+                  <span className="text-gray-300 text-sm">★</span>
                 </div>
               </div>
             ))}
