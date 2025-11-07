@@ -1,6 +1,12 @@
+import React from "react";
 import { useState, useEffect } from "react";
 import { AdminHeader } from "./components/AdminHeader";
 import { AdminSidebar } from "./components/AdminSidebar";
+import { SiteInformation } from "./settings/components/SiteInformation";
+import { BrandingAssets } from "./settings/components/BrandingAssets";
+import { ColorsTypography } from "./settings/components/ColorsTypography";
+import { ContactInformation } from "./settings/components/ContactInformation";
+import { SecuritySettings } from "./settings/components/SecuritySettings";
 
 const DEFAULT_SETTINGS = {
   siteName: "USDTmpay",
@@ -97,7 +103,7 @@ export const Settings = () => {
   const [sessionTimeout, setSessionTimeout] = useState(
     initialSettings.sessionTimeout,
   );
-  const [maintenanceMode, setMaintenanceMode] = useState(
+  const [maintenanceMode, setMaintenanceMode] = useState<boolean>(
     initialSettings.maintenanceMode,
   );
 
@@ -183,9 +189,6 @@ export const Settings = () => {
       // Save to localStorage
       localStorage.setItem("websiteSettings", JSON.stringify(settings));
 
-      // Here you could also make an API call to save to backend
-      // await fetch('/api/admin/settings', { method: 'POST', body: JSON.stringify(settings) })
-
       setSaveMessage({ type: "success", text: "Settings saved successfully!" });
       setTimeout(() => setSaveMessage(null), 3000);
     } catch (error) {
@@ -201,549 +204,129 @@ export const Settings = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#F8F8F8] flex flex-col">
-      <AdminSidebar
-        isOpen={isSidebarOpen}
-        onClose={() => setIsSidebarOpen(false)}
-      />
+    <div className="bg-[#F8F8F8] min-h-screen">
+      <div className="flex flex-col lg:flex-row gap-0 max-w-[1920px] mx-auto min-h-screen">
+        {/* Mobile Menu Button */}
+        <button
+          onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+          className="lg:hidden fixed top-3 sm:top-4 left-3 sm:left-4 z-50 p-2 bg-white rounded-md shadow-lg hover:shadow-xl transition-shadow active:scale-95"
+          aria-label="Toggle navigation menu"
+        >
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M3 12H21M3 6H21M3 18H21"
+              stroke="black"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </button>
 
-      <div className="flex flex-col flex-1 lg:ml-[259px]">
-        <AdminHeader onMenuClick={() => setIsSidebarOpen(true)} />
+        {/* Sidebar with Mobile Overlay */}
+        <div>
+          <AdminSidebar
+            isOpen={isSidebarOpen}
+            onClose={() => setIsSidebarOpen(false)}
+          />
+          {isSidebarOpen && (
+            <div
+              className="fixed inset-0 bg-black/40 lg:hidden z-30"
+              onClick={() => setIsSidebarOpen(false)}
+            />
+          )}
+        </div>
 
-        <div className="flex-1 px-3 sm:px-4 md:px-6 lg:px-8 py-3 sm:py-4 md:py-6 lg:py-8 overflow-y-auto">
-          <div className="bg-white rounded-xl shadow-sm p-4 xs:p-5 sm:p-8">
-            {/* Page Header */}
-            <div className="pb-6 xs:pb-8 border-b border-[#E0E0E0] mb-6 xs:mb-8">
-              <h1 className="text-lg xs:text-xl sm:text-2xl font-semibold text-black mb-1.5 xs:mb-2">
+        {/* Main Content */}
+        <div className="flex-1 flex flex-col gap-0 min-h-screen lg:gap-4 pt-16 sm:pt-20 lg:pt-0 lg:p-6">
+          <AdminHeader />
+
+          <div className="bg-white rounded-none sm:rounded-lg lg:rounded-[10px] p-3 sm:p-5 md:p-8 m-3 sm:m-4 md:m-0 flex flex-col flex-1">
+            {/* Header Section */}
+            <div className="mb-4 sm:mb-6 md:mb-8">
+              <h1 className="text-base sm:text-lg md:text-[20px] font-semibold sm:font-medium text-black mb-1 sm:mb-2">
                 Website Settings
               </h1>
-              <p className="text-xs xs:text-sm sm:text-base text-[#999999]">
+              <p className="text-xs sm:text-sm md:text-[17px] text-[#838383]">
                 Manage your website configuration and appearance
               </p>
             </div>
 
-            {/* Site Information */}
-            <section className="mb-8 xs:mb-10 sm:mb-12 pb-8 xs:pb-10 sm:pb-12 border-b border-[#E0E0E0]">
-              <h2 className="text-base xs:text-lg sm:text-xl font-semibold text-black mb-4 xs:mb-5 sm:mb-6">
-                Site Information
-              </h2>
+            {/* Settings sections (components) */}
+            <SiteInformation
+              siteName={siteName}
+              setSiteName={setSiteName}
+              siteTitle={siteTitle}
+              setSiteTitle={setSiteTitle}
+              siteDescription={siteDescription}
+              setSiteDescription={setSiteDescription}
+              seoKeywords={seoKeywords}
+              setSeoKeywords={setSeoKeywords}
+              author={author}
+              setAuthor={setAuthor}
+            />
 
-              <div className="grid grid-cols-1 xs:grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-3 xs:gap-4 sm:gap-6">
-                {/* Site Name */}
-                <div>
-                  <label className="block text-xs xs:text-sm sm:text-base lg:text-lg font-medium text-black mb-1.5 xs:mb-2">
-                    Site Name
-                  </label>
-                  <input
-                    type="text"
-                    value={siteName}
-                    onChange={(e) => setSiteName(e.target.value)}
-                    className="w-full h-[44px] xs:h-[48px] sm:h-[51px] px-3 xs:px-4 sm:px-5 rounded-lg border border-[#E0E0E0] bg-white text-xs xs:text-sm text-black outline-none focus:border-[#3CC27B] focus:ring-2 focus:ring-[#3CC27B]/20 transition-all"
-                  />
-                </div>
+            <BrandingAssets
+              logoPreview={logoPreview}
+              setLogoPreview={setLogoPreview}
+              faviconPreview={faviconPreview}
+              setFaviconPreview={setFaviconPreview}
+              handleLogoUpload={handleLogoUpload}
+              handleFaviconUpload={handleFaviconUpload}
+            />
 
-                {/* Site Title */}
-                <div>
-                  <label className="block text-xs xs:text-sm sm:text-base lg:text-lg font-medium text-black mb-1.5 xs:mb-2">
-                    Site Title
-                  </label>
-                  <input
-                    type="text"
-                    value={siteTitle}
-                    onChange={(e) => setSiteTitle(e.target.value)}
-                    className="w-full h-[44px] xs:h-[48px] sm:h-[51px] px-3 xs:px-4 sm:px-5 rounded-lg border border-[#E0E0E0] bg-white text-xs xs:text-sm text-black outline-none focus:border-[#3CC27B] focus:ring-2 focus:ring-[#3CC27B]/20 transition-all"
-                  />
-                </div>
+            <ColorsTypography
+              primaryColor={primaryColor}
+              setPrimaryColor={setPrimaryColor}
+              primaryColorText={primaryColorText}
+              setPrimaryColorText={setPrimaryColorText}
+              secondaryColor={secondaryColor}
+              setSecondaryColor={setSecondaryColor}
+              secondaryColorText={secondaryColorText}
+              setSecondaryColorText={setSecondaryColorText}
+              accentColor={accentColor}
+              setAccentColor={setAccentColor}
+              accentColorText={accentColorText}
+              setAccentColorText={setAccentColorText}
+              backgroundColor={backgroundColor}
+              setBackgroundColor={setBackgroundColor}
+              backgroundColorText={backgroundColorText}
+              setBackgroundColorText={setBackgroundColorText}
+              textColor={textColor}
+              setTextColor={setTextColor}
+              textColorText={textColorText}
+              setTextColorText={setTextColorText}
+              fontFamily={fontFamily}
+              setFontFamily={setFontFamily}
+              handleColorChange={handleColorChange}
+              handleColorTextChange={handleColorTextChange}
+            />
 
-                {/* Site Description */}
-                <div className="col-span-1 sm:col-span-2 lg:col-span-2">
-                  <label className="block text-xs xs:text-sm sm:text-base lg:text-lg font-medium text-black mb-1.5 xs:mb-2">
-                    Site Description
-                  </label>
-                  <textarea
-                    rows={3}
-                    value={siteDescription}
-                    onChange={(e) => setSiteDescription(e.target.value)}
-                    className="w-full px-3 xs:px-4 sm:px-5 py-2 xs:py-2.5 sm:py-3 rounded-lg border border-[#E0E0E0] bg-white text-xs xs:text-sm text-black outline-none focus:border-[#3CC27B] focus:ring-2 focus:ring-[#3CC27B]/20 transition-all resize-none"
-                  />
-                </div>
+            <ContactInformation
+              supportEmail={supportEmail}
+              setSupportEmail={setSupportEmail}
+              contactEmail={contactEmail}
+              setContactEmail={setContactEmail}
+              adminEmail={adminEmail}
+              setAdminEmail={setAdminEmail}
+              phone={phone}
+              setPhone={setPhone}
+              businessAddress={businessAddress}
+              setBusinessAddress={setBusinessAddress}
+            />
 
-                {/* SEO Keywords */}
-                <div>
-                  <label className="block text-xs xs:text-sm sm:text-base lg:text-lg font-medium text-black mb-1.5 xs:mb-2">
-                    SEO Keywords
-                  </label>
-                  <input
-                    type="text"
-                    value={seoKeywords}
-                    onChange={(e) => setSeoKeywords(e.target.value)}
-                    className="w-full h-[44px] xs:h-[48px] sm:h-[51px] px-3 xs:px-4 sm:px-5 rounded-lg border border-[#E0E0E0] bg-white text-xs xs:text-sm text-black outline-none focus:border-[#3CC27B] focus:ring-2 focus:ring-[#3CC27B]/20 transition-all"
-                  />
-                </div>
-
-                {/* Author */}
-                <div>
-                  <label className="block text-xs xs:text-sm sm:text-base lg:text-lg font-medium text-black mb-1.5 xs:mb-2">
-                    Author
-                  </label>
-                  <input
-                    type="text"
-                    value={author}
-                    onChange={(e) => setAuthor(e.target.value)}
-                    className="w-full h-[44px] xs:h-[48px] sm:h-[51px] px-3 xs:px-4 sm:px-5 rounded-lg border border-[#E0E0E0] bg-white text-xs xs:text-sm text-black outline-none focus:border-[#3CC27B] focus:ring-2 focus:ring-[#3CC27B]/20 transition-all"
-                  />
-                </div>
-              </div>
-            </section>
-
-            {/* Branding & Assets */}
-            <section className="mb-8 xs:mb-10 sm:mb-12 pb-8 xs:pb-10 sm:pb-12 border-b border-[#E0E0E0]">
-              <h2 className="text-base xs:text-lg sm:text-xl font-semibold text-black mb-4 xs:mb-5 sm:mb-6">
-                Branding & Assets
-              </h2>
-
-              <div className="grid grid-cols-1 xs:grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-3 xs:gap-4 sm:gap-6">
-                {/* Logo Upload */}
-                <div>
-                  <label className="block text-xs xs:text-sm sm:text-base lg:text-lg font-medium text-black mb-2">
-                    Logo Upload
-                  </label>
-                  {logoPreview ? (
-                    <div className="w-full h-[120px] xs:h-[135px] sm:h-[165px] rounded-lg border-2 border-[#BABABA] flex flex-col items-center justify-center gap-2 xs:gap-3 bg-gray-50 relative">
-                      <img
-                        src={logoPreview}
-                        alt="Logo preview"
-                        className="max-h-20 xs:max-h-24 sm:max-h-32 max-w-full object-contain"
-                      />
-                      <button
-                        type="button"
-                        onClick={() => setLogoPreview(null)}
-                        className="text-xs xs:text-sm text-[#3CC27B] hover:text-[#35a869] transition-colors"
-                      >
-                        Clear
-                      </button>
-                    </div>
-                  ) : (
-                    <label className="block w-full h-[120px] xs:h-[135px] sm:h-[165px] cursor-pointer">
-                      <div className="w-full h-full rounded-lg border-2 border-dashed border-[#BABABA] flex flex-col items-center justify-center gap-2 xs:gap-3 hover:border-[#3CC27B] hover:bg-[#F8F8F8] transition-all">
-                        <svg
-                          width="16"
-                          height="16"
-                          className="xs:w-5 xs:h-5 sm:w-[20px] sm:h-[20px]"
-                          viewBox="0 0 20 20"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="text-black"
-                        >
-                          <path
-                            d="M8.75 15V4.8125L5.5 8.0625L3.75 6.25L10 0L16.25 6.25L14.5 8.0625L11.25 4.8125V15H8.75ZM0 20V13.75H2.5V17.5H17.5V13.75H20V20H0Z"
-                            fill="currentColor"
-                          />
-                        </svg>
-                        <p className="text-xs xs:text-sm font-light text-black text-center leading-tight xs:leading-snug">
-                          Click to upload logo
-                          <br />
-                          PNG, JPG up to 2MB
-                        </p>
-                      </div>
-                      <input
-                        type="file"
-                        className="hidden"
-                        accept="image/*"
-                        onChange={handleLogoUpload}
-                      />
-                    </label>
-                  )}
-                </div>
-
-                {/* Favicon Upload */}
-                <div>
-                  <label className="block text-xs xs:text-sm sm:text-base lg:text-lg font-medium text-black mb-2">
-                    Favicon Upload
-                  </label>
-                  {faviconPreview ? (
-                    <div className="w-full h-[120px] xs:h-[135px] sm:h-[165px] rounded-lg border-2 border-[#BABABA] flex flex-col items-center justify-center gap-2 xs:gap-3 bg-gray-50 relative">
-                      <img
-                        src={faviconPreview}
-                        alt="Favicon preview"
-                        className="max-h-8 xs:max-h-10 sm:max-h-12 max-w-8 xs:max-w-10 sm:max-w-12 object-contain"
-                      />
-                      <button
-                        type="button"
-                        onClick={() => setFaviconPreview(null)}
-                        className="text-xs xs:text-sm text-[#3CC27B] hover:text-[#35a869] transition-colors"
-                      >
-                        Clear
-                      </button>
-                    </div>
-                  ) : (
-                    <label className="block w-full h-[120px] xs:h-[135px] sm:h-[165px] cursor-pointer">
-                      <div className="w-full h-full rounded-lg border-2 border-dashed border-[#BABABA] flex flex-col items-center justify-center gap-2 xs:gap-3 hover:border-[#3CC27B] hover:bg-[#F8F8F8] transition-all">
-                        <svg
-                          width="16"
-                          height="16"
-                          className="xs:w-5 xs:h-5 sm:w-[20px] sm:h-[20px]"
-                          viewBox="0 0 20 20"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="text-black"
-                        >
-                          <path
-                            d="M8.75 15V4.8125L5.5 8.0625L3.75 6.25L10 0L16.25 6.25L14.5 8.0625L11.25 4.8125V15H8.75ZM0 20V13.75H2.5V17.5H17.5V13.75H20V20H0Z"
-                            fill="currentColor"
-                          />
-                        </svg>
-                        <p className="text-xs xs:text-sm font-light text-black text-center leading-tight xs:leading-snug">
-                          Click to upload favicon
-                          <br />
-                          PNG, JPG up to 2MB
-                        </p>
-                      </div>
-                      <input
-                        type="file"
-                        className="hidden"
-                        accept="image/*"
-                        onChange={handleFaviconUpload}
-                      />
-                    </label>
-                  )}
-                </div>
-              </div>
-            </section>
-
-            {/* Colors & Typography */}
-            <section className="mb-8 xs:mb-10 sm:mb-12 pb-8 xs:pb-10 sm:pb-12 border-b border-[#E0E0E0]">
-              <h2 className="text-base xs:text-lg sm:text-xl font-semibold text-black mb-4 xs:mb-5 sm:mb-6">
-                Colors & Typography
-              </h2>
-
-              {/* Color Pickers */}
-              <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2 xs:gap-3 sm:gap-4 lg:gap-6 mb-4 xs:mb-6">
-                {/* Primary Color */}
-                <div>
-                  <label className="block text-xs xs:text-sm sm:text-base font-medium text-black mb-1.5 xs:mb-2">
-                    Primary Color
-                  </label>
-                  <div className="flex flex-col xs:flex-row items-start xs:items-center gap-2">
-                    <input
-                      type="color"
-                      value={primaryColor}
-                      onChange={(e) =>
-                        handleColorChange(
-                          e.target.value,
-                          setPrimaryColor,
-                          setPrimaryColorText,
-                        )
-                      }
-                      className="w-10 h-10 xs:w-[51px] xs:h-[51px] rounded-lg border-2 border-[#BFBFBF] cursor-pointer"
-                    />
-                    <input
-                      type="text"
-                      value={primaryColorText}
-                      onChange={(e) =>
-                        handleColorTextChange(
-                          e.target.value,
-                          setPrimaryColor,
-                          setPrimaryColorText,
-                        )
-                      }
-                      className="w-full xs:flex-1 h-10 xs:h-[51px] px-2 xs:px-3 rounded-lg border border-[#E0E0E0] bg-white text-xs xs:text-sm text-black outline-none focus:border-[#3CC27B] focus:ring-2 focus:ring-[#3CC27B]/20 transition-all uppercase"
-                    />
-                  </div>
-                </div>
-
-                {/* Secondary Color */}
-                <div>
-                  <label className="block text-xs xs:text-sm sm:text-base font-medium text-black mb-1.5 xs:mb-2">
-                    Secondary Color
-                  </label>
-                  <div className="flex flex-col xs:flex-row items-start xs:items-center gap-2">
-                    <input
-                      type="color"
-                      value={secondaryColor}
-                      onChange={(e) =>
-                        handleColorChange(
-                          e.target.value,
-                          setSecondaryColor,
-                          setSecondaryColorText,
-                        )
-                      }
-                      className="w-10 h-10 xs:w-[51px] xs:h-[51px] rounded-lg border-2 border-[#BFBFBF] cursor-pointer"
-                    />
-                    <input
-                      type="text"
-                      value={secondaryColorText}
-                      onChange={(e) =>
-                        handleColorTextChange(
-                          e.target.value,
-                          setSecondaryColor,
-                          setSecondaryColorText,
-                        )
-                      }
-                      className="w-full xs:flex-1 h-10 xs:h-[51px] px-2 xs:px-3 rounded-lg border border-[#E0E0E0] bg-white text-xs xs:text-sm text-black outline-none focus:border-[#3CC27B] focus:ring-2 focus:ring-[#3CC27B]/20 transition-all uppercase"
-                    />
-                  </div>
-                </div>
-
-                {/* Accent Color */}
-                <div>
-                  <label className="block text-xs xs:text-sm sm:text-base font-medium text-black mb-1.5 xs:mb-2">
-                    Accent Color
-                  </label>
-                  <div className="flex flex-col xs:flex-row items-start xs:items-center gap-2">
-                    <input
-                      type="color"
-                      value={accentColor}
-                      onChange={(e) =>
-                        handleColorChange(
-                          e.target.value,
-                          setAccentColor,
-                          setAccentColorText,
-                        )
-                      }
-                      className="w-10 h-10 xs:w-[51px] xs:h-[51px] rounded-lg border-2 border-[#BFBFBF] cursor-pointer"
-                    />
-                    <input
-                      type="text"
-                      value={accentColorText}
-                      onChange={(e) =>
-                        handleColorTextChange(
-                          e.target.value,
-                          setAccentColor,
-                          setAccentColorText,
-                        )
-                      }
-                      className="w-full xs:flex-1 h-10 xs:h-[51px] px-2 xs:px-3 rounded-lg border border-[#E0E0E0] bg-white text-xs xs:text-sm text-black outline-none focus:border-[#3CC27B] focus:ring-2 focus:ring-[#3CC27B]/20 transition-all uppercase"
-                    />
-                  </div>
-                </div>
-
-                {/* Background Color */}
-                <div>
-                  <label className="block text-xs xs:text-sm sm:text-base font-medium text-black mb-1.5 xs:mb-2">
-                    Background Color
-                  </label>
-                  <div className="flex flex-col xs:flex-row items-start xs:items-center gap-2">
-                    <input
-                      type="color"
-                      value={backgroundColor}
-                      onChange={(e) =>
-                        handleColorChange(
-                          e.target.value,
-                          setBackgroundColor,
-                          setBackgroundColorText,
-                        )
-                      }
-                      className="w-10 h-10 xs:w-[51px] xs:h-[51px] rounded-lg border-2 border-[#BFBFBF] cursor-pointer"
-                    />
-                    <input
-                      type="text"
-                      value={backgroundColorText}
-                      onChange={(e) =>
-                        handleColorTextChange(
-                          e.target.value,
-                          setBackgroundColor,
-                          setBackgroundColorText,
-                        )
-                      }
-                      className="w-full xs:flex-1 h-10 xs:h-[51px] px-2 xs:px-3 rounded-lg border border-[#E0E0E0] bg-white text-xs xs:text-sm text-black outline-none focus:border-[#3CC27B] focus:ring-2 focus:ring-[#3CC27B]/20 transition-all uppercase"
-                    />
-                  </div>
-                </div>
-
-                {/* Text Color */}
-                <div>
-                  <label className="block text-xs xs:text-sm sm:text-base font-medium text-black mb-1.5 xs:mb-2">
-                    Text Color
-                  </label>
-                  <div className="flex flex-col xs:flex-row items-start xs:items-center gap-2">
-                    <input
-                      type="color"
-                      value={textColor}
-                      onChange={(e) =>
-                        handleColorChange(
-                          e.target.value,
-                          setTextColor,
-                          setTextColorText,
-                        )
-                      }
-                      className="w-10 h-10 xs:w-[51px] xs:h-[51px] rounded-lg border-2 border-[#BFBFBF] cursor-pointer"
-                    />
-                    <input
-                      type="text"
-                      value={textColorText}
-                      onChange={(e) =>
-                        handleColorTextChange(
-                          e.target.value,
-                          setTextColor,
-                          setTextColorText,
-                        )
-                      }
-                      className="w-full xs:flex-1 h-10 xs:h-[51px] px-2 xs:px-3 rounded-lg border border-[#E0E0E0] bg-white text-xs xs:text-sm text-black outline-none focus:border-[#3CC27B] focus:ring-2 focus:ring-[#3CC27B]/20 transition-all uppercase"
-                    />
-                  </div>
-                </div>
-              </div>
-
-              {/* Font Family */}
-              <div>
-                <label className="block text-xs xs:text-sm sm:text-base lg:text-lg font-medium text-black mb-1.5 xs:mb-2">
-                  Font Family
-                </label>
-                <input
-                  type="text"
-                  value={fontFamily}
-                  onChange={(e) => setFontFamily(e.target.value)}
-                  className="w-full h-10 xs:h-[48px] sm:h-[51px] px-3 xs:px-4 sm:px-5 rounded-lg border border-[#E0E0E0] bg-white text-xs xs:text-sm text-black outline-none focus:border-[#3CC27B] focus:ring-2 focus:ring-[#3CC27B]/20 transition-all"
-                />
-              </div>
-            </section>
-
-            {/* Contact Information */}
-            <section className="mb-8 xs:mb-10 sm:mb-12 pb-8 xs:pb-10 sm:pb-12 border-b border-[#E0E0E0]">
-              <h2 className="text-base xs:text-lg sm:text-xl font-semibold text-black mb-4 xs:mb-5 sm:mb-6">
-                Contact Information
-              </h2>
-
-              <div className="grid grid-cols-1 xs:grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-3 xs:gap-4 sm:gap-6">
-                {/* Support Email */}
-                <div>
-                  <label className="block text-xs xs:text-sm sm:text-base lg:text-lg font-medium text-black mb-1.5 xs:mb-2">
-                    Support Email
-                  </label>
-                  <input
-                    type="email"
-                    value={supportEmail}
-                    onChange={(e) => setSupportEmail(e.target.value)}
-                    className="w-full h-10 xs:h-[48px] sm:h-[51px] px-3 xs:px-4 sm:px-5 rounded-lg border border-[#E0E0E0] bg-white text-xs xs:text-sm text-black outline-none focus:border-[#3CC27B] focus:ring-2 focus:ring-[#3CC27B]/20 transition-all"
-                  />
-                </div>
-
-                {/* Contact Email */}
-                <div>
-                  <label className="block text-xs xs:text-sm sm:text-base lg:text-lg font-medium text-black mb-1.5 xs:mb-2">
-                    Contact Email
-                  </label>
-                  <input
-                    type="email"
-                    value={contactEmail}
-                    onChange={(e) => setContactEmail(e.target.value)}
-                    className="w-full h-10 xs:h-[48px] sm:h-[51px] px-3 xs:px-4 sm:px-5 rounded-lg border border-[#E0E0E0] bg-white text-xs xs:text-sm text-black outline-none focus:border-[#3CC27B] focus:ring-2 focus:ring-[#3CC27B]/20 transition-all"
-                  />
-                </div>
-
-                {/* Admin Email */}
-                <div>
-                  <label className="block text-xs xs:text-sm sm:text-base lg:text-lg font-medium text-black mb-1.5 xs:mb-2">
-                    Admin Email
-                  </label>
-                  <input
-                    type="email"
-                    value={adminEmail}
-                    onChange={(e) => setAdminEmail(e.target.value)}
-                    className="w-full h-10 xs:h-[48px] sm:h-[51px] px-3 xs:px-4 sm:px-5 rounded-lg border border-[#E0E0E0] bg-white text-xs xs:text-sm text-black outline-none focus:border-[#3CC27B] focus:ring-2 focus:ring-[#3CC27B]/20 transition-all"
-                  />
-                </div>
-
-                {/* Phone Number */}
-                <div>
-                  <label className="block text-xs xs:text-sm sm:text-base lg:text-lg font-medium text-black mb-1.5 xs:mb-2">
-                    Phone Number
-                  </label>
-                  <input
-                    type="tel"
-                    value={phone}
-                    onChange={(e) => setPhone(e.target.value)}
-                    className="w-full h-10 xs:h-[48px] sm:h-[51px] px-3 xs:px-4 sm:px-5 rounded-lg border border-[#E0E0E0] bg-white text-xs xs:text-sm text-black outline-none focus:border-[#3CC27B] focus:ring-2 focus:ring-[#3CC27B]/20 transition-all"
-                  />
-                </div>
-
-                {/* Business Address */}
-                <div className="col-span-1 sm:col-span-2 lg:col-span-2">
-                  <label className="block text-xs xs:text-sm sm:text-base lg:text-lg font-medium text-black mb-1.5 xs:mb-2">
-                    Business Address
-                  </label>
-                  <textarea
-                    rows={3}
-                    value={businessAddress}
-                    onChange={(e) => setBusinessAddress(e.target.value)}
-                    className="w-full px-3 xs:px-4 sm:px-5 py-2 xs:py-2.5 sm:py-3 rounded-lg border border-[#E0E0E0] bg-white text-xs xs:text-sm text-black outline-none focus:border-[#3CC27B] focus:ring-2 focus:ring-[#3CC27B]/20 transition-all resize-none"
-                  />
-                </div>
-              </div>
-            </section>
-
-            {/* Security Settings */}
-            <section className="mb-8 xs:mb-10 sm:mb-12">
-              <h2 className="text-base xs:text-lg sm:text-xl font-semibold text-black mb-4 xs:mb-5 sm:mb-6">
-                Security Settings
-              </h2>
-
-              <div className="space-y-4 xs:space-y-5 sm:space-y-6">
-                {/* Session Timeout */}
-                <div className="flex flex-col xs:flex-col sm:flex-row sm:items-center sm:justify-between gap-3 xs:gap-4">
-                  <div>
-                    <h3 className="text-xs xs:text-sm sm:text-base lg:text-lg font-medium text-black">
-                      Session Timeout
-                    </h3>
-                    <p className="text-xs xs:text-sm text-black font-light mt-1">
-                      Auto-logout after inactivity
-                    </p>
-                  </div>
-                  <div className="relative w-full xs:w-full sm:w-auto">
-                    <select
-                      value={sessionTimeout}
-                      onChange={(e) => setSessionTimeout(e.target.value)}
-                      className="w-full h-9 xs:h-[29px] px-2 xs:px-3 pr-8 rounded bg-black text-white text-xs appearance-none cursor-pointer outline-none focus:ring-2 focus:ring-[#3CC27B]/20"
-                    >
-                      <option value="30">30 Minutes</option>
-                      <option value="60">1 Hour</option>
-                      <option value="120">2 Hours</option>
-                      <option value="240">4 Hours</option>
-                    </select>
-                    <svg
-                      className="absolute right-2 top-1/2 -translate-y-1/2 w-3 h-3 pointer-events-none"
-                      viewBox="0 0 13 8"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        clipRule="evenodd"
-                        d="M5.65556 7.071L-0.0014382 1.414L1.41256 -4.94551e-07L6.36256 4.95L11.3126 -6.18079e-08L12.7266 1.414L7.06956 7.071C6.88203 7.25847 6.62773 7.36379 6.36256 7.36379C6.0974 7.36379 5.84309 7.25847 5.65556 7.071Z"
-                        fill="white"
-                      />
-                    </svg>
-                  </div>
-                </div>
-
-                {/* Maintenance Mode */}
-                <div className="flex flex-col xs:flex-col sm:flex-row sm:items-center sm:justify-between gap-3 xs:gap-4">
-                  <div>
-                    <h3 className="text-xs xs:text-sm sm:text-base lg:text-lg font-medium text-black">
-                      Maintenance Mode
-                    </h3>
-                    <p className="text-xs xs:text-sm text-black font-light mt-1">
-                      Enable maintenance mode for website
-                    </p>
-                  </div>
-                  <button
-                    onClick={() => setMaintenanceMode(!maintenanceMode)}
-                    className={`relative w-[46px] h-5 rounded-full transition-colors ${
-                      maintenanceMode ? "bg-[#3CC27B]" : "bg-[#D7D7D7]"
-                    }`}
-                  >
-                    <div
-                      className={`absolute top-0.5 w-3.5 h-3.5 bg-white rounded-full transition-transform ${
-                        maintenanceMode
-                          ? "translate-x-[30px]"
-                          : "translate-x-0.5"
-                      }`}
-                    />
-                  </button>
-                </div>
-              </div>
-            </section>
+            <SecuritySettings
+              sessionTimeout={sessionTimeout}
+              setSessionTimeout={setSessionTimeout}
+              maintenanceMode={maintenanceMode}
+              setMaintenanceMode={setMaintenanceMode}
+            />
 
             {/* Save Notification */}
             {saveMessage && (
