@@ -5,37 +5,37 @@ export default function Dashboard() {
   return (
     <div className="min-h-screen bg-[#F8F8F8]">
       {/* Top Navigation Bar */}
-      <div className="bg-white rounded-[10px] mx-4 lg:mx-12 mt-6 px-6 py-4 flex items-center justify-between">
+      <div className="bg-white rounded-none lg:rounded-[10px] mx-0 lg:mx-12 mt-0 lg:mt-6 px-4 sm:px-6 lg:px-6 py-3 sm:py-4 lg:py-4 flex items-center justify-between sticky top-0 z-40 lg:relative">
         <Link to="/" className="flex items-center gap-2">
           <img
             src="/logo.png"
             alt="Logo"
-            className="h-10 w-auto object-contain"
+            className="h-8 sm:h-10 w-auto object-contain"
           />
         </Link>
 
-        <h1 className="text-3xl font-['Russo_One'] text-black hidden lg:block">
+        <h1 className="text-2xl sm:text-3xl font-['Russo_One'] text-black hidden lg:block">
           Dashboard
         </h1>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-2 sm:gap-4">
           <Link
             to="/"
-            className="px-9 py-2 bg-[#161616] text-white text-[15px] font-medium rounded-md hover:bg-black/80 transition-colors"
+            className="px-4 sm:px-9 py-2 bg-[#161616] text-white text-xs sm:text-[15px] font-medium rounded-md hover:bg-black/80 transition-colors"
           >
             Go to Home
           </Link>
-          <div className="w-10 h-10 rounded-full bg-[#D9D9D9] cursor-pointer"></div>
-          <div className="relative">
-            <Bell className="w-5 h-5 text-[#C7C7C7]" />
+          <div className="w-8 sm:w-10 h-8 sm:h-10 rounded-full bg-[#D9D9D9] cursor-pointer"></div>
+          <div className="relative hidden sm:block">
+            <Bell className="w-4 sm:w-5 h-4 sm:h-5 text-[#C7C7C7]" />
             <div className="absolute -top-1 -right-1 w-1.5 h-1.5 bg-[#3CC27B] rounded-full"></div>
           </div>
         </div>
       </div>
 
-      <div className="px-4 lg:px-12 mt-6 flex flex-col lg:flex-row gap-6">
-        {/* Sidebar */}
-        <div className="w-full lg:w-64 bg-white rounded-lg overflow-hidden">
+      <div className="px-0 lg:px-12 mt-0 lg:mt-6 flex flex-col lg:flex-row gap-0 lg:gap-6">
+        {/* Sidebar - Hidden on mobile */}
+        <div className="hidden lg:block w-full lg:w-64 bg-white rounded-lg overflow-hidden">
           <div className="bg-[#3CC27B] px-6 py-4 flex items-center gap-3 text-white">
             <svg
               width="14"
@@ -180,21 +180,22 @@ export default function Dashboard() {
         </div>
 
         {/* Main Content */}
-        <div className="flex-1 space-y-6">
+        <div className="flex-1 space-y-4 sm:space-y-6 px-3 sm:px-4 lg:px-0 py-4 lg:py-0">
           {/* Balance Card */}
-          <div className="bg-gradient-to-r from-[#3CC27B] to-[#00602D] rounded-[10px] p-8">
-            <div className="flex items-start justify-between mb-8">
+          <div className="bg-gradient-to-r from-[#3CC27B] to-[#00602D] rounded-[10px] p-4 sm:p-8">
+            <div className="flex items-start justify-between mb-6 sm:mb-8">
               <div>
-                <p className="text-white text-xl mb-2">Your Balance</p>
-                <h2 className="text-white text-5xl font-bold">₹5,656.6</h2>
+                <p className="text-white text-sm sm:text-xl mb-1 sm:mb-2">Wallet Balance</p>
+                <h2 className="text-white text-3xl sm:text-5xl font-bold">₹5,656.6</h2>
               </div>
-              <button className="text-white/80 hover:text-white">
+              <button className="text-white/80 hover:text-white p-1">
                 <svg
-                  width="22"
-                  height="23"
+                  width="20"
+                  height="20"
                   viewBox="0 0 22 23"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
+                  className="w-5 h-5 sm:w-6 sm:h-6"
                 >
                   <path
                     d="M11 8.50012C10.2044 8.50012 9.44129 8.81619 8.87868 9.3788C8.31607 9.94141 8 10.7045 8 11.5001C8 12.2958 8.31607 13.0588 8.87868 13.6214C9.44129 14.1841 10.2044 14.5001 11 14.5001C11.7956 14.5001 12.5587 14.1841 13.1213 13.6214C13.6839 13.0588 14 12.2958 14 11.5001C14 10.7045 13.6839 9.94141 13.1213 9.3788C12.5587 8.81619 11.7956 8.50012 11 8.50012ZM11 16.5001C9.67392 16.5001 8.40215 15.9733 7.46447 15.0357C6.52678 14.098 6 12.8262 6 11.5001C6 10.174 6.52678 8.90227 7.46447 7.96459C8.40215 7.02691 9.67392 6.50012 11 6.50012C12.3261 6.50012 13.5979 7.02691 14.5355 7.96459C15.4732 8.90227 16 10.174 16 11.5001C16 12.8262 15.4732 14.098 14.5355 15.0357C13.5979 15.9733 12.3261 16.5001 11 16.5001ZM11 4.00012C6 4.00012 1.73 7.11012 0 11.5001C1.73 15.8901 6 19.0001 11 19.0001C16 19.0001 20.27 15.8901 22 11.5001C20.27 7.11012 16 4.00012 11 4.00012Z"
@@ -210,24 +211,30 @@ export default function Dashboard() {
               </button>
             </div>
 
-            {/* Action Buttons */}
-            <div className="flex flex-wrap gap-6">
-              <ActionButton icon={<PlusIcon />} label="Add Balance" />
+            {/* Action Buttons - Mobile optimized */}
+            <div className="flex flex-wrap gap-4 sm:gap-6 justify-start sm:justify-start">
+              <ActionButton icon={<PlusIcon />} label="Add Fund" />
               <ActionButton icon={<CashoutIcon />} label="Cashout" />
-              <ActionButton
-                icon={<TrendingUp className="w-8 h-8" />}
-                label="Buy"
-              />
-              <ActionButton
-                icon={<TrendingDown className="w-8 h-8" />}
-                label="Sell"
-              />
+              <ActionButton icon={<TrendingUp className="w-6 sm:w-8 h-6 sm:h-8" />} label="Buy" />
+              <ActionButton icon={<TrendingDown className="w-6 sm:w-8 h-6 sm:h-8" />} label="Sell" />
               <ActionButton icon={<WalletIcon />} label="Wallet" />
             </div>
           </div>
 
-          {/* Stats Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {/* More Coming Soon */}
+          <div className="bg-white rounded-[10px] p-4 sm:p-8">
+            <h3 className="text-base sm:text-xl font-medium mb-4 sm:mb-6">More Coming Soon</h3>
+            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-5 gap-3 sm:gap-6">
+              <ComingSoonItem label="Recharge" sublabel="Mobile & DTH" />
+              <ComingSoonItem label="Bill Pay" sublabel="Utility Bills" />
+              <ComingSoonItem label="Bank Transfer" sublabel="Direct Transfer" />
+              <ComingSoonItem label="Savings" sublabel="Investment Plans" />
+              <ComingSoonItem label="Online Transfer" sublabel="P2P Payments" />
+            </div>
+          </div>
+
+          {/* Stats Cards - Mobile optimized */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6">
             <StatsCard
               title="Available to Trade"
               value="₹25,430.00"
@@ -238,7 +245,7 @@ export default function Dashboard() {
               title="Today's P&L"
               value="+₹2,340"
               valueColor="text-[#3CC27B]"
-              icon={<TrendingUp className="w-6 h-6 text-[#3CC27B]" />}
+              icon={<TrendingUp className="w-5 h-5 sm:w-6 sm:h-6 text-[#3CC27B]" />}
               iconBg="bg-[#3CC27B]/20"
             />
             <StatsCard
@@ -249,41 +256,26 @@ export default function Dashboard() {
             />
           </div>
 
-          {/* More Coming Soon */}
-          <div className="bg-white rounded-[10px] p-8">
-            <h3 className="text-xl font-medium mb-6">More Coming Soon</h3>
-            <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
-              <ComingSoonItem label="Recharge" sublabel="Mobile & DTH" />
-              <ComingSoonItem label="Bill Pay" sublabel="Utility Bills" />
-              <ComingSoonItem
-                label="Brank Transfer"
-                sublabel="Direct Transfer"
-              />
-              <ComingSoonItem label="Savings" sublabel="Investment Plans" />
-              <ComingSoonItem label="Online Transfer" sublabel="P2P Payments" />
-            </div>
-          </div>
-
           {/* Crypto Holdings */}
           <div>
-            <div className="flex items-center justify-between mb-6">
-              <h3 className="text-2xl font-medium">Your Crypto Holdings</h3>
-              <button className="flex items-center gap-2 px-4 py-2 bg-black text-white rounded text-xs">
-                <Plus className="w-3 h-3" />
-                Add Crypto
+            <div className="flex items-center justify-between mb-4 sm:mb-6 gap-2">
+              <h3 className="text-base sm:text-2xl font-medium">My Crypto Holdings</h3>
+              <button className="flex items-center gap-1 sm:gap-2 px-2 sm:px-4 py-1.5 sm:py-2 bg-black text-white rounded text-xs sm:text-xs whitespace-nowrap">
+                <Plus className="w-3 h-3 sm:w-4 sm:h-4" />
+                <span className="hidden sm:inline">Add Crypto</span>
               </button>
             </div>
 
-            <div className="space-y-3">
+            <div className="space-y-2 sm:space-y-3">
               {[1, 2, 3, 4, 5].map((item) => (
                 <CryptoHoldingItem key={item} />
               ))}
             </div>
           </div>
 
-          {/* Live Price Markets */}
-          <div>
-            <div className="flex items-center justify-between mb-6">
+          {/* Live Price Markets - Hidden on mobile, visible on sm+ */}
+          <div className="hidden sm:block">
+            <div className="flex items-center justify-between mb-6 gap-2">
               <h3 className="text-2xl font-medium">Live Price Markets</h3>
               <button className="px-4 py-2 bg-black text-white rounded text-xs">
                 See All Charts
@@ -308,8 +300,8 @@ export default function Dashboard() {
           </div>
         </div>
 
-        {/* Right Sidebar - Referral Panel */}
-        <div className="w-full lg:w-[360px] space-y-6">
+        {/* Right Sidebar - Referral Panel - Hidden on mobile */}
+        <div className="hidden lg:block w-full lg:w-[360px] space-y-6">
           {/* Referral Status */}
           <div className="bg-white rounded-[13px] p-6">
             <h3 className="text-xl font-medium mb-6">Referral Status</h3>
@@ -419,11 +411,11 @@ function ActionButton({
   label: string;
 }) {
   return (
-    <div className="flex flex-col items-center gap-3">
-      <div className="w-28 h-28 rounded-full border-[7px] border-[#3CC27B] bg-white shadow-lg flex items-center justify-center cursor-pointer hover:scale-105 transition-transform">
+    <div className="flex flex-col items-center gap-2 sm:gap-3">
+      <div className="w-16 sm:w-28 h-16 sm:h-28 rounded-full border-4 sm:border-[7px] border-[#3CC27B] bg-white shadow-lg flex items-center justify-center cursor-pointer hover:scale-105 transition-transform">
         {icon}
       </div>
-      <span className="text-white text-lg font-medium">{label}</span>
+      <span className="text-white text-xs sm:text-lg font-medium text-center">{label}</span>
     </div>
   );
 }
@@ -436,13 +428,13 @@ function StatsCard({
   iconBg,
 }: any) {
   return (
-    <div className="bg-white rounded-lg border border-[#D4D4D4] p-5 flex items-center justify-between gap-8">
+    <div className="bg-white rounded-lg border border-[#D4D4D4] p-3 sm:p-5 flex items-center justify-between gap-4 sm:gap-8">
       <div>
-        <p className="text-sm text-black mb-2 font-normal">{title}</p>
-        <p className={`text-lg font-medium ${valueColor}`}>{value}</p>
+        <p className="text-xs sm:text-sm text-black mb-1 sm:mb-2 font-normal">{title}</p>
+        <p className={`text-base sm:text-lg font-medium ${valueColor}`}>{value}</p>
       </div>
       <div
-        className={`w-8 h-8 ${iconBg} rounded-full flex items-center justify-center`}
+        className={`w-8 h-8 sm:w-10 sm:h-10 ${iconBg} rounded-full flex items-center justify-center flex-shrink-0`}
       >
         {icon}
       </div>
@@ -458,14 +450,14 @@ function ComingSoonItem({
   sublabel: string;
 }) {
   return (
-    <div className="flex flex-col items-center gap-3">
-      <div className="w-28 h-28 rounded-full border-[7px] border-[#3CC27B] bg-white shadow-lg flex items-center justify-center opacity-40">
-        <div className="w-12 h-12 bg-gray-200 rounded"></div>
+    <div className="flex flex-col items-center gap-2 sm:gap-3">
+      <div className="w-14 sm:w-28 h-14 sm:h-28 rounded-full border-4 sm:border-[7px] border-[#3CC27B] bg-white shadow-lg flex items-center justify-center opacity-40">
+        <div className="w-6 sm:w-12 h-6 sm:h-12 bg-gray-200 rounded"></div>
       </div>
       <div className="text-center">
-        <p className="text-[#A7A7A7] text-lg font-medium">{label}</p>
-        <p className="text-[#A7A7A7] text-sm">{sublabel}</p>
-        <span className="inline-block mt-2 px-3 py-1 bg-[#FFE9CF] text-[#A7A7A7] text-xs rounded-full">
+        <p className="text-xs sm:text-lg font-medium text-[#A7A7A7]">{label}</p>
+        <p className="text-[10px] sm:text-sm text-[#A7A7A7]">{sublabel}</p>
+        <span className="inline-block mt-1 sm:mt-2 px-2 sm:px-3 py-0.5 sm:py-1 bg-[#FFE9CF] text-[#A7A7A7] text-[8px] sm:text-xs rounded-full">
           coming soon
         </span>
       </div>
@@ -475,17 +467,17 @@ function ComingSoonItem({
 
 function CryptoHoldingItem() {
   return (
-    <div className="bg-white rounded-lg border border-[#D4D4D4] p-6 flex items-center justify-between">
-      <div className="flex items-center gap-3">
-        <div className="w-10 h-10 rounded-full bg-gradient-to-br from-orange-400 to-yellow-600"></div>
-        <div>
-          <p className="text-lg font-bold">Doge</p>
-          <p className="text-sm text-gray-600">Doge</p>
+    <div className="bg-white rounded-lg border border-[#D4D4D4] p-3 sm:p-6 flex items-center justify-between gap-2">
+      <div className="flex items-center gap-2 sm:gap-3 min-w-0">
+        <div className="w-8 sm:w-10 h-8 sm:h-10 rounded-full bg-gradient-to-br from-orange-400 to-yellow-600 flex-shrink-0"></div>
+        <div className="min-w-0">
+          <p className="text-base sm:text-lg font-bold text-black truncate">Doge</p>
+          <p className="text-xs sm:text-sm text-gray-600 truncate">Doge</p>
         </div>
       </div>
-      <div className="text-right">
-        <p className="text-lg font-medium">₹4,123,456</p>
-        <span className="inline-block mt-1 px-3 py-1 bg-[#BDFDDB] text-black text-xs rounded">
+      <div className="text-right flex-shrink-0">
+        <p className="text-base sm:text-lg font-medium text-black whitespace-nowrap">₹4,123,456</p>
+        <span className="inline-block mt-1 px-2 sm:px-3 py-0.5 sm:py-1 bg-[#BDFDDB] text-black text-[10px] sm:text-xs rounded">
           +3.14%
         </span>
       </div>
@@ -551,7 +543,7 @@ function ReferralItem({ status }: { status: string }) {
         <p className="text-xs text-gray-600">s***@email.com</p>
       </div>
       <span
-        className={`px-3 py-1 rounded text-[8px] ${
+        className={`px-3 py-1 rounded text-[8px] whitespace-nowrap ${
           status === "Completed"
             ? "bg-[#BDFDDB] text-[#1C5C3A]"
             : "bg-[#FBD25F]/65 text-black"
@@ -570,11 +562,12 @@ function ReferralItem({ status }: { status: string }) {
 function PlusIcon() {
   return (
     <svg
-      width="40"
-      height="40"
+      width="24"
+      height="24"
       viewBox="0 0 40 40"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      className="w-6 sm:w-10 h-6 sm:h-10"
     >
       <path
         d="M19.3833 0.376106C19.3833 -1.97353 17.424 -4 15.0071 -4C12.5903 -4 10.6167 -1.97353 10.631 0.376106V11.631H-0.623903C-3.02647 11.631 -5 13.5903 -5 16.0071C-5 18.4097 -3.02647 20.3833 -0.623903 20.3833H10.631V31.6239C10.631 34.0265 12.5903 36 15.0071 36C17.4097 36 19.3833 34.0408 19.3833 31.6239V20.3833H30.6239C33.0265 20.3833 35 18.424 35 16.0071C35 13.6046 33.0408 11.631 30.6239 11.631H19.3833V0.376106Z"
@@ -587,14 +580,15 @@ function PlusIcon() {
 function CashoutIcon() {
   return (
     <svg
-      width="40"
-      height="40"
+      width="24"
+      height="24"
       viewBox="0 0 40 40"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      className="w-6 sm:w-10 h-6 sm:h-10"
     >
       <path
-        d="M15 0C11.0444 0 7.17761 1.173 3.88861 3.37061C0.599607 5.56821 -1.96377 8.69181 -3.47764 12.3463C-4.99151 16.0008 -5.38736 20.0222 -4.6157 23.9018C-3.84403 27.7814 -1.9392 31.3451 0.857864 34.1421C3.65493 36.9392 7.21864 38.844 11.0982 39.6157C14.9778 40.3874 18.9991 39.9913 22.6537 38.4776C26.3082 36.9638 29.4318 34.4004 31.6294 31.1114C33.827 27.8224 35 23.9556 35 20C34.9944 14.6974 32.8855 9.6136 29.136 5.86396C25.3864 2.11451 20.3026 0.00560224 15 0ZM22.3692 9.84615H24.2308C24.6388 9.84615 25.0301 10.0082 25.3186 10.2968C25.6071 10.5853 25.7692 10.9766 25.7692 11.3846C25.7692 11.7926 25.6071 12.184 25.3186 12.4725C25.0301 12.761 24.6388 12.9231 24.2308 12.9231H22.6558C22.4613 15.0241 21.49 16.9769 19.9318 18.3996C18.3737 19.8223 16.3407 20.6124 14.2308 20.6154H11.7923L22.0981 28.6327C22.2653 28.7538 22.4065 28.9074 22.5131 29.0842C22.6197 29.261 22.6897 29.4575 22.7188 29.6619C22.7478 29.8664 22.7355 30.0746 22.6824 30.2741C22.6293 30.4737 22.5366 30.6605 22.4098 30.8235C22.283 30.9864 22.1247 31.1222 21.9443 31.2227C21.7639 31.3232 21.5651 31.3863 21.3598 31.4083C21.1545 31.4304 20.9469 31.4109 20.7493 31.3509C20.5516 31.291 20.3681 31.1919 20.2096 31.0596L6.36346 20.2904C6.11082 20.0935 5.92594 19.8226 5.83461 19.5155C5.74328 19.2085 5.75 18.8806 5.854 18.5776C5.958 18.2746 6.15391 18.0116 6.4145 17.8253C6.67509 17.6391 6.98736 17.5388 7.30769 17.5385H14.2308C15.5255 17.5383 16.7768 17.0717 17.7555 16.2241C18.7342 15.3764 19.3747 14.2045 19.5596 12.9231H7.30769C6.89974 12.9231 6.5084 12.761 6.21984 12.4725C5.93128 12.184 5.76923 11.7926 5.76923 11.3846C5.76923 10.9766 5.93128 10.5853 6.21984 10.2968C6.5084 10.0082 6.89974 9.84615 7.30769 9.84615H19.0942C18.6576 8.92581 17.9689 8.1481 17.1081 7.60339C16.2472 7.05868 15.2495 6.76952 14.2308 6.76923H7.30769C6.89974 6.76923 6.5084 6.60717 6.21984 6.31861C5.93128 6.03005 5.76923 5.63872 5.76923 5.23077C5.76923 4.82282 5.93128 4.43148 6.21984 4.14292C6.5084 3.85436 6.89974 3.69231 7.30769 3.69231H24.2308C24.6388 3.69231 25.0301 3.85436 25.3186 4.14292C25.6071 4.43148 25.7692 4.82282 25.7692 5.23077C25.7692 5.63872 25.6071 6.03005 25.3186 6.31861C25.0301 6.60717 24.6388 6.76923 24.2308 6.76923H20.7538C21.4999 7.67173 22.05 8.71963 22.3692 9.84615Z"
+        d="M15 0C11.0444 0 7.17761 1.173 3.88861 3.37061C0.599607 5.56821 -1.96377 8.69181 -3.47764 12.3463C-4.99151 16.0008 -5.38736 20.0222 -4.6157 23.9018C-3.84403 27.7814 -1.9392 31.3451 0.857864 34.1421C3.65493 36.9392 7.21864 38.844 11.0982 39.6157C14.9778 40.3874 18.9991 39.9913 22.6537 38.4776C26.3082 36.9638 29.4318 34.4004 31.6294 31.1114C33.827 27.8224 35 23.9556 35 20C34.9944 14.6974 32.8855 9.6136 29.136 5.86396C25.3864 2.11451 20.3026 0.00560224 15 0ZM22.3692 9.84615H24.2308C24.6388 9.84615 25.0301 10.0082 25.3186 10.2968C25.6071 10.5853 25.7692 10.9766 25.7692 11.3846C25.7692 11.7926 25.6071 12.184 25.3186 12.4725C25.0301 12.761 24.6388 12.9231 24.2308 12.9231H22.6558C22.4613 15.0241 21.49 16.9769 19.9318 18.3996C18.3737 19.8223 16.3407 20.6124 14.2308 20.6154H11.7923L22.0981 28.6327C22.2653 28.7538 22.4065 28.9074 22.5131 29.0842C22.6197 29.261 22.6897 29.4575 22.7188 29.6619C22.7478 29.8664 22.7355 30.0746 22.6824 30.2741C22.6293 30.4737 22.5366 30.6605 22.4098 30.8235C22.283 30.9864 22.1247 31.1222 21.9443 31.2227C21.7639 31.3232 21.5651 31.3863 21.3598 31.4083C21.1545 31.4304 20.9469 31.4109 20.7493 31.3509C20.5516 31.291 20.3681 31.1919 20.2096 31.0596L6.36346 20.2904C6.11082 20.0935 5.92594 19.8226 5.83461 19.5155C5.74328 19.2085 5.75 18.8806 5.854 18.5776C5.958 18.2746 6.15391 18.0116 6.4145 17.8253C6.67509 17.6391 6.98736 17.5388 7.30769 17.5385H14.2308C15.5255 17.5383 16.7768 17.0717 17.7555 16.2241C18.7342 15.3764 19.3747 14.2045 19.5596 12.9231H7.307...
         fill="#3CC27B"
       />
     </svg>
@@ -604,16 +598,17 @@ function CashoutIcon() {
 function WalletIcon() {
   return (
     <svg
-      width="40"
-      height="40"
+      width="24"
+      height="24"
       viewBox="0 0 40 40"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      className="w-6 sm:w-10 h-6 sm:h-10"
     >
       <path
         fillRule="evenodd"
         clipRule="evenodd"
-        d="M17.9099 0.673279C20.229 0.101553 22.7389 0.950315 24.0163 3.13424C24.3442 3.69528 24.7037 4.34974 25.0844 5.10259C22.4136 4.92584 18.4514 4.75869 13.022 4.75869C9.95907 4.75869 7.36401 4.81139 5.20312 4.89062C9.2664 3.19314 13.6875 1.71291 17.9099 0.673279ZM0.764397 39.1385C3.38147 39.3197 7.4 39.5 13.022 39.5C18.644 39.5 22.6624 39.3197 25.2796 39.1385C28.1613 38.9389 30.4347 36.7488 30.6712 33.842C30.7169 33.2867 30.7609 32.6678 30.8031 31.9853C29.9864 32.0091 29.044 32.024 27.967 32.024C26.4954 32.024 25.2734 31.9959 24.2835 31.9563C21.0844 31.8279 18.5015 29.3766 18.3556 26.0925C18.3204 25.2895 18.2967 24.3387 18.2967 23.2287C18.2967 22.1188 18.3204 21.168 18.3556 20.365C18.5015 17.0808 21.0844 14.6305 24.2835 14.5012C25.5108 14.4541 26.7389 14.4315 27.967 14.4335C29.044 14.4335 29.9864 14.4484 30.8031 14.4722C30.7609 13.7891 30.7169 13.1705 30.6712 12.6164C30.4347 9.70866 28.1613 7.51858 25.2796 7.31897C22.6624 7.13776 18.644 6.95747 13.022 6.95747C7.4 6.95747 3.38153 7.13776 0.764397 7.31897C-2.11736 7.51858 -4.39076 9.70866 -4.62727 12.6155C-4.81886 14.9709 -5 18.4573 -5 23.2287C-5 28.0002 -4.81886 31.4875 -4.62727 33.842C-4.39076 36.7488 -2.11736 38.9389 0.764397 39.1385ZM20.9903 25.9755C21.0738 27.8489 22.5174 29.2447 24.389 29.3195C25.3429 29.3582 26.5288 29.3854 27.967 29.3854C29.4053 29.3854 30.5912 29.3582 31.5451 29.3195C33.4176 29.2447 34.8602 27.8489 34.9437 25.9755C34.9771 25.213 35 24.3009 35 23.2287C35 22.1566 34.9771 21.2445 34.9437 20.482C34.8602 18.6086 33.4167 17.2128 31.5451 17.138C30.3529 17.0922 29.16 17.0702 27.967 17.0721C26.5288 17.0721 25.3429 17.0993 24.389 17.138C22.5165 17.2128 21.0738 18.6086 20.9903 20.482C20.9569 21.2445 20.9341 22.1557 20.9341 23.2287C20.9341 24.3018 20.9569 25.213 20.9903 25.9755ZM27.0879 21.0299C27.4376 21.0299 27.7731 21.1689 28.0204 21.4163C28.2677 21.6638 28.4066 21.9993 28.4066 22.3492V24.1083C28.4066 24.4582 28.2677 24.7937 28.0204 25.0412C27.7731 25.2886 27.4376 25.4276 27.0879 25.4276C26.7382 25.4276 26.4028 25.2886 26.1555 25.0412C25.9082 24.7937 25.7692 24.4582 25.7692 24.1083V22.3492C25.7692 21.9993 25.9082 21.6638 26.1555 21.4163C26.4028 21.1689 26.7382 21.0299 27.0879 21.0299Z"
+        d="M17.9099 0.673279C20.229 0.101553 22.7389 0.950315 24.0163 3.13424C24.3442 3.69528 24.7037 4.34974 25.0844 5.10259C22.4136 4.92584 18.4514 4.75869 13.022 4.75869C9.95907 4.75869 7.36401 4.81139 5.20312 4.89062C9.2664 3.19314 13.6875 1.71291 17.9099 0.673279ZM0.764397 39.1385C3.38147 39.3197 7.4 39.5 13.022 39.5C18.644 39.5 22.6624 39.3197 25.2796 39.1385C28.1613 38.9389 30.4347 36.7488 30.6712 33.842C30.7169 33.2867 30.7609 32.6678 30.8031 31.9853C29.9864 32.0091 29.044 32.024 27.967 32.024C26.4954 32.024 25.2734 31.9959 24.2835 31.9563C21.0844 31.8279 18.5015 29.3766 18.3556 26.0925C18.3204 25.2895 18.2967 24.3387 18.2967 23.2287C18.2967 22.1188 18.3204 21.168 18.3556 20.365C18.5015 17.0808 21.0844 14.6305 24.2835 14.5012C25.5108 14.4541 26.7389 14.4315 27.967 14.4335C29.044 14.4335 29.9864 14.4484 30.8031 14.4722C30.7609 13.7891 30.7169 13.1705 30.6712 12.6164C30.4347 9.70866 28.1613 7.51858 25.2796 7.31897C22.6624 7.13776 18.644 6.95747 13.022 6.95747C7.4 6.95747 3.38153 7.13776 0.764397 7.31897C-2.11736 7.51858 -4.39076 9.70866 -4.62727 12.6155C-4.81886 14.9709 -5 18.4573 -5 23.2287C-5 28.0002 -4.81886 31.4875 -4.62727 33.842C-4.39076 36.7488 -2.11736 38.9389 0.764397 39.1385ZM20.9903 25.9755C21.0738 27.8489 22.5174 29.2447 24.389 29.3195C25.3429 29.3582 26.5288 29.3854 27.967 29.3854C29.4053 29.3854 30.5912 29.3582 31.5451 29.3195C33.4176 29.2447 34.8602 27.8489 34.9437 25.9755C34.9771 25.213 35 24.3009 35 23.2287C35 22.1566 34.9771 21.2445 34.9437 20.482C34.8...
         fill="#3CC27B"
       />
     </svg>
