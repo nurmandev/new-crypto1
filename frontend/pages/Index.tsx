@@ -603,19 +603,19 @@ export default function Index() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-['Russo_One'] text-[#161616] mb-4">
+      <section className="py-16 md:py-20 lg:py-28 bg-white">
+        <div className="container mx-auto px-3 xs:px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12 md:mb-16">
+            <h2 className="text-3xl xs:text-4xl sm:text-5xl font-['Russo_One'] text-[#161616] mb-3 xs:mb-4">
               Frequently Asked Questions
             </h2>
-            <p className="text-xl text-gray-900 max-w-3xl mx-auto">
+            <p className="text-sm xs:text-base sm:text-lg text-gray-900 max-w-3xl mx-auto">
               A List Of Question and Answers Related To A Specific Topic,
               Product, Services & Common Customer Inquiries.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-4 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-3 md:gap-4 max-w-6xl mx-auto">
             {FAQ_ITEMS.map((faq) => (
               <div
                 key={faq.id}
@@ -623,21 +623,21 @@ export default function Index() {
               >
                 <button
                   onClick={() => toggleFAQ(faq.id)}
-                  className="w-full flex justify-between items-center p-5 hover:bg-gray-50 transition-colors text-left"
+                  className="w-full flex justify-between items-center p-3 md:p-5 hover:bg-gray-50 transition-colors text-left"
                 >
-                  <span className="font-medium text-gray-900">
+                  <span className="font-medium text-xs md:text-base text-gray-900">
                     {faq.question}
                   </span>
                   <ChevronDown
-                    className={`w-5 h-5 text-gray-900 transition-transform duration-300 ${
+                    className={`w-4 md:w-5 h-4 md:h-5 text-gray-900 transition-transform duration-300 flex-shrink-0 ml-2 ${
                       expandedId === faq.id ? "rotate-180" : ""
                     }`}
                   />
                 </button>
 
                 {expandedId === faq.id && (
-                  <div className="border-t border-gray-200 p-5 bg-gray-50 animate-in fade-in slide-in-from-top-2 duration-300">
-                    <p className="text-gray-700 leading-relaxed">
+                  <div className="border-t border-gray-200 p-3 md:p-5 bg-gray-50 animate-in fade-in slide-in-from-top-2 duration-300">
+                    <p className="text-xs md:text-sm text-gray-700 leading-relaxed">
                       {faq.answer}
                     </p>
                   </div>
