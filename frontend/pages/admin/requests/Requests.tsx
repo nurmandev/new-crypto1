@@ -187,29 +187,6 @@ export function Requests() {
   return (
     <div className="bg-[#F8F8F8] min-h-screen">
       <div className="flex flex-col lg:flex-row gap-0 max-w-[1920px] mx-auto min-h-screen">
-        {/* Mobile Menu Button */}
-        <button
-          onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-          className="lg:hidden fixed top-3 sm:top-4 left-3 sm:left-4 z-50 p-2 bg-white rounded-md shadow-lg hover:shadow-xl transition-shadow active:scale-95"
-          aria-label="Toggle navigation menu"
-        >
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M3 12H21M3 6H21M3 18H21"
-              stroke="black"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-        </button>
-
         {/* Sidebar with Mobile Overlay */}
         <div>
           <AdminSidebar
