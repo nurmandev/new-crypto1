@@ -245,7 +245,10 @@ export const Settings = () => {
 
         {/* Main Content */}
         <div className="flex-1 flex flex-col gap-0 min-h-screen lg:gap-4 pt-16 sm:pt-20 lg:pt-0 lg:p-6">
-          <AdminHeader />
+          <AdminHeader
+            onMenuClick={() => setIsSidebarOpen(true)}
+            sidebarOpen={isSidebarOpen}
+          />
 
           <div className="bg-white rounded-none sm:rounded-lg lg:rounded-[10px] p-3 sm:p-5 md:p-8 m-3 sm:m-4 md:m-0 flex flex-col flex-1">
             {/* Header Section */}
