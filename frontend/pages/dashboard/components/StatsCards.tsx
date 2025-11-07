@@ -2,7 +2,7 @@ import { ArrowUpRight } from "lucide-react";
 
 export default function StatsCards() {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
+    <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
       <div className="bg-white rounded-lg border border-[#D4D4D4] p-4 md:p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 sm:gap-3">
         <div className="flex-1">
           <p className="text-xs md:text-sm text-gray-700 mb-1">
