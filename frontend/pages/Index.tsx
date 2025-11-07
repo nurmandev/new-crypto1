@@ -431,109 +431,109 @@ export default function Index() {
       </section>
 
       {/* Buy/Sell Section */}
-      <section className="py-20 bg-gradient-to-r from-[#3CC27B] to-[#00602D] relative overflow-hidden">
-        <div className="container mx-auto px-4">
+      <section className="py-16 md:py-20 lg:py-28 bg-gradient-to-r from-[#3CC27B] to-[#00602D] relative overflow-hidden">
+        <div className="container mx-auto px-3 xs:px-4 sm:px-6 lg:px-8">
           <div className="max-w-6xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-8 items-center">
+            <div className="grid md:grid-cols-2 gap-6 md:gap-8 lg:gap-12 items-center">
               {/* Left Content */}
-              <div className="text-white">
-                <h2 className="text-4xl md:text-5xl font-['Russo_One'] mb-6">
+              <div className="text-white order-2 md:order-1">
+                <h2 className="text-3xl xs:text-4xl sm:text-5xl font-['Russo_One'] mb-4 xs:mb-6">
                   Buy & Sell Crypto At Any INR Rate
                 </h2>
-                <p className="text-xl leading-relaxed">
+                <p className="text-sm xs:text-base sm:text-lg leading-relaxed">
                   We're proud to be working with these incredible traders, and
                   thankful for their feedback, suggestions, and support.
                 </p>
               </div>
 
               {/* Right Form Panels */}
-              <div className="relative">
-                <div className="space-y-4">
+              <div className="relative order-1 md:order-2">
+                <div className="space-y-3 md:space-y-4">
                   {/* Buy Crypto Form */}
-                  <div className="bg-white rounded-2xl p-6 shadow-lg">
-                    <h3 className="text-xl font-bold text-gray-900 mb-4">
+                  <div className="bg-white rounded-2xl p-4 md:p-6 shadow-lg">
+                    <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-3 md:mb-4">
                       Buy Crypto
                     </h3>
-                    <div className="space-y-3">
-                      <div className="text-sm text-gray-600">
+                    <div className="space-y-2 md:space-y-3">
+                      <div className="text-xs md:text-sm text-gray-600">
                         Real-time conversion rates
                       </div>
-                      <div className="space-y-2">
-                        <label className="text-xs text-gray-600">
+                      <div className="space-y-1 md:space-y-2">
+                        <label className="text-[11px] md:text-xs text-gray-600">
                           Select Cryptocurrency
                         </label>
                         <input
                           type="text"
                           placeholder="USDT"
-                          className="w-full px-3 py-2 bg-gray-100 rounded text-sm border border-gray-200"
+                          className="w-full px-3 py-2 bg-gray-100 rounded text-xs md:text-sm border border-gray-200"
                         />
                       </div>
-                      <div className="space-y-2">
-                        <label className="text-xs text-gray-600">
+                      <div className="space-y-1 md:space-y-2">
+                        <label className="text-[11px] md:text-xs text-gray-600">
                           Select Network
                         </label>
                         <input
                           type="text"
                           placeholder="BNB"
-                          className="w-full px-3 py-2 bg-gray-100 rounded text-sm border border-gray-200"
+                          className="w-full px-3 py-2 bg-gray-100 rounded text-xs md:text-sm border border-gray-200"
                         />
                       </div>
-                      <div className="space-y-2">
-                        <label className="text-xs text-gray-600">
+                      <div className="space-y-1 md:space-y-2">
+                        <label className="text-[11px] md:text-xs text-gray-600">
                           Enter Amount (USDT)
                         </label>
                         <input
                           type="text"
                           placeholder="150"
-                          className="w-full px-3 py-2 bg-gray-100 rounded text-sm border-2 border-[#3CC27B]"
+                          className="w-full px-3 py-2 bg-gray-100 rounded text-xs md:text-sm border-2 border-[#3CC27B]"
                         />
                       </div>
-                      <button className="w-full mt-4 text-[#3CC27B] font-medium text-sm">
+                      <button className="w-full mt-3 md:mt-4 text-[#3CC27B] font-medium text-xs md:text-sm">
                         Continue to Buy →
                       </button>
                     </div>
                   </div>
 
                   {/* Sell Crypto Form */}
-                  <div className="bg-white rounded-2xl p-6 shadow-lg">
-                    <h3 className="text-xl font-bold text-gray-900 mb-4">
+                  <div className="bg-white rounded-2xl p-4 md:p-6 shadow-lg">
+                    <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-3 md:mb-4">
                       Sell Crypto
                     </h3>
-                    <div className="space-y-3">
-                      <div className="text-sm text-gray-600">
+                    <div className="space-y-2 md:space-y-3">
+                      <div className="text-xs md:text-sm text-gray-600">
                         Real-time conversion rates
                       </div>
-                      <div className="space-y-2">
-                        <label className="text-xs text-gray-600">
+                      <div className="space-y-1 md:space-y-2">
+                        <label className="text-[11px] md:text-xs text-gray-600">
                           Select Cryptocurrency
                         </label>
                         <input
                           type="text"
                           placeholder="USDT"
-                          className="w-full px-3 py-2 bg-gray-100 rounded text-sm border border-gray-200"
+                          className="w-full px-3 py-2 bg-gray-100 rounded text-xs md:text-sm border border-gray-200"
                         />
                       </div>
-                      <div className="space-y-2">
-                        <label className="text-xs text-gray-600">
+                      <div className="space-y-1 md:space-y-2">
+                        <label className="text-[11px] md:text-xs text-gray-600">
                           Select Network
                         </label>
                         <input
                           type="text"
                           placeholder="BNB"
-                          className="w-full px-3 py-2 bg-gray-100 rounded text-sm border border-gray-200"
+                          className="w-full px-3 py-2 bg-gray-100 rounded text-xs md:text-sm border border-gray-200"
                         />
                       </div>
-                      <div className="space-y-2">
-                        <label className="text-xs text-gray-600">
+                      <div className="space-y-1 md:space-y-2">
+                        <label className="text-[11px] md:text-xs text-gray-600">
                           Enter Amount (USDT)
                         </label>
                         <input
                           type="text"
                           placeholder="150"
-                          className="w-full px-3 py-2 bg-gray-100 rounded text-sm border-2 border-[#3CC27B]"
+                          className="w-full px-3 py-2 bg-gray-100 rounded text-xs md:text-sm border-2 border-[#3CC27B]"
                         />
                       </div>
-                      <button className="w-full mt-4 text-[#3CC27B] font-medium text-sm">
+                      <button className="w-full mt-3 md:mt-4 text-[#3CC27B] font-medium text-xs md:text-sm">
                         Continue to Sell →
                       </button>
                     </div>
@@ -541,7 +541,7 @@ export default function Index() {
                 </div>
 
                 {/* Bitcoin Image */}
-                <div className="hidden lg:block absolute -bottom-6 -right-12 w-48 h-48 opacity-30">
+                <div className="hidden lg:block absolute -bottom-6 -right-12 w-40 md:w-48 lg:w-56 h-40 md:h-48 lg:h-56 opacity-30">
                   <img
                     src="https://api.builder.io/api/v1/image/assets/TEMP/b234ffe9ebcbed92046a393a086f19e7a0a49a6b"
                     alt="Bitcoin"
