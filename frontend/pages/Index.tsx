@@ -462,10 +462,10 @@ export default function Index() {
       </section>
 
       {/* Buy/Sell Section */}
-      <section className="py-16 md:py-20 lg:py-28 bg-gradient-to-r from-[#3CC27B] to-[#00602D] relative overflow-hidden">
+      <section className="py-16 md:py-20 lg:py-32 bg-gradient-to-r from-[#3CC27B] to-[#00602D] relative overflow-visible">
         <div className="container mx-auto px-3 xs:px-4 sm:px-6 lg:px-8">
           <div className="max-w-6xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-6 md:gap-8 lg:gap-12 items-center">
+            <div className="grid md:grid-cols-2 gap-6 md:gap-8 lg:gap-12 items-center relative">
               {/* Left Content */}
               <div className="text-white order-2 md:order-1">
                 <h2 className="text-3xl xs:text-4xl sm:text-5xl font-['Russo_One'] mb-4 xs:mb-6">
@@ -477,9 +477,9 @@ export default function Index() {
                 </p>
               </div>
 
-              {/* Right Form Panels */}
-              <div className="relative order-1 md:order-2">
-                <div className="space-y-3 md:space-y-4">
+              {/* Right Form Panels - Overlapping Cards */}
+              <div className="relative order-1 md:order-2 h-96 md:h-80 lg:h-96">
+                <div className="absolute inset-0 flex items-center justify-center">
                   {/* Buy Crypto Form */}
                   <div className="bg-white rounded-2xl p-4 md:p-6 shadow-lg">
                     <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-3 md:mb-4">
