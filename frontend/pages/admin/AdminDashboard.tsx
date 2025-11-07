@@ -113,22 +113,22 @@ export const AdminDashboard: React.FC = () => {
   return (
     <div className="min-h-screen bg-[#F8F8F8]">
       <div className="flex gap-0 lg:gap-6 max-w-[1920px] mx-auto min-h-screen">
-        {/* Sidebar with Mobile Overlay */}
-        <div>
-          <AdminSidebar
-            isOpen={isSidebarOpen}
-            onClose={() => setIsSidebarOpen(false)}
+        {/* Sidebar */}
+        <AdminSidebar
+          isOpen={isSidebarOpen}
+          onClose={() => setIsSidebarOpen(false)}
+        />
+
+        {/* Overlay for mobile sidebar */}
+        {isSidebarOpen && (
+          <div
+            className="fixed inset-0 bg-black/40 lg:hidden z-30"
+            onClick={() => setIsSidebarOpen(false)}
           />
-          {isSidebarOpen && (
-            <div
-              className="fixed inset-0 bg-black/40 lg:hidden z-30"
-              onClick={() => setIsSidebarOpen(false)}
-            />
-          )}
-        </div>
+        )}
 
         {/* Main Content Container */}
-        <div className="flex-1 flex flex-col gap-0 min-h-screen lg:gap-4 pt-16 sm:pt-20 lg:pt-0 lg:p-6">
+        <div className="flex-1 flex flex-col gap-6">
           {/* Header */}
           <AdminHeader
             onMenuClick={() => setIsSidebarOpen(true)}
@@ -136,7 +136,7 @@ export const AdminDashboard: React.FC = () => {
           />
 
           {/* Content */}
-          <div className="flex-1 p-3 sm:p-4 md:p-6 lg:p-0">
+          <div className="px-3 sm:px-4 md:px-6 lg:px-0">
             {/* Stats Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-6 sm:mb-8">
               {stats.map((stat) => (
