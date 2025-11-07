@@ -48,9 +48,9 @@ export default function BalanceCard() {
   ];
 
   return (
-    <div className="bg-gradient-to-r from-[#3CC27B] to-[#00602D] rounded-lg md:rounded-[10px] p-4 md:p-6 lg:p-8 text-white shadow-lg">
+    <div className="bg-gradient-to-r from-[#3CC27B] to-[#00602D] rounded-lg md:rounded-[10px] p-3 md:p-6 lg:p-8 text-white shadow-lg">
       <div className="mb-4 md:mb-6">
-        <p className="text-base md:text-lg lg:text-xl mb-2">Wallet Balance</p>
+        <p className="text-sm md:text-lg lg:text-xl mb-2">Wallet Balance</p>
         <div className="flex items-center gap-2 md:gap-3">
           <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold">
             {showBalance ? "₹5,656.6" : "₹••••••"}
@@ -69,7 +69,7 @@ export default function BalanceCard() {
       </div>
 
       {/* Action Buttons */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2 md:gap-3 lg:gap-4">
+      <div className="grid grid-cols-5 gap-2 md:gap-3 lg:gap-4">
         {actions.map((action) => {
           const Icon = action.icon;
           const isExternal = action.external;
