@@ -299,26 +299,26 @@ export default function Index() {
       </section>
 
       {/* Live Markets Section */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 bg-[#E9E9E9] rounded-full px-4 py-1.5 mb-6">
+      <section className="py-16 md:py-20 lg:py-28 bg-white">
+        <div className="container mx-auto px-3 xs:px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12 md:mb-16">
+            <div className="inline-flex items-center gap-2 bg-[#E9E9E9] rounded-full px-4 py-1.5 mb-4 xs:mb-6">
               <TrendingUp className="w-4 h-4 text-[#3CC27B]" />
-              <span className="text-[#646464] text-[15px]">
+              <span className="text-[#646464] text-[12px] xs:text-[13px] sm:text-[15px]">
                 Live Crypto Pricings and Charts
               </span>
             </div>
 
-            <h2 className="text-4xl md:text-5xl font-['Russo_One'] text-[#161616] mb-4">
+            <h2 className="text-3xl xs:text-4xl sm:text-5xl font-['Russo_One'] text-[#161616] mb-3 xs:mb-4">
               Live Crypto Markets
             </h2>
-            <p className="text-xl text-gray-900 max-w-3xl mx-auto">
+            <p className="text-sm xs:text-base sm:text-lg text-gray-900 max-w-3xl mx-auto">
               Track real-time cryptocurrency prices and buy or sell with just a
               few clicks
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4 lg:gap-6 max-w-7xl mx-auto mb-8 xs:mb-10 md:mb-12">
             {[
               {
                 name: "BTC",
@@ -355,30 +355,30 @@ export default function Index() {
             ].map((crypto, i) => (
               <div
                 key={i}
-                className="bg-white rounded-lg border border-gray-100 p-5 hover:shadow-lg transition-shadow"
+                className="bg-white rounded-lg border border-gray-100 p-3 xs:p-4 md:p-5 hover:shadow-lg transition-shadow"
               >
-                <div className="flex justify-between items-start mb-4">
-                  <div className="flex items-center gap-3">
+                <div className="flex justify-between items-start mb-3 xs:mb-4">
+                  <div className="flex items-center gap-2 xs:gap-3 min-w-0">
                     <img
                       src={crypto.icon}
                       alt={crypto.name}
-                      className="w-10 h-10 rounded-full"
+                      className="w-8 xs:w-10 h-8 xs:h-10 rounded-full flex-shrink-0"
                     />
-                    <div>
-                      <div className="font-bold text-gray-900">
+                    <div className="min-w-0">
+                      <div className="font-bold text-sm xs:text-base text-gray-900">
                         {crypto.name}
                       </div>
-                      <div className="text-[15px] text-gray-600">
+                      <div className="text-[11px] xs:text-[13px] text-gray-600 truncate">
                         {crypto.fullName}
                       </div>
                     </div>
                   </div>
-                  <div className="text-right">
-                    <div className="text-[17px] font-medium text-gray-900">
+                  <div className="text-right flex-shrink-0">
+                    <div className="text-[13px] xs:text-[15px] md:text-[17px] font-medium text-gray-900">
                       {crypto.price}
                     </div>
                     <span
-                      className={`inline-block px-2.5 py-1 rounded text-[13px] ${
+                      className={`inline-block px-2 xs:px-2.5 py-0.5 xs:py-1 rounded text-[10px] xs:text-[12px] md:text-[13px] ${
                         crypto.positive
                           ? "bg-[#BDFDDB] text-gray-900"
                           : "bg-[#FDBDBD] text-gray-900"
@@ -390,7 +390,7 @@ export default function Index() {
                 </div>
 
                 {/* Mini Chart */}
-                <div className="h-24 relative">
+                <div className="h-20 xs:h-24 relative">
                   <svg viewBox="0 0 280 80" className="w-full h-full">
                     <path
                       d={
@@ -409,7 +409,7 @@ export default function Index() {
                   </svg>
                 </div>
 
-                <div className="flex justify-between text-[15px] text-gray-400 mt-2">
+                <div className="flex justify-between text-[11px] xs:text-[13px] text-gray-400 mt-2">
                   <span>9:00</span>
                   <span>12:00</span>
                   <span>3:00</span>
@@ -418,13 +418,13 @@ export default function Index() {
             ))}
           </div>
 
-          <div className="text-center mt-10">
-            <p className="text-[13px] text-gray-900 mb-6">
+          <div className="text-center">
+            <p className="text-[11px] xs:text-xs sm:text-[13px] text-gray-900 mb-4 xs:mb-6">
               Join thousands of traders • Get started with just ₹100
             </p>
-            <Button className="bg-black hover:bg-black/90 text-white px-12 h-[51px] rounded-md inline-flex items-center gap-2">
+            <Button className="bg-black hover:bg-black/90 text-white px-8 xs:px-10 sm:px-12 h-[40px] xs:h-[44px] sm:h-[51px] rounded-md inline-flex items-center gap-2 text-xs sm:text-sm">
               Start Crypto Deposit Now
-              <ChevronRight className="w-6 h-6" />
+              <ChevronRight className="w-4 xs:w-5 sm:w-6 h-4 xs:h-5 sm:h-6" />
             </Button>
           </div>
         </div>
