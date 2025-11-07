@@ -110,7 +110,7 @@ export const CryptocurrencyManagement: React.FC = () => {
         />
 
         {/* Main Content Container */}
-        <div className="flex-1 flex flex-col gap-2 sm:gap-3 md:gap-6 p-2 sm:p-3 md:p-6 overflow-y-auto">
+        <div className="flex-1 flex flex-col gap-0 min-h-screen lg:gap-4 pt-16 sm:pt-20 lg:pt-0 lg:p-6 overflow-y-auto">
           {/* Header */}
           <AdminHeader
             onToggleSidebar={() => setSidebarOpen(true)}
@@ -118,7 +118,7 @@ export const CryptocurrencyManagement: React.FC = () => {
           />
 
           {/* Content */}
-          <div className="flex-1">
+          <div className="flex-1 p-3 sm:p-4 md:p-6 lg:p-0 overflow-y-auto">
             {/* Main White Container */}
             <div className="bg-white rounded-lg sm:rounded-[10px] p-3 sm:p-4 md:p-6 lg:p-8 h-full">
               {/* Title Section */}
