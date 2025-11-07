@@ -16,12 +16,12 @@ export default function MoreServices() {
   ];
 
   return (
-    <div className="bg-white rounded-lg p-4 md:p-6 shadow-sm">
-      <h2 className="text-lg md:text-2xl font-medium text-black mb-6">
+    <div className="bg-white rounded-lg p-3 md:p-6 shadow-sm">
+      <h2 className="text-base md:text-2xl font-medium text-black mb-4 md:mb-6">
         More Coming Soon
       </h2>
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 md:gap-6">
+      <div className="grid grid-cols-5 gap-2 md:gap-6">
         {services.map((service, idx) => (
           <div
             key={idx}
