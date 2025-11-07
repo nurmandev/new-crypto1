@@ -47,7 +47,7 @@ export default function Dashboard() {
 
         {/* Main Content Area */}
         <div className="flex-1 min-w-0">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-2 pb-6">
+          <div className="container mx-auto px-3 sm:px-6 lg:px-8 pt-2 pb-6">
             <div className="grid grid-cols-1 xl:grid-cols-[1fr,340px] gap-6">
               {/* Main Content */}
               <div className="space-y-6">
