@@ -67,8 +67,8 @@ export default function Dashboard() {
                   <CryptoHoldings />
                 </div>
 
-                {/* Live Price Markets */}
-                <div className="overflow-x-auto -mx-4 px-4 pb-4">
+                {/* Live Price Markets - Hidden on mobile */}
+                <div className="hidden sm:block overflow-x-auto -mx-4 px-4 pb-4">
                   <div className="transition-all duration-300 hover:translate-y-[-2px]">
                     <LivePriceMarkets />
                   </div>
