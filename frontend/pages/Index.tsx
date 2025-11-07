@@ -239,26 +239,26 @@ export default function Index() {
       </section>
 
       {/* Services Section */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 bg-[#E9E9E9] rounded-full px-4 py-1.5 mb-6">
+      <section className="py-16 md:py-20 lg:py-28">
+        <div className="container mx-auto px-3 xs:px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12 md:mb-16">
+            <div className="inline-flex items-center gap-2 bg-[#E9E9E9] rounded-full px-4 py-1.5 mb-4 xs:mb-6">
               <div className="w-4 h-4 rounded-full bg-gradient-to-r from-[#F9AA4B] to-[#F7931A]"></div>
-              <span className="text-[#646464] text-[15px]">
+              <span className="text-[#646464] text-[12px] xs:text-[13px] sm:text-[15px]">
                 CRYPTO WALLET & SERVICES
               </span>
             </div>
 
-            <h2 className="text-4xl md:text-5xl font-['Russo_One'] text-[#161616] mb-4">
+            <h2 className="text-3xl xs:text-4xl sm:text-5xl font-['Russo_One'] text-[#161616] mb-3 xs:mb-4">
               Explore Services & Crypto Wallet
             </h2>
-            <p className="text-xl text-gray-900 max-w-3xl mx-auto">
+            <p className="text-sm xs:text-base sm:text-lg text-gray-900 max-w-3xl mx-auto">
               We Bring Together Dynamic Mix Of Services & Crypto Wallet That Are
               Thoughtfully Designed To Make Your Crypto Exchange Easier.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-4 md:gap-6 max-w-6xl mx-auto">
             {[
               {
                 icon: ShoppingCart,
@@ -281,15 +281,15 @@ export default function Index() {
             ].map((service, i) => (
               <div
                 key={i}
-                className="bg-white rounded-xl p-9 shadow-sm hover:shadow-md transition-shadow"
+                className="bg-white rounded-xl p-6 sm:p-8 md:p-9 shadow-sm hover:shadow-md transition-shadow"
               >
                 <div className="w-10 h-10 rounded-full bg-[#3CC27B] flex items-center justify-center mb-4">
                   <service.icon className="w-5 h-5 text-black" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">
+                <h3 className="text-lg xs:text-xl font-bold text-gray-900 mb-2 xs:mb-3">
                   {service.title}
                 </h3>
-                <p className="text-gray-900 leading-relaxed">
+                <p className="text-sm xs:text-base text-gray-900 leading-relaxed">
                   {service.description}
                 </p>
               </div>
