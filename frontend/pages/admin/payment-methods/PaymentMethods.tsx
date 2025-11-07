@@ -147,7 +147,10 @@ export const PaymentMethods: React.FC = () => {
         />
 
         <div className="flex-1 flex flex-col gap-0 lg:gap-6 lg:p-6">
-          <AdminHeader />
+          <AdminHeader
+            onMenuClick={() => setIsSidebarOpen(true)}
+            sidebarOpen={isSidebarOpen}
+          />
 
           <div className="bg-white rounded-none lg:rounded-[10px] p-6 lg:p-8 m-0">
             <div className="mb-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
