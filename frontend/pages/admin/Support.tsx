@@ -292,7 +292,10 @@ export const Support: React.FC = () => {
                   </thead>
                   <tbody>
                     {cashoutRequests.map((request) => (
-                      <tr key={request.id} className="border-b border-[#C9C9C9]">
+                      <tr
+                        key={request.id}
+                        className="border-b border-[#C9C9C9]"
+                      >
                         <td className="py-4 px-2">
                           <div className="text-sm font-semibold text-black">
                             {request.requestId}
