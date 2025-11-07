@@ -186,7 +186,9 @@ export default function Index() {
                   { bgColor: "bg-purple-600", char: "◆", label: "ETH" },
                 ].map((crypto, idx) => (
                   <div key={idx} className="flex items-center gap-4">
-                    <div className={`${crypto.bgColor} w-12 h-12 rounded-full flex items-center justify-center text-white text-2xl font-bold shadow-lg flex-shrink-0`}>
+                    <div
+                      className={`${crypto.bgColor} w-12 h-12 rounded-full flex items-center justify-center text-white text-2xl font-bold shadow-lg flex-shrink-0`}
+                    >
                       {crypto.char}
                     </div>
                     <div className="w-16 h-0.5 bg-gray-300"></div>
