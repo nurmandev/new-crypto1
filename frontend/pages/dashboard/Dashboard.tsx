@@ -10,14 +10,14 @@ import RightSidebar from "./components/RightSidebar";
 import BottomNav from "./components/BottomNav";
 
 export default function Dashboard() {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
   const closeSidebar = () => {
     setIsSidebarOpen(false);
   };
 
   return (
-    <div className="min-h-screen bg-[#F8F8F8] pb-24 sm:pb-12 md:pb-0">
+    <div className="min-h-screen bg-[#F8F8F8] pb-20 sm:pb-12 md:pb-0">
       {/* Top Navigation Bar */}
       <DashboardHeader
         onMenuToggle={() => setIsSidebarOpen(!isSidebarOpen)}
