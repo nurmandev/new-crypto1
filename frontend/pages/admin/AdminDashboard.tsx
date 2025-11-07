@@ -19,6 +19,7 @@ import { SystemStatusItem } from "./components/SystemStatusItem";
 import { AreaChart } from "./components/AreaChart";
 
 export const AdminDashboard: React.FC = () => {
+  const [isSidebarOpen] = React.useState(true);
   const stats = [
     {
       title: "Total Users",
@@ -118,7 +119,7 @@ export const AdminDashboard: React.FC = () => {
         {/* Main Content Container */}
         <div className="flex-1 flex flex-col gap-6">
           {/* Header */}
-          <AdminHeader />
+          <AdminHeader sidebarOpen={isSidebarOpen} />
 
           {/* Content */}
           <div className="flex-1">

@@ -36,7 +36,10 @@ export const AddPage = () => {
       />
 
       <div className="flex flex-col flex-1 lg:ml-[259px]">
-        <AdminHeader onMenuClick={() => setIsSidebarOpen(true)} />
+        <AdminHeader
+          onMenuClick={() => setIsSidebarOpen(true)}
+          sidebarOpen={isSidebarOpen}
+        />
 
         <div className="flex-1 p-3 xs:p-4 sm:p-6 lg:p-8 overflow-y-auto">
           <div className="bg-white rounded-xl shadow-sm p-4 xs:p-6 sm:p-8 max-w-[1234px] mx-auto">
