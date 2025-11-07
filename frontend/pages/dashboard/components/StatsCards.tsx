@@ -19,7 +19,9 @@ export default function StatsCards() {
 
       <div className="bg-white rounded-lg border border-[#D4D4D4] p-3 md:p-5 flex flex-col items-start justify-between gap-2">
         <div className="flex-1 w-full">
-          <p className="text-[10px] md:text-sm text-gray-700 mb-1">Today's P&L</p>
+          <p className="text-[10px] md:text-sm text-gray-700 mb-1">
+            Today's P&L
+          </p>
           <p className="text-sm md:text-lg font-medium text-[#3CC27B]">
             +₹2,340
           </p>
@@ -34,9 +36,7 @@ export default function StatsCards() {
           <p className="text-[10px] md:text-sm text-gray-700 mb-1">
             Crypto Holdings
           </p>
-          <p className="text-sm md:text-lg font-medium text-black">
-            20 Coins
-          </p>
+          <p className="text-sm md:text-lg font-medium text-black">20 Coins</p>
         </div>
         <div className="w-6 h-6 md:w-8 md:h-8 rounded-full bg-gray-100 flex items-center justify-center flex-shrink-0 self-end">
           <svg width="14" height="14" viewBox="0 0 16 16" fill="none">

@@ -36,9 +36,13 @@ export default function MoreServices() {
               <p className="font-medium text-gray-400 text-[10px] sm:text-xs md:text-base mb-0.5 md:mb-1 leading-tight">
                 {service.name}
               </p>
-              <p className="text-[9px] sm:text-xs text-gray-400 mb-1 md:mb-2 leading-tight">{service.subtitle}</p>
+              <p className="text-[9px] sm:text-xs text-gray-400 mb-1 md:mb-2 leading-tight">
+                {service.subtitle}
+              </p>
               <div className="px-1.5 py-0.5 bg-[#FFE9CF] rounded-full">
-                <span className="text-[8px] sm:text-xs text-gray-400 whitespace-nowrap">coming soon</span>
+                <span className="text-[8px] sm:text-xs text-gray-400 whitespace-nowrap">
+                  coming soon
+                </span>
               </div>
             </div>
           </div>
