@@ -478,96 +478,94 @@ export default function Index() {
               </div>
 
               {/* Right Form Panels - Overlapping Cards */}
-              <div className="relative order-1 md:order-2 h-96 md:h-80 lg:h-96">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  {/* Buy Crypto Form */}
-                  <div className="bg-white rounded-2xl p-4 md:p-6 shadow-lg">
-                    <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-3 md:mb-4">
-                      Buy Crypto
-                    </h3>
-                    <div className="space-y-2 md:space-y-3">
-                      <div className="text-xs md:text-sm text-gray-600">
-                        Real-time conversion rates
-                      </div>
-                      <div className="space-y-1 md:space-y-2">
-                        <label className="text-[11px] md:text-xs text-gray-600">
-                          Select Cryptocurrency
-                        </label>
-                        <input
-                          type="text"
-                          placeholder="USDT"
-                          className="w-full px-3 py-2 bg-gray-100 rounded text-xs md:text-sm border border-gray-200"
-                        />
-                      </div>
-                      <div className="space-y-1 md:space-y-2">
-                        <label className="text-[11px] md:text-xs text-gray-600">
-                          Select Network
-                        </label>
-                        <input
-                          type="text"
-                          placeholder="BNB"
-                          className="w-full px-3 py-2 bg-gray-100 rounded text-xs md:text-sm border border-gray-200"
-                        />
-                      </div>
-                      <div className="space-y-1 md:space-y-2">
-                        <label className="text-[11px] md:text-xs text-gray-600">
-                          Enter Amount (USDT)
-                        </label>
-                        <input
-                          type="text"
-                          placeholder="150"
-                          className="w-full px-3 py-2 bg-gray-100 rounded text-xs md:text-sm border-2 border-[#3CC27B]"
-                        />
-                      </div>
-                      <button className="w-full mt-3 md:mt-4 text-[#3CC27B] font-medium text-xs md:text-sm">
-                        Continue to Buy →
-                      </button>
+              <div className="relative order-1 md:order-2 h-80 md:h-80 lg:h-96">
+                {/* Buy Crypto Form - Left Card */}
+                <div className="absolute left-0 top-0 w-56 md:w-52 lg:w-64 bg-white rounded-2xl p-4 md:p-5 lg:p-6 shadow-xl z-10">
+                  <h3 className="text-base md:text-lg font-bold text-gray-900 mb-3 md:mb-4">
+                    Buy Crypto
+                  </h3>
+                  <div className="space-y-2 md:space-y-3">
+                    <div className="text-xs text-gray-600">
+                      Real-time conversion rates
                     </div>
+                    <div className="space-y-1 md:space-y-2">
+                      <label className="text-[10px] md:text-xs text-gray-600">
+                        Select Cryptocurrency
+                      </label>
+                      <input
+                        type="text"
+                        placeholder="USDT"
+                        className="w-full px-2 py-1.5 md:px-3 md:py-2 bg-gray-100 rounded text-xs border border-gray-200"
+                      />
+                    </div>
+                    <div className="space-y-1 md:space-y-2">
+                      <label className="text-[10px] md:text-xs text-gray-600">
+                        Select Network
+                      </label>
+                      <input
+                        type="text"
+                        placeholder="BNB"
+                        className="w-full px-2 py-1.5 md:px-3 md:py-2 bg-gray-100 rounded text-xs border border-gray-200"
+                      />
+                    </div>
+                    <div className="space-y-1 md:space-y-2">
+                      <label className="text-[10px] md:text-xs text-gray-600">
+                        Enter Amount (USDT)
+                      </label>
+                      <input
+                        type="text"
+                        placeholder="150"
+                        className="w-full px-2 py-1.5 md:px-3 md:py-2 bg-gray-100 rounded text-xs border-2 border-[#3CC27B]"
+                      />
+                    </div>
+                    <button className="w-full mt-2 md:mt-3 text-[#3CC27B] font-medium text-xs">
+                      Continue to Buy →
+                    </button>
                   </div>
+                </div>
 
-                  {/* Sell Crypto Form */}
-                  <div className="bg-white rounded-2xl p-4 md:p-6 shadow-lg">
-                    <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-3 md:mb-4">
-                      Sell Crypto
-                    </h3>
-                    <div className="space-y-2 md:space-y-3">
-                      <div className="text-xs md:text-sm text-gray-600">
-                        Real-time conversion rates
-                      </div>
-                      <div className="space-y-1 md:space-y-2">
-                        <label className="text-[11px] md:text-xs text-gray-600">
-                          Select Cryptocurrency
-                        </label>
-                        <input
-                          type="text"
-                          placeholder="USDT"
-                          className="w-full px-3 py-2 bg-gray-100 rounded text-xs md:text-sm border border-gray-200"
-                        />
-                      </div>
-                      <div className="space-y-1 md:space-y-2">
-                        <label className="text-[11px] md:text-xs text-gray-600">
-                          Select Network
-                        </label>
-                        <input
-                          type="text"
-                          placeholder="BNB"
-                          className="w-full px-3 py-2 bg-gray-100 rounded text-xs md:text-sm border border-gray-200"
-                        />
-                      </div>
-                      <div className="space-y-1 md:space-y-2">
-                        <label className="text-[11px] md:text-xs text-gray-600">
-                          Enter Amount (USDT)
-                        </label>
-                        <input
-                          type="text"
-                          placeholder="150"
-                          className="w-full px-3 py-2 bg-gray-100 rounded text-xs md:text-sm border-2 border-[#3CC27B]"
-                        />
-                      </div>
-                      <button className="w-full mt-3 md:mt-4 text-[#3CC27B] font-medium text-xs md:text-sm">
-                        Continue to Sell →
-                      </button>
+                {/* Sell Crypto Form - Right Card (Overlapping) */}
+                <div className="absolute right-0 bottom-0 w-56 md:w-52 lg:w-64 bg-white rounded-2xl p-4 md:p-5 lg:p-6 shadow-xl z-20">
+                  <h3 className="text-base md:text-lg font-bold text-gray-900 mb-3 md:mb-4">
+                    Sell Crypto
+                  </h3>
+                  <div className="space-y-2 md:space-y-3">
+                    <div className="text-xs text-gray-600">
+                      Real-time conversion rates
                     </div>
+                    <div className="space-y-1 md:space-y-2">
+                      <label className="text-[10px] md:text-xs text-gray-600">
+                        Select Cryptocurrency
+                      </label>
+                      <input
+                        type="text"
+                        placeholder="USDT"
+                        className="w-full px-2 py-1.5 md:px-3 md:py-2 bg-gray-100 rounded text-xs border border-gray-200"
+                      />
+                    </div>
+                    <div className="space-y-1 md:space-y-2">
+                      <label className="text-[10px] md:text-xs text-gray-600">
+                        Select Network
+                      </label>
+                      <input
+                        type="text"
+                        placeholder="BNB"
+                        className="w-full px-2 py-1.5 md:px-3 md:py-2 bg-gray-100 rounded text-xs border border-gray-200"
+                      />
+                    </div>
+                    <div className="space-y-1 md:space-y-2">
+                      <label className="text-[10px] md:text-xs text-gray-600">
+                        Enter Amount (USDT)
+                      </label>
+                      <input
+                        type="text"
+                        placeholder="150"
+                        className="w-full px-2 py-1.5 md:px-3 md:py-2 bg-gray-100 rounded text-xs border-2 border-[#3CC27B]"
+                      />
+                    </div>
+                    <button className="w-full mt-2 md:mt-3 text-[#3CC27B] font-medium text-xs">
+                      Continue to Sell →
+                    </button>
                   </div>
                 </div>
 
