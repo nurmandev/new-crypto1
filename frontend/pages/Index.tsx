@@ -126,7 +126,9 @@ export default function Index() {
 
             {/* Description */}
             <p className="text-xs xs:text-sm sm:text-base md:text-lg text-gray-900 max-w-2xl md:max-w-3xl mx-auto mb-8 xs:mb-10 leading-relaxed">
-              The Top Best Secure Exchanging Platform For Your Cryptocurrency Providing Services Globally For Buying, Selling, Transferring, and Storing Your Digital Asset.
+              The Top Best Secure Exchanging Platform For Your Cryptocurrency
+              Providing Services Globally For Buying, Selling, Transferring, and
+              Storing Your Digital Asset.
             </p>
 
             {/* CTA Buttons */}
@@ -159,16 +161,11 @@ export default function Index() {
               </span>
               <div className="flex gap-0.5 xs:gap-1">
                 {[1, 2, 3, 4].map((i) => (
-                  <span
-                    key={i}
-                    className="text-[#FBD25F] text-xs xs:text-sm"
-                  >
+                  <span key={i} className="text-[#FBD25F] text-xs xs:text-sm">
                     ★
                   </span>
                 ))}
-                <span className="text-gray-300 text-xs xs:text-sm">
-                  ★
-                </span>
+                <span className="text-gray-300 text-xs xs:text-sm">★</span>
               </div>
               <span className="font-medium whitespace-nowrap text-gray-700">
                 4.5/5 Ratings
@@ -215,9 +212,12 @@ export default function Index() {
                   { amount: "100", symbol: "USDT", price: "₹9,200" },
                 ].map((transaction, idx) => (
                   <div key={idx} className="text-gray-600">
-                    <span className="font-semibold">Sold 100 USDT</span> for {transaction.price}
+                    <span className="font-semibold">Sold 100 USDT</span> for{" "}
+                    {transaction.price}
                     <br />
-                    <span className="text-gray-500">₹5,200 has been received in your wallet</span>
+                    <span className="text-gray-500">
+                      ₹5,200 has been received in your wallet
+                    </span>
                   </div>
                 ))}
               </div>
@@ -245,7 +245,9 @@ export default function Index() {
                   <div className="text-xl xs:text-2xl sm:text-3xl font-bold text-white mb-1 xs:mb-2">
                     {stat.value}
                   </div>
-                  <div className="text-white text-[12px] xs:text-sm sm:text-base">{stat.label}</div>
+                  <div className="text-white text-[12px] xs:text-sm sm:text-base">
+                    {stat.label}
+                  </div>
                 </div>
               ))}
             </div>
@@ -600,7 +602,9 @@ export default function Index() {
                 <div className="flex items-center gap-2 md:gap-3 mb-4">
                   <div className="w-10 md:w-12 h-10 md:h-12 rounded-full bg-gray-300 flex-shrink-0"></div>
                   <div className="min-w-0">
-                    <div className="font-medium text-[13px] md:text-[15px]">Sarah Johnson</div>
+                    <div className="font-medium text-[13px] md:text-[15px]">
+                      Sarah Johnson
+                    </div>
                     <div className="text-[12px] md:text-[13px] text-gray-600">
                       @sarahtrades
                     </div>
