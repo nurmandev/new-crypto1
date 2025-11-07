@@ -2,16 +2,21 @@ import React from "react";
 
 interface AdminHeaderProps {
   onToggleSidebar?: () => void;
+  // Legacy prop name used across the codebase in some pages
+  onMenuClick?: () => void;
 }
 
 export const AdminHeader: React.FC<AdminHeaderProps> = ({
   onToggleSidebar,
+  onMenuClick,
 }) => {
+  // support both prop names for backwards compatibility
+  const toggleSidebar = onToggleSidebar ?? onMenuClick;
   return (
     <header className="h-12 sm:h-14 md:h-[75px] bg-white flex items-center justify-between px-3 sm:px-4 md:px-6 lg:px-8 gap-2 sm:gap-3 md:gap-4 border-b border-[#E0E0E0] flex-shrink-0">
       {/* Hamburger Menu - Mobile Only */}
       <button
-        onClick={onToggleSidebar}
+        onClick={toggleSidebar}
         className="lg:hidden p-2 hover:bg-gray-100 rounded transition-colors"
         aria-label="Toggle sidebar"
       >

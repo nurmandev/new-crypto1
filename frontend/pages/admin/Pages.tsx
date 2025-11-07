@@ -1,3 +1,4 @@
+import React from "react";
 import { useState } from "react";
 import { AdminHeader } from "./components/AdminHeader";
 import { AdminSidebar } from "./components/AdminSidebar";
@@ -204,17 +205,50 @@ export const Pages = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#F8F8F8] flex flex-col">
-      <AdminSidebar
-        isOpen={isSidebarOpen}
-        onClose={() => setIsSidebarOpen(false)}
-      />
+    <div className="bg-[#F8F8F8] min-h-screen">
+      <div className="flex flex-col lg:flex-row gap-0 max-w-[1920px] mx-auto min-h-screen">
+        {/* Mobile Menu Button */}
+        <button
+          onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+          className="lg:hidden fixed top-3 sm:top-4 left-3 sm:left-4 z-50 p-2 bg-white rounded-md shadow-lg hover:shadow-xl transition-shadow active:scale-95"
+          aria-label="Toggle navigation menu"
+        >
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M3 12H21M3 6H21M3 18H21"
+              stroke="black"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </button>
 
-      <div className="flex flex-col flex-1 lg:ml-[259px]">
-        <AdminHeader onMenuClick={() => setIsSidebarOpen(true)} />
+        {/* Sidebar with Mobile Overlay */}
+        <div>
+          <AdminSidebar
+            isOpen={isSidebarOpen}
+            onClose={() => setIsSidebarOpen(false)}
+          />
+          {isSidebarOpen && (
+            <div
+              className="fixed inset-0 bg-black/40 lg:hidden z-30"
+              onClick={() => setIsSidebarOpen(false)}
+            />
+          )}
+        </div>
 
-        <div className="flex-1 p-4 sm:p-6 lg:p-8 overflow-y-auto">
-          <div className="bg-white rounded-xl shadow-sm p-6 sm:p-8">
+        {/* Main Content */}
+        <div className="flex-1 flex flex-col gap-0 min-h-screen lg:gap-4 pt-16 sm:pt-20 lg:pt-0 lg:p-6">
+          <AdminHeader />
+
+          <div className="bg-white rounded-none sm:rounded-lg lg:rounded-[10px] p-3 sm:p-5 md:p-8 m-3 sm:m-4 md:m-0 flex flex-col flex-1">
             {/* Header */}
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6 sm:mb-8">
               <div>
