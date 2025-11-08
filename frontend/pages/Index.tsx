@@ -200,7 +200,7 @@ export default function Index() {
               <div className="flex justify-center items-center">
                 <div className="relative w-full max-w-xs md:max-w-sm">
                   <img
-                    src="/images/phone-mockup.png"
+                    src="/images/images.svg"
                     alt="Mobile App Preview"
                     className="w-full drop-shadow-2xl"
                   />
