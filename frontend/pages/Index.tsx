@@ -106,7 +106,7 @@ export default function Index() {
           {/* Centered Hero Content */}
           <div className="max-w-4xl mx-auto text-center mb-12 md:mb-16 lg:mb-20">
             {/* Badge */}
-            <div className="mt-20 inline-flex items-center gap-1.5 xs:gap-2 bg-[#BDFDDB] rounded-full px-3 xs:px-4 sm:px-5 md:px-6 py-1 xs:py-1.5 sm:py-2 mb-6 xs:mb-8">
+            <div className="inline-flex items-center gap-1.5 xs:gap-2 bg-[#BDFDDB] rounded-full px-3 xs:px-4 sm:px-5 md:px-6 py-1 xs:py-1.5 sm:py-2 mb-6 xs:mb-8">
               <Rocket className="w-3 xs:w-3.5 sm:w-4 h-3 xs:h-3.5 sm:h-4 text-[#3CC27B] flex-shrink-0" />
               <span className="text-[#0A7741] text-[11px] xs:text-xs sm:text-sm md:text-[15px] whitespace-nowrap">
                 India's Fastest Growing Crypto Trading Platform
@@ -183,11 +183,7 @@ export default function Index() {
                 {[
                   { icon: "/images/btc.png", label: "BTC", width: "179px" },
                   { icon: "/images/trx.png", label: "TRX", width: "115px" },
-                  {
-                    icon: "/images/crypto-icons/usdt.svg",
-                    label: "USDT",
-                    width: "219px",
-                  },
+                  { icon: "/images/crypto-icons/usdt.svg", label: "USDT", width: "219px" },
                   { icon: "/images/sol.png", label: "SOL", width: "272px" },
                   { icon: "/images/dog.png", label: "DOGE", width: "159px" },
                 ].map((crypto, idx) => (
@@ -201,26 +197,15 @@ export default function Index() {
                     </div>
                     <svg
                       className="flex-shrink-0"
-                      style={{ width: crypto.width, height: "2px" }}
+                      style={{ width: crypto.width, height: '2px' }}
                       viewBox={`0 0 ${parseInt(crypto.width)} 2`}
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <defs>
-                        <linearGradient
-                          id={`gradient-${idx}`}
-                          x1="0"
-                          y1="1.5"
-                          x2={parseInt(crypto.width)}
-                          y2="1.5"
-                          gradientUnits="userSpaceOnUse"
-                        >
-                          <stop stopColor="#3CC27B" />
-                          <stop
-                            offset="1"
-                            stopColor="#1C5C3A"
-                            stopOpacity="0"
-                          />
+                        <linearGradient id={`gradient-${idx}`} x1="0" y1="1.5" x2={parseInt(crypto.width)} y2="1.5" gradientUnits="userSpaceOnUse">
+                          <stop stopColor="#3CC27B"/>
+                          <stop offset="1" stopColor="#1C5C3A" stopOpacity="0"/>
                         </linearGradient>
                       </defs>
                       <path
@@ -235,7 +220,7 @@ export default function Index() {
 
               {/* Center Phone Mockups */}
               <div className="flex justify-center items-center">
-                <div className="relative w-full max-w-[500px] lg:max-w-[850px]">
+                <div className="relative w-full max-w-[500px]">
                   <img
                     src="https://api.builder.io/api/v1/image/assets/TEMP/9dd109c9d143e344a1e0cde3ee5ac1081bb25d1c?width=2260"
                     alt="Mobile App Preview"
@@ -258,16 +243,10 @@ export default function Index() {
                     className="bg-white rounded-[3px] px-[14px] py-[11px] flex flex-col gap-[-11px]"
                   >
                     <div className="text-[13px] leading-[33px]">
-                      <span className="font-normal text-black">
-                        Sold {transaction.amount}{" "}
-                      </span>
-                      <span className="font-bold text-black">
-                        {transaction.symbol}
-                      </span>
+                      <span className="font-normal text-black">Sold {transaction.amount} </span>
+                      <span className="font-bold text-black">{transaction.symbol}</span>
                       <span className="font-normal text-black"> for </span>
-                      <span className="font-bold text-[#3CC27B]">
-                        {transaction.price}
-                      </span>
+                      <span className="font-bold text-[#3CC27B]">{transaction.price}</span>
                     </div>
                     <div className="text-[13px] leading-[33px] text-black font-normal">
                       {transaction.price} has been received in your wallet
